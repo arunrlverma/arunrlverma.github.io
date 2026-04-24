@@ -46,7 +46,7 @@ function setVariant(items, id) {
   variantDetail.innerHTML = detailMarkup(item);
 }
 
-fetch("assets/data/variants.json?v=20260424-donate-research")
+fetch("assets/data/variants.json?v=20260424-tumor-data")
   .then((response) => response.json())
   .then((items) => {
     variantList.innerHTML = items.map((item) => `
