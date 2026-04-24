@@ -941,6 +941,61 @@ h1 {
   line-height: 1.55;
 }
 
+.portal-section {
+  padding-top: 18px;
+}
+
+.portal-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.portal-card {
+  display: block;
+  min-height: 190px;
+  border: 1px solid rgba(37,37,35,.12);
+  background: rgba(255, 253, 248, .74);
+  padding: 18px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.portal-card:hover {
+  border-color: rgba(37,37,35,.34);
+  background: var(--white);
+}
+
+.portal-card.timeline {
+  background:
+    linear-gradient(135deg, rgba(185, 213, 223, .24), rgba(255, 253, 248, .82));
+}
+
+.portal-card.request {
+  background:
+    linear-gradient(135deg, rgba(185, 201, 184, .24), rgba(255, 253, 248, .82));
+}
+
+.portal-card span {
+  color: #746f68;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.portal-card h3 {
+  margin: 14px 0 9px;
+  font-size: 23px;
+}
+
+.portal-card p {
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.48;
+  margin: 0;
+}
+
 .data-metrics {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -1739,6 +1794,7 @@ h1 {
   .combo-grid,
   .combo-flow,
   .vaccine-board,
+  .portal-grid,
   .data-metrics,
   .mechanism-steps,
   .genetics-explorer,

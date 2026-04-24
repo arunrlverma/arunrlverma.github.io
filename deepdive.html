@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arun Verma | Cancer Deep Dive</title>
   <meta name="description" content="A visual, plain-language explainer for the genetics and biology of Arun's cancer.">
-  <link rel="stylesheet" href="styles.css?v=20260424-donate-research">
+  <link rel="stylesheet" href="styles.css?v=20260424-data-portal">
 </head>
 <body data-page="deepdive">
   <div class="wash wash-a"></div>
@@ -84,7 +84,51 @@
       </div>
     </section>
 
-    <section class="research-section" aria-label="My data overview">
+    <section class="research-section portal-section" aria-label="Cancer data portal">
+      <div class="section-heading">
+        <div class="kicker">Data portal</div>
+        <h2>Start with the data, then go deeper</h2>
+        <p>
+          I want this page to work less like a polished conclusion and more like a map of the case: what was
+          measured, what I generated, what is public here, and what still needs source reports or direct access.
+        </p>
+      </div>
+
+      <div class="portal-grid">
+        <a class="portal-card timeline" href="index.html">
+          <span>Timeline</span>
+          <h3>The clinical story</h3>
+          <p>Diagnosis, surgery, surveillance, treatment starts, vaccine milestones, and the life around all of it.</p>
+        </a>
+        <a class="portal-card" href="#tumor-data">
+          <span>Overview</span>
+          <h3>The numbers I track</h3>
+          <p>Diagnosis, IDH inhibitor context, somatic calls, peptide funnel counts, TMB/MSI, purity, and PGx coverage.</p>
+        </a>
+        <a class="portal-card" href="#vaccine-funnel">
+          <span>Vaccine funnel</span>
+          <h3>From mutations to peptides</h3>
+          <p>How my tumor mutations became a computational peptide list, then a smaller vaccine-design shortlist.</p>
+        </a>
+        <a class="portal-card" href="#variant-explorer">
+          <span>Variant atlas</span>
+          <h3>My tumor findings</h3>
+          <p>IDH1, ATRX, TP53 / Li-Fraumeni context, MGMT methylation, HLA type, and vaccine-relevant peptides.</p>
+        </a>
+        <a class="portal-card" href="#downloads">
+          <span>Downloads</span>
+          <h3>Files I can share here</h3>
+          <p>The generated report, structured variant summary, and CSV table for people who want to inspect the data.</p>
+        </a>
+        <a class="portal-card request" href="mailto:verma.arun@gmail.com?subject=Research%20data%20request">
+          <span>Raw access</span>
+          <h3>Ask for source data</h3>
+          <p>Raw genome, tumor VCF, peptide-level files, and source reports need privacy boundaries and version notes.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="research-section" id="tumor-data" aria-label="My data overview">
       <div class="section-heading">
         <div class="kicker">Data</div>
         <h2>My data</h2>
@@ -108,7 +152,7 @@
       </div>
     </section>
 
-    <section class="research-section" aria-label="Personal vaccine deep dive">
+    <section class="research-section" id="vaccine-funnel" aria-label="Personal vaccine deep dive">
       <div class="section-heading">
         <div class="kicker">Personal neoantigen vaccine</div>
         <h2>How my personalized vaccine candidates were picked</h2>
@@ -149,7 +193,7 @@
       </div>
     </section>
 
-    <section class="research-section" aria-label="Interactive variant explorer">
+    <section class="research-section" id="variant-explorer" aria-label="Interactive variant explorer">
       <div class="section-heading">
         <div class="kicker">Variant explorer</div>
         <h2>Here is my tumor data</h2>
@@ -165,7 +209,7 @@
       </div>
     </section>
 
-    <section class="research-section downloads-section" aria-label="Data downloads">
+    <section class="research-section downloads-section" id="downloads" aria-label="Data downloads">
       <div class="section-heading">
         <div class="kicker">Downloads</div>
         <h2>Downloads</h2>
@@ -199,7 +243,7 @@
       </div>
     </section>
 
-    <section class="research-section caveats-section" aria-label="Caveats and how to read this">
+    <section class="research-section caveats-section" id="report" aria-label="Caveats and how to read this">
       <div class="section-heading">
         <div class="kicker">Generated report</div>
         <h2>Caveats &amp; How to Read This</h2>
