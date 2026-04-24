@@ -11,8 +11,13 @@ const state = {
   events: [],
   filter: "all",
   activeIndex: 0,
+  activeVisualIndex: 0,
   activeStageMediaIndex: 0,
-  activeVisualKey: ""
+  activeVisualKey: "",
+  flownSources: new Set(),
+  stackSources: [],
+  pendingFlySource: "",
+  initialFlyDelayUsed: false
 };
 
 const list = document.querySelector("#timeline-list");
@@ -67,7 +72,6 @@ function isStageMedia(media, event) {
   if (!mediaPreview(media)) return false;
   if (event?.layout === "finale") return true;
   if (event?.stageAnchor === true) return true;
-  if (isGeneratedIllustration(media)) return false;
   return true;
 }
 
@@ -120,15 +124,15 @@ function nearestVisualIndex(activeIndex) {
 }
 
 const stackOffsets = [
-  { x: 0, y: 0, r: -1.4, s: 1, z: 30 },
-  { x: 17, y: 14, r: 4.2, s: 0.985, z: 29 },
-  { x: -18, y: 20, r: -5.7, s: 0.97, z: 28 },
-  { x: 28, y: 28, r: 7.4, s: 0.955, z: 27 },
-  { x: -29, y: 36, r: -8.1, s: 0.94, z: 26 },
-  { x: 37, y: 44, r: 9.2, s: 0.925, z: 25 },
-  { x: -38, y: 52, r: -10.5, s: 0.91, z: 24 },
-  { x: 44, y: 60, r: 11.6, s: 0.895, z: 23 },
-  { x: -46, y: 68, r: -12.5, s: 0.88, z: 22 }
+  { x: 0, y: 0, r: -1.2, s: 1, z: 40 },
+  { x: 34, y: 22, r: 4.8, s: 0.982, z: 39 },
+  { x: -36, y: 30, r: -6.4, s: 0.966, z: 38 },
+  { x: 52, y: 46, r: 8.1, s: 0.95, z: 37 },
+  { x: -55, y: 58, r: -9.8, s: 0.934, z: 36 },
+  { x: 62, y: 70, r: 11.2, s: 0.918, z: 35 },
+  { x: -65, y: 82, r: -12.4, s: 0.902, z: 34 },
+  { x: 70, y: 93, r: 13.6, s: 0.886, z: 33 },
+  { x: -72, y: 104, r: -14.5, s: 0.87, z: 32 }
 ];
 
 function collectStoryStack(activeIndex, selectedMediaIndex = 0) {
@@ -143,6 +147,7 @@ function collectStoryStack(activeIndex, selectedMediaIndex = 0) {
     src: mediaPreview(selected),
     videoSrc: selected.type === "video" ? selected.src : "",
     eventTitle: visualEvent.title,
+    eventDate: eventDate(visualEvent),
     isActive: true
   } : null;
 
@@ -152,17 +157,20 @@ function collectStoryStack(activeIndex, selectedMediaIndex = 0) {
 
   state.events.forEach((event, eventIndex) => {
     if (eventIndex > visualIndex || !eventMatches(event)) return;
-    allStageMediaForEvent(event).forEach((media) => {
-      const src = mediaPreview(media);
-      if (!src || seen.has(src)) return;
-      seen.add(src);
-      previous.push({
-        ...media,
-        src,
-        videoSrc: media.type === "video" ? media.src : "",
-        eventTitle: event.title,
-        isActive: false
-      });
+    if (eventIndex === visualIndex) return;
+    const eventMedia = stageMediaForEvent(event, eventIndex);
+    const representative = eventMedia.find((media) => media.type !== "video");
+    if (!representative) return;
+    const src = mediaPreview(representative);
+    if (!src || seen.has(src)) return;
+    seen.add(src);
+    previous.push({
+      ...representative,
+      src,
+      videoSrc: representative.type === "video" ? representative.src : "",
+      eventTitle: event.title,
+      eventDate: eventDate(event),
+      isActive: false
     });
   });
 
@@ -181,23 +189,116 @@ function stageLayerMediaMarkup(item, index) {
   return `<img src="${item.src}" alt="${item.caption || item.eventTitle || "Timeline artifact"}">`;
 }
 
-function growingStoryStackMarkup(activeIndex, mediaIndex = 0) {
+function createStackLayer(item) {
+  const figure = document.createElement("figure");
+  figure.className = [
+    "story-layer",
+    item.type === "video" ? "video-layer" : "",
+    item.fit === "contain" ? "fit-contain" : ""
+  ].filter(Boolean).join(" ");
+  figure.dataset.source = item.src;
+  figure.setAttribute("data-label", item.eventDate || "");
+  figure.innerHTML = stageLayerMediaMarkup(item, 0);
+  return figure;
+}
+
+function triggerFlyIn(layer, source, entryX, entryY) {
+  if (!layer || !source || state.flownSources.has(source)) return;
+  layer.style.setProperty("--entry-x", entryX);
+  layer.style.setProperty("--entry-y", entryY);
+  layer.classList.remove("fly-in");
+  state.pendingFlySource = source;
+
+  const delay = state.initialFlyDelayUsed ? 0 : 180;
+  state.initialFlyDelayUsed = true;
+
+  window.setTimeout(() => {
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        if (state.pendingFlySource !== source || state.flownSources.has(source) || !document.body.contains(layer)) return;
+        void layer.offsetWidth;
+        layer.classList.add("fly-in");
+        state.flownSources.add(source);
+        layer.addEventListener("animationend", () => {
+          layer.classList.remove("fly-in");
+        }, { once: true });
+      });
+    });
+  }, delay);
+}
+
+function layerForSource(container, source) {
+  return Array.from(container.querySelectorAll(".story-layer"))
+    .find((layer) => layer.dataset.source === source);
+}
+
+function applyStackOffsets(container) {
+  const layers = Array.from(container.querySelectorAll(".story-layer"));
+  container.style.setProperty("--stack-count", layers.length);
+  layers.forEach((layer, index) => {
+    const offset = stackOffsets[index] || stackOffsets[stackOffsets.length - 1];
+    layer.style.setProperty("--x", `${offset.x}px`);
+    layer.style.setProperty("--y", `${offset.y}px`);
+    layer.style.setProperty("--r", `${offset.r}deg`);
+    layer.style.setProperty("--s", offset.s);
+    layer.style.setProperty("--z", offset.z);
+  });
+}
+
+function ensureStoryStackElement() {
+  let stack = stageMedia.querySelector(".scroll-photo-stack");
+  if (stack) return stack;
+  stageMedia.innerHTML = "";
+  stack = document.createElement("div");
+  stack.className = "scroll-photo-stack";
+  stack.setAttribute("role", "button");
+  stack.tabIndex = 0;
+  stack.setAttribute("aria-label", "Rotate stacked photos");
+  stageMedia.appendChild(stack);
+  return stack;
+}
+
+function updateStoryStack(activeIndex, mediaIndex = 0) {
   const layers = collectStoryStack(activeIndex, mediaIndex);
-  if (!layers.length) return `<div class="empty-artifact">No image yet</div>`;
+  if (!layers.length) {
+    stageMedia.innerHTML = `<div class="empty-artifact">No image yet</div>`;
+    state.stackSources = [];
+    return;
+  }
+
+  const stack = ensureStoryStackElement();
+  const activeLayer = layers[0];
   const entryX = activeIndex % 2 === 0 ? "-72vw" : "72vw";
   const entryY = activeIndex % 3 === 0 ? "-10vh" : "14vh";
-  return `
-    <div class="scroll-photo-stack" style="--stack-count:${layers.length}">
-      ${layers.map((item, index) => {
-        const offset = stackOffsets[index] || stackOffsets[stackOffsets.length - 1];
-        return `
-          <figure class="story-layer ${item.fit === "contain" ? "fit-contain" : ""}" style="--x:${offset.x}px; --y:${offset.y}px; --r:${offset.r}deg; --s:${offset.s}; --z:${offset.z}; --entry-x:${entryX}; --entry-y:${entryY};">
-            ${stageLayerMediaMarkup(item, index)}
-          </figure>
-        `;
-      }).join("")}
-    </div>
-  `;
+  const desiredSources = layers
+    .map((item) => item.src)
+    .filter(Boolean)
+    .slice(0, stackOffsets.length);
+
+  layers.slice().reverse().forEach((item) => {
+    if (layerForSource(stack, item.src)) return;
+    const layer = createStackLayer(item);
+    layer.style.setProperty("--entry-x", entryX);
+    layer.style.setProperty("--entry-y", entryY);
+    layer.style.setProperty("--delay", "0ms");
+    stack.appendChild(layer);
+  });
+
+  state.stackSources = desiredSources;
+
+  Array.from(stack.querySelectorAll(".story-layer")).forEach((layer) => {
+    if (!state.stackSources.includes(layer.dataset.source)) {
+      layer.remove();
+    }
+  });
+
+  state.stackSources.forEach((source) => {
+    const layer = layerForSource(stack, source);
+    if (layer) stack.appendChild(layer);
+  });
+
+  applyStackOffsets(stack);
+  triggerFlyIn(layerForSource(stack, activeLayer.src), activeLayer.src, entryX, entryY);
 }
 
 function stagePickerMarkup(mediaItems, selectedIndex = 0, eventIndex = 0) {
@@ -251,6 +352,21 @@ function linksMarkup(links) {
   `;
 }
 
+function eventCalloutMarkup(event) {
+  if (!event.callout) return "";
+  const media = event.media?.[event.callout.mediaIndex];
+  const preview = mediaPreview(media);
+  return `
+    <aside class="event-callout">
+      ${preview ? `<img src="${preview}" alt="${media?.caption || event.callout.title || "Timeline artifact"}">` : ""}
+      <div>
+        <b>${event.callout.title || ""}</b>
+        <p>${event.callout.body || ""}</p>
+      </div>
+    </aside>
+  `;
+}
+
 function finaleMarkup(event) {
   if (!event.media?.length) return "";
   return `
@@ -285,6 +401,7 @@ function setActive(index, mediaIndex = 0, mediaIndexIsStageIndex = false) {
 
   if (visualKey === state.activeVisualKey) return;
   state.activeVisualKey = visualKey;
+  state.activeVisualIndex = visualIndex;
   state.activeStageMediaIndex = selectedStageIndex;
 
   stageDate.textContent = eventDate(visualEvent);
@@ -292,7 +409,7 @@ function setActive(index, mediaIndex = 0, mediaIndexIsStageIndex = false) {
   stageMedia.classList.add("stack-wrap");
   stageMedia.classList.add("story-stack-wrap");
   stageMedia.classList.toggle("wide-stack-wrap", visualEvent.layout === "finale");
-  stageMedia.innerHTML = growingStoryStackMarkup(visualIndex, selectedStageIndex);
+  updateStoryStack(visualIndex, selectedStageIndex);
   stagePicker.innerHTML = stagePickerMarkup(visualMedia, selectedStageIndex, visualIndex);
   stageCaption.textContent = visualEvent.layout === "finale" ? "" : media?.caption || visualEvent.summary;
 }
@@ -300,6 +417,8 @@ function setActive(index, mediaIndex = 0, mediaIndexIsStageIndex = false) {
 function renderTimeline() {
   list.innerHTML = "";
   state.activeVisualKey = "";
+  state.stackSources = [];
+  stageMedia.innerHTML = "";
   const visible = state.events.filter(eventMatches);
   visible.forEach((event) => {
     const originalIndex = state.events.indexOf(event);
@@ -314,6 +433,7 @@ function renderTimeline() {
         <h2>${event.title}</h2>
         <p class="summary">${event.summary}</p>
         <p>${event.body || ""}</p>
+        ${eventCalloutMarkup(event)}
         ${event.facts ? `<ul class="fact-list">${event.facts.map((fact) => `<li>${fact}</li>`).join("")}</ul>` : ""}
         ${linksMarkup(event.links)}
         ${event.layout === "finale" ? finaleMarkup(event) : ""}
@@ -327,27 +447,57 @@ function renderTimeline() {
     list.appendChild(card);
   });
 
-  observeCards();
+  bindScrollSpy();
   const firstVisible = visible[0] ? state.events.indexOf(visible[0]) : 0;
   setActive(firstVisible);
+  scheduleScrollSpy();
 }
 
-let observer;
-function observeCards() {
-  observer?.disconnect();
-  observer = new IntersectionObserver((entries) => {
-    const visible = entries
-      .filter((entry) => entry.isIntersecting)
-      .filter((entry) => entry.intersectionRatio >= 0.58)
-      .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
-    if (visible[0]) {
-      setActive(Number(visible[0].target.dataset.index));
+let scrollSpyFrame = 0;
+let scrollSpyBound = false;
+
+function activationLineY() {
+  return Math.min(window.innerHeight * 0.48, 460);
+}
+
+function activeIndexAtActivationLine() {
+  const cards = Array.from(document.querySelectorAll(".timeline-card"));
+  if (!cards.length) return state.activeIndex;
+
+  const lineY = activationLineY();
+  let lastPassed = cards[0];
+
+  for (const card of cards) {
+    const rect = card.getBoundingClientRect();
+    if (rect.top <= lineY && rect.bottom >= lineY) {
+      return Number(card.dataset.index);
     }
-  }, {
-    rootMargin: "-18% 0px -32% 0px",
-    threshold: [0.58, 0.72]
-  });
-  document.querySelectorAll(".timeline-card").forEach((card) => observer.observe(card));
+    if (rect.top <= lineY) {
+      lastPassed = card;
+    }
+  }
+
+  return Number(lastPassed.dataset.index);
+}
+
+function updateActiveFromScroll() {
+  scrollSpyFrame = 0;
+  const nextIndex = activeIndexAtActivationLine();
+  if (Number.isFinite(nextIndex) && nextIndex !== state.activeIndex) {
+    setActive(nextIndex);
+  }
+}
+
+function scheduleScrollSpy() {
+  if (scrollSpyFrame) return;
+  scrollSpyFrame = requestAnimationFrame(updateActiveFromScroll);
+}
+
+function bindScrollSpy() {
+  if (scrollSpyBound) return;
+  scrollSpyBound = true;
+  window.addEventListener("scroll", scheduleScrollSpy, { passive: true });
+  window.addEventListener("resize", scheduleScrollSpy);
 }
 
 document.addEventListener("click", (event) => {
@@ -381,10 +531,35 @@ document.addEventListener("click", (event) => {
   const stageChoice = event.target.closest(".stage-choice");
   if (stageChoice) {
     setActive(Number(stageChoice.dataset.stageEvent), Number(stageChoice.dataset.stageMedia), true);
+    return;
+  }
+
+  const stack = event.target.closest(".scroll-photo-stack");
+  if (stack && !event.target.closest("video")) {
+    const visualIndex = state.activeVisualIndex;
+    const visualEvent = state.events[visualIndex];
+    const visualMedia = stageMediaForEvent(visualEvent, visualIndex);
+    if (visualMedia.length > 1) {
+      const nextIndex = (state.activeStageMediaIndex + 1) % visualMedia.length;
+      setActive(visualIndex, nextIndex, true);
+    }
   }
 });
 
-fetch("assets/data/timeline.json")
+document.addEventListener("keydown", (event) => {
+  if (!event.target.closest(".scroll-photo-stack")) return;
+  if (event.key !== "Enter" && event.key !== " ") return;
+  event.preventDefault();
+  const visualIndex = state.activeVisualIndex;
+  const visualEvent = state.events[visualIndex];
+  const visualMedia = stageMediaForEvent(visualEvent, visualIndex);
+  if (visualMedia.length > 1) {
+    const nextIndex = (state.activeStageMediaIndex + 1) % visualMedia.length;
+    setActive(visualIndex, nextIndex, true);
+  }
+});
+
+fetch("assets/data/timeline.json?v=20260424-opening-flight")
   .then((response) => response.json())
   .then((events) => {
     state.events = events;

@@ -5,18 +5,40 @@
     "title": "Life before the scan",
     "category": "personal",
     "summary": "Before cancer was part of my vocabulary, life was already full: travel, love, work, plans, and the quiet assumption that tomorrow would mostly resemble today.",
-    "body": "I want this story to start here because the diagnosis did not create my life. It interrupted one that was already moving. These are the images I want people to hold in their head before the scan reports and treatment names arrive.",
+    "body": "The diagnosis did not create my life. It interrupted one that was already moving.",
     "media": [
       {
         "type": "image",
         "src": "assets/media/2019-08-30-before.webp",
         "caption": "Life before the diagnosis."
-      },
+      }
+    ]
+  },
+  {
+    "date": "2019-12-31",
+    "displayDate": "Before",
+    "eyebrow": "Before",
+    "title": "A life already in motion",
+    "category": "personal",
+    "summary": "There was a whole life before the scan reports arrived: love, travel, work, and plans that had nothing to do with cancer.",
+    "body": "I want the story to keep returning to this truth. The diagnosis interrupted my life; it did not become the whole of it.",
+    "media": [
       {
         "type": "image",
         "src": "assets/media/2019-12-31-before.webp",
         "caption": "Life before cancer entered the story."
-      },
+      }
+    ]
+  },
+  {
+    "date": "2021-08-29",
+    "displayDate": "Before",
+    "eyebrow": "Before",
+    "title": "Before the medical language arrived",
+    "category": "personal",
+    "summary": "Ordinary days, travel, love, and plans came before scan reports and treatment names became part of the calendar.",
+    "body": "This is the part I do not want swallowed by the diagnosis: a life already moving, already full, already mine.",
+    "media": [
       {
         "type": "image",
         "src": "assets/media/2021-08-29-before.webp",
@@ -43,7 +65,18 @@
         "src": "assets/media/mri-ax-flair-head.mp4",
         "poster": "assets/media/mri-ax-flair-head-poster.jpg",
         "caption": "Axial FLAIR-style brain MRI clip."
-      },
+      }
+    ]
+  },
+  {
+    "date": "2023-08-18",
+    "displayDate": "Aug 2023",
+    "eyebrow": "After the email",
+    "title": "The search moved into ordinary life",
+    "category": "personal",
+    "summary": "The strange part was looking and feeling mostly normal while one word from a scan report had changed everything underneath.",
+    "body": "The first days were not cinematic. They were dinners, messages, tabs, calls, documents, and a private search process starting to take over the background of normal life.",
+    "media": [
       {
         "type": "image",
         "src": "assets/media/2023-08-20-before-diagnosis.webp",
@@ -79,7 +112,7 @@
     "title": "Right frontal craniotomy and gross total resection",
     "category": "treatment",
     "summary": "Gross total resection of a WHO Grade 2 diffuse astrocytoma.",
-    "body": "The operative and pathology records cluster around September 1 to September 5, 2023. For the public timeline, this is treated as one major event: right frontal craniotomy with gross total resection and pathology confirming WHO Grade 2 diffuse astrocytoma.",
+    "body": "The operative and pathology records cluster around September 1 to September 5, 2023: right frontal craniotomy, gross total resection, and pathology confirming WHO Grade 2 diffuse astrocytoma.",
     "facts": [
       "WHO Grade 2 diffuse astrocytoma",
       "Right frontal lobe",
@@ -100,28 +133,63 @@
     "eyebrow": "Recovery",
     "title": "The postoperative chapter begins",
     "category": "personal",
-    "summary": "Serial notes describe a fluid-filled postoperative cavity and minimal surrounding T2/FLAIR signal.",
-    "body": "The medical record language is stable and technical. The lived experience is not. This section is where recovery images and short reflections can carry what the scan report cannot.",
+    "summary": "Recovery began with a new physical reality: healing from surgery while the postoperative cavity became the new baseline on scans.",
+    "body": "The notes describe a fluid-filled postoperative cavity and minimal surrounding T2/FLAIR signal. Outside the report language, this was the beginning of learning what recovery felt like day to day.",
     "media": [
       {
         "type": "image",
         "src": "assets/media/2023-09-22-recovery.webp",
         "caption": "Recovery after surgery."
-      },
+      }
+    ]
+  },
+  {
+    "date": "2023-09-29",
+    "displayDate": "Late Sept 2023",
+    "eyebrow": "Healing",
+    "title": "The visible part of recovery",
+    "category": "personal",
+    "summary": "Recovery was not only something in the radiology report. It was visible in the mirror, in the scar, and in the slow return to ordinary days.",
+    "body": "The scans had their own language for the postoperative cavity. My body had another one: stitches, hair, fatigue, and the strange feeling of carrying proof of surgery around with me.",
+    "media": [
       {
         "type": "image",
         "src": "assets/media/2023-09-29-recovery.webp",
-        "caption": "The early postoperative chapter."
+        "caption": "The visible early recovery chapter."
+      }
+    ]
+  },
+  {
+    "date": "2023-12-15",
+    "displayDate": "Late 2023",
+    "eyebrow": "Molecular picture",
+    "title": "The tumor gets a molecular identity",
+    "category": "data",
+    "summary": "The cancer stopped being only a scan and a grade for me. It became IDH1 R132C, ATRX, TP53, MGMT, TMB, MSI, and a set of clues I could actually study.",
+    "body": "The molecular picture changed the way I understood my cancer. It was still personal and terrifying, but it also had structure: mutations, biomarkers, and uncertainty that could shape research, second opinions, and the treatment strategy.",
+    "facts": [
+      "IDH1 p.R132C",
+      "ATRX loss/alteration",
+      "TP53 alteration",
+      "MGMT methylated in records",
+      "TMB low",
+      "MSI stable / MMR normal"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-molecular-identity.webp",
+        "caption": "Illustration of the tumor's core molecular identity."
       }
     ]
   },
   {
     "date": "2024-01-24",
     "eyebrow": "Surveillance MRI",
-    "title": "Stable postoperative bed",
+    "title": "The three-month MRI rhythm begins",
     "category": "imaging",
     "summary": "Residual fluid-filled postoperative bed; minimal wispy peri-resection enhancement unchanged.",
-    "body": "No masslike enhancement was reported. This becomes the rhythm of the timeline: surveillance, stability, and the work of learning what stable means.",
+    "body": "Surveillance meant returning to the scanner every few months: schedule the MRI, wait, read the report, exhale if it says stable, then start the cycle again. No masslike enhancement was reported here.",
     "facts": [
       "No masslike enhancement",
       "Minimal wispy enhancement unchanged",
@@ -158,7 +226,7 @@
     "title": "The Camino trips",
     "category": "personal",
     "summary": "Walking became its own kind of answer: not a cure, not a medical milestone, but a way to keep moving through uncertainty.",
-    "body": "The Camino trips belong here in the timeline, before the IDH-inhibitor and vaccine chapters accelerate. After surgery, inside surveillance, and before the next wave of treatment planning, I wanted to feel my body moving forward through the world.",
+    "body": "After surgery and early surveillance, I wanted proof that my body was still capable of forward motion. The Camino was not treatment; it was life refusing to become only treatment.",
     "facts": [
       "Around June 2024",
       "After surgery and surveillance",
@@ -168,34 +236,46 @@
     "media": [
       {
         "type": "image",
-        "src": "assets/media/2024-06-camino.webp",
-        "caption": "Camino moment from the personal timeline."
-      },
-      {
-        "type": "image",
         "src": "assets/media/2024-05-16-milestone.webp",
         "caption": "A travel moment from the Camino chapter."
-      },
-      {
-        "type": "image",
-        "src": "assets/media/2024-05-22-milestone.webp",
-        "caption": "On the Camino route."
-      },
-      {
-        "type": "image",
-        "src": "assets/media/2024-05-22-milestone-alt.webp",
-        "caption": "Another Camino route image."
-      },
-      {
-        "type": "image",
-        "src": "assets/media/illus-camino.webp",
-        "caption": "Illustration of walking the Camino while still inside the treatment story."
       }
     ],
     "links": [
       {
         "label": "Later reflection on X",
         "href": "https://x.com/ArunRLverma/status/2043436197637501410"
+      }
+    ]
+  },
+  {
+    "date": "2024-06-08",
+    "displayDate": "June 2024",
+    "eyebrow": "Camino",
+    "title": "Still choosing the road",
+    "category": "personal",
+    "summary": "The Camino became a way to make forward motion literal before the next treatment chapter accelerated.",
+    "body": "There were scans, records, medication decisions, and vaccine planning in the background. There was also walking, weather, distance, and the stubborn fact that life was still happening.",
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/2024-05-22-milestone.webp",
+        "caption": "On the Camino route."
+      }
+    ]
+  },
+  {
+    "date": "2024-06-15",
+    "displayDate": "June 2024",
+    "eyebrow": "Camino",
+    "title": "Another day forward",
+    "category": "personal",
+    "summary": "Another day of walking, before IDH inhibitor therapy and the vaccine schedule became the center of the calendar.",
+    "body": "This part matters because it is not a medical endpoint. It is a reminder that the timeline includes effort, movement, and ordinary beauty alongside the clinical decisions.",
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/2024-05-22-milestone-alt.webp",
+        "caption": "Another Camino route image."
       }
     ]
   },
@@ -226,7 +306,7 @@
     "title": "Vaccine priming starts in Tübingen",
     "category": "treatment",
     "summary": "The first personalized peptide vaccine administrations began July 9-12, 2024.",
-    "body": "This corrects the timeline: the vaccine story starts in July 2024. The first four administrations happened across July 9, 10, 11, and 12 with Leukine and Imiquimod, with the July 12 visit also used for immune-monitoring blood draw.",
+    "body": "The first four administrations happened across July 9, 10, 11, and 12 with Leukine and Imiquimod, with the July 12 visit also used for an immune-monitoring blood draw.",
     "facts": [
       "First dose: 2024-07-09",
       "Priming sequence: July 9-12",
@@ -247,7 +327,7 @@
     "title": "Ivosidenib discontinued",
     "category": "treatment",
     "summary": "Ivosidenib stopped because of chest pain / angina documentation.",
-    "body": "This event should eventually include the short version of what happened and how the decision was made. It belongs in the treatment lane, but the human part matters too.",
+    "body": "The first IDH-inhibitor chapter ended because my body objected. The record says chest pain and angina; the lived version is a treatment decision that had to be changed quickly.",
     "media": [
       {
         "type": "image",
@@ -275,11 +355,6 @@
         "type": "image",
         "src": "assets/media/2024-05-13-milestone.webp",
         "caption": "Early Triangle build moment."
-      },
-      {
-        "type": "image",
-        "src": "assets/media/illus-triangle-build.webp",
-        "caption": "Illustration of the patient-navigation system turning into a product build."
       }
     ]
   },
@@ -289,7 +364,7 @@
     "title": "Vorasidenib starts",
     "category": "treatment",
     "summary": "Vorasidenib 40 mg daily began as the alternative IDH inhibitor strategy.",
-    "body": "This becomes one of the ongoing therapy anchors, with later LFT monitoring and temporary hold/resume events. In the deepdive, this is the targeted-therapy half of the treatment idea: suppress the mutant IDH biology while the immune strategy tries to teach T cells what to see.",
+    "body": "Vorasidenib became one of the ongoing therapy anchors, with later liver-function monitoring and temporary hold/resume events. The treatment idea was two-pronged: suppress the mutant IDH biology while the immune strategy tried to teach T cells what to see.",
     "facts": [
       "Vorasidenib 40 mg daily",
       "Targets mutant IDH biology",
@@ -331,36 +406,12 @@
     "title": "No masslike enhancing recurrence",
     "category": "imaging",
     "summary": "MRI brain reported no residual or recurrent masslike enhancement.",
-    "body": "This is a good example of the timeline's tone: calm, precise, and not over-celebrating. Stable is meaningful.",
+    "body": "Another surveillance scan, another wait for language that could change everything. This one stayed calm: no residual or recurrent masslike enhancement.",
     "media": [
       {
         "type": "image",
         "src": "assets/media/illus-stable-mri.webp",
         "caption": "Illustration of surveillance imaging showing stability."
-      }
-    ]
-  },
-  {
-    "date": "2024-12-15",
-    "displayDate": "Dec 2024",
-    "eyebrow": "Molecular picture",
-    "title": "The tumor gets a molecular identity",
-    "category": "data",
-    "summary": "This is when the cancer stopped being only a scan and a grade for me. It became IDH1 R132C, ATRX, TP53, MGMT, TMB, MSI, and a set of clues I could actually study.",
-    "body": "Getting the molecular picture changed the way I understood my cancer. The diagnosis was still personal and terrifying, but it also became something with structure: a pattern of mutations, biomarkers, and uncertainty that could guide research, second opinions, and the treatment strategy.",
-    "facts": [
-      "IDH1 p.R132C",
-      "ATRX loss/alteration",
-      "TP53 alteration",
-      "MGMT methylated in records",
-      "TMB low",
-      "MSI stable / MMR normal"
-    ],
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/media/illus-molecular-identity.webp",
-        "caption": "Illustration of the tumor's core molecular identity."
       }
     ]
   },
@@ -391,7 +442,7 @@
     "title": "Vorasidenib held for elevated LFTs",
     "category": "labs",
     "summary": "ALT/AST elevations led to a temporary vorasidenib hold.",
-    "body": "The lab lane should make the invisible parts visible: monitoring, thresholds, holds, and restarts. This event can eventually include a tiny ALT/AST sparkline.",
+    "body": "Treatment was not just the pill. It was monitoring, thresholds, holds, and restarts: the invisible maintenance work around trying to stay on therapy safely.",
     "facts": [
       "ALT peak documented around 141 U/L",
       "AST peak documented around 55 U/L",
@@ -447,7 +498,7 @@
     "title": "One-year vaccine response still detectable",
     "category": "data",
     "summary": "One year and one month after the first vaccine, specific T-cell responses to at least 5 of 18 vaccinated mutation-spanning peptides were still detectable.",
-    "body": "The report also noted low measured CD4+/CD8+ cell numbers and/or viability after in-vitro culture and recommended repeating the assay. That caveat belongs beside the result: still detectable, but with sample-quality limits.",
+    "body": "The report also noted low measured CD4+/CD8+ cell numbers and/or viability after in-vitro culture and recommended repeating the assay. The result was still detectable, but with sample-quality limits.",
     "facts": [
       "At least 5/18 still detectable",
       "CD4+ pools: 3/14",
@@ -463,15 +514,16 @@
     ]
   },
   {
-    "date": "2026-03-24",
+    "date": "2025-12-15",
+    "displayDate": "Dec 2025",
     "eyebrow": "Triangle",
-    "title": "Triangle steps into the world",
+    "title": "Triangle becomes a real company",
     "category": "data",
-    "summary": "The company story became public: a patient-built AI health tool shaped by the diagnosis and the system I wished had existed.",
-    "body": "By this point, Triangle had already been underway since September 2024. The announcement made the origin story public: complete records, AI-powered research, and a doctor in the loop, built from the experience of having to become an expert in my own disease.",
+    "summary": "By December 2025, the patient-navigation system I had built for myself had become real work.",
+    "body": "It was no longer just a private spreadsheet and operating system. Triangle had become a product effort around complete records, AI-powered research, and a doctor in the loop.",
     "facts": [
-      "Public announcement",
       "Build began Sept 2024",
+      "Funding raised in 2024",
       "AI-powered research",
       "Complete records",
       "Doctor-in-the-loop model"
@@ -489,7 +541,7 @@
         "href": "https://www.trianglehealth.com/about-us"
       },
       {
-        "label": "PRNewswire announcement",
+        "label": "Later public announcement",
         "href": "https://www.prnewswire.com/news-releases/after-a-surprise-brain-cancer-diagnosis-a-tech-veteran-raised-4m-to-build-the-ai-health-tool-he-wished-hed-had-302723632.html"
       }
     ]
@@ -521,7 +573,7 @@
     "title": "Stable on surveillance",
     "category": "imaging",
     "summary": "Ongoing follow-up documents clinical stability and stable MRI appearance while on vorasidenib and immunotherapy.",
-    "body": "The current-state card should be the quiet ending of the scroll: stable imaging, improved LFTs, and the next part still unfolding.",
+    "body": "By this point, stability had become its own kind of work: scans, labs, treatment, and trying to keep living in the space between appointments.",
     "facts": [
       "No masslike or nodular enhancing recurrence reported",
       "ALT/AST improved relative to prior peaks",
@@ -532,6 +584,22 @@
         "type": "image",
         "src": "assets/media/illus-stable-mri.webp",
         "caption": "Illustration of continued stable surveillance."
+      }
+    ]
+  },
+  {
+    "date": "2026-04-01",
+    "displayDate": "Near now",
+    "eyebrow": "Still moving",
+    "title": "Still moving forward",
+    "category": "personal",
+    "summary": "Near the end of the timeline, I wanted one more image that is not a scan, a lab, or a company screenshot.",
+    "body": "It belongs here because the point was never only to survive the medical sequence. It was to keep a life large enough that the cancer story could sit inside it without becoming all of it.",
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/2024-06-camino.webp",
+        "caption": "Still moving forward."
       }
     ]
   },
