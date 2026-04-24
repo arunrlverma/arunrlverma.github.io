@@ -1,0 +1,10 @@
+.DS_Store
+
+# Keep raw phone/camera originals out of the public Pages repo.
+assets/originals/
+
+# These are no longer linked from the public deepdive page.
+assets/data/vaccine-monitoring.json
+assets/downloads/researcher-readme.md
+assets/downloads/vaccine-monitoring-summary.csv
+assets/downloads/vaccine-monitoring-summary.json

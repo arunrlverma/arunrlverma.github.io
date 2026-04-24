@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arun Verma | Brain Cancer Timeline</title>
+  <meta name="description" content="Arun Verma's personal cancer timeline, from the first shocking scan through surgery, treatment, data, Camino, and the work that became Triangle.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="timeline">
+  <div class="wash wash-a"></div>
+  <div class="wash wash-b"></div>
+  <header class="site-header">
+    <a class="brand" href="index.html" aria-label="Arun Verma home">
+      <span class="brand-mark"></span>
+      <span>Arun Verma</span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a class="active" href="index.html">Timeline</a>
+      <a href="deepdive.html">Cancer Deepdive</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero timeline-hero">
+      <div class="kicker">August 2023 to now</div>
+      <h1>Brain Cancer</h1>
+      <p>
+        It begins with one word in a medical app: lesion. From there came surgery, surveillance,
+        targeted therapy, a personalized vaccine, the Camino, and the systems I built so other people
+        would not have to navigate all of this alone.
+      </p>
+      <div class="hero-actions" aria-label="Timeline filters">
+        <button class="chip active" data-filter="all">All</button>
+        <button class="chip" data-filter="diagnosis">Diagnosis</button>
+        <button class="chip" data-filter="imaging">Imaging</button>
+        <button class="chip" data-filter="treatment">Treatment</button>
+        <button class="chip" data-filter="data">Data</button>
+        <button class="chip" data-filter="personal">Personal</button>
+      </div>
+    </section>
+
+    <section class="timeline-shell" aria-label="Cancer timeline">
+      <aside class="artifact-stage" aria-live="polite">
+        <div class="stage-frame">
+          <div class="stage-topline">
+            <span id="stage-date">Before</span>
+            <span id="stage-category">Personal</span>
+          </div>
+          <div id="stage-media" class="stage-media"></div>
+          <p id="stage-caption" class="caption">Images and artifacts will change as the timeline scrolls.</p>
+        </div>
+      </aside>
+
+      <div class="timeline-list" id="timeline-list"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Soft precision, still becoming.</span>
+    <a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a>
+  </footer>
+
+  <script src="timeline.js"></script>
+</body>
+</html>

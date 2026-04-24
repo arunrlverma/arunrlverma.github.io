@@ -1,0 +1,568 @@
+[
+  {
+    "date": "before",
+    "eyebrow": "Before",
+    "title": "Life before the scan",
+    "category": "personal",
+    "summary": "Before cancer was part of my vocabulary, life was already full: travel, love, work, plans, and the quiet assumption that tomorrow would mostly resemble today.",
+    "body": "I want this story to start here because the diagnosis did not create my life. It interrupted one that was already moving. These are the images I want people to hold in their head before the scan reports and treatment names arrive.",
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/2019-08-30-before.webp",
+        "caption": "Life before the diagnosis."
+      },
+      {
+        "type": "image",
+        "src": "assets/media/2019-12-31-before.webp",
+        "caption": "Life before cancer entered the story."
+      },
+      {
+        "type": "image",
+        "src": "assets/media/2021-08-29-before.webp",
+        "caption": "A life already in motion."
+      }
+    ]
+  },
+  {
+    "date": "2023-08-15",
+    "eyebrow": "Incidental finding",
+    "title": "One word in an app: lesion",
+    "category": "diagnosis",
+    "summary": "I found out by email while I was at dinner with my wife. I opened the app, saw the word lesion, and had to Google what it meant.",
+    "body": "The strange part was that I had no symptoms. A whole-body MRI had unexpectedly found a non-enhancing right frontal lesion, and one unfamiliar word turned into one of the biggest decisions of my life: how to find the right doctor when everything was suddenly on the line.",
+    "facts": [
+      "No symptoms",
+      "Incidental whole-body MRI finding",
+      "Right frontal lesion",
+      "The moment the search began"
+    ],
+    "media": [
+      {
+        "type": "video",
+        "src": "assets/media/mri-ax-flair-head.mp4",
+        "poster": "assets/media/mri-ax-flair-head-poster.jpg",
+        "caption": "Axial FLAIR-style brain MRI clip."
+      },
+      {
+        "type": "image",
+        "src": "assets/media/2023-08-20-before-diagnosis.webp",
+        "caption": "Personal image from the early diagnosis window."
+      }
+    ]
+  },
+  {
+    "date": "2023-08-20",
+    "displayDate": "Late Aug 2023",
+    "eyebrow": "Choosing care",
+    "title": "I built a doctor search engine",
+    "category": "personal",
+    "summary": "I treated finding a brain surgeon like a system: broad search, human signal, then real consults.",
+    "body": "I made a sheet for the logistics everyone kept asking for, then another for the real question: who had actually spent years on this exact condition? I started with 23 doctors, added signals like publications, clinical trials, specialization, and reputation inside medicine, then narrowed the list through conversations and consults.",
+    "facts": [
+      "23 doctors researched",
+      "Human signal narrowed the list",
+      "Consults in multiple cities",
+      "Decision rule: choose honesty over comfort"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-doctor-search.webp",
+        "caption": "Illustration of the doctor-search system: records, signals, cities, and consults."
+      }
+    ]
+  },
+  {
+    "date": "2023-09-05",
+    "eyebrow": "Surgery + pathology",
+    "title": "Right frontal craniotomy and gross total resection",
+    "category": "treatment",
+    "summary": "Gross total resection of a WHO Grade 2 diffuse astrocytoma.",
+    "body": "The operative and pathology records cluster around September 1 to September 5, 2023. For the public timeline, this is treated as one major event: right frontal craniotomy with gross total resection and pathology confirming WHO Grade 2 diffuse astrocytoma.",
+    "facts": [
+      "WHO Grade 2 diffuse astrocytoma",
+      "Right frontal lobe",
+      "IDH-mutant phenotype documented",
+      "Gross total resection"
+    ],
+    "media": [
+      {
+        "type": "video",
+        "src": "assets/media/2023-09-05-surgery-clip.mp4",
+        "poster": "assets/media/2023-09-05-surgery-clip-poster.jpg",
+        "caption": "Short artifact from the surgery date."
+      }
+    ]
+  },
+  {
+    "date": "2023-09-22",
+    "eyebrow": "Recovery",
+    "title": "The postoperative chapter begins",
+    "category": "personal",
+    "summary": "Serial notes describe a fluid-filled postoperative cavity and minimal surrounding T2/FLAIR signal.",
+    "body": "The medical record language is stable and technical. The lived experience is not. This section is where recovery images and short reflections can carry what the scan report cannot.",
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/2023-09-22-recovery.webp",
+        "caption": "Recovery after surgery."
+      },
+      {
+        "type": "image",
+        "src": "assets/media/2023-09-29-recovery.webp",
+        "caption": "The early postoperative chapter."
+      }
+    ]
+  },
+  {
+    "date": "2024-01-24",
+    "eyebrow": "Surveillance MRI",
+    "title": "Stable postoperative bed",
+    "category": "imaging",
+    "summary": "Residual fluid-filled postoperative bed; minimal wispy peri-resection enhancement unchanged.",
+    "body": "No masslike enhancement was reported. This becomes the rhythm of the timeline: surveillance, stability, and the work of learning what stable means.",
+    "facts": [
+      "No masslike enhancement",
+      "Minimal wispy enhancement unchanged",
+      "Postoperative cavity visible"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-stable-mri.webp",
+        "caption": "Illustration of stable MRI surveillance and watchful waiting."
+      }
+    ]
+  },
+  {
+    "date": "2024-03-31",
+    "displayDate": "Spring 2024",
+    "eyebrow": "Portugal",
+    "title": "Portugal, trying to enjoy life",
+    "category": "personal",
+    "summary": "After surgery and early surveillance, we went to Portugal and tried to let life be bigger than the diagnosis.",
+    "body": "There was still fear in the background, but I did not want every month to become a medical month. Portugal was me trying to enjoy the life I still had in front of me, even while the next decisions were starting to form.",
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/2024-03-31-life.webp",
+        "caption": "Portugal, trying to enjoy life between appointments."
+      }
+    ]
+  },
+  {
+    "date": "2024-06-01",
+    "displayDate": "June 2024",
+    "eyebrow": "Camino",
+    "title": "The Camino trips",
+    "category": "personal",
+    "summary": "Walking became its own kind of answer: not a cure, not a medical milestone, but a way to keep moving through uncertainty.",
+    "body": "The Camino trips belong here in the timeline, before the IDH-inhibitor and vaccine chapters accelerate. After surgery, inside surveillance, and before the next wave of treatment planning, I wanted to feel my body moving forward through the world.",
+    "facts": [
+      "Around June 2024",
+      "After surgery and surveillance",
+      "Before IDH inhibitor therapy",
+      "A personal milestone, not a medical endpoint"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/2024-06-camino.webp",
+        "caption": "Camino moment from the personal timeline."
+      },
+      {
+        "type": "image",
+        "src": "assets/media/2024-05-16-milestone.webp",
+        "caption": "A travel moment from the Camino chapter."
+      },
+      {
+        "type": "image",
+        "src": "assets/media/2024-05-22-milestone.webp",
+        "caption": "On the Camino route."
+      },
+      {
+        "type": "image",
+        "src": "assets/media/2024-05-22-milestone-alt.webp",
+        "caption": "Another Camino route image."
+      },
+      {
+        "type": "image",
+        "src": "assets/media/illus-camino.webp",
+        "caption": "Illustration of walking the Camino while still inside the treatment story."
+      }
+    ],
+    "links": [
+      {
+        "label": "Later reflection on X",
+        "href": "https://x.com/ArunRLverma/status/2043436197637501410"
+      }
+    ]
+  },
+  {
+    "date": "2024-06-25",
+    "displayDate": "Late Jun 2024",
+    "eyebrow": "Targeted therapy",
+    "title": "Ivosidenib begins",
+    "category": "treatment",
+    "summary": "The records place the ivosidenib start in late June 2024 as the first IDH inhibitor chapter.",
+    "body": "The treatment lane starts to carry a new kind of story: targeted therapy, monitoring, adverse effects, and switching strategies when the body objects.",
+    "facts": [
+      "IDH inhibitor",
+      "Planned 500 mg daily",
+      "Later discontinued after chest pain/angina"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-idh-therapy.webp",
+        "caption": "Illustration of targeted IDH therapy and careful monitoring."
+      }
+    ]
+  },
+  {
+    "date": "2024-07-09",
+    "eyebrow": "Personal neoantigen vaccine",
+    "title": "Vaccine priming starts in Tübingen",
+    "category": "treatment",
+    "summary": "The first personalized peptide vaccine administrations began July 9-12, 2024.",
+    "body": "This corrects the timeline: the vaccine story starts in July 2024. The first four administrations happened across July 9, 10, 11, and 12 with Leukine and Imiquimod, with the July 12 visit also used for immune-monitoring blood draw.",
+    "facts": [
+      "First dose: 2024-07-09",
+      "Priming sequence: July 9-12",
+      "Leukine + Imiquimod",
+      "Blood draw at V4"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-vaccine-response.webp",
+        "caption": "Illustration of the personal neoantigen vaccine priming phase."
+      }
+    ]
+  },
+  {
+    "date": "2024-08-31",
+    "eyebrow": "Adverse effect",
+    "title": "Ivosidenib discontinued",
+    "category": "treatment",
+    "summary": "Ivosidenib stopped because of chest pain / angina documentation.",
+    "body": "This event should eventually include the short version of what happened and how the decision was made. It belongs in the treatment lane, but the human part matters too.",
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-idh-therapy.webp",
+        "caption": "Illustration of treatment adjustment after an adverse-effect signal."
+      }
+    ]
+  },
+  {
+    "date": "2024-09-01",
+    "displayDate": "Sept 2024",
+    "eyebrow": "Triangle begins",
+    "title": "We started building Triangle",
+    "category": "data",
+    "summary": "Triangle started in September 2024, after we raised the money to turn the patient-navigation process I had built for myself into a real product.",
+    "body": "The idea came from living the problem: fragmented records, medical jargon, treatment options buried across papers and trials, and the unfair advantage of knowing how to work the system. September 2024 was when that personal operating system became the beginning of the Triangle build.",
+    "facts": [
+      "Started in Sept 2024",
+      "Funding raised in 2024",
+      "Born from the patient-navigation process",
+      "A product version of the system I needed"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/2024-05-13-milestone.webp",
+        "caption": "Early Triangle build moment."
+      },
+      {
+        "type": "image",
+        "src": "assets/media/illus-triangle-build.webp",
+        "caption": "Illustration of the patient-navigation system turning into a product build."
+      }
+    ]
+  },
+  {
+    "date": "2024-10-01",
+    "eyebrow": "New IDH inhibitor",
+    "title": "Vorasidenib starts",
+    "category": "treatment",
+    "summary": "Vorasidenib 40 mg daily began as the alternative IDH inhibitor strategy.",
+    "body": "This becomes one of the ongoing therapy anchors, with later LFT monitoring and temporary hold/resume events. In the deepdive, this is the targeted-therapy half of the treatment idea: suppress the mutant IDH biology while the immune strategy tries to teach T cells what to see.",
+    "facts": [
+      "Vorasidenib 40 mg daily",
+      "Targets mutant IDH biology",
+      "Ongoing surveillance while on therapy"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-idh-therapy.webp",
+        "caption": "Illustration of ongoing IDH inhibition and monitoring."
+      }
+    ]
+  },
+  {
+    "date": "2024-11-13",
+    "eyebrow": "Immune monitoring",
+    "title": "First clear vaccine-response signal",
+    "category": "data",
+    "summary": "Four-month monitoring detected CD4+ responses to 5 of 17 peptides and CD8+ responses to 4 of 17 peptides.",
+    "body": "The report summarized this as specific T-cell response to 8 of the 17 vaccinated mutation-spanning peptides. This is the key early immune-readout moment: not proof of clinical benefit, but evidence that the immune system had measurable responses to parts of the vaccine cocktail.",
+    "facts": [
+      "8/17 mutation-spanning peptides",
+      "CD4+: 5/17",
+      "CD8+: 4/17",
+      "IDH1 short peptide CD8 SI 11.9",
+      "ATRX long peptide CD4 SI 11.0"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-vaccine-response.webp",
+        "caption": "Illustration of measured T-cell response to vaccine peptides."
+      }
+    ]
+  },
+  {
+    "date": "2024-12-03",
+    "eyebrow": "Surveillance MRI",
+    "title": "No masslike enhancing recurrence",
+    "category": "imaging",
+    "summary": "MRI brain reported no residual or recurrent masslike enhancement.",
+    "body": "This is a good example of the timeline's tone: calm, precise, and not over-celebrating. Stable is meaningful.",
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-stable-mri.webp",
+        "caption": "Illustration of surveillance imaging showing stability."
+      }
+    ]
+  },
+  {
+    "date": "2024-12-15",
+    "displayDate": "Dec 2024",
+    "eyebrow": "Molecular picture",
+    "title": "The tumor gets a molecular identity",
+    "category": "data",
+    "summary": "This is when the cancer stopped being only a scan and a grade for me. It became IDH1 R132C, ATRX, TP53, MGMT, TMB, MSI, and a set of clues I could actually study.",
+    "body": "Getting the molecular picture changed the way I understood my cancer. The diagnosis was still personal and terrifying, but it also became something with structure: a pattern of mutations, biomarkers, and uncertainty that could guide research, second opinions, and the treatment strategy.",
+    "facts": [
+      "IDH1 p.R132C",
+      "ATRX loss/alteration",
+      "TP53 alteration",
+      "MGMT methylated in records",
+      "TMB low",
+      "MSI stable / MMR normal"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-molecular-identity.webp",
+        "caption": "Illustration of the tumor's core molecular identity."
+      }
+    ]
+  },
+  {
+    "date": "2025-03-10",
+    "eyebrow": "Vaccine visit",
+    "title": "Ninth vaccine dose while clinically well",
+    "category": "treatment",
+    "summary": "CeCurio documented the 9th personalized peptide vaccination on March 10, 2025.",
+    "body": "The visit note recorded ECOG 0 and KPS 100%, no reported disease symptoms, current vorasidenib treatment, and last MRI without signs of tumor in December 2024. The vaccine was administered with Leukine and Imiquimod.",
+    "facts": [
+      "9th vaccine dose",
+      "ECOG 0 / KPS 100%",
+      "On vorasidenib protocol",
+      "No disease symptoms reported"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-vaccine-response.webp",
+        "caption": "Illustration of ongoing personal neoantigen vaccine dosing."
+      }
+    ]
+  },
+  {
+    "date": "2025-04-29",
+    "eyebrow": "Lab monitoring",
+    "title": "Vorasidenib held for elevated LFTs",
+    "category": "labs",
+    "summary": "ALT/AST elevations led to a temporary vorasidenib hold.",
+    "body": "The lab lane should make the invisible parts visible: monitoring, thresholds, holds, and restarts. This event can eventually include a tiny ALT/AST sparkline.",
+    "facts": [
+      "ALT peak documented around 141 U/L",
+      "AST peak documented around 55 U/L",
+      "Therapy temporarily held"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-idh-therapy.webp",
+        "caption": "Illustration of medication monitoring and lab-guided treatment hold."
+      }
+    ]
+  },
+  {
+    "date": "2025-05-12",
+    "eyebrow": "Immune monitoring",
+    "title": "Ten-month vaccine response persists",
+    "category": "data",
+    "summary": "Ten months after the first vaccine, immune monitoring detected responses to 9 of 18 vaccinated mutation-spanning peptides.",
+    "body": "The June 23, 2025 immune-monitoring report described CD4+ T-cell responses to 5 of 18 tested peptides and CD8+ T-cell responses to 6 of 18 tested peptides. This makes the vaccine story more than a design idea: it has longitudinal immune readouts.",
+    "facts": [
+      "9/18 mutation-spanning peptides detectable",
+      "CD4+: 5/18",
+      "CD8+: 6/18",
+      "Blood draw: 2025-05-12"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-vaccine-response.webp",
+        "caption": "Illustration of persistent vaccine-linked immune responses."
+      }
+    ]
+  },
+  {
+    "date": "2025-05-15",
+    "eyebrow": "Restart",
+    "title": "Vorasidenib resumed",
+    "category": "treatment",
+    "summary": "Vorasidenib resumed after improvement in liver function tests.",
+    "body": "The treatment story is not linear; it is adjusted, watched, resumed, and re-checked.",
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-idh-therapy.webp",
+        "caption": "Illustration of restarting vorasidenib after lab improvement."
+      }
+    ]
+  },
+  {
+    "date": "2025-08-15",
+    "eyebrow": "Immune monitoring",
+    "title": "One-year vaccine response still detectable",
+    "category": "data",
+    "summary": "One year and one month after the first vaccine, specific T-cell responses to at least 5 of 18 vaccinated mutation-spanning peptides were still detectable.",
+    "body": "The report also noted low measured CD4+/CD8+ cell numbers and/or viability after in-vitro culture and recommended repeating the assay. That caveat belongs beside the result: still detectable, but with sample-quality limits.",
+    "facts": [
+      "At least 5/18 still detectable",
+      "CD4+ pools: 3/14",
+      "CD8+ pools: 3/14",
+      "Repeat assay recommended"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-vaccine-response.webp",
+        "caption": "Illustration of one-year immune monitoring after the personal neoantigen vaccine."
+      }
+    ]
+  },
+  {
+    "date": "2026-03-24",
+    "eyebrow": "Triangle",
+    "title": "Triangle steps into the world",
+    "category": "data",
+    "summary": "The company story became public: a patient-built AI health tool shaped by the diagnosis and the system I wished had existed.",
+    "body": "By this point, Triangle had already been underway since September 2024. The announcement made the origin story public: complete records, AI-powered research, and a doctor in the loop, built from the experience of having to become an expert in my own disease.",
+    "facts": [
+      "Public announcement",
+      "Build began Sept 2024",
+      "AI-powered research",
+      "Complete records",
+      "Doctor-in-the-loop model"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-triangle-build.webp",
+        "caption": "Illustration of Triangle moving from personal system to public product."
+      }
+    ],
+    "links": [
+      {
+        "label": "Triangle About",
+        "href": "https://www.trianglehealth.com/about-us"
+      },
+      {
+        "label": "PRNewswire announcement",
+        "href": "https://www.prnewswire.com/news-releases/after-a-surprise-brain-cancer-diagnosis-a-tech-veteran-raised-4m-to-build-the-ai-health-tool-he-wished-hed-had-302723632.html"
+      }
+    ]
+  },
+  {
+    "date": "2026-03-27",
+    "eyebrow": "Why Triangle",
+    "title": "The doctor-search system became the deeper lesson",
+    "category": "personal",
+    "summary": "The surgeon search made one thing obvious: the healthcare system works best for people who already know how to work the system.",
+    "body": "I started with a simple sheet, then turned it into a search process: broad list, publication and trial signal, reputation inside medicine, and consults that showed me how each doctor thought. The final decision rule was not who made me feel safest in the moment. It was who corrected me, pushed back, and helped me make the right decision.",
+    "facts": [
+      "Search broadly",
+      "Use human signal",
+      "Evaluate how doctors think",
+      "Choose honesty over comfort"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-doctor-search.webp",
+        "caption": "Illustration of the doctor-search framework that later shaped Triangle."
+      }
+    ]
+  },
+  {
+    "date": "2026-03-31",
+    "eyebrow": "Now",
+    "title": "Stable on surveillance",
+    "category": "imaging",
+    "summary": "Ongoing follow-up documents clinical stability and stable MRI appearance while on vorasidenib and immunotherapy.",
+    "body": "The current-state card should be the quiet ending of the scroll: stable imaging, improved LFTs, and the next part still unfolding.",
+    "facts": [
+      "No masslike or nodular enhancing recurrence reported",
+      "ALT/AST improved relative to prior peaks",
+      "Clinically stable status documented"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-stable-mri.webp",
+        "caption": "Illustration of continued stable surveillance."
+      }
+    ]
+  },
+  {
+    "date": "2026-04-23",
+    "displayDate": "Now",
+    "layout": "finale",
+    "eyebrow": "Triangle today",
+    "title": "The thing I needed is now a real product",
+    "category": "data",
+    "summary": "The ending for now is simple: Triangle is on screen.",
+    "body": "The system I wished I had during diagnosis has become a product other patients can use.",
+    "media": [
+      {
+        "type": "image",
+        "fit": "contain",
+        "src": "assets/media/2026-04-23-triangle-health-topics.webp",
+        "caption": "Triangle home with health topics and patient context."
+      },
+      {
+        "type": "image",
+        "fit": "contain",
+        "src": "assets/media/2026-04-23-triangle-genome.webp",
+        "caption": "Triangle genome view showing body-system genetic context."
+      }
+    ],
+    "links": [
+      {
+        "label": "Triangle Health",
+        "href": "https://www.trianglehealth.com/"
+      }
+    ]
+  }
+]
