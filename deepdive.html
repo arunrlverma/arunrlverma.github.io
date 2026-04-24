@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Arun Verma | Cancer Deepdive</title>
+  <title>Arun Verma | Cancer Deep Dive</title>
   <meta name="description" content="A visual, plain-language explainer for the genetics and biology of Arun's cancer.">
-  <link rel="stylesheet" href="styles.css?v=20260424-opening-flight">
+  <link rel="stylesheet" href="styles.css?v=20260424-voice-pass">
 </head>
 <body data-page="deepdive">
   <div class="wash wash-a"></div>
@@ -14,7 +14,7 @@
     <a class="brand" href="index.html"><span class="brand-mark"></span><span>Arun Verma</span></a>
     <nav aria-label="Primary navigation">
       <a href="index.html">Timeline</a>
-      <a class="active" href="deepdive.html">Cancer Deepdive</a>
+      <a class="active" href="deepdive.html">Cancer Deep Dive</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
@@ -22,21 +22,22 @@
   <main>
     <section class="hero deep-hero">
       <div class="kicker">My cancer, explained visually</div>
-      <h1>The biology of my cancer, and the treatment idea I built around it.</h1>
+      <h1>The biology of my cancer, and the treatment strategy I explored with clinicians.</h1>
       <p>
-        This is the guided exhibit: what the tumor is, what changed genetically, why IDH biology matters,
-        how the personalized vaccine fits in, and where the evidence is strong versus still exploratory.
+        This is how I currently understand the biology of my tumor, what looks promising, what is still
+        uncertain, and how the vaccine idea fits into the larger treatment story.
       </p>
     </section>
 
     <section class="combo-section" aria-label="Combination treatment concept">
       <div class="combo-intro">
-        <div class="kicker">The treatment concept</div>
-        <h2>IDH inhibition plus patient-individual immune training</h2>
+        <div class="kicker">How I think about treatment</div>
+        <h2>IDH-mutant astrocytoma: targeted IDH inhibition plus exploratory personalized neoantigen vaccination</h2>
         <p>
-          The most interesting part of the story is not just that I tried a targeted drug or a vaccine.
-          It is that the strategy combines two different ways of pressuring the tumor: suppress the mutant
-          IDH program while teaching the immune system to recognize tumor-specific peptide signals.
+          What I am trying to do is go after the tumor in two different ways: use an FDA-approved IDH
+          inhibitor for the mutation that defines my cancer, and explore a personalized vaccine that tries
+          to make selected tumor mutations visible to my immune system. This is my treatment story, not
+          proof that the combination improves outcomes.
         </p>
       </div>
 
@@ -45,18 +46,17 @@
           <span class="combo-number">01</span>
           <h3>Vorasidenib</h3>
           <p>
-            The targeted-therapy lane is built around the tumor's defining IDH1 R132C mutation.
-            Vorasidenib is the ongoing IDH inhibitor anchor in the story, with liver-function monitoring
-            and a temporary hold/resume along the way.
+            My tumor has IDH1 R132C. That is why IDH inhibition matters here. Vorasidenib is FDA-approved
+            for grade 2 astrocytoma or oligodendroglioma with a susceptible IDH1 or IDH2 mutation after
+            surgery, and it is the IDH inhibitor I am on now.
           </p>
         </article>
         <article class="combo-panel">
           <span class="combo-number">02</span>
           <h3>Personal neoantigen vaccine</h3>
           <p>
-            The immune lane is patient-individual immune training using mutation-spanning peptides.
-            The aim is not a generic immune boost; it is a personalized attempt to show T cells what my
-            tumor looks like.
+            The vaccine is exploratory and personal to my tumor. It uses mutation-spanning peptides, with
+            the goal of helping T cells notice pieces of the cancer that should not exist in normal tissue.
           </p>
         </article>
       </div>
@@ -67,7 +67,7 @@
         </div>
         <div class="flow-line"></div>
         <div class="flow-step">
-          <span>Vorasidenib pressure</span>
+          <span>IDH pathway inhibition with vorasidenib</span>
         </div>
         <div class="flow-line"></div>
         <div class="flow-step">
@@ -76,10 +76,9 @@
       </div>
 
       <div class="novelty-note">
-        <b>Why it feels novel:</b> the plan treats the tumor as both a metabolic/genetic disease and an
-        immune-recognition problem. That is different from a simple sequence of treatments. It is still
-        exploratory and personal, not proof of clinical benefit, but the combination is the idea: press
-        the mutant IDH program while training immunity around tumor-specific peptide signals.
+        <b>Why it feels novel:</b> I am not thinking of this as a simple sequence of treatments. The idea is
+        to inhibit mutant IDH activity and reduce 2-HG, while also trying to help the immune system recognize
+        selected tumor-specific peptide targets. That second part is still exploratory.
       </div>
     </section>
 
@@ -88,30 +87,33 @@
         <div class="kicker">Data</div>
         <h2>My data</h2>
         <p>
-          This is the molecular record behind the story: tumor identity, variant evidence, neoantigen funnel,
-          therapy signal, and the limits the run called out.
+          These are the numbers I keep coming back to. Some come directly from my medical reports. Some are
+          first-pass counts from the tools I built to understand the case.
         </p>
       </div>
 
       <div class="data-metrics">
-        <div class="data-metric"><span>Tumor context</span><b>IDH-mutant astrocytoma, grade 2</b><small>CNS</small></div>
-        <div class="data-metric"><span>Top therapy signal</span><b>Vorasidenib</b><small>score 99; current medication</small></div>
+        <div class="data-metric"><span>What the tumor is</span><b>Astrocytoma, IDH-mutant, CNS WHO grade 2</b><small>right frontal lobe</small></div>
+        <div class="data-metric"><span>Why vorasidenib matters</span><b>Vorasidenib</b><small>FDA-approved IDH inhibitor for grade 2 IDH-mutant glioma after surgery</small></div>
         <div class="data-metric"><span>Somatic calls</span><b>649</b><small>618 genes with somatic evidence</small></div>
-        <div class="data-metric"><span>Canonical drivers</span><b>4</b><small>25 algorithmic candidates</small></div>
-        <div class="data-metric"><span>Neoantigen candidates</span><b>314,801</b><small>2,104 strong point binders</small></div>
-        <div class="data-metric"><span>Vaccine ordering</span><b>18</b><small>SLP design candidates</small></div>
-        <div class="data-metric"><span>TMB / MSI</span><b>1.5 / MSS</b><small>immune context, not an eligibility claim</small></div>
-        <div class="data-metric"><span>Purity / PGx</span><b>32% / 80%</b><small>tumor purity; CPIC core-site call rate</small></div>
+        <div class="data-metric"><span>Canonical drivers</span><b>4</b><small>25 other genes flagged for review</small></div>
+        <div class="data-metric"><span>Peptides screened</span><b>314,801</b><small>a big first-pass computational list, not clinical candidates</small></div>
+        <div class="data-metric"><span>Predicted strong HLA binders</span><b>2,104</b><small>peptides predicted to bind strongly</small></div>
+        <div class="data-metric"><span>Vaccine-design shortlist</span><b>18</b><small>prioritized long-peptide design candidates</small></div>
+        <div class="data-metric"><span>TMB / MSI</span><b>1.5 mut/Mb / MSS</b><small>earlier TMB estimates varied by assay/reporting method</small></div>
+        <div class="data-metric"><span>Tumor purity</span><b>32%</b><small>purity estimate used by the run</small></div>
+        <div class="data-metric"><span>PGx core-site call rate</span><b>80%</b><small>how much of the PGx core set was covered</small></div>
       </div>
     </section>
 
     <section class="research-section" aria-label="Personal vaccine deep dive">
       <div class="section-heading">
         <div class="kicker">Personal neoantigen vaccine</div>
-        <h2>How patient-individual immune training works</h2>
+        <h2>How my personalized vaccine candidates were picked</h2>
         <p>
-          My vaccine story starts with my tumor data. Tumor-specific mutations become peptide candidates,
-          and peptide candidates become patient-individual immune-training material.
+          I worked with a pipeline that starts with mutations in my tumor and narrows them down to peptides
+          most likely to be visible to my immune system. Those peptides then become the starting point for
+          a personalized vaccine.
         </p>
       </div>
 
@@ -121,26 +123,26 @@
 
       <div class="mechanism-steps">
         <article><span>01</span><b>Sequence the tumor</b><p>Find mutations that are present in the cancer and different from normal tissue.</p></article>
-        <article><span>02</span><b>Choose neoantigens</b><p>Prioritize mutation-spanning peptides that could be shown by my HLA molecules.</p></article>
-        <article><span>03</span><b>Make the vaccine</b><p>Use selected peptides as patient-specific immune-training material.</p></article>
-        <article><span>04</span><b>Train T cells</b><p>The goal is for immune cells to recognize those tumor-specific peptide signals.</p></article>
+        <article><span>02</span><b>Narrow the list</b><p>Look for mutation-spanning peptides that could be shown by my HLA molecules.</p></article>
+        <article><span>03</span><b>Make the vaccine</b><p>Use selected peptides as patient-specific vaccine material.</p></article>
+        <article><span>04</span><b>Prime T-cell recognition</b><p>The goal is for immune cells to recognize selected pieces of the tumor.</p></article>
       </div>
 
       <div class="vaccine-board">
         <article class="vaccine-card">
           <span class="combo-number">01</span>
-          <h3>Tumor-specific inputs</h3>
-          <p>Start with tumor sequencing and choose mutation-spanning peptides that are meant to look different from normal self.</p>
+          <h3>Start with my tumor</h3>
+          <p>Start with tumor sequencing and look for mutation-spanning peptides that should look different from normal self.</p>
         </article>
         <article class="vaccine-card">
           <span class="combo-number">02</span>
-          <h3>Patient-individual vaccine</h3>
-          <p>CeGAT's vaccine lane is personalized rather than off-the-shelf: the input is my tumor's molecular profile.</p>
+          <h3>Personalized vaccine</h3>
+          <p>CeGAT's vaccine is personalized rather than off-the-shelf: the input is my tumor's molecular profile.</p>
         </article>
         <article class="vaccine-card emphasis">
           <span class="combo-number">03</span>
-          <h3>Immune training goal</h3>
-          <p>The point is to teach T cells a patient-specific picture of my tumor, using peptides selected from the tumor's own mutation profile.</p>
+          <h3>T-cell recognition goal</h3>
+          <p>The point is to help T cells recognize a patient-specific tumor profile, using peptides selected from the tumor's own mutations.</p>
         </article>
       </div>
     </section>
@@ -150,8 +152,8 @@
         <div class="kicker">Variant explorer</div>
         <h2>Here is my tumor data</h2>
         <p>
-          Click a finding to see the actual molecular pieces in this story: drivers, HLA context, vaccine peptide candidates,
-          biomarkers, and run limits. This is a public explainer layer, not a substitute for the source reports.
+          Click a finding to see the pieces I pay attention to: the tumor drivers, HLA type, vaccine peptide
+          candidates, biomarkers, and places where the data still needs care.
         </p>
       </div>
 
@@ -166,8 +168,8 @@
         <div class="kicker">Downloads</div>
         <h2>Downloads</h2>
         <p>
-          The first downloadable layer is a clean public summary. Raw genome, tumor VCF, and peptide-level files
-          should be shared deliberately, with privacy boundaries and version notes.
+          These are the files I am comfortable sharing here. Raw genome, tumor VCF, and peptide-level files
+          need more deliberate privacy boundaries and version notes.
         </p>
       </div>
 
@@ -175,7 +177,7 @@
         <a class="download-card" href="assets/downloads/variant-summary.json" download>
           <span>JSON</span>
           <h3>Variant summary</h3>
-          <p>Structured public summary for programmatic review.</p>
+          <p>A structured version of the main findings on this page.</p>
         </a>
         <a class="download-card" href="assets/downloads/variant-summary.csv" download>
           <span>CSV</span>
@@ -193,49 +195,50 @@
     <section class="atlas-grid">
       <article class="atlas-card wide">
         <div class="kicker">Primary disease</div>
-        <h2>Diffuse astrocytoma, WHO Grade 2</h2>
+        <h2>Astrocytoma, IDH-mutant, CNS WHO grade 2</h2>
         <p>
-          The public-facing summary: a right frontal lobe diffuse astrocytoma with IDH-mutant phenotype documented,
-          gross total resection in September 2023, and stable surveillance imaging through March 2026.
+          The shorthand for my case: a right frontal lobe astrocytoma with IDH-mutant phenotype documented,
+          surgery described as gross total or near-total in the records I have, and stable surveillance imaging
+          through March 2026 based on radiology reports, not an independent medical review.
         </p>
         <div class="mini-map">
           <span>Right frontal lobe</span>
           <span>IDH-mutant phenotype</span>
-          <span>WHO Grade 2</span>
-          <span>Stable surveillance</span>
+          <span>CNS WHO grade 2</span>
+          <span>Stable surveillance by available reports</span>
         </div>
       </article>
 
       <article class="atlas-card">
-        <div class="kicker">Tumor drivers</div>
+        <div class="kicker">Defining mutation</div>
         <h2>IDH1</h2>
-        <p><b>p.R132C.</b> A defining mutation for the tumor identity and the reason IDH inhibitors enter the treatment story.</p>
+        <p><b>p.R132C.</b> This is the mutation that made IDH inhibition part of my treatment story.</p>
       </article>
 
       <article class="atlas-card">
-        <div class="kicker">Chromatin / lineage</div>
+        <div class="kicker">Tumor pattern</div>
         <h2>ATRX</h2>
-        <p>ATRX alteration or loss of expression is part of the astrocytoma-supportive molecular pattern.</p>
+        <p>ATRX alteration or loss of expression is one of the findings that supports the astrocytoma pattern.</p>
       </article>
 
       <article class="atlas-card">
-        <div class="kicker">Genome guardian</div>
+        <div class="kicker">Inherited vs tumor-only</div>
         <h2>TP53</h2>
-        <p>TP53 appears in tumor records, with a germline-vs-somatic discrepancy that deserves a careful dedicated explainer.</p>
+        <p>This page separates inherited TP53/Li-Fraumeni risk from tumor-only TP53 findings; source reports should not be interpreted casually.</p>
       </article>
 
       <article class="atlas-card">
         <div class="kicker">Biomarker boundary</div>
         <h2>MGMT</h2>
-        <p>MGMT promoter methylation is reported.</p>
+        <p>MGMT promoter status is discrepant across records and needs reconciliation.</p>
       </article>
 
       <article class="atlas-card wide genetics-module">
         <div class="kicker">Interactive genetics map</div>
-        <h2>My genetics vs my tumor's genetics</h2>
+        <h2>My DNA vs my tumor's DNA</h2>
         <p>
-          This splits the story into inherited context, tumor-only changes, and biomarker evidence.
-          Click a tile to see the plain-English version of what changed and why it matters.
+          This splits the story into what I inherited, what changed only in the tumor, and the biomarkers
+          that sit somewhere else. Click a tile to see how I understand it.
         </p>
         <div class="genetics-controls" aria-label="Genetics filters">
           <button class="chip active" data-genetics-filter="all">All</button>
@@ -253,9 +256,9 @@
   </main>
 
   <footer class="footer">
-    <span>Explainers before conclusions.</span>
+    <span>Personal story. Medical claims require source reports.</span>
     <a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a>
   </footer>
-  <script src="deepdive.js?v=20260424-opening-flight"></script>
+  <script src="deepdive.js?v=20260424-voice-pass"></script>
 </body>
 </html>

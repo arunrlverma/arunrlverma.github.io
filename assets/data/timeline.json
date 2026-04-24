@@ -90,11 +90,11 @@
     "eyebrow": "Choosing care",
     "title": "I built a doctor search engine",
     "category": "personal",
-    "summary": "I treated finding a brain surgeon like a system: broad search, human signal, then real consults.",
-    "body": "I made a sheet for the logistics everyone kept asking for, then another for the real question: who had actually spent years on this exact condition? I started with 23 doctors, added signals like publications, clinical trials, specialization, and reputation inside medicine, then narrowed the list through conversations and consults.",
+    "summary": "I treated finding a brain surgeon like a system: broad search, doctor-to-doctor reputation, then real consults.",
+    "body": "I made a sheet for the logistics everyone kept asking for, then another for the real question: who had actually spent years on this exact condition? I started with 23 doctors and looked for publications, clinical trials, specialization, and reputation inside medicine, then narrowed the list through conversations and consults.",
     "facts": [
       "23 doctors researched",
-      "Human signal narrowed the list",
+      "Doctor-to-doctor reputation narrowed the list",
       "Consults in multiple cities",
       "Decision rule: choose honesty over comfort"
     ],
@@ -102,7 +102,7 @@
       {
         "type": "image",
         "src": "assets/media/illus-doctor-search.webp",
-        "caption": "Illustration of the doctor-search system: records, signals, cities, and consults."
+        "caption": "Illustration of the doctor-search system: records, reputation, cities, and consults."
       }
     ]
   },
@@ -111,13 +111,13 @@
     "eyebrow": "Surgery + pathology",
     "title": "Right frontal craniotomy and gross total resection",
     "category": "treatment",
-    "summary": "Gross total resection of a WHO Grade 2 diffuse astrocytoma.",
-    "body": "The operative and pathology records cluster around September 1 to September 5, 2023: right frontal craniotomy, gross total resection, and pathology confirming WHO Grade 2 diffuse astrocytoma.",
+    "summary": "Resection described as gross total/near-total for an astrocytoma, IDH-mutant, CNS WHO grade 2.",
+    "body": "My records place the surgery and pathology around September 1 to September 5, 2023: right frontal craniotomy, resection described as gross total/near-total, and pathology consistent with astrocytoma, IDH-mutant, CNS WHO grade 2.",
     "facts": [
-      "WHO Grade 2 diffuse astrocytoma",
+      "Astrocytoma, IDH-mutant, CNS WHO grade 2",
       "Right frontal lobe",
       "IDH-mutant phenotype documented",
-      "Gross total resection"
+      "Gross total/near-total in available records"
     ],
     "media": [
       {
@@ -134,7 +134,7 @@
     "title": "The postoperative chapter begins",
     "category": "personal",
     "summary": "Recovery began with a new physical reality: healing from surgery while the postoperative cavity became the new baseline on scans.",
-    "body": "The notes describe a fluid-filled postoperative cavity and minimal surrounding T2/FLAIR signal. Outside the report language, this was the beginning of learning what recovery felt like day to day.",
+    "body": "The notes describe a fluid-filled postoperative cavity and minimal surrounding T2/FLAIR change. Outside the report language, this was the beginning of learning what recovery felt like day to day.",
     "media": [
       {
         "type": "image",
@@ -165,13 +165,13 @@
     "eyebrow": "Molecular picture",
     "title": "The tumor gets a molecular identity",
     "category": "data",
-    "summary": "The cancer stopped being only a scan and a grade for me. It became IDH1 R132C, ATRX, TP53, MGMT, TMB, MSI, and a set of clues I could actually study.",
-    "body": "The molecular picture changed the way I understood my cancer. It was still personal and terrifying, but it also had structure: mutations, biomarkers, and uncertainty that could shape research, second opinions, and the treatment strategy.",
+    "summary": "The cancer stopped being only a scan and a grade for me. It became IDH1 R132C, ATRX, TP53, MGMT, TMB, MSI, and a set of clues I could actually learn from.",
+    "body": "The molecular picture changed how I understood my cancer. It was still personal and terrifying, but now there were specific mutations, biomarkers, and uncertainties I could take into research, second opinions, and treatment conversations.",
     "facts": [
       "IDH1 p.R132C",
       "ATRX loss/alteration",
       "TP53 alteration",
-      "MGMT methylated in records",
+      "MGMT status needs reconciliation",
       "TMB low",
       "MSI stable / MMR normal"
     ],
@@ -270,7 +270,7 @@
     "title": "Another day forward",
     "category": "personal",
     "summary": "Another day of walking, before IDH inhibitor therapy and the vaccine schedule became the center of the calendar.",
-    "body": "This part matters because it is not a medical endpoint. It is a reminder that the timeline includes effort, movement, and ordinary beauty alongside the clinical decisions.",
+    "body": "This part matters because it is not a medical endpoint. It is a reminder that the timeline includes effort, movement, and ordinary beauty alongside the medical decisions.",
     "media": [
       {
         "type": "image",
@@ -286,7 +286,7 @@
     "title": "Ivosidenib begins",
     "category": "treatment",
     "summary": "The records place the ivosidenib start in late June 2024 as the first IDH inhibitor chapter.",
-    "body": "The treatment lane starts to carry a new kind of story: targeted therapy, monitoring, adverse effects, and switching strategies when the body objects.",
+    "body": "This is where treatment started to become a daily reality: targeted therapy, monitoring, adverse effects, and changing course when my body objected.",
     "facts": [
       "IDH inhibitor",
       "Planned 500 mg daily",
@@ -305,8 +305,8 @@
     "eyebrow": "Personal neoantigen vaccine",
     "title": "Vaccine priming starts in Tübingen",
     "category": "treatment",
-    "summary": "The first personalized peptide vaccine administrations began July 9-12, 2024.",
-    "body": "The first four administrations happened across July 9, 10, 11, and 12 with Leukine and Imiquimod, with the July 12 visit also used for an immune-monitoring blood draw.",
+    "summary": "My first personalized peptide vaccine doses happened July 9-12, 2024.",
+    "body": "The first four doses happened across July 9, 10, 11, and 12 with Leukine and Imiquimod, with the July 12 visit also used for an immune-monitoring blood draw.",
     "facts": [
       "First dose: 2024-07-09",
       "Priming sequence: July 9-12",
@@ -332,7 +332,7 @@
       {
         "type": "image",
         "src": "assets/media/illus-idh-therapy.webp",
-        "caption": "Illustration of treatment adjustment after an adverse-effect signal."
+        "caption": "Illustration of treatment adjustment after side effects."
       }
     ]
   },
@@ -363,8 +363,8 @@
     "eyebrow": "New IDH inhibitor",
     "title": "Vorasidenib starts",
     "category": "treatment",
-    "summary": "Vorasidenib 40 mg daily began as the alternative IDH inhibitor strategy.",
-    "body": "Vorasidenib became one of the ongoing therapy anchors, with later liver-function monitoring and temporary hold/resume events. The treatment idea was two-pronged: suppress the mutant IDH biology while the immune strategy tried to teach T cells what to see.",
+    "summary": "Vorasidenib 40 mg daily began as the alternative IDH inhibitor.",
+    "body": "Vorasidenib became one of the anchors of what I was doing, with liver-function monitoring and temporary hold/resume moments later on. The idea was two-pronged: inhibit mutant IDH activity while the exploratory vaccine tried to help T cells recognize selected tumor-specific peptide targets.",
     "facts": [
       "Vorasidenib 40 mg daily",
       "Targets mutant IDH biology",
@@ -381,10 +381,10 @@
   {
     "date": "2024-11-13",
     "eyebrow": "Immune monitoring",
-    "title": "First clear vaccine-response signal",
+    "title": "First clear vaccine response",
     "category": "data",
     "summary": "Four-month monitoring detected CD4+ responses to 5 of 17 peptides and CD8+ responses to 4 of 17 peptides.",
-    "body": "The report summarized this as specific T-cell response to 8 of the 17 vaccinated mutation-spanning peptides. This is the key early immune-readout moment: not proof of clinical benefit, but evidence that the immune system had measurable responses to parts of the vaccine cocktail.",
+    "body": "The report summarized this as specific T-cell response to 8 of the 17 vaccinated mutation-spanning peptides. I read this as an important early immune-readout moment: not proof of clinical benefit, but evidence that my immune system had measurable responses to parts of the vaccine cocktail.",
     "facts": [
       "8/17 mutation-spanning peptides",
       "CD4+: 5/17",
@@ -421,7 +421,7 @@
     "title": "Ninth vaccine dose while clinically well",
     "category": "treatment",
     "summary": "CeCurio documented the 9th personalized peptide vaccination on March 10, 2025.",
-    "body": "The visit note recorded ECOG 0 and KPS 100%, no reported disease symptoms, current vorasidenib treatment, and last MRI without signs of tumor in December 2024. The vaccine was administered with Leukine and Imiquimod.",
+    "body": "The visit note recorded ECOG 0 and KPS 100%, no reported disease symptoms, current vorasidenib treatment, and the last MRI without signs of tumor in December 2024. The vaccine was administered with Leukine and Imiquimod.",
     "facts": [
       "9th vaccine dose",
       "ECOG 0 / KPS 100%",
@@ -462,7 +462,7 @@
     "title": "Ten-month vaccine response persists",
     "category": "data",
     "summary": "Ten months after the first vaccine, immune monitoring detected responses to 9 of 18 vaccinated mutation-spanning peptides.",
-    "body": "The June 23, 2025 immune-monitoring report described CD4+ T-cell responses to 5 of 18 tested peptides and CD8+ T-cell responses to 6 of 18 tested peptides. This makes the vaccine story more than a design idea: it has longitudinal immune readouts.",
+    "body": "The June 23, 2025 immune-monitoring report described CD4+ T-cell responses to 5 of 18 tested peptides and CD8+ T-cell responses to 6 of 18 tested peptides. For me, this makes the vaccine story more concrete than a design idea: there are longitudinal immune readouts.",
     "facts": [
       "9/18 mutation-spanning peptides detectable",
       "CD4+: 5/18",
@@ -498,7 +498,7 @@
     "title": "One-year vaccine response still detectable",
     "category": "data",
     "summary": "One year and one month after the first vaccine, specific T-cell responses to at least 5 of 18 vaccinated mutation-spanning peptides were still detectable.",
-    "body": "The report also noted low measured CD4+/CD8+ cell numbers and/or viability after in-vitro culture and recommended repeating the assay. The result was still detectable, but with sample-quality limits.",
+    "body": "The report also noted low measured CD4+/CD8+ cell numbers and/or viability after in-vitro culture and recommended repeating the assay. I want that caveat next to the result: still detectable, but with sample-quality limits.",
     "facts": [
       "At least 5/18 still detectable",
       "CD4+ pools: 3/14",
@@ -552,10 +552,10 @@
     "title": "The doctor-search system became the deeper lesson",
     "category": "personal",
     "summary": "The surgeon search made one thing obvious: the healthcare system works best for people who already know how to work the system.",
-    "body": "I started with a simple sheet, then turned it into a search process: broad list, publication and trial signal, reputation inside medicine, and consults that showed me how each doctor thought. The final decision rule was not who made me feel safest in the moment. It was who corrected me, pushed back, and helped me make the right decision.",
+    "body": "I started with a simple sheet, then turned it into a search process: a broad list, publications and trials, reputation inside medicine, and consults that showed me how each doctor thought. The final decision rule was not who made me feel safest in the moment. It was who corrected me, pushed back, and helped me make the right decision.",
     "facts": [
       "Search broadly",
-      "Use human signal",
+      "Use reputation inside medicine",
       "Evaluate how doctors think",
       "Choose honesty over comfort"
     ],
@@ -563,7 +563,7 @@
       {
         "type": "image",
         "src": "assets/media/illus-doctor-search.webp",
-        "caption": "Illustration of the doctor-search framework that later shaped Triangle."
+        "caption": "Illustration of the doctor-search process that later shaped Triangle."
       }
     ]
   },
@@ -572,12 +572,12 @@
     "eyebrow": "Now",
     "title": "Stable on surveillance",
     "category": "imaging",
-    "summary": "Ongoing follow-up documents clinical stability and stable MRI appearance while on vorasidenib and immunotherapy.",
+    "summary": "Ongoing follow-up documented stability on MRI while I stayed on vorasidenib and immunotherapy.",
     "body": "By this point, stability had become its own kind of work: scans, labs, treatment, and trying to keep living in the space between appointments.",
     "facts": [
       "No masslike or nodular enhancing recurrence reported",
       "ALT/AST improved relative to prior peaks",
-      "Clinically stable status documented"
+      "Stable status documented"
     ],
     "media": [
       {
