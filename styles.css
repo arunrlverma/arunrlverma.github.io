@@ -194,7 +194,7 @@ h1 {
 
 .timeline-shell {
   display: grid;
-  grid-template-columns: minmax(280px, min(38vw, 520px)) minmax(0, 1fr);
+  grid-template-columns: minmax(340px, min(42vw, 620px)) minmax(0, 1fr);
   gap: clamp(24px, 4vw, 56px);
   width: 100%;
   max-width: none;
@@ -213,8 +213,8 @@ h1 {
   background: rgba(255, 253, 248, 0.76);
   border: 1px solid rgba(37, 37, 35, 0.13);
   box-shadow: var(--shadow);
-  padding: clamp(12px, 1.5vw, 18px);
-  max-width: 465px;
+  padding: clamp(12px, 1.3vw, 16px);
+  max-width: 560px;
   overflow: visible;
 }
 
@@ -236,7 +236,7 @@ h1 {
     linear-gradient(135deg, rgba(185, 213, 223, .18), rgba(233, 185, 171, .12)),
     var(--paper-deep);
   border: 1px solid rgba(37, 37, 35, 0.08);
-  max-height: 455px;
+  max-height: 570px;
 }
 
 .stage-media.stack-wrap {
@@ -248,7 +248,7 @@ h1 {
 
 .stage-media.story-stack-wrap {
   aspect-ratio: 4 / 4.7;
-  max-height: 520px;
+  max-height: 640px;
   align-items: start;
 }
 
@@ -328,8 +328,8 @@ h1 {
 
 .scroll-photo-stack {
   position: relative;
-  width: min(100%, calc(252px + (var(--stack-count) * 18px)));
-  max-width: 440px;
+  width: min(100%, calc(338px + (var(--stack-count) * 18px)));
+  max-width: 520px;
   aspect-ratio: 4 / 4.72;
   margin: 0 auto;
   transition: width .35s ease;
@@ -353,7 +353,7 @@ h1 {
 }
 
 .wide-stack-wrap .scroll-photo-stack {
-  width: min(100%, 360px);
+  width: min(100%, 470px);
   aspect-ratio: 4 / 3.05;
 }
 
@@ -1636,13 +1636,13 @@ h1 {
 
   .stage-media.story-stack-wrap {
     aspect-ratio: 16 / 11;
-    max-height: 360px;
+    max-height: 420px;
     padding: 12px;
   }
 
   .scroll-photo-stack {
-    width: min(82vw, calc(218px + (var(--stack-count) * 9px)));
-    max-width: 330px;
+    width: min(88vw, calc(270px + (var(--stack-count) * 10px)));
+    max-width: 390px;
   }
 
   .event-callout {
