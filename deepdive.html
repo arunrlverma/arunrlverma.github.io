@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arun Verma | Cancer Deep Dive</title>
   <meta name="description" content="A visual, plain-language explainer for the genetics and biology of Arun's cancer.">
-  <link rel="stylesheet" href="styles.css?v=20260424-voice-pass">
+  <link rel="stylesheet" href="styles.css?v=20260424-report-caveats">
 </head>
 <body data-page="deepdive">
   <div class="wash wash-a"></div>
@@ -174,6 +174,11 @@
       </div>
 
       <div class="download-grid">
+        <a class="download-card report-download" href="assets/downloads/triangle-unified-report.html" download>
+          <span>HTML REPORT</span>
+          <h3>Generated Triangle report</h3>
+          <p>The full report I generated from the pipeline. Read it with the caveats below.</p>
+        </a>
         <a class="download-card" href="assets/downloads/variant-summary.json" download>
           <span>JSON</span>
           <h3>Variant summary</h3>
@@ -192,73 +197,74 @@
       </div>
     </section>
 
-    <section class="atlas-grid">
-      <article class="atlas-card wide">
-        <div class="kicker">Primary disease</div>
-        <h2>Astrocytoma, IDH-mutant, CNS WHO grade 2</h2>
+    <section class="research-section caveats-section" aria-label="Caveats and how to read this">
+      <div class="section-heading">
+        <div class="kicker">Generated report</div>
+        <h2>Caveats &amp; How to Read This</h2>
         <p>
-          The shorthand for my case: a right frontal lobe astrocytoma with IDH-mutant phenotype documented,
-          surgery described as gross total or near-total in the records I have, and stable surveillance imaging
-          through March 2026 based on radiology reports, not an independent medical review.
+          I generated a broader Triangle report from my data. It is useful, but it should be read as a
+          synthesis layer: a way to organize questions and conversations, not a diagnosis or treatment plan.
         </p>
-        <div class="mini-map">
-          <span>Right frontal lobe</span>
-          <span>IDH-mutant phenotype</span>
-          <span>CNS WHO grade 2</span>
-          <span>Stable surveillance by available reports</span>
-        </div>
-      </article>
+        <a class="report-link" href="assets/downloads/triangle-unified-report.html" download>
+          Download the generated Triangle report
+        </a>
+      </div>
 
-      <article class="atlas-card">
-        <div class="kicker">Defining mutation</div>
-        <h2>IDH1</h2>
-        <p><b>p.R132C.</b> This is the mutation that made IDH inhibition part of my treatment story.</p>
-      </article>
-
-      <article class="atlas-card">
-        <div class="kicker">Tumor pattern</div>
-        <h2>ATRX</h2>
-        <p>ATRX alteration or loss of expression is one of the findings that supports the astrocytoma pattern.</p>
-      </article>
-
-      <article class="atlas-card">
-        <div class="kicker">Inherited vs tumor-only</div>
-        <h2>TP53</h2>
-        <p>This page separates inherited TP53/Li-Fraumeni risk from tumor-only TP53 findings; source reports should not be interpreted casually.</p>
-      </article>
-
-      <article class="atlas-card">
-        <div class="kicker">Biomarker boundary</div>
-        <h2>MGMT</h2>
-        <p>MGMT promoter status is discrepant across records and needs reconciliation.</p>
-      </article>
-
-      <article class="atlas-card wide genetics-module">
-        <div class="kicker">Interactive genetics map</div>
-        <h2>My DNA vs my tumor's DNA</h2>
-        <p>
-          This splits the story into what I inherited, what changed only in the tumor, and the biomarkers
-          that sit somewhere else. Click a tile to see how I understand it.
-        </p>
-        <div class="genetics-controls" aria-label="Genetics filters">
-          <button class="chip active" data-genetics-filter="all">All</button>
-          <button class="chip" data-genetics-filter="inherited">Inherited</button>
-          <button class="chip" data-genetics-filter="tumor">Tumor</button>
-          <button class="chip" data-genetics-filter="biomarker">Biomarkers</button>
-          <button class="chip" data-genetics-filter="boundary">Boundary</button>
-        </div>
-        <div class="genetics-explorer">
-          <div class="genetics-board" id="genetics-board" aria-label="Genetics tiles"></div>
-          <aside class="genetics-detail" id="genetics-detail" aria-live="polite"></aside>
-        </div>
-      </article>
+      <div class="caveat-grid">
+        <article>
+          <span>01</span>
+          <h3>This is a synthesis, not a diagnosis</h3>
+          <p>This report combines genomic, transcriptomic, and database evidence into one view. It is meant to support conversations with clinicians, not replace clinical judgment or established care pathways.</p>
+        </article>
+        <article>
+          <span>02</span>
+          <h3>“Driver” does not always mean clinically actionable</h3>
+          <p>Some genes are labeled as drivers based on computational or pan-cancer evidence. IDH1, ATRX, and TP53 are well-established for this tumor type; others are algorithmic candidates or context-dependent clues.</p>
+        </article>
+        <article>
+          <span>03</span>
+          <h3>Pathogenic variants are not always cancer-relevant</h3>
+          <p>Labels like “pathogenic” may come from databases such as ClinVar and can reflect inherited disease associations. That does not automatically mean the variant is driving this tumor.</p>
+        </article>
+        <article>
+          <span>04</span>
+          <h3>Drug rankings are hypothesis-generating</h3>
+          <p>The drug list matches tumor features to known targets and databases. “FDA approved” means approved somewhere, not necessarily for this disease, and many entries are not standard or appropriate in glioma.</p>
+        </article>
+        <article>
+          <span>05</span>
+          <h3>Pathway matches are maps, not diagnoses</h3>
+          <p>Pathways labeled as breast cancer, gastric cancer, or other diseases reflect shared signaling biology across cancers. They are reference maps, not statements that those diseases are present.</p>
+        </article>
+        <article>
+          <span>06</span>
+          <h3>MGMT, TMB, and MSI need proper clinical assays</h3>
+          <p>MGMT promoter methylation cannot be determined from RNA alone. TMB here is WES-derived and not calibrated for immunotherapy decisions. MSI is shown as a signal, not a clinical eligibility call.</p>
+        </article>
+        <article>
+          <span>07</span>
+          <h3>Data quality and sampling matter</h3>
+          <p>Tumor purity around 32% can reduce sensitivity. Some variants may be missed or under-called, and not every finding is confirmed across multiple pipelines. Absence of a signal is not proof of absence.</p>
+        </article>
+        <article>
+          <span>08</span>
+          <h3>Experimental ideas remain investigational</h3>
+          <p>Neoantigen vaccines, immune-targeting strategies, and off-label combinations are active research areas, not established standard of care. I treat them as exploratory.</p>
+        </article>
+        <article>
+          <span>09</span>
+          <h3>This reflects one point in time</h3>
+          <p>Tumors evolve. This report reflects a specific sample, a specific moment, and a specific interpretation layer. Future scans, treatments, or sequencing may change the picture.</p>
+        </article>
+      </div>
     </section>
+
   </main>
 
   <footer class="footer">
     <span>Personal story. Medical claims require source reports.</span>
     <a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a>
   </footer>
-  <script src="deepdive.js?v=20260424-voice-pass"></script>
+  <script src="deepdive.js?v=20260424-report-caveats"></script>
 </body>
 </html>
