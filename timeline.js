@@ -357,7 +357,7 @@ function eventCalloutMarkup(event) {
   const media = event.media?.[event.callout.mediaIndex];
   const preview = mediaPreview(media);
   return `
-    <aside class="event-callout">
+    <aside class="event-callout ${preview ? "" : "no-media"}">
       ${preview ? `<img src="${preview}" alt="${media?.caption || event.callout.title || "Timeline artifact"}">` : ""}
       <div>
         <b>${event.callout.title || ""}</b>

@@ -641,6 +641,10 @@ h1 {
     rgba(255, 253, 248, .68);
 }
 
+.event-callout.no-media {
+  display: block;
+}
+
 .event-callout img {
   width: 96px;
   height: 86px;
