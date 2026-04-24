@@ -9,7 +9,7 @@
     "media": [
       {
         "type": "image",
-        "src": "assets/media/2019-08-30-before.webp",
+        "src": "assets/media/2018-09-27-arun-portrait.webp",
         "caption": "Life before the diagnosis."
       }
     ]
@@ -210,56 +210,25 @@
     "title": "The Camino trips",
     "category": "personal",
     "summary": "Walking became its own kind of answer: not a cure, not a medical milestone, but a way to keep moving through uncertainty.",
-    "body": "After surgery and early surveillance, I wanted proof that my body was still capable of forward motion. The Camino was not treatment; it was life refusing to become only treatment.",
+    "body": "After surgery and early surveillance, we went to Portugal and walked parts of the Camino. There were scans, records, medication decisions, and vaccine planning in the background. There was also weather, distance, food, conversation, and the stubborn fact that life was still happening.",
     "facts": [
       "Around June 2024",
       "After surgery and surveillance",
       "Before IDH inhibitor therapy",
-      "A personal milestone, not a medical endpoint"
+      "A personal milestone, not a medical endpoint",
+      "Portugal and Camino"
     ],
     "media": [
       {
         "type": "image",
-        "src": "assets/media/2024-05-16-milestone.webp",
-        "caption": "A travel moment from the Camino chapter."
+        "src": "assets/media/2024-05-22-milestone.webp",
+        "caption": "The Camino chapter."
       }
     ],
     "links": [
       {
         "label": "Later reflection on X",
         "href": "https://x.com/ArunRLverma/status/2043436197637501410"
-      }
-    ]
-  },
-  {
-    "date": "2024-06-08",
-    "displayDate": "June 2024",
-    "eyebrow": "Camino",
-    "title": "Still choosing the road",
-    "category": "personal",
-    "summary": "The Camino became a way to make forward motion literal before the next treatment chapter accelerated.",
-    "body": "There were scans, records, medication decisions, and vaccine planning in the background. There was also walking, weather, distance, and the stubborn fact that life was still happening.",
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/media/2024-05-22-milestone.webp",
-        "caption": "On the Camino route."
-      }
-    ]
-  },
-  {
-    "date": "2024-06-15",
-    "displayDate": "June 2024",
-    "eyebrow": "Camino",
-    "title": "Another day forward",
-    "category": "personal",
-    "summary": "Another day of walking, before IDH inhibitor therapy and the vaccine schedule became the center of the calendar.",
-    "body": "This part matters because it is not a medical endpoint. It is a reminder that the timeline includes effort, movement, and ordinary beauty alongside the medical decisions.",
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/media/2024-05-22-milestone-alt.webp",
-        "caption": "Another Camino route image."
       }
     ]
   },
@@ -348,7 +317,7 @@
     "title": "Vorasidenib starts",
     "category": "treatment",
     "summary": "Vorasidenib 40 mg daily began as the alternative IDH inhibitor.",
-    "body": "Vorasidenib became one of the anchors of what I was doing, with liver-function monitoring and temporary hold/resume moments later on. The idea was two-pronged: inhibit mutant IDH activity while the exploratory vaccine tried to help T cells recognize selected tumor-specific peptide targets.",
+    "body": "Vorasidenib became one of the anchors of what I was doing, with liver-function monitoring and temporary hold/resume moments later on. The idea was two-pronged: inhibit mutant IDH activity while the exploratory vaccine tried to help T cells recognize selected tumor-specific peptide targets. The vaccine, and the combination, are still exploratory.",
     "facts": [
       "Vorasidenib 40 mg daily",
       "Targets mutant IDH biology",
