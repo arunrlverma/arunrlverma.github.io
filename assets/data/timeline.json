@@ -155,7 +155,7 @@
       "IDH1 p.R132C",
       "ATRX loss/alteration",
       "TP53 alteration",
-      "MGMT status needs reconciliation",
+      "MGMT promoter methylated",
       "TMB low",
       "MSI stable / MMR normal"
     ],
@@ -200,6 +200,58 @@
         "type": "image",
         "src": "assets/media/2024-03-31-life.webp",
         "caption": "Portugal, trying to enjoy life between appointments."
+      }
+    ]
+  },
+  {
+    "date": "2024-05-01",
+    "displayDate": "Spring 2024",
+    "eyebrow": "AI research",
+    "title": "I used AI to map the most hopeful treatment path",
+    "category": "data",
+    "summary": "After surgery, I used AI as a research co-pilot to read the glioma literature and look for a credible optimistic path forward.",
+    "body": "The pattern I kept coming back to was two-pronged: inhibit mutant IDH biology, then explore whether a vaccine could help the immune system recognize tumor-specific peptides. This was not a treatment decision by itself. It was the research map I brought into conversations with clinicians.",
+    "callout": {
+      "title": "The idea I wanted to pressure-test",
+      "body": "IDH inhibition had a real biological and clinical story. IDH vaccination had a separate immune-recognition story. The hopeful question was whether those two ideas could sit together: one approach aimed at mutant IDH metabolism, the other at tumor-specific immune visibility. That second part was still exploratory."
+    },
+    "facts": [
+      "AI-assisted literature review",
+      "IDH inhibition",
+      "Vaccine / T-cell recognition",
+      "Exploratory combination hypothesis"
+    ],
+    "media": [
+      {
+        "type": "image",
+        "src": "assets/media/illus-ai-treatment-map.webp",
+        "caption": "AI-assisted research map after surgery."
+      }
+    ],
+    "links": [
+      {
+        "label": "Rohle 2013",
+        "href": "https://pubmed.ncbi.nlm.nih.gov/23558169/"
+      },
+      {
+        "label": "Mellinghoff 2020",
+        "href": "https://pubmed.ncbi.nlm.nih.gov/32530764/"
+      },
+      {
+        "label": "Mellinghoff 2023",
+        "href": "https://pubmed.ncbi.nlm.nih.gov/36823302/"
+      },
+      {
+        "label": "Schumacher 2014",
+        "href": "https://pubmed.ncbi.nlm.nih.gov/25043048/"
+      },
+      {
+        "label": "Bunse 2015",
+        "href": "https://www.jci.org/articles/view/77780"
+      },
+      {
+        "label": "Platten 2021",
+        "href": "https://pubmed.ncbi.nlm.nih.gov/33762734/"
       }
     ]
   },
