@@ -559,7 +559,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-fetch("assets/data/timeline.json?v=20260424-portrait-camino")
+fetch("assets/data/timeline.json?v=20260424-generated-art")
   .then((response) => response.json())
   .then((events) => {
     state.events = events;

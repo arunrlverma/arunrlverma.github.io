@@ -8,3 +8,6 @@ assets/data/vaccine-monitoring.json
 assets/downloads/researcher-readme.md
 assets/downloads/vaccine-monitoring-summary.csv
 assets/downloads/vaccine-monitoring-summary.json
+
+# Local generation scratch files.
+tmp/

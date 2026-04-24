@@ -31,28 +31,28 @@
     {
       "id": "tp53-findings",
       "gene": "TP53",
-      "finding": "Tumor TP53 alteration; germline discrepancy to reconcile",
-      "type": "Tumor suppressor / hereditary-risk boundary",
-      "role": "Part of the tumor pattern, but the inherited-versus-tumor-only boundary needs care.",
+      "finding": "Tumor TP53 alteration + Li-Fraumeni context",
+      "type": "Tumor suppressor / Li-Fraumeni boundary",
+      "role": "I have Li-Fraumeni, so inherited TP53 risk and tumor-only TP53 findings have to be kept separate.",
       "vaf": "Tumor VAF values around 49-64% appear in reports depending on assay and notation",
-      "confidence": "Needs reconciliation",
-      "biology": "TP53 is a core genome-stability gene. For this page, the main point is that inherited TP53 risk and tumor-only TP53 findings are different things.",
-      "treatment": "Useful for diagnosis and risk framing, but I am not presenting it here as a standalone treatment selector.",
+      "confidence": "Known Li-Fraumeni context; tumor notation varies",
+      "biology": "TP53 is a core genome-stability gene. Because I have Li-Fraumeni, this page separates inherited TP53 risk from tumor-only TP53 findings instead of blending them together.",
+      "treatment": "Useful for diagnosis, surveillance, and risk framing, but I am not presenting TP53 here as a standalone treatment selector.",
       "vaccine": "It could matter for mutation-spanning peptide candidates if the specific tumor alteration is confirmed and used in vaccine design.",
-      "source": "BostonGene / Tempus / longitudinal notes"
+      "source": "Germline records + BostonGene / Tempus / longitudinal notes"
     },
     {
       "id": "mgmt-methylated",
       "gene": "MGMT",
-      "finding": "MGMT promoter status differs across records",
-      "type": "Biomarker record discrepancy",
-      "role": "Some reports say MGMT promoter methylated; another source text says MGMT-promoter unmethylated.",
+      "finding": "MGMT promoter methylated",
+      "type": "Treatment-context biomarker",
+      "role": "MGMT promoter methylation is reported in my records.",
       "vaf": "Not a VAF-based variant",
-      "confidence": "Needs reconciliation",
-      "biology": "MGMT can matter in glioma treatment discussions, so I want to show the discrepancy instead of flattening it.",
-      "treatment": "Before I would use MGMT to interpret treatment, I would want the source assay and report date reconciled.",
+      "confidence": "Reported methylated",
+      "biology": "MGMT promoter methylation can matter in glioma treatment discussions, especially when thinking about alkylating chemotherapy context.",
+      "treatment": "I treat this as treatment-context biology, not as a vaccine target or a stand-alone decision by itself.",
       "vaccine": "Not a vaccine target; belongs in treatment-context biology.",
-      "source": "Pathology/molecular summaries + CeCurio report"
+      "source": "Pathology / molecular summaries"
     },
     {
       "id": "low-tmb-msi-stable",
@@ -130,7 +130,7 @@
       "biology": "Some parts of the data are strong enough to explain here. Other parts need source files or orthogonal testing before I would make stronger claims.",
       "treatment": "HLA LOH was blocked because tumor and normal BAMs were missing, so I would not use it to filter vaccine candidates.",
       "vaccine": "Class-II/long peptide rows exist, but NetMHCIIpan class-II scoring was absent in this cache.",
-      "source": "Triangle v2 quality section"
+      "source": "Report quality section"
     }
   ]
 }

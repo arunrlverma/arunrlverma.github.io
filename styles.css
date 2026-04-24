@@ -1370,6 +1370,55 @@ h1 {
   line-height: 1.52;
 }
 
+.donation-section {
+  padding-top: 14px;
+}
+
+.donation-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.donation-card {
+  display: block;
+  min-height: 190px;
+  border: 1px solid rgba(37,37,35,.12);
+  background:
+    linear-gradient(135deg, rgba(185, 213, 223, .18), rgba(255, 253, 248, .76));
+  padding: 18px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.donation-card:hover {
+  border-color: rgba(37,37,35,.34);
+  background: var(--white);
+}
+
+.donation-card span {
+  color: #746f68;
+  font-size: 11px;
+  font-weight: 850;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+.donation-card h3 {
+  margin: 16px 0 10px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.08;
+}
+
+.donation-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.52;
+}
+
 .atlas-grid {
   max-width: 1180px;
   margin: 0 auto;
@@ -1695,7 +1744,8 @@ h1 {
   .caveat-grid,
   .variant-facts,
   .detail-columns,
-  .download-grid {
+  .download-grid,
+  .donation-grid {
     grid-template-columns: 1fr;
   }
 

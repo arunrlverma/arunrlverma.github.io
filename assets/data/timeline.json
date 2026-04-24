@@ -326,8 +326,8 @@
     "media": [
       {
         "type": "image",
-        "src": "assets/media/illus-idh-therapy.webp",
-        "caption": "Illustration of ongoing IDH inhibition and monitoring."
+        "src": "assets/media/illus-vorasidenib-start.webp",
+        "caption": "Illustration of starting vorasidenib and monitoring the IDH-inhibitor chapter."
       }
     ]
   },
@@ -348,8 +348,8 @@
     "media": [
       {
         "type": "image",
-        "src": "assets/media/illus-vaccine-response.webp",
-        "caption": "Illustration of measured T-cell response to vaccine peptides."
+        "src": "assets/media/illus-vaccine-response-first.webp",
+        "caption": "Illustration of the first clear measured T-cell response to vaccine peptides."
       }
     ]
   },
@@ -384,8 +384,8 @@
     "media": [
       {
         "type": "image",
-        "src": "assets/media/illus-vaccine-response.webp",
-        "caption": "Illustration of ongoing personal neoantigen vaccine dosing."
+        "src": "assets/media/illus-vaccine-dose-nine.webp",
+        "caption": "Illustration of the ninth personalized peptide vaccine visit."
       }
     ]
   },
@@ -404,8 +404,8 @@
     "media": [
       {
         "type": "image",
-        "src": "assets/media/illus-idh-therapy.webp",
-        "caption": "Illustration of medication monitoring and lab-guided treatment hold."
+        "src": "assets/media/illus-lft-hold.webp",
+        "caption": "Illustration of lab monitoring and a temporary vorasidenib hold."
       }
     ]
   },
@@ -440,8 +440,8 @@
     "media": [
       {
         "type": "image",
-        "src": "assets/media/illus-idh-therapy.webp",
-        "caption": "Illustration of restarting vorasidenib after lab improvement."
+        "src": "assets/media/illus-vorasidenib-resume.webp",
+        "caption": "Illustration of restarting vorasidenib after liver-function tests improved."
       }
     ]
   },
