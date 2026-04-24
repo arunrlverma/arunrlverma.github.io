@@ -291,11 +291,10 @@
     "title": "Ivosidenib begins",
     "category": "treatment",
     "summary": "The records place the ivosidenib start in late June 2024 as the first IDH inhibitor chapter.",
-    "body": "This is where treatment started to become a daily reality: targeted therapy, monitoring, adverse effects, and changing course when my body objected.",
+    "body": "This is where targeted therapy became a daily reality: medication, monitoring, lab checks, and decisions made in conversation with clinicians.",
     "facts": [
       "IDH inhibitor",
-      "Planned 500 mg daily",
-      "Later discontinued after chest pain/angina"
+      "Planned 500 mg daily"
     ],
     "media": [
       {
@@ -323,21 +322,6 @@
         "type": "image",
         "src": "assets/media/illus-vaccine-response.webp",
         "caption": "Illustration of the personal neoantigen vaccine priming phase."
-      }
-    ]
-  },
-  {
-    "date": "2024-08-31",
-    "eyebrow": "Adverse effect",
-    "title": "Ivosidenib discontinued",
-    "category": "treatment",
-    "summary": "Ivosidenib stopped because of chest pain / angina documentation.",
-    "body": "The first IDH-inhibitor chapter ended because my body objected. The record says chest pain and angina; the lived version is a treatment decision that had to be changed quickly.",
-    "media": [
-      {
-        "type": "image",
-        "src": "assets/media/illus-idh-therapy.webp",
-        "caption": "Illustration of treatment adjustment after side effects."
       }
     ]
   },

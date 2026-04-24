@@ -559,7 +559,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-fetch("assets/data/timeline.json?v=20260424-ai-research")
+fetch("assets/data/timeline.json?v=20260424-remove-ivosidenib-card")
   .then((response) => response.json())
   .then((events) => {
     state.events = events;
