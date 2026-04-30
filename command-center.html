@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cancer Command Center | Arun Verma</title>
+  <meta name="description" content="A live private AWS-backed command center for uploading cancer sequencing files, running transparent Triangle pipeline steps, inspecting code, and reviewing action reports.">
+  <link rel="stylesheet" href="styles.css?v=20260430-command-center-live">
+</head>
+<body data-page="command-center">
+  <header class="site-header">
+    <a class="brand" href="index.html"><span class="brand-mark"></span><span>Arun Verma</span></a>
+    <nav aria-label="Primary navigation">
+      <a href="index.html">Timeline</a>
+      <a href="deepdive.html">Cancer Deep Dive</a>
+      <a class="active" href="command-center.html">Cancer Command Center</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <main class="cc-app">
+    <section class="cc-topbar" aria-label="Command center status">
+      <div>
+        <div class="kicker">Private AWS app</div>
+        <h1>Cancer Command Center</h1>
+        <p class="cc-public-intro">A transparent workspace for turning tumor DNA, normal DNA, RNA, and evidence review into clinician-facing action overlays.</p>
+        <div class="cc-live-actions">
+          <a class="cc-live-link" href="https://d3mjr6kw1lskoo.cloudfront.net" target="_blank" rel="noopener">Open secure app</a>
+          <a class="cc-live-link secondary" href="https://github.com/arunrlverma/cancer-command-center" target="_blank" rel="noopener">View code</a>
+        </div>
+      </div>
+      <div class="cc-run-strip" aria-label="Current run summary">
+        <div><span>Workspace</span><b>New patient case</b></div>
+        <div><span>Cancer type</span><b>Any tumor type</b></div>
+        <div><span>Status</span><b class="cc-status-text">Live dev stack</b></div>
+      </div>
+    </section>
+
+    <section class="cc-workbench" aria-label="Pipeline command center">
+      <aside class="cc-sidebar" aria-label="Patient and system setup">
+        <div class="cc-photo-panel">
+          <img src="assets/media/2026-04-23-triangle-genome.webp" alt="Triangle genome command interface preview">
+          <div>
+            <span>Workspace template</span>
+            <strong>One secure case per patient</strong>
+          </div>
+        </div>
+
+        <div class="cc-panel">
+          <div class="cc-panel-heading">
+            <h2>Start a Case</h2>
+            <span class="cc-pill ready">new</span>
+          </div>
+          <label>Patient label<input value="Private case label" aria-label="Patient label"></label>
+          <label>Cancer type<input value="Solid tumor, CNS, blood cancer..." aria-label="Cancer type"></label>
+          <label>Medications<input value="Current drugs and supplements" aria-label="Current medications"></label>
+        </div>
+
+        <div class="cc-panel">
+          <div class="cc-panel-heading">
+            <h2>Data Inputs</h2>
+            <span class="cc-pill running">upload</span>
+          </div>
+          <button class="cc-upload" type="button"><span>Tumor DNA</span><b>required</b></button>
+          <button class="cc-upload" type="button"><span>Normal DNA</span><b>recommended</b></button>
+          <button class="cc-upload" type="button"><span>Tumor RNA</span><b>optional but useful</b></button>
+        </div>
+
+        <div class="cc-panel compact">
+          <div class="cc-panel-heading">
+            <h2>Cloud Setup</h2>
+            <span class="cc-pill complete">ready</span>
+          </div>
+          <ul class="cc-checklist">
+            <li><span></span>AWS auth and storage live</li>
+            <li><span></span>Batch runner deployed</li>
+            <li><span></span>Private case storage</li>
+            <li class="warn"><span></span>Heavy callers still gated</li>
+          </ul>
+        </div>
+      </aside>
+
+      <section class="cc-board" aria-label="Pipeline graph">
+        <div class="cc-board-header">
+          <div>
+          <h2>Workflow</h2>
+            <p>Click a step to see what it needs, what Python runs, and what artifacts it creates.</p>
+          </div>
+          <div class="cc-legend">
+            <span><i class="done"></i>complete</span>
+            <span><i class="ready"></i>ready / auto</span>
+            <span><i class="warn"></i>review</span>
+          </div>
+        </div>
+
+        <div class="cc-graph" id="pipeline-graph" aria-label="Clickable pipeline steps"></div>
+      </section>
+
+      <aside class="cc-detail" aria-label="Selected pipeline step">
+        <div class="cc-detail-top">
+          <span id="detail-status" class="cc-pill complete">complete</span>
+          <button id="run-node" class="cc-run-button" type="button">Run step</button>
+        </div>
+        <h2 id="detail-title"></h2>
+        <p id="detail-summary"></p>
+
+        <div class="cc-tabs" role="tablist" aria-label="Step detail tabs">
+          <button class="active" data-tab="overview" type="button">Overview</button>
+          <button data-tab="inputs" type="button">Inputs</button>
+          <button data-tab="code" type="button">Code</button>
+          <button data-tab="outputs" type="button">Outputs</button>
+        </div>
+        <div id="detail-body" class="cc-detail-body"></div>
+      </aside>
+    </section>
+
+    <section class="cc-reports" aria-label="Final report overlays">
+      <div class="cc-section-heading">
+        <div>
+          <div class="kicker">Final reports</div>
+          <h2>Action overlays</h2>
+        </div>
+        <p>Four reusable outputs turn the same analysis into focused clinician-review reports.</p>
+      </div>
+
+      <div class="cc-report-grid" id="report-grid"></div>
+      <article class="cc-report-detail" id="report-detail"></article>
+    </section>
+  </main>
+
+  <script src="command-center.js?v=20260430-command-center-live"></script>
+</body>
+</html>
