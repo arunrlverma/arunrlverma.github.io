@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Cancer Command Center | Arun Verma</title>
-  <meta name="description" content="A live private AWS-backed command center for uploading cancer sequencing files, running transparent Triangle pipeline steps, inspecting code, and reviewing action reports.">
-  <link rel="stylesheet" href="styles.css?v=20260430-command-center-live">
+  <meta name="description" content="A private AWS-backed command center for uploading cancer sequencing files, running the Triangle pipeline, inspecting logs, and reviewing downloadable reports.">
+  <link rel="stylesheet" href="styles.css?v=20260507-command-center-audit">
 </head>
 <body data-page="command-center">
   <header class="site-header">
@@ -18,88 +18,50 @@
     </nav>
   </header>
 
-  <main class="cc-app">
-    <section class="cc-topbar" aria-label="Command center status">
+  <main class="cc-app cc-public-app">
+    <section class="cc-topbar cc-site-hero" aria-label="Cancer Command Center overview">
       <div>
-        <div class="kicker">Private AWS app</div>
+        <div class="kicker">Private oncology workflow</div>
         <h1>Cancer Command Center</h1>
-        <p class="cc-public-intro">A transparent workspace for turning tumor DNA, normal DNA, RNA, and evidence review into clinician-facing action overlays.</p>
+        <p class="cc-public-intro">
+          The private app is built to make cancer sequencing work visible: uploads, AWS Batch jobs,
+          source code, logs, artifacts, review gates, and final reports all stay tied to the same run.
+        </p>
         <div class="cc-live-actions">
           <a class="cc-live-link" href="https://d3mjr6kw1lskoo.cloudfront.net" target="_blank" rel="noopener">Open secure app</a>
           <a class="cc-live-link secondary" href="https://github.com/arunrlverma/cancer-command-center" target="_blank" rel="noopener">View code</a>
         </div>
       </div>
-      <div class="cc-run-strip" aria-label="Current run summary">
-        <div><span>Workspace</span><b>New patient case</b></div>
-        <div><span>Cancer type</span><b>Any tumor type</b></div>
-        <div><span>Status</span><b class="cc-status-text">Live dev stack</b></div>
+      <div class="cc-status-stack" aria-label="Current system status">
+        <div><span>Pipeline map</span><b>67 source modules grouped into visible run phases</b></div>
+        <div><span>Run evidence</span><b>Step Functions, Batch logs, S3 artifacts, manifests</b></div>
+        <div><span>Final outputs</span><b>Triangle HTML report, package manifest, downloadable artifacts</b></div>
+        <div><span>Guardrail</span><b>Review-gated when tooling, licenses, or inputs are missing</b></div>
       </div>
     </section>
 
-    <section class="cc-workbench" aria-label="Pipeline command center">
-      <aside class="cc-sidebar" aria-label="Patient and system setup">
-        <div class="cc-photo-panel">
-          <img src="assets/media/2026-04-23-triangle-genome.webp" alt="Triangle genome command interface preview">
-          <div>
-            <span>Workspace template</span>
-            <strong>One secure case per patient</strong>
-          </div>
-        </div>
-
-        <div class="cc-panel">
-          <div class="cc-panel-heading">
-            <h2>Start a Case</h2>
-            <span class="cc-pill ready">new</span>
-          </div>
-          <label>Patient label<input value="Private case label" aria-label="Patient label"></label>
-          <label>Cancer type<input value="Solid tumor, CNS, blood cancer..." aria-label="Cancer type"></label>
-          <label>Medications<input value="Current drugs and supplements" aria-label="Current medications"></label>
-        </div>
-
-        <div class="cc-panel">
-          <div class="cc-panel-heading">
-            <h2>Data Inputs</h2>
-            <span class="cc-pill running">upload</span>
-          </div>
-          <button class="cc-upload" type="button"><span>Tumor DNA</span><b>required</b></button>
-          <button class="cc-upload" type="button"><span>Normal DNA</span><b>recommended</b></button>
-          <button class="cc-upload" type="button"><span>Tumor RNA</span><b>optional but useful</b></button>
-        </div>
-
-        <div class="cc-panel compact">
-          <div class="cc-panel-heading">
-            <h2>Cloud Setup</h2>
-            <span class="cc-pill complete">ready</span>
-          </div>
-          <ul class="cc-checklist">
-            <li><span></span>AWS auth and storage live</li>
-            <li><span></span>Batch runner deployed</li>
-            <li><span></span>Private case storage</li>
-            <li class="warn"><span></span>Heavy callers still gated</li>
-          </ul>
-        </div>
-      </aside>
-
-      <section class="cc-board" aria-label="Pipeline graph">
+    <section class="cc-operator-shell" aria-label="Operator workflow preview">
+      <section class="cc-board" aria-label="Pipeline command center">
         <div class="cc-board-header">
           <div>
-          <h2>Workflow</h2>
-            <p>Click a step to see what it needs, what Python runs, and what artifacts it creates.</p>
+            <h2>Run Console</h2>
+            <p>The live app uses this shape: phase cards first, expandable source details, real logs, and downloads only when artifacts exist.</p>
           </div>
           <div class="cc-legend">
-            <span><i class="done"></i>complete</span>
-            <span><i class="ready"></i>ready / auto</span>
+            <span><i class="done"></i>ready</span>
+            <span><i class="ready"></i>running</span>
             <span><i class="warn"></i>review</span>
           </div>
         </div>
 
+        <div class="cc-live-log-strip" id="live-log-strip" aria-live="polite"></div>
         <div class="cc-graph" id="pipeline-graph" aria-label="Clickable pipeline steps"></div>
       </section>
 
       <aside class="cc-detail" aria-label="Selected pipeline step">
         <div class="cc-detail-top">
-          <span id="detail-status" class="cc-pill complete">complete</span>
-          <button id="run-node" class="cc-run-button" type="button">Run step</button>
+          <span id="detail-status" class="cc-pill complete">ready</span>
+          <a class="cc-run-button" href="https://d3mjr6kw1lskoo.cloudfront.net" target="_blank" rel="noopener">Open app</a>
         </div>
         <h2 id="detail-title"></h2>
         <p id="detail-summary"></p>
@@ -107,20 +69,33 @@
         <div class="cc-tabs" role="tablist" aria-label="Step detail tabs">
           <button class="active" data-tab="overview" type="button">Overview</button>
           <button data-tab="inputs" type="button">Inputs</button>
-          <button data-tab="code" type="button">Code</button>
           <button data-tab="outputs" type="button">Outputs</button>
+          <button data-tab="logs" type="button">Logs</button>
+          <button data-tab="artifacts" type="button">Artifacts</button>
+          <button data-tab="code" type="button">Code</button>
         </div>
         <div id="detail-body" class="cc-detail-body"></div>
       </aside>
+    </section>
+
+    <section class="cc-audit-section" aria-label="Notebook parity and module map">
+      <div class="cc-section-heading">
+        <div>
+          <div class="kicker">Notebook parity</div>
+          <h2>Phase boxes first. Module detail one layer deeper.</h2>
+        </div>
+        <p>This public view is intentionally less dense than the private operator UI, but it keeps the same truth model: every module is mapped, optional, legacy, or review-gated.</p>
+      </div>
+      <div class="cc-phase-grid" id="module-map"></div>
     </section>
 
     <section class="cc-reports" aria-label="Final report overlays">
       <div class="cc-section-heading">
         <div>
           <div class="kicker">Final reports</div>
-          <h2>Action overlays</h2>
+          <h2>Reports and downloads</h2>
         </div>
-        <p>Four reusable outputs turn the same analysis into focused clinician-review reports.</p>
+        <p>The app promotes finished artifacts into report cards so users do not have to hunt through S3 paths or terminal output.</p>
       </div>
 
       <div class="cc-report-grid" id="report-grid"></div>
@@ -128,6 +103,6 @@
     </section>
   </main>
 
-  <script src="command-center.js?v=20260430-command-center-live"></script>
+  <script src="command-center.js?v=20260507-command-center-audit"></script>
 </body>
 </html>
