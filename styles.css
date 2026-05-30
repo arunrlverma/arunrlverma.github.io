@@ -3338,9 +3338,9 @@ body[data-page="command-center"] nav a:hover {
   display: grid;
   grid-template-columns: minmax(320px, .78fr) minmax(560px, 1.08fr);
   gap: clamp(28px, 4vw, 68px);
-  align-items: end;
+  align-items: start;
   margin: 0;
-  padding: clamp(72px, 10vw, 138px) clamp(22px, 5vw, 86px) 54px;
+  padding: clamp(64px, 8vw, 104px) clamp(22px, 5vw, 86px) 54px;
   border-bottom: 1px solid rgba(24, 53, 83, .08);
   background: var(--cc-mint);
   isolation: isolate;
@@ -3370,7 +3370,8 @@ body[data-page="command-center"] nav a:hover {
 }
 
 .cc-soft-landing .cc-hero-copy {
-  align-self: center;
+  align-self: start;
+  padding-top: 8px;
   max-width: 720px;
 }
 
@@ -3450,13 +3451,13 @@ body[data-page="command-center"] nav a:hover {
 }
 
 .cc-analysis-files {
-  align-self: center;
+  align-self: start;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 22px;
   width: 100%;
   max-width: 820px;
-  padding-top: 18px;
+  padding-top: 0;
 }
 
 .cc-file-card {
