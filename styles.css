@@ -5422,7 +5422,5 @@ body[data-page="command-center"] button:focus-visible {
   left: 50%;
   width: 100vw;
   transform: translateX(-50%);
-  background: #ffffff;
-  border-top: 1px solid rgba(24, 53, 83, .07);
-  border-bottom: 1px solid rgba(24, 53, 83, .07);
+  background: #eaf2f5;
 }
