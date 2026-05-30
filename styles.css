@@ -3463,15 +3463,83 @@ body[data-page="command-center"] nav a:hover {
 .cc-file-card {
   position: relative;
   min-height: 186px;
-  overflow: visible;
+  perspective: 1400px;
+  cursor: pointer;
+  outline: none;
+  /* JS writes --tx/--ty/--rx/--ry/--lift for tilt + pick-up */
+  transform:
+    translate3d(var(--tx, 0), var(--ty, 0), 0)
+    rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  transition: transform .35s cubic-bezier(.2, .7, .2, 1);
+  z-index: 1;
+}
+
+.cc-file-card.is-dragging {
+  transition: none;
+  z-index: 40;
+  cursor: grabbing;
+}
+
+.cc-file-inner {
+  position: relative;
+  min-height: inherit;
+  transform-style: preserve-3d;
+  transition: transform .6s cubic-bezier(.3, .8, .25, 1);
+}
+
+.cc-file-card.is-flipped .cc-file-inner {
+  transform: rotateY(180deg);
+}
+
+.cc-file-face {
+  display: flex;
+  flex-direction: column;
+  min-height: inherit;
   border: 1.5px solid rgba(24, 53, 83, .22);
   border-radius: 8px;
   background: rgba(255, 255, 255, .64);
   padding: 30px 28px 26px;
   box-shadow: 0 18px 42px rgba(24, 53, 83, .08);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  transition: box-shadow .26s ease, border-color .26s ease;
 }
 
-.cc-file-card::before {
+.cc-file-front {
+  position: relative;
+}
+
+.cc-file-back {
+  position: absolute;
+  inset: 0;
+  transform: rotateY(180deg);
+  justify-content: center;
+  gap: 4px;
+  background: linear-gradient(135deg, rgba(232, 242, 246, .92), rgba(255, 255, 255, .82));
+  pointer-events: none;
+}
+
+.cc-file-card.is-flipped .cc-file-back {
+  pointer-events: auto;
+}
+
+.cc-file-card.is-flipped .cc-file-front {
+  pointer-events: none;
+}
+
+.cc-file-card:hover .cc-file-face,
+.cc-file-card:focus-visible .cc-file-face {
+  border-color: rgba(24, 53, 83, .34);
+  box-shadow: 0 30px 64px rgba(24, 53, 83, .15);
+}
+
+.cc-file-card:focus-visible {
+  outline: 2px solid var(--cc-teal);
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+.cc-file-face::before {
   content: "";
   position: absolute;
   top: -11px;
@@ -3484,7 +3552,7 @@ body[data-page="command-center"] nav a:hover {
   background: rgba(255, 255, 255, .72);
 }
 
-.cc-file-card::after {
+.cc-file-front::after {
   content: "";
   position: absolute;
   right: 26px;
@@ -3498,6 +3566,7 @@ body[data-page="command-center"] nav a:hover {
 }
 
 .cc-file-card span {
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -3540,9 +3609,129 @@ body[data-page="command-center"] nav a:hover {
   line-height: 1.48;
 }
 
+/* Flip hint */
+.cc-flip-hint {
+  position: absolute;
+  right: 22px;
+  bottom: 18px;
+  color: var(--cc-sage);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  opacity: .65;
+  transition: opacity .2s ease;
+}
+
+.cc-file-card:hover .cc-flip-hint {
+  opacity: 1;
+}
+
+.cc-file-back p {
+  color: #4f6164;
+}
+
+/* Collect button on the back face */
+.cc-collect-btn {
+  align-self: flex-start;
+  margin-top: 16px;
+  padding: 9px 16px;
+  border: 1px solid rgba(24, 53, 83, .22);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .8);
+  color: var(--cc-navy);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .15s ease;
+}
+
+.cc-collect-btn:hover {
+  border-color: var(--cc-navy);
+  transform: translateY(-1px);
+}
+
+.cc-collect-btn:focus-visible {
+  outline: 2px solid var(--cc-teal);
+  outline-offset: 2px;
+}
+
+/* Collected state */
+.cc-file-card.is-collected .cc-file-front {
+  border-color: var(--cc-teal);
+  box-shadow:
+    0 0 0 1.5px var(--cc-teal),
+    0 18px 42px rgba(79, 130, 133, .18);
+}
+
+.cc-file-card.is-collected .cc-file-front span {
+  background: var(--cc-teal);
+  border-color: var(--cc-teal);
+  color: #fffdf8;
+}
+
+.cc-file-card.is-collected .cc-file-front::before {
+  border-color: var(--cc-teal);
+}
+
+.cc-collect-btn[aria-pressed="true"] {
+  background: var(--cc-teal);
+  border-color: var(--cc-teal);
+  color: #fffdf8;
+}
+
+/* Collection tray */
+.cc-files-tray {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px 16px;
+  padding: 0 2px 4px;
+}
+
+.cc-tray-hint {
+  color: #5e7075;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.cc-tray-count {
+  color: var(--cc-sage);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+
+.cc-tray-count b {
+  color: var(--cc-navy);
+  font-size: 15px;
+}
+
+.cc-files-tray.all-collected .cc-tray-hint {
+  color: var(--cc-teal);
+  font-weight: 700;
+}
+
+/* CTA celebration when all 7 collected */
+.cc-soft-landing .cc-live-link.is-ready {
+  animation: cc-cta-pulse 1.4s ease 0s 2;
+}
+
+@keyframes cc-cta-pulse {
+  0%, 100% { box-shadow: 0 16px 34px rgba(24, 53, 83, .12); }
+  50% { box-shadow: 0 0 0 4px rgba(79, 130, 133, .35), 0 20px 44px rgba(24, 53, 83, .22); }
+}
+
 .cc-file-card.file-primary {
   grid-column: 1 / -1;
   min-height: 225px;
+}
+
+.cc-file-card.file-primary .cc-file-front {
   background:
     linear-gradient(135deg, rgba(232, 242, 246, .82), rgba(255, 255, 255, .72));
 }
@@ -3551,9 +3740,16 @@ body[data-page="command-center"] nav a:hover {
   font-size: clamp(40px, 3.4vw, 58px);
 }
 
-.cc-file-card.file-report {
+.cc-file-card.file-report .cc-file-front {
   background:
     linear-gradient(135deg, rgba(241, 226, 210, .76), rgba(255, 255, 255, .7));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cc-file-card,
+  .cc-file-inner {
+    transition: none;
+  }
 }
 
 .cc-proof-strip,
@@ -4756,8 +4952,7 @@ body[data-page="command-center"] nav a:hover {
 
 /* Tasteful, motion-safe hero entrance */
 @media (prefers-reduced-motion: no-preference) {
-  .cc-soft-landing .cc-hero-copy > *,
-  .cc-soft-landing .cc-file-card {
+  .cc-soft-landing .cc-hero-copy > * {
     opacity: 0;
     transform: translateY(14px);
     animation: cc-rise .7s cubic-bezier(.2, .7, .2, 1) forwards;
@@ -4767,17 +4962,26 @@ body[data-page="command-center"] nav a:hover {
   .cc-soft-landing .cc-hero-copy > *:nth-child(3) { animation-delay: .16s; }
   .cc-soft-landing .cc-hero-copy > *:nth-child(4) { animation-delay: .22s; }
   .cc-soft-landing .cc-hero-copy > *:nth-child(5) { animation-delay: .28s; }
-  .cc-analysis-files .cc-file-card:nth-child(1) { animation-delay: .18s; }
-  .cc-analysis-files .cc-file-card:nth-child(2) { animation-delay: .24s; }
-  .cc-analysis-files .cc-file-card:nth-child(3) { animation-delay: .30s; }
-  .cc-analysis-files .cc-file-card:nth-child(4) { animation-delay: .36s; }
-  .cc-analysis-files .cc-file-card:nth-child(5) { animation-delay: .42s; }
-  .cc-analysis-files .cc-file-card:nth-child(6) { animation-delay: .48s; }
-  .cc-analysis-files .cc-file-card:nth-child(7) { animation-delay: .54s; }
+  /* File cards: fade opacity only — never lock `transform`, so tilt/flip stay live */
+  .cc-analysis-files .cc-file-card {
+    opacity: 0;
+    animation: cc-fade .7s ease forwards;
+  }
+  .cc-analysis-files .cc-file-card:nth-of-type(1) { animation-delay: .18s; }
+  .cc-analysis-files .cc-file-card:nth-of-type(2) { animation-delay: .24s; }
+  .cc-analysis-files .cc-file-card:nth-of-type(3) { animation-delay: .30s; }
+  .cc-analysis-files .cc-file-card:nth-of-type(4) { animation-delay: .36s; }
+  .cc-analysis-files .cc-file-card:nth-of-type(5) { animation-delay: .42s; }
+  .cc-analysis-files .cc-file-card:nth-of-type(6) { animation-delay: .48s; }
+  .cc-analysis-files .cc-file-card:nth-of-type(7) { animation-delay: .54s; }
 }
 
 @keyframes cc-rise {
   to { opacity: 1; transform: none; }
+}
+
+@keyframes cc-fade {
+  to { opacity: 1; }
 }
 
 @media (max-width: 880px) {
@@ -4879,7 +5083,6 @@ body[data-page="command-center"] nav a:hover {
 }
 
 /* ── Micro-interactions: hover + focus ── */
-.cc-file-card,
 .cc-story-card,
 .cc-social-grid article,
 .cc-price-card,
@@ -4892,7 +5095,6 @@ body[data-page="command-center"] nav a:hover {
     box-shadow .26s ease, border-color .26s ease, color .18s ease;
 }
 
-.cc-file-card:hover,
 .cc-social-grid article:hover,
 .cc-price-card:hover,
 .cc-report-paper:hover {
