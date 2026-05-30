@@ -5379,3 +5379,16 @@ body[data-page="command-center"] button:focus-visible {
     max-width: min(330px, calc(100vw - 36px)) !important;
   }
 }
+
+/* ── Clear hairline delineation between open content sections ── */
+.cc-steps-section,
+.cc-story-section,
+.cc-example-section,
+.cc-methods-section,
+.cc-social-section,
+.cc-faq-section,
+.cc-final-cta {
+  margin-top: clamp(46px, 5.5vw, 84px);
+  padding-top: clamp(42px, 5vw, 72px);
+  border-top: 1px solid rgba(24, 53, 83, .1);
+}
