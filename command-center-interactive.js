@@ -1,5 +1,5 @@
 /* Cancer Command Center — interactive analysis "files":
-   flip to peek, collect all seven, with a magnetic tilt + pick-up drag.
+   flip to peek inside, with a magnetic tilt + pick-up drag.
    Vanilla JS, no dependencies. Accessible + motion-safe. */
 (function () {
   "use strict";
@@ -10,66 +10,19 @@
   var cards = Array.prototype.slice.call(root.querySelectorAll(".cc-file-card"));
   if (!cards.length) return;
 
-  var countEl = root.querySelector("[data-collected-count]");
-  var tray = root.querySelector(".cc-files-tray");
-  var hintEl = root.querySelector(".cc-tray-hint");
-  var heroCta = document.querySelector(".cc-hero-copy .cc-live-link:not(.secondary)");
-  var TOTAL = cards.length;
-  var hintDefault = hintEl ? hintEl.textContent : "";
-
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var fancyPointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
   var allowMotion = fancyPointer && !reduceMotion;
 
-  /* ---- flip ---- */
-  function flip(card, force) {
-    var next = typeof force === "boolean" ? force : !card.classList.contains("is-flipped");
+  function flip(card) {
+    var next = !card.classList.contains("is-flipped");
     card.classList.toggle("is-flipped", next);
     card.setAttribute("aria-pressed", next ? "true" : "false");
   }
 
-  /* ---- collect ---- */
-  function recount() {
-    var n = root.querySelectorAll(".cc-file-card.is-collected").length;
-    if (countEl) countEl.textContent = String(n);
-    var done = n === TOTAL;
-    if (tray) tray.classList.toggle("all-collected", done);
-    if (hintEl) hintEl.textContent = done
-      ? "All seven collected — your report is ready to run."
-      : hintDefault;
-    if (heroCta) {
-      heroCta.classList.toggle("is-ready", done);
-      if (done) {
-        // restart the pulse
-        heroCta.style.animation = "none";
-        // eslint-disable-next-line no-unused-expressions
-        heroCta.offsetWidth;
-        heroCta.style.animation = "";
-      }
-    }
-  }
-
-  function collect(card, btn) {
-    var next = !card.classList.contains("is-collected");
-    card.classList.toggle("is-collected", next);
-    btn.setAttribute("aria-pressed", next ? "true" : "false");
-    btn.textContent = next ? "Added ✓" : "Add to report";
-    recount();
-  }
-
-  /* ---- per-card wiring ---- */
   cards.forEach(function (card) {
     var dragState = null;
     var lastDragEnd = 0;
-
-    var btn = card.querySelector(".cc-collect-btn");
-    if (btn) {
-      btn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        collect(card, btn);
-      });
-      btn.addEventListener("pointerdown", function (e) { e.stopPropagation(); });
-    }
 
     // Click anywhere on the card flips it (unless a drag just happened).
     card.addEventListener("click", function () {
@@ -145,6 +98,4 @@
     card.addEventListener("pointerup", endDrag);
     card.addEventListener("pointercancel", endDrag);
   });
-
-  recount();
 })();

@@ -3631,64 +3631,9 @@ body[data-page="command-center"] nav a:hover {
   color: #4f6164;
 }
 
-/* Collect button on the back face */
-.cc-collect-btn {
-  align-self: flex-start;
-  margin-top: 16px;
-  padding: 9px 16px;
-  border: 1px solid rgba(24, 53, 83, .22);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .8);
-  color: var(--cc-navy);
-  font: inherit;
-  font-size: 13px;
-  font-weight: 700;
-  cursor: pointer;
-  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .15s ease;
-}
-
-.cc-collect-btn:hover {
-  border-color: var(--cc-navy);
-  transform: translateY(-1px);
-}
-
-.cc-collect-btn:focus-visible {
-  outline: 2px solid var(--cc-teal);
-  outline-offset: 2px;
-}
-
-/* Collected state */
-.cc-file-card.is-collected .cc-file-front {
-  border-color: var(--cc-teal);
-  box-shadow:
-    0 0 0 1.5px var(--cc-teal),
-    0 18px 42px rgba(79, 130, 133, .18);
-}
-
-.cc-file-card.is-collected .cc-file-front span {
-  background: var(--cc-teal);
-  border-color: var(--cc-teal);
-  color: #fffdf8;
-}
-
-.cc-file-card.is-collected .cc-file-front::before {
-  border-color: var(--cc-teal);
-}
-
-.cc-collect-btn[aria-pressed="true"] {
-  background: var(--cc-teal);
-  border-color: var(--cc-teal);
-  color: #fffdf8;
-}
-
-/* Collection tray */
+/* Flip hint tray */
 .cc-files-tray {
   grid-column: 1 / -1;
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  justify-content: space-between;
-  gap: 8px 16px;
   padding: 0 2px 4px;
 }
 
@@ -3698,51 +3643,43 @@ body[data-page="command-center"] nav a:hover {
   font-weight: 600;
 }
 
-.cc-tray-count {
-  color: var(--cc-sage);
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-}
-
-.cc-tray-count b {
-  color: var(--cc-navy);
-  font-size: 15px;
-}
-
-.cc-files-tray.all-collected .cc-tray-hint {
-  color: var(--cc-teal);
-  font-weight: 700;
-}
-
-/* CTA celebration when all 7 collected */
-.cc-soft-landing .cc-live-link.is-ready {
-  animation: cc-cta-pulse 1.4s ease 0s 2;
-}
-
-@keyframes cc-cta-pulse {
-  0%, 100% { box-shadow: 0 16px 34px rgba(24, 53, 83, .12); }
-  50% { box-shadow: 0 0 0 4px rgba(79, 130, 133, .35), 0 20px 44px rgba(24, 53, 83, .22); }
-}
-
+/* Uniform sizing: every file is the same size; the summary (07) spans the row */
+.cc-file-card,
 .cc-file-card.file-primary {
-  grid-column: 1 / -1;
-  min-height: 225px;
-}
-
-.cc-file-card.file-primary .cc-file-front {
-  background:
-    linear-gradient(135deg, rgba(232, 242, 246, .82), rgba(255, 255, 255, .72));
+  grid-column: auto;
+  min-height: 196px;
 }
 
 .cc-file-card.file-primary h2 {
-  font-size: clamp(40px, 3.4vw, 58px);
+  font-size: clamp(26px, 2.15vw, 36px);
 }
 
-.cc-file-card.file-report .cc-file-front {
-  background:
-    linear-gradient(135deg, rgba(241, 226, 210, .76), rgba(255, 255, 255, .7));
+.cc-file-card.file-report {
+  grid-column: 1 / -1;
+  min-height: 150px;
+}
+
+/* More color: each file carries a soft, distinct tint */
+.cc-analysis-files .cc-file-card:nth-of-type(1) .cc-file-front {
+  background: linear-gradient(140deg, #d7e8f0, #eef6fa);
+}
+.cc-analysis-files .cc-file-card:nth-of-type(2) .cc-file-front {
+  background: linear-gradient(140deg, #d8eddd, #eef7f1);
+}
+.cc-analysis-files .cc-file-card:nth-of-type(3) .cc-file-front {
+  background: linear-gradient(140deg, #f3e1cc, #fbf1e7);
+}
+.cc-analysis-files .cc-file-card:nth-of-type(4) .cc-file-front {
+  background: linear-gradient(140deg, #cfe7e4, #e8f4f2);
+}
+.cc-analysis-files .cc-file-card:nth-of-type(5) .cc-file-front {
+  background: linear-gradient(140deg, #e0ddf0, #f0eff9);
+}
+.cc-analysis-files .cc-file-card:nth-of-type(6) .cc-file-front {
+  background: linear-gradient(140deg, #efe5c2, #f9f3dc);
+}
+.cc-analysis-files .cc-file-card:nth-of-type(7) .cc-file-front {
+  background: linear-gradient(140deg, #f1d9c1, #fbecdc);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -4361,9 +4298,9 @@ body[data-page="command-center"] nav a:hover {
 }
 
 .cc-social-grid article {
-  min-height: 245px;
+  min-height: 200px;
   display: grid;
-  align-content: end;
+  align-content: start;
   border: 1px solid rgba(24, 53, 83, .12);
   border-radius: 12px;
   background: rgba(255, 255, 255, .68);
@@ -5247,7 +5184,7 @@ body[data-page="command-center"] button:focus-visible {
   display: grid;
   grid-template-columns: minmax(260px, .8fr) minmax(320px, 1.2fr);
   gap: clamp(24px, 4vw, 64px);
-  align-items: center;
+  align-items: start;
   padding: clamp(30px, 4vw, 52px);
   border: 1px solid var(--cc-line);
   border-radius: 18px;
