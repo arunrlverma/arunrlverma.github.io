@@ -3810,6 +3810,7 @@ body[data-page="command-center"] nav a:hover {
 }
 
 .cc-story-heading {
+  display: block;
   max-width: 860px;
   margin-bottom: clamp(30px, 4vw, 48px);
 }
