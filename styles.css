@@ -3341,7 +3341,6 @@ body[data-page="command-center"] nav a:hover {
   align-items: start;
   margin: 0;
   padding: clamp(64px, 8vw, 104px) clamp(22px, 5vw, 86px) 54px;
-  border-bottom: 1px solid rgba(24, 53, 83, .08);
   background: var(--cc-mint);
   isolation: isolate;
 }
@@ -3726,7 +3725,8 @@ body[data-page="command-center"] nav a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 40px;
+  margin-top: clamp(44px, 5vw, 72px);
+  margin-bottom: clamp(40px, 5vw, 64px);
   border: 0;
 }
 
@@ -5404,8 +5404,8 @@ body[data-page="command-center"] button:focus-visible {
 .cc-faq-section,
 .cc-final-cta {
   margin-top: 0;
-  padding-top: clamp(60px, 7vw, 104px);
-  padding-bottom: clamp(60px, 7vw, 104px);
+  padding-top: clamp(46px, 5vw, 80px);
+  padding-bottom: clamp(46px, 5vw, 80px);
   border-top: 0;
 }
 
