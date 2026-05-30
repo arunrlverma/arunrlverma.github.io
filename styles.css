@@ -3660,13 +3660,13 @@ body[data-page="command-center"] nav a:hover {
 }
 
 /* Color-coded folders: each file sets its own tint (--c1/--c2) + accent */
-.cc-analysis-files .cc-file-card:nth-of-type(1) { --c1: #d7e8f0; --c2: #eef6fa; --accent: #2f6a90; }
-.cc-analysis-files .cc-file-card:nth-of-type(2) { --c1: #d8eddd; --c2: #eef7f1; --accent: #3d7a4f; }
-.cc-analysis-files .cc-file-card:nth-of-type(3) { --c1: #f3e1cc; --c2: #fbf1e7; --accent: #a0682a; }
-.cc-analysis-files .cc-file-card:nth-of-type(4) { --c1: #cfe7e4; --c2: #e8f4f2; --accent: #356d70; }
-.cc-analysis-files .cc-file-card:nth-of-type(5) { --c1: #e0ddf0; --c2: #f0eff9; --accent: #574f96; }
-.cc-analysis-files .cc-file-card:nth-of-type(6) { --c1: #efe5c2; --c2: #f9f3dc; --accent: #8a6f24; }
-.cc-analysis-files .cc-file-card:nth-of-type(7) { --c1: #f1d9c1; --c2: #fbecdc; --accent: #9c5a33; }
+.cc-analysis-files .cc-file-card:nth-of-type(1) { --c1: #d4e7f6; --c2: #eef6fd; --accent: #3a72a8; }
+.cc-analysis-files .cc-file-card:nth-of-type(2) { --c1: #d2edda; --c2: #edf8f0; --accent: #3f8a5f; }
+.cc-analysis-files .cc-file-card:nth-of-type(3) { --c1: #fbe1c5; --c2: #fef3e7; --accent: #c97f36; }
+.cc-analysis-files .cc-file-card:nth-of-type(4) { --c1: #cdeae5; --c2: #eaf7f3; --accent: #2f8a80; }
+.cc-analysis-files .cc-file-card:nth-of-type(5) { --c1: #e6dcf4; --c2: #f4eefc; --accent: #6f59b4; }
+.cc-analysis-files .cc-file-card:nth-of-type(6) { --c1: #f7e6b4; --c2: #fdf6da; --accent: #a37f24; }
+.cc-analysis-files .cc-file-card:nth-of-type(7) { --c1: #f9d6bd; --c2: #fdeadd; --accent: #c4663d; }
 
 .cc-file-front {
   background: linear-gradient(140deg, var(--c1, #fff), var(--c2, #fff));
