@@ -116,11 +116,6 @@
           <h3>My tumor findings</h3>
           <p>IDH1, ATRX, TP53 / Li-Fraumeni context, MGMT methylation, HLA type, and vaccine-relevant peptides.</p>
         </a>
-        <a class="portal-card" href="#downloads">
-          <span>Downloads</span>
-          <h3>Files I can share here</h3>
-          <p>The generated report, structured variant summary, and CSV table for people who want to inspect the data.</p>
-        </a>
         <a class="portal-card request" href="mailto:verma.arun@gmail.com?subject=Research%20data%20request">
           <span>Raw access</span>
           <h3>Ask for source data</h3>
@@ -207,102 +202,6 @@
       <div class="variant-shell">
         <div class="variant-list" id="variant-list" aria-label="Variant list"></div>
         <aside class="variant-detail" id="variant-detail" aria-live="polite"></aside>
-      </div>
-    </section>
-
-    <section class="research-section downloads-section" id="downloads" aria-label="Data downloads">
-      <div class="section-heading">
-        <div class="kicker">Downloads</div>
-        <h2>Downloads</h2>
-        <p>
-          These are the files I am comfortable sharing here. Raw genome, tumor VCF, and peptide-level files
-          need more deliberate privacy boundaries and version notes.
-        </p>
-      </div>
-
-      <div class="download-grid">
-        <a class="download-card report-download" href="assets/downloads/triangle-unified-report.html" download>
-          <span>WIP HTML REPORT</span>
-          <h3>My working bioinformatics pipeline</h3>
-          <p>A work-in-progress report generated from my pipeline. Read it with the caveats below.</p>
-        </a>
-        <a class="download-card" href="assets/downloads/variant-summary.json" download>
-          <span>JSON</span>
-          <h3>Variant summary</h3>
-          <p>A structured version of the main findings on this page.</p>
-        </a>
-        <a class="download-card" href="assets/downloads/variant-summary.csv" download>
-          <span>CSV</span>
-          <h3>Variant table</h3>
-          <p>Spreadsheet-friendly overview of the main findings.</p>
-        </a>
-        <a class="download-card request" href="mailto:verma.arun@gmail.com?subject=Research%20data%20request">
-          <span>REQUEST</span>
-          <h3>Raw data access</h3>
-          <p>For raw genome or tumor files, start with a direct request.</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="research-section caveats-section" id="report" aria-label="Caveats and how to read this">
-      <div class="section-heading">
-        <div class="kicker">Generated report</div>
-        <h2>Caveats &amp; How to Read This</h2>
-        <p>
-          I generated a broader report from my data. It is useful, but it should be read as a
-          synthesis layer: a way to organize questions and conversations, not a diagnosis or treatment plan.
-        </p>
-        <a class="report-link" href="assets/downloads/triangle-unified-report.html" download>
-          Download the report
-        </a>
-      </div>
-
-      <div class="caveat-grid">
-        <article>
-          <span>01</span>
-          <h3>This is a synthesis, not a diagnosis</h3>
-          <p>This report combines genomic, transcriptomic, and database evidence into one view. It is meant to support conversations with clinicians, not replace clinical judgment or established care pathways.</p>
-        </article>
-        <article>
-          <span>02</span>
-          <h3>“Driver” does not always mean clinically actionable</h3>
-          <p>Some genes are labeled as drivers based on computational or pan-cancer evidence. IDH1, ATRX, and TP53 are well-established for this tumor type; others are algorithmic candidates or context-dependent clues.</p>
-        </article>
-        <article>
-          <span>03</span>
-          <h3>Pathogenic variants are not always cancer-relevant</h3>
-          <p>Labels like “pathogenic” may come from databases such as ClinVar and can reflect inherited disease associations. That does not automatically mean the variant is driving this tumor.</p>
-        </article>
-        <article>
-          <span>04</span>
-          <h3>Drug rankings are hypothesis-generating</h3>
-          <p>The drug list matches tumor features to known targets and databases. “FDA approved” means approved somewhere, not necessarily for this disease, and many entries are not standard or appropriate in glioma.</p>
-        </article>
-        <article>
-          <span>05</span>
-          <h3>Pathway matches are maps, not diagnoses</h3>
-          <p>Pathways labeled as breast cancer, gastric cancer, or other diseases reflect shared signaling biology across cancers. They are reference maps, not statements that those diseases are present.</p>
-        </article>
-        <article>
-          <span>06</span>
-          <h3>MGMT, TMB, and MSI need proper clinical assays</h3>
-          <p>MGMT promoter methylation cannot be determined from RNA alone. TMB here is WES-derived and not calibrated for immunotherapy decisions. MSI is shown as a signal, not a clinical eligibility call.</p>
-        </article>
-        <article>
-          <span>07</span>
-          <h3>Data quality and sampling matter</h3>
-          <p>Tumor purity around 32% can reduce sensitivity. Some variants may be missed or under-called, and not every finding is confirmed across multiple pipelines. Absence of a signal is not proof of absence.</p>
-        </article>
-        <article>
-          <span>08</span>
-          <h3>Experimental ideas remain investigational</h3>
-          <p>Neoantigen vaccines, immune-targeting strategies, and off-label combinations are active research areas, not established standard of care. I treat them as exploratory.</p>
-        </article>
-        <article>
-          <span>09</span>
-          <h3>This reflects one point in time</h3>
-          <p>Tumors evolve. This report reflects a specific sample, a specific moment, and a specific interpretation layer. Future scans, treatments, or sequencing may change the picture.</p>
-        </article>
       </div>
     </section>
 
