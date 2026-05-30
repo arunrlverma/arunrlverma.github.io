@@ -3810,11 +3810,14 @@ body[data-page="command-center"] nav a:hover {
 }
 
 .cc-story-heading {
-  display: grid;
-  grid-template-columns: minmax(300px, 760px) minmax(260px, 760px);
-  align-items: end;
-  gap: clamp(24px, 5vw, 74px);
-  margin-bottom: 32px;
+  max-width: 860px;
+  margin-bottom: clamp(30px, 4vw, 48px);
+}
+
+/* Description sits as a lede directly under the title, not floated off right */
+.cc-story-heading > p {
+  margin: 14px 0 0;
+  max-width: 720px;
 }
 
 .cc-story-heading h2,
