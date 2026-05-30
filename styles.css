@@ -3721,39 +3721,56 @@ body[data-page="command-center"] nav a:hover {
   margin-right: auto;
 }
 
+/* Proof points as free-standing badges (no table) */
 .cc-proof-strip {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 0;
-  margin-top: 38px;
-  border-top: 1px solid var(--cc-line);
-  border-bottom: 1px solid var(--cc-line);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 40px;
+  border: 0;
 }
 
 .cc-proof-strip div {
-  padding: 22px clamp(14px, 2vw, 28px);
-  border-left: 1px solid var(--cc-line);
-}
-
-.cc-proof-strip div:first-child {
-  border-left: 0;
+  flex: 1 1 210px;
+  padding: 15px 22px;
+  border: 1px solid rgba(24, 53, 83, .12);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, .74);
+  box-shadow: 0 10px 26px rgba(24, 53, 83, .05);
 }
 
 .cc-proof-strip span {
   display: block;
-  color: #75827c;
+  color: var(--cc-sage);
   font-size: 11px;
   font-weight: 800;
   letter-spacing: .14em;
   text-transform: uppercase;
 }
 
+.cc-proof-strip span::before {
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-right: 8px;
+  border-radius: 999px;
+  background: var(--dot, var(--cc-teal));
+  vertical-align: middle;
+}
+
+.cc-proof-strip div:nth-child(1) { --dot: #3a72a8; }
+.cc-proof-strip div:nth-child(2) { --dot: #3f8a5f; }
+.cc-proof-strip div:nth-child(3) { --dot: #2f8a80; }
+.cc-proof-strip div:nth-child(4) { --dot: #c4663d; }
+
 .cc-proof-strip b {
   display: block;
-  margin-top: 8px;
+  margin-top: 7px;
   color: var(--cc-navy);
-  font-size: clamp(16px, 1.35vw, 22px);
-  line-height: 1.2;
+  font-size: clamp(15px, 1.2vw, 19px);
+  font-weight: 700;
+  line-height: 1.25;
 }
 
 .cc-story-section,
@@ -4563,13 +4580,11 @@ body[data-page="command-center"] nav a:hover {
     overflow-wrap: anywhere;
   }
 
-  .cc-proof-strip div,
   .cc-system-card div {
     border-left: 0;
     border-top: 1px solid rgba(24, 53, 83, .1);
   }
 
-  .cc-proof-strip div:first-child,
   .cc-system-card div:first-child {
     border-top: 0;
   }
