@@ -3659,27 +3659,46 @@ body[data-page="command-center"] nav a:hover {
   min-height: 150px;
 }
 
-/* More color: each file carries a soft, distinct tint */
-.cc-analysis-files .cc-file-card:nth-of-type(1) .cc-file-front {
-  background: linear-gradient(140deg, #d7e8f0, #eef6fa);
+/* Color-coded folders: each file sets its own tint (--c1/--c2) + accent */
+.cc-analysis-files .cc-file-card:nth-of-type(1) { --c1: #d7e8f0; --c2: #eef6fa; --accent: #2f6a90; }
+.cc-analysis-files .cc-file-card:nth-of-type(2) { --c1: #d8eddd; --c2: #eef7f1; --accent: #3d7a4f; }
+.cc-analysis-files .cc-file-card:nth-of-type(3) { --c1: #f3e1cc; --c2: #fbf1e7; --accent: #a0682a; }
+.cc-analysis-files .cc-file-card:nth-of-type(4) { --c1: #cfe7e4; --c2: #e8f4f2; --accent: #356d70; }
+.cc-analysis-files .cc-file-card:nth-of-type(5) { --c1: #e0ddf0; --c2: #f0eff9; --accent: #574f96; }
+.cc-analysis-files .cc-file-card:nth-of-type(6) { --c1: #efe5c2; --c2: #f9f3dc; --accent: #8a6f24; }
+.cc-analysis-files .cc-file-card:nth-of-type(7) { --c1: #f1d9c1; --c2: #fbecdc; --accent: #9c5a33; }
+
+.cc-file-front {
+  background: linear-gradient(140deg, var(--c1, #fff), var(--c2, #fff));
 }
-.cc-analysis-files .cc-file-card:nth-of-type(2) .cc-file-front {
-  background: linear-gradient(140deg, #d8eddd, #eef7f1);
+
+.cc-file-back {
+  background: linear-gradient(140deg, var(--c1, #e8f2f6), #ffffff);
 }
-.cc-analysis-files .cc-file-card:nth-of-type(3) .cc-file-front {
-  background: linear-gradient(140deg, #f3e1cc, #fbf1e7);
+
+/* Badge, label, tab and hint adopt the file's accent */
+.cc-file-card .cc-file-face span {
+  background: #fffdf8;
+  border-color: var(--accent, rgba(24, 53, 83, .2));
+  color: var(--accent, var(--cc-sage));
 }
-.cc-analysis-files .cc-file-card:nth-of-type(4) .cc-file-front {
-  background: linear-gradient(140deg, #cfe7e4, #e8f4f2);
+
+.cc-file-card .cc-file-face em {
+  color: var(--accent, var(--cc-sage));
 }
-.cc-analysis-files .cc-file-card:nth-of-type(5) .cc-file-front {
-  background: linear-gradient(140deg, #e0ddf0, #f0eff9);
+
+.cc-file-face::before {
+  border-color: var(--accent, rgba(24, 53, 83, .18));
+  background: var(--c1, rgba(255, 255, 255, .72));
 }
-.cc-analysis-files .cc-file-card:nth-of-type(6) .cc-file-front {
-  background: linear-gradient(140deg, #efe5c2, #f9f3dc);
+
+.cc-flip-hint {
+  color: var(--accent, var(--cc-sage));
 }
-.cc-analysis-files .cc-file-card:nth-of-type(7) .cc-file-front {
-  background: linear-gradient(140deg, #f1d9c1, #fbecdc);
+
+.cc-file-card:hover .cc-file-face,
+.cc-file-card:focus-visible .cc-file-face {
+  border-color: var(--accent, rgba(24, 53, 83, .34));
 }
 
 @media (prefers-reduced-motion: reduce) {
