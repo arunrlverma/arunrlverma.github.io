@@ -6564,3 +6564,29 @@ body[data-page="command-center"] button:focus-visible,
   background: rgba(31, 61, 89, .05);
   border-color: var(--cc-navy);
 }
+
+/* ── v14 mobile hardening: kill horizontal overflow / clipping ── */
+@media (max-width: 760px) {
+  .cc-soft-landing .cc-analysis-files {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  .cc-soft-landing .cc-topbar h1.cc-hero-title {
+    font-size: clamp(27px, 7.6vw, 40px);
+    max-width: 100%;
+    letter-spacing: -.01em;
+  }
+  .cc-stepper-section, .cc-sample-section, .cc-pipeline-section,
+  .cc-ladder-section, .cc-privacy-section, .cc-price-section {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 18px;
+    padding-right: 18px;
+    box-sizing: border-box;
+  }
+  .cc-sample-split, .cc-pipeline { grid-template-columns: 1fr; }
+  .cc-pills { gap: 8px; }
+  .cc-pill { white-space: normal; font-size: 13px; text-align: center; }
+  .cc-privacy-inner h2 { overflow-wrap: anywhere; }
+}
