@@ -6590,3 +6590,17 @@ body[data-page="command-center"] button:focus-visible,
   .cc-pill { white-space: normal; font-size: 13px; text-align: center; }
   .cc-privacy-inner h2 { overflow-wrap: anywhere; }
 }
+
+/* v15: kill the legacy mobile carousel — stack the 3 folders */
+@media (max-width: 760px) {
+  .cc-soft-landing .cc-analysis-files {
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+    overflow: visible !important;
+    scroll-snap-type: none !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .cc-soft-landing .cc-file-card { min-height: 150px; }
+}
