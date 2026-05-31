@@ -6471,3 +6471,12 @@ body[data-page="command-center"] button:focus-visible,
 
 /* Hero: vertically center the (now 3-card) folder block against the taller copy */
 .cc-soft-landing .cc-analysis-files { align-self: center; }
+
+/* Hero: full-width centered headline above the intro + folders */
+.cc-soft-landing .cc-topbar h1.cc-hero-title {
+  grid-column: 1 / -1;
+  justify-self: center;
+  max-width: 1000px;
+  margin: 0 auto clamp(28px, 4vw, 52px);
+  text-align: center;
+}
