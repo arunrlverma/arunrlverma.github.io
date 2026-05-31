@@ -6464,3 +6464,7 @@ body[data-page="command-center"] button:focus-visible,
   .cc-price-tiers { grid-template-columns: 1fr; max-width: 460px; }
   .cc-tier-featured { transform: none; }
 }
+
+/* Center flip-card content vertically within each (stretched) cell */
+.cc-file-face { justify-content: center; }
+.cc-file-front { padding-top: 34px; padding-bottom: 30px; }
