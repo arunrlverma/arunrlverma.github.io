@@ -136,3 +136,16 @@
   }, { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
   targets.forEach(function (el) { io.observe(el); });
 })();
+
+/* Persistent scroll CTA: show after the hero, hide near the final CTA (v12) */
+(function () {
+  "use strict";
+  var bar = document.getElementById("sticky-cta");
+  if (!bar || !("IntersectionObserver" in window)) return;
+  var hero = document.querySelector(".cc-site-hero");
+  var end = document.querySelector(".cc-final-cta");
+  var pastHero = false, atEnd = false;
+  function update() { bar.classList.toggle("show", pastHero && !atEnd); }
+  if (hero) new IntersectionObserver(function (e) { pastHero = !e[0].isIntersecting; update(); }, { threshold: 0 }).observe(hero);
+  if (end) new IntersectionObserver(function (e) { atEnd = e[0].isIntersecting; update(); }, { threshold: 0 }).observe(end);
+})();
