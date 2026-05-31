@@ -6131,3 +6131,138 @@ body.cc-motion .reveal-grid.is-in-view > *:nth-child(7) { transition-delay: .40s
 .cc-soft-landing .cc-public-intro { color: #50646a; }
 .cc-flip-hint { opacity: .85; }
 .cc-file-card:focus-visible { outline: 2px solid var(--cc-teal); outline-offset: 4px; }
+
+/* ════════ v6 redesign: one distinct layout per section + banding ════════ */
+
+/* Centered section headings (distinct from the left-aligned hero) */
+.cc-soft-landing .cc-section-heading {
+  display: block;
+  max-width: 740px;
+  margin: 0 auto clamp(36px, 4vw, 56px);
+  text-align: center;
+}
+.cc-soft-landing .cc-section-heading .kicker { color: var(--cc-sage); }
+.cc-soft-landing .cc-section-heading h2 {
+  margin: 12px 0 0;
+  color: var(--cc-navy);
+  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-size: clamp(30px, 3.7vw, 54px);
+  font-weight: 700;
+  line-height: 1.1;
+}
+.cc-soft-landing .cc-section-heading p {
+  margin: 16px auto 0;
+  max-width: 620px;
+  color: #50646a;
+  font-size: clamp(16px, 1.4vw, 20px);
+  line-height: 1.55;
+}
+
+/* Section frames + full-bleed bands */
+.cc-stepper-section, .cc-sample-section, .cc-pipeline-section, .cc-ladder-section, .cc-privacy-section {
+  width: min(100% - 44px, 1720px);
+  margin: 0 auto;
+  padding: clamp(62px, 6.5vw, 112px) 0;
+  position: relative;
+}
+.cc-band-tint, .cc-band-dark { isolation: isolate; }
+.cc-band-tint::before, .cc-band-dark::before {
+  content: ""; position: absolute; z-index: -1; top: 0; bottom: 0; left: 50%; width: 100vw; transform: translateX(-50%);
+}
+.cc-band-tint::before { background: #e9f1f5; }
+.cc-band-dark::before { background: linear-gradient(165deg, #16314e, #1e2d42); }
+
+/* Flip cards now lead with the category (number badge removed) */
+.cc-file-front em { margin-top: 0; }
+
+/* Empathy + inline audiences */
+.cc-empathy-for {
+  margin: 20px auto 0;
+  max-width: 780px;
+  text-align: center;
+  color: var(--cc-sage);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* HOW IT WORKS — horizontal numbered stepper (the only numbered section) */
+.cc-stepper {
+  list-style: none; margin: 0 auto; padding: 0; max-width: 1000px;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(20px, 3vw, 44px);
+}
+.cc-stepper-node { position: relative; text-align: center; }
+.cc-stepper-num {
+  display: inline-grid; place-items: center; width: 50px; height: 50px; margin: 0 auto 16px;
+  border-radius: 999px; background: var(--cc-navy); color: #fffdf8; font-size: 18px; font-weight: 800;
+  box-shadow: 0 12px 26px rgba(24, 53, 83, .22); position: relative; z-index: 1;
+}
+.cc-stepper-node:not(:last-child)::after {
+  content: ""; position: absolute; top: 25px; left: calc(50% + 34px); right: calc(-50% + 34px);
+  height: 2px; background: var(--cc-line);
+}
+.cc-stepper-node h3 { margin: 0 0 6px; color: var(--cc-navy); font-size: clamp(18px, 1.7vw, 22px); font-weight: 700; }
+.cc-stepper-node p { margin: 0 auto; max-width: 270px; color: #65767a; font-size: 15px; line-height: 1.5; }
+
+/* SAMPLE — annotated split (contents list + live report) */
+.cc-sample-split {
+  display: grid; grid-template-columns: minmax(210px, .58fr) minmax(0, 1.42fr);
+  gap: clamp(24px, 3.5vw, 56px); align-items: start;
+}
+.cc-sample-label { display: block; color: var(--cc-sage); font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 12px; }
+.cc-sample-contents ul { list-style: none; margin: 0 0 22px; padding: 0; }
+.cc-sample-contents li { padding: 11px 0; border-bottom: 1px solid var(--cc-line); color: var(--cc-navy); font-size: 16px; font-weight: 600; }
+.cc-sample-contents li small { color: var(--cc-sage); font-weight: 600; font-size: 12px; margin-left: 6px; }
+.cc-sample-section .cc-report-preview { width: 100%; margin: 0; }
+
+/* UNDER THE HOOD — dark pipeline diagram */
+.cc-pipeline-section .cc-section-heading .kicker { color: #8fc6c0; }
+.cc-pipeline-section .cc-section-heading h2 { color: #fffdf8; }
+.cc-pipeline-section .cc-section-heading p { color: rgba(255, 255, 255, .8); }
+.cc-pipeline { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: clamp(14px, 1.8vw, 28px); align-items: center; }
+.cc-pipe-io { text-align: center; padding: 18px 20px; border: 1px solid rgba(255, 255, 255, .18); border-radius: 14px; background: rgba(255, 255, 255, .05); }
+.cc-pipe-io span { display: block; color: #8fc6c0; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; margin-bottom: 5px; }
+.cc-pipe-io b { color: #fffdf8; font-size: 15px; }
+.cc-pipe-flow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.cc-pipe-node { padding: 15px 16px; border: 1px solid rgba(255, 255, 255, .14); border-radius: 12px; background: rgba(255, 255, 255, .04); }
+.cc-pipe-node b { display: block; color: #fffdf8; font-size: 14px; font-weight: 700; margin-bottom: 7px; }
+.cc-pipe-node code { font-family: "IBM Plex Mono", ui-monospace, monospace; color: #9fd0ca; font-size: 11.5px; }
+.cc-pipe-node.accent { border-color: var(--cc-teal); background: rgba(79, 130, 133, .2); }
+
+/* WHAT TO UPLOAD — good/better/best ladder */
+.cc-ladder { list-style: none; margin: 0 auto; padding: 0; max-width: 840px; display: grid; gap: 16px; }
+.cc-ladder-tier { border: 1px solid var(--cc-line); border-radius: 14px; background: rgba(255, 255, 255, .66); padding: 22px 26px; box-shadow: 0 12px 30px rgba(24, 53, 83, .05); }
+.cc-ladder-tier span { color: var(--cc-sage); font-size: 11px; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
+.cc-ladder-tier h3 { margin: 7px 0 6px; color: var(--cc-navy); font-weight: 700; font-size: clamp(18px, 1.7vw, 23px); }
+.cc-ladder-tier p { margin: 0; color: #65767a; font-size: 15px; line-height: 1.5; }
+.cc-ladder-tier p code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 12.5px; color: var(--cc-teal); }
+.cc-ladder-tier.tier-best { border-color: var(--cc-teal); border-left-width: 4px; background: linear-gradient(135deg, rgba(232, 242, 246, .85), rgba(255, 255, 255, .72)); box-shadow: 0 22px 50px rgba(79, 130, 133, .12); }
+.cc-ladder-tier.tier-best h3 { font-size: clamp(22px, 2.2vw, 29px); }
+
+/* PRIVACY — reassurance pill row */
+.cc-privacy-inner { text-align: center; max-width: 940px; margin: 0 auto; }
+.cc-privacy-inner h2 { color: var(--cc-navy); font-size: clamp(24px, 2.7vw, 38px); font-weight: 700; margin: 0 0 24px; }
+.cc-pills { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.cc-pill { padding: 11px 19px; border: 1px solid var(--cc-line); border-radius: 999px; background: rgba(255, 255, 255, .72); color: var(--cc-navy); font-size: 14px; font-weight: 600; }
+.cc-privacy-link { display: inline-block; margin-top: 22px; color: var(--cc-teal); font-weight: 600; text-decoration: none; }
+.cc-privacy-link:hover { color: var(--cc-navy); }
+
+/* PRICING — single centered card, $199 as the big type moment */
+.cc-price-section { display: block; border: 0; width: min(100% - 44px, 1720px); margin: 0 auto; padding: clamp(60px, 6.5vw, 108px) 0; }
+.cc-price-solo { max-width: 520px; margin: 0 auto; text-align: center; border: 1px solid var(--cc-line); border-radius: 22px; background: rgba(255, 255, 255, .74); padding: clamp(36px, 4vw, 58px); box-shadow: 0 28px 66px rgba(24, 53, 83, .1); }
+.cc-price-solo .kicker { color: var(--cc-sage); }
+.cc-price-solo strong { display: block; margin: 12px 0 6px; color: var(--cc-navy); font-size: clamp(58px, 8vw, 94px); font-weight: 700; line-height: 1; letter-spacing: -.02em; }
+.cc-price-solo p { color: #5e7075; font-size: 15px; line-height: 1.55; margin: 0 auto 26px; max-width: 380px; }
+
+@media (max-width: 880px) {
+  .cc-sample-split { grid-template-columns: 1fr; }
+  .cc-pipeline { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .cc-stepper { grid-template-columns: 1fr; gap: 18px; }
+  .cc-stepper-node { display: grid; grid-template-columns: 50px 1fr; column-gap: 16px; text-align: left; align-items: center; }
+  .cc-stepper-num { margin: 0; }
+  .cc-stepper-node h3 { grid-column: 2; }
+  .cc-stepper-node p { grid-column: 2; max-width: none; }
+  .cc-stepper-node:not(:last-child)::after { display: none; }
+  .cc-pipe-flow { grid-template-columns: 1fr; }
+}
