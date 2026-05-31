@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260531-cc-v6">
+  <link rel="stylesheet" href="styles.css?v=20260531-cc-v7">
 </head>
 <body data-page="command-center">
   <header class="site-header">
@@ -181,12 +181,12 @@
       <div class="cc-pipeline reveal-grid">
         <div class="cc-pipe-io"><span>Inputs</span><b>DNA &middot; RNA &middot; immune</b></div>
         <div class="cc-pipe-flow">
-          <div class="cc-pipe-node"><b>Variant calling</b><code>Mutect2 &middot; MuSE &middot; VEP</code></div>
-          <div class="cc-pipe-node"><b>Expression &amp; fusions</b><code>STAR &middot; Salmon &middot; Arriba</code></div>
-          <div class="cc-pipe-node"><b>Copy number</b><code>PureCN &middot; FACETS</code></div>
-          <div class="cc-pipe-node"><b>Immune &amp; neoantigens</b><code>OptiType &middot; MHCflurry</code></div>
-          <div class="cc-pipe-node"><b>Drugs &amp; dependencies</b><code>DepMap &middot; trials</code></div>
-          <div class="cc-pipe-node accent"><b>AI synthesis</b><code>evidence-weighted &middot; cited</code></div>
+          <div class="cc-pipe-node"><b>Variant calling</b><div class="cc-chips"><code>Mutect2</code><code>MuSE</code><code>VEP</code></div></div>
+          <div class="cc-pipe-node"><b>Expression &amp; fusions</b><div class="cc-chips"><code>STAR</code><code>Salmon</code><code>Arriba</code></div></div>
+          <div class="cc-pipe-node"><b>Copy number</b><div class="cc-chips"><code>PureCN</code><code>FACETS</code></div></div>
+          <div class="cc-pipe-node"><b>Immune &amp; neoantigens</b><div class="cc-chips"><code>OptiType</code><code>MHCflurry</code></div></div>
+          <div class="cc-pipe-node"><b>Drugs &amp; dependencies</b><div class="cc-chips"><code>DepMap</code><code>trials</code></div></div>
+          <div class="cc-pipe-node accent"><b>AI synthesis</b><div class="cc-chips"><code>evidence-weighted</code><code>cited</code></div></div>
         </div>
         <div class="cc-pipe-io"><span>Output</span><b>one cited report</b></div>
       </div>
@@ -236,7 +236,7 @@
     <section class="cc-price-section reveal" id="pricing" aria-label="Pricing">
       <div class="cc-price-card cc-price-solo">
         <div class="kicker">One report</div>
-        <strong>$199</strong>
+        <strong><span class="cc-dollar">$</span>199</strong>
         <p>One flat fee, no subscription. Full refund if we can't process your files; otherwise non-refundable once your report runs — so read the sample first.</p>
         <a class="cc-live-link" href="https://d3mjr6kw1lskoo.cloudfront.net" target="_blank" rel="noopener">Start your analysis &#8599;</a>
       </div>
