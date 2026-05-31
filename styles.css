@@ -6468,3 +6468,6 @@ body[data-page="command-center"] button:focus-visible,
 /* Center flip-card content vertically within each (stretched) cell */
 .cc-file-face { justify-content: center; }
 .cc-file-front { padding-top: 34px; padding-bottom: 30px; }
+
+/* Hero: vertically center the (now 3-card) folder block against the taller copy */
+.cc-soft-landing .cc-analysis-files { align-self: center; }
