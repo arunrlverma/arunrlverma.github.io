@@ -6604,3 +6604,33 @@ body[data-page="command-center"] button:focus-visible,
   }
   .cc-soft-landing .cc-file-card { min-height: 150px; }
 }
+
+/* v16: secure-handoff reassurance (frames the AWS portal as expected, not a scam) */
+.cc-cta-trust {
+  margin: 16px auto 0;
+  max-width: 560px;
+  color: var(--ink-2);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+.cc-lock {
+  display: inline-block;
+  width: 11px; height: 9px;
+  border: 1.5px solid var(--cc-teal);
+  border-radius: 2px;
+  position: relative;
+  top: 1px;
+  margin-right: 7px;
+}
+.cc-lock::before {
+  content: "";
+  position: absolute;
+  left: 50%; top: -6px;
+  transform: translateX(-50%);
+  width: 6px; height: 7px;
+  border: 1.5px solid var(--cc-teal);
+  border-bottom: 0;
+  border-radius: 4px 4px 0 0;
+}
+.cc-price-refund + .cc-price-refund { margin-top: 8px; }
