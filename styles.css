@@ -6545,3 +6545,22 @@ body[data-page="command-center"] button:focus-visible,
   .cc-sticky-cta { left: 12px; right: 12px; transform: none; justify-content: space-between; width: auto; }
   .cc-sticky-cta.show { transform: none; }
 }
+
+/* CTA hierarchy: solid-navy primary that pops, clean ghost secondary (v13) */
+.cc-soft-landing .cc-live-link {
+  background: var(--cc-navy);
+  color: #fffaf2;
+  border: 1px solid var(--cc-navy);
+  box-shadow: 0 12px 28px rgba(31, 61, 89, .22);
+}
+.cc-soft-landing .cc-live-link:hover { background: #16314e; border-color: #16314e; }
+.cc-soft-landing .cc-live-link.secondary {
+  background: rgba(255, 255, 255, .35);
+  color: var(--cc-navy);
+  border: 1.5px solid rgba(31, 61, 89, .30);
+  box-shadow: none;
+}
+.cc-soft-landing .cc-live-link.secondary:hover {
+  background: rgba(31, 61, 89, .05);
+  border-color: var(--cc-navy);
+}
