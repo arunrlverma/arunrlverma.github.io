@@ -6414,3 +6414,53 @@ body[data-page="command-center"] button:focus-visible,
 @media (max-width: 880px) {
   .cc-founder-portrait img { width: 104px; height: 104px; }
 }
+
+/* ── Three-tier pricing ── */
+.cc-price-tiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(16px, 2vw, 26px);
+  max-width: 1040px;
+  margin: 0 auto;
+  align-items: center;
+}
+.cc-tier {
+  display: flex; flex-direction: column;
+  border: 1px solid var(--cc-line);
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, .72);
+  box-shadow: var(--e1);
+  padding: clamp(26px, 3vw, 38px) clamp(22px, 2.4vw, 30px);
+  text-align: center;
+}
+.cc-tier-name { color: var(--cc-sage); font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.cc-tier strong { display: block; margin: 10px 0 4px; color: var(--cc-navy); font-size: clamp(40px, 5vw, 60px); font-weight: 700; line-height: 1; letter-spacing: -.03em; font-variant-numeric: tabular-nums; }
+.cc-tier-desc { color: var(--ink-2); font-size: 14px; line-height: 1.45; margin: 0 0 18px; min-height: 42px; }
+.cc-tier ul { list-style: none; margin: 0 0 22px; padding: 0; text-align: left; flex: 1; }
+.cc-tier li { position: relative; padding: 9px 0 9px 24px; border-bottom: 1px solid var(--cc-line); color: var(--ink-2); font-size: 14px; line-height: 1.4; }
+.cc-tier li::before { content: "\2713"; position: absolute; left: 0; top: 9px; color: var(--cc-teal); font-weight: 700; }
+.cc-tier li code { font-family: "IBM Plex Mono", ui-monospace, monospace; font-size: 11.5px; color: var(--cc-teal); }
+.cc-tier li small { color: var(--ink-3); display: block; }
+.cc-tier-no { color: var(--ink-3); }
+.cc-tier-no::before { content: "\2013"; color: var(--ink-3); }
+.cc-tier .cc-live-link { display: flex; justify-content: center; width: 100%; }
+.cc-tier-featured {
+  position: relative;
+  border: 1.5px solid var(--cc-teal);
+  background: linear-gradient(160deg, #fff, #f3f7f5);
+  box-shadow: var(--e3);
+  transform: scale(1.045);
+  z-index: 1;
+}
+.cc-tier-featured strong { font-size: clamp(52px, 6.5vw, 80px); }
+.cc-tier-flag {
+  position: absolute; top: -13px; left: 50%; transform: translateX(-50%);
+  padding: 5px 14px; border-radius: 999px; background: var(--cc-navy); color: #fffaf2;
+  font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; white-space: nowrap;
+}
+.cc-price-refund { max-width: 640px; margin: clamp(28px, 3vw, 40px) auto 0; text-align: center; color: var(--ink-3); font-size: 13.5px; line-height: 1.5; }
+
+@media (max-width: 820px) {
+  .cc-price-tiers { grid-template-columns: 1fr; max-width: 460px; }
+  .cc-tier-featured { transform: none; }
+}

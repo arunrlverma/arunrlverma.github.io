@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=20260531-cc-v7">
+  <link rel="stylesheet" href="styles.css?v=20260531-cc-v8">
 </head>
 <body data-page="command-center">
   <header class="site-header">
@@ -27,7 +27,6 @@
     <section class="cc-topbar cc-site-hero" aria-label="Cancer Command Center overview">
       <img class="cc-hero-backdrop" src="assets/media/illus-ai-treatment-map.webp" alt="" aria-hidden="true">
       <div class="cc-hero-copy">
-        <p class="cc-eyebrow"><span class="cc-live-dot" aria-hidden="true"></span>AI &middot; research-grade genomics</p>
         <h1>Your cancer data holds more than one report can show.</h1>
         <p class="cc-public-intro">
           We analyze your tumor's DNA, RNA, and immune signals with research-grade pipelines, and turn it into
@@ -232,14 +231,51 @@
       </div>
     </section>
 
-    <!-- PRICING: single centered card, $199 as the big type moment -->
+    <!-- PRICING: three tiers, $199 featured -->
     <section class="cc-price-section reveal" id="pricing" aria-label="Pricing">
-      <div class="cc-price-card cc-price-solo">
-        <div class="kicker">One report</div>
-        <strong><span class="cc-dollar">$</span>199</strong>
-        <p>One flat fee, no subscription. Full refund if we can't process your files; otherwise non-refundable once your report runs — so read the sample first.</p>
-        <a class="cc-live-link" href="https://d3mjr6kw1lskoo.cloudfront.net" target="_blank" rel="noopener">Start your analysis &#8599;</a>
+      <div class="cc-section-heading">
+        <div class="kicker">Pricing</div>
+        <h2>Pick the depth that fits.</h2>
+        <p>One-time fee, no subscription. Read the full sample report before you pay.</p>
       </div>
+      <div class="cc-price-tiers">
+        <article class="cc-tier">
+          <span class="cc-tier-name">Report</span>
+          <strong><span class="cc-dollar">$</span>99</strong>
+          <p class="cc-tier-desc">Analysis from your existing genomics report.</p>
+          <ul>
+            <li>Drivers, biomarkers &amp; treatment landscape</li>
+            <li>Doctor-ready summary &amp; questions</li>
+            <li class="cc-tier-no">No raw-file processing</li>
+          </ul>
+          <a class="cc-live-link secondary" href="https://d3mjr6kw1lskoo.cloudfront.net" target="_blank" rel="noopener">Start &#8599;</a>
+        </article>
+        <article class="cc-tier cc-tier-featured">
+          <span class="cc-tier-flag">Most complete</span>
+          <span class="cc-tier-name">Full analysis</span>
+          <strong><span class="cc-dollar">$</span>199</strong>
+          <p class="cc-tier-desc">The complete pipeline on your raw sequencing files.</p>
+          <ul>
+            <li>Everything in Report</li>
+            <li>Raw files: <code>VCF &middot; BAM &middot; CRAM &middot; FASTQ</code></li>
+            <li>RNA, immune &amp; vaccine signals</li>
+            <li>The full report you just sampled</li>
+          </ul>
+          <a class="cc-live-link" href="https://d3mjr6kw1lskoo.cloudfront.net" target="_blank" rel="noopener">Start your analysis &#8599;</a>
+        </article>
+        <article class="cc-tier">
+          <span class="cc-tier-name">Full + consult</span>
+          <strong><span class="cc-dollar">$</span>599</strong>
+          <p class="cc-tier-desc">Everything in Full, plus a 1:1 walkthrough of your report.</p>
+          <ul>
+            <li>Everything in Full analysis</li>
+            <li>A 1:1 session to understand your report</li>
+            <li>Help preparing questions <small>(educational, not medical advice)</small></li>
+          </ul>
+          <a class="cc-live-link secondary" href="https://d3mjr6kw1lskoo.cloudfront.net" target="_blank" rel="noopener">Start &#8599;</a>
+        </article>
+      </div>
+      <p class="cc-price-refund">One-time fee, no subscription. Full refund if we can't process your files; otherwise non-refundable once your report runs — so read the sample first.</p>
     </section>
 
     <!-- FAQ: the single home for the long detail -->
