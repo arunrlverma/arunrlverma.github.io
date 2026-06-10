@@ -5,11 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arun Verma | My Cancer Timeline</title>
   <meta name="description" content="Arun Verma's personal cancer timeline, from the first shocking scan through surgery, treatment, data, Camino, and the work that became Triangle.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="styles.css?v=20260424-callout-fix">
+  <link rel="stylesheet" href="suminagashi.css?v=20260610i">
 </head>
-<body data-page="timeline">
+<body class="sumi" data-page="timeline">
+  <div class="ink-tide" aria-hidden="true"></div>
   <div class="wash wash-a"></div>
   <div class="wash wash-b"></div>
+  <div class="wash wash-c"></div>
+  <div class="sumi-spine" aria-hidden="true">MOVE THROUGH IT <span class="dot">·</span> A CANCER STORY</div>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Arun Verma home">
       <span class="brand-mark"></span>
@@ -36,9 +43,19 @@
         <button class="chip active" data-filter="all">All</button>
         <button class="chip" data-filter="diagnosis">Diagnosis</button>
         <button class="chip" data-filter="imaging">Imaging</button>
+        <button class="chip" data-filter="labs">Labs</button>
         <button class="chip" data-filter="treatment">Treatment</button>
         <button class="chip" data-filter="data">Data</button>
         <button class="chip" data-filter="personal">Personal</button>
+      </div>
+      <div class="ink-picker" aria-label="Ink color for the water">
+        <span class="pk-label">Ink</span>
+        <button class="ink-swatch active" type="button" data-ink="cycle" aria-label="Cycle through inks"></button>
+        <button class="ink-swatch" type="button" data-ink="sumi" style="--sw:#bdbcc8" aria-label="Soft grey"></button>
+        <button class="ink-swatch" type="button" data-ink="ai" style="--sw:#88b0db" aria-label="Soft blue"></button>
+        <button class="ink-swatch" type="button" data-ink="shu" style="--sw:#e89e92" aria-label="Soft coral"></button>
+        <button class="ink-swatch" type="button" data-ink="matsuba" style="--sw:#a4cfb4" aria-label="Soft sage"></button>
+        <span class="pk-hint">hold &amp; drag the water</span>
       </div>
     </section>
 
@@ -64,6 +81,7 @@
     <a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a>
   </footer>
 
-  <script src="timeline.js?v=20260424-remove-ivosidenib-card"></script>
+  <script src="timeline.js?v=20260610i-chapter"></script>
+  <script src="suminagashi-fluid.js?v=20260610i"></script>
 </body>
 </html>

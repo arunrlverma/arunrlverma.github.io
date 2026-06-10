@@ -7,6 +7,26 @@ const categoryLabels = {
   personal: "Personal"
 };
 
+// Narrative ink — each chapter carries an ink so the page takes on the emotional weather
+// of the moment. Drives the full-bleed .ink-tide layer via the --chapter custom property.
+const CHAPTER_INK = {
+  diagnosis: [232, 158, 146],  // pastel coral — the shock
+  imaging:   [136, 176, 219],  // pastel indigo — the cold scan light
+  labs:      [150, 184, 226],  // pastel blue — measurement
+  data:      [150, 205, 190],  // pastel teal — building, understanding
+  treatment: [164, 207, 180],  // pastel sage — the long fight
+  personal:  [189, 188, 200],  // pastel grey-lilac — the human, the quiet
+};
+let lastChapter = null;
+function publishChapter(category) {
+  const rgb = CHAPTER_INK[category] || CHAPTER_INK.personal;
+  if (category === lastChapter) return;
+  lastChapter = category;
+  try {
+    document.documentElement.style.setProperty("--chapter", `rgb(${rgb[0]},${rgb[1]},${rgb[2]})`);
+  } catch (_) { /* no-op */ }
+}
+
 const state = {
   events: [],
   filter: "all",
@@ -406,6 +426,7 @@ function setActive(index, mediaIndex = 0, mediaIndexIsStageIndex = false) {
 
   stageDate.textContent = eventDate(visualEvent);
   stageCategory.textContent = categoryLabels[visualEvent.category] || visualEvent.category || "Story";
+  publishChapter(visualEvent.category);
   stageMedia.classList.add("stack-wrap");
   stageMedia.classList.add("story-stack-wrap");
   stageMedia.classList.toggle("wide-stack-wrap", visualEvent.layout === "finale");
@@ -514,7 +535,8 @@ document.addEventListener("click", (event) => {
   const node = event.target.closest(".node[data-event]");
   if (node) {
     setActive(Number(node.dataset.event));
-    node.closest(".timeline-card")?.scrollIntoView({ block: "center", behavior: "smooth" });
+    const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    node.closest(".timeline-card")?.scrollIntoView({ block: "center", behavior: prefersReducedMotion ? "auto" : "smooth" });
     return;
   }
 

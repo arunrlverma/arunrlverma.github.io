@@ -1,0 +1,432 @@
+/* ============================================================================
+   Suminagashi (墨流し — "floating ink") skin for the home / timeline page only.
+   Scoped to body.sumi so deepdive / command-center / contact keep
+   their current look. Infuses the reference aesthetic: warm washi paper, drifting
+   ink-bloom washes, the traditional four-ink palette (sumi · ai · shu · matsuba),
+   Shippori Mincho DISPLAY type over a readable book serif for long reading, and a
+   vertical side spine. Palette aligned to the reference's confirmed hexes.
+   ============================================================================ */
+
+body.sumi {
+  /* Traditional suminagashi palette (reference hexes), retuned over the paper system. */
+  --paper: #fbf3e1;          /* 和紙 warm washi */
+  --paper-deep: #f0e7d0;
+  --ink: #1a1a19;            /* 墨 sumi */
+  --muted: #6b6256;          /* warm grey-brown for body copy */
+  --line: #e0d6c0;
+  --ai: #16407a;             /* 藍 indigo */
+  --shu: #c8372d;            /* 朱 vermillion */
+  --matsuba: #2e6e52;        /* 松葉 pine-needle green */
+  --white: #fffdf7;
+
+  /* Two faces: Shippori for display, a refined book serif for the long read. */
+  --display-serif: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
+  --body-serif: "Iowan Old Style", "Palatino Linotype", "Hiragino Mincho ProN",
+                "Yu Mincho", Charter, Georgia, serif;
+
+  color: var(--ink);
+  background: var(--paper);
+  font-family: var(--body-serif);
+  overflow-x: hidden;          /* contain the off-canvas wash blobs at narrow widths */
+}
+
+/* Layered washi: warm base + faint fiber speckle + a soft top vignette. */
+body.sumi::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+  background-image:
+    radial-gradient(circle at 50% 0%, rgba(255,253,247,.55), transparent 60%),
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix type='matrix' values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .04 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  background-size: cover, 180px 180px;
+  opacity: 1;
+}
+
+/* ---- Ink blooms: the .wash blobs become indigo / vermillion / pine ink dispersing
+   on water. Larger, softer, slowly drifting. ---- */
+body.sumi .wash {
+  width: 54vw;
+  height: 54vw;
+  filter: blur(54px);
+  opacity: .24;
+  mix-blend-mode: multiply;
+  border-radius: 49% 51% 47% 53% / 53% 46% 54% 47%;
+}
+body.sumi .wash-a {
+  top: -22vw; left: -16vw;
+  background: radial-gradient(circle at 40% 40%, var(--ai), transparent 68%);
+  animation: sumi-drift-a 38s ease-in-out infinite alternate;
+}
+body.sumi .wash-b {
+  right: -20vw; top: 8vh;
+  background: radial-gradient(circle at 60% 50%, var(--shu), transparent 66%);
+  opacity: .18;
+  animation: sumi-drift-b 46s ease-in-out infinite alternate;
+}
+body.sumi .wash-c {
+  right: 8vw; bottom: -28vw;
+  background: radial-gradient(circle at 50% 50%, var(--matsuba), transparent 66%);
+  animation: sumi-drift-a 52s ease-in-out infinite alternate-reverse;
+}
+@keyframes sumi-drift-a { to { transform: translate(4vw, 3vh) rotate(8deg) scale(1.08); } }
+@keyframes sumi-drift-b { to { transform: translate(-3vw, 4vh) rotate(-6deg) scale(1.1); } }
+
+/* ---- Hero = the visible ink stage. Make the hero backdrop a translucent paper veil
+   so the interactive ink canvas (z-index:-1) actually shows behind the headline —
+   the focal "floating ink" moment — while keeping body copy legible. ---- */
+body.sumi .timeline-hero {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: clamp(440px, 74vh, 780px);
+  border-bottom: 1px solid var(--line);
+  padding-top: clamp(48px, 8vw, 104px);
+  padding-bottom: clamp(30px, 5vw, 56px);
+  /* fallback paper veil if the WebGL fluid is unavailable (it paints its own paper otherwise) */
+  background:
+    linear-gradient(180deg,
+      color-mix(in srgb, var(--paper) 70%, transparent),
+      color-mix(in srgb, var(--paper) 88%, transparent));
+}
+/* Full-page fluid: a fixed multiply layer that inks the whole washi surface; the page rides
+   above it (multiply means white = unchanged, so only the ink darkens/tints the paper). */
+body.has-fluid .timeline-hero { background: transparent; }
+body.has-fluid .sumi-fluid-canvas {
+  position: fixed; inset: 0; width: 100%; height: 100%;
+  z-index: 0; display: block; pointer-events: none;
+  mix-blend-mode: multiply;
+}
+body.has-fluid main,
+body.has-fluid .footer { position: relative; z-index: 1; }
+/* keep the headline + intro legible where ink swirls beneath them */
+body.sumi .timeline-hero h1,
+body.sumi .timeline-hero .kicker,
+body.sumi .timeline-hero p {
+  text-shadow: 0 0 14px var(--paper), 0 0 30px var(--paper);
+}
+
+/* ---- Ink picker (choose the water's color) ---- */
+/* Ink legend: a fixed pill in the top-right, tucked below the page-selector nav. */
+body.sumi .ink-picker { display: none; }
+body.sumi.has-fluid .ink-picker {
+  display: flex; align-items: center; gap: 9px; margin: 0;
+  position: fixed; z-index: 10;
+  top: clamp(64px, 8.2vh, 90px); right: clamp(14px, 4vw, 56px);
+  padding: 7px 13px;
+  background: color-mix(in srgb, var(--paper) 74%, transparent);
+  border: 1px solid var(--line); border-radius: 999px;
+  -webkit-backdrop-filter: blur(8px) saturate(1.05); backdrop-filter: blur(8px) saturate(1.05);
+  box-shadow: 0 6px 20px rgba(26,26,25,.10);
+}
+@media (max-width: 880px) { body.sumi .ink-picker { display: none !important; } }
+body.sumi .ink-picker .pk-label {
+  font-size: 11px; letter-spacing: .2em; text-transform: uppercase;
+  color: var(--muted); margin-right: 3px;
+}
+body.sumi .ink-picker .pk-hint {
+  font-size: 11px; letter-spacing: .04em; color: color-mix(in srgb, var(--muted) 78%, transparent);
+  margin-left: 6px; font-style: italic;
+}
+body.sumi .ink-swatch {
+  width: 18px; height: 18px; border-radius: 50%; padding: 0; cursor: pointer;
+  background: var(--sw, var(--ink));
+  border: 1px solid color-mix(in srgb, var(--ink) 28%, transparent);
+  box-shadow: 0 1px 4px rgba(26,26,25,.18);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+body.sumi .ink-swatch[data-ink="cycle"] {
+  background: conic-gradient(from -90deg, #bdbcc8, #88b0db, #e89e92, #a4cfb4, #bdbcc8);
+}
+body.sumi .ink-swatch:hover { transform: scale(1.16); }
+body.sumi .ink-swatch.active { box-shadow: 0 0 0 2px var(--paper), 0 0 0 4px var(--sw, var(--ai)); }
+body.sumi .ink-swatch:focus-visible { outline: 2px solid var(--ai); outline-offset: 3px; }
+
+/* ---- Vertical spine: a thin tategaki-style accent pinned to the lower-left margin
+   (romanized, not Japanese, per the brief). Decorative; clears the sticky header. ---- */
+body.sumi .sumi-spine {
+  position: fixed;
+  left: clamp(14px, 1.4vw, 30px);
+  bottom: clamp(28px, 10vh, 120px);
+  top: auto;
+  transform: none;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-family: var(--display-serif);
+  font-weight: 500;
+  letter-spacing: .42em;
+  font-size: 12px;
+  color: color-mix(in srgb, var(--ai) 70%, var(--ink));
+  text-transform: uppercase;
+  pointer-events: none;
+  z-index: 5;
+  user-select: none;
+}
+body.sumi .sumi-spine .dot { color: var(--shu); }
+
+/* ---- Typography: Shippori Mincho for DISPLAY only; book serif for body copy ---- */
+body.sumi h1,
+body.sumi h2,
+body.sumi h3,
+body.sumi .timeline-card .card-body h2,
+body.sumi .brand {
+  font-family: var(--display-serif);
+  font-weight: 700;
+  letter-spacing: .005em;
+}
+body.sumi .timeline-hero h1 {
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: .01em;
+  font-size: clamp(30px, 4.4vw, 56px);
+}
+body.sumi .hero .kicker,
+body.sumi .timeline-hero .kicker {
+  color: var(--shu);
+  letter-spacing: .34em;
+  font-weight: 700;
+}
+
+/* Body copy: the long read in the book serif, opened up for comfort. */
+body.sumi .hero p,
+body.sumi .card-body p,
+body.sumi .summary,
+body.sumi .event-callout p,
+body.sumi .fact-list li {
+  font-family: var(--body-serif);
+  line-height: 1.7;
+}
+body.sumi .card-body p,
+body.sumi .summary {
+  max-width: 62ch;
+}
+body.sumi .hero p { font-size: clamp(15px, 1.35vw, 17px); line-height: 1.65; }
+body.sumi .card-body p { font-size: 15.5px; color: color-mix(in srgb, var(--ink) 72%, var(--muted)); }
+body.sumi .summary { font-size: 16.5px !important; color: var(--ink) !important; }
+/* Card eyebrow: restrained indigo, not a second shout of vermillion. */
+body.sumi .card-body .eyebrow {
+  color: color-mix(in srgb, var(--ai) 64%, var(--muted));
+}
+/* Fact-list items: warm washi, not the base cool-paper tint. */
+body.sumi .fact-list li {
+  background: color-mix(in srgb, var(--white) 58%, var(--paper));
+  border-color: var(--line);
+}
+
+/* ---- Header / nav ---- */
+body.sumi .site-header {
+  background: color-mix(in srgb, var(--paper) 80%, transparent);
+  backdrop-filter: blur(8px) saturate(1.05);
+  border-bottom: 1px solid var(--line);
+}
+body.sumi .brand-mark {
+  background: radial-gradient(circle at 35% 35%, var(--ink), var(--ai) 120%);
+}
+body.sumi nav a { color: var(--muted); font-family: var(--body-serif); }
+body.sumi nav a.active,
+body.sumi nav a:hover { color: var(--ink); }
+body.sumi nav a.active { border-bottom: 2px solid var(--shu); }
+
+/* ---- Filter chips: ink outlines, vermillion-ink fill when active ---- */
+body.sumi .chip {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--muted);
+  border-radius: 999px;
+  font-family: var(--body-serif);
+  transition: all .2s ease;
+}
+body.sumi .chip:hover { border-color: color-mix(in srgb, var(--ink) 40%, var(--line)); color: var(--ink); }
+body.sumi .chip.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+/* ---- Focus-visible rings (keyboard) on the interactive controls ---- */
+body.sumi .chip:focus-visible,
+body.sumi nav a:focus-visible,
+body.sumi .footer a:focus-visible,
+body.sumi .node:focus-visible {
+  outline: 2px solid var(--ai);
+  outline-offset: 3px;
+  border-radius: 999px;
+}
+
+/* ---- Stage frame: a warm hung scroll on washi (paper, not pure white) ---- */
+body.sumi .stage-frame {
+  background: color-mix(in srgb, var(--white) 62%, var(--paper));
+  border: 1px solid var(--line);
+  box-shadow: 0 18px 48px rgba(26,26,25,.10);
+}
+body.sumi #stage-date { color: var(--ai); font-family: var(--display-serif); letter-spacing: .2em; }
+body.sumi #stage-category { color: var(--shu); letter-spacing: .2em; }
+/* Photo caption: lift off the sub-AA grey for readability. */
+body.sumi .caption { color: color-mix(in srgb, var(--ink) 64%, var(--muted)); font-size: 12px; }
+
+/* ---- Vertical rhythm for the taller serif read ---- */
+/* Exclude the finale so its full-viewport climax (styles.css .finale{min-height:100vh})
+   is NOT collapsed by this generic rule's higher specificity. */
+body.sumi .timeline-card:not(.finale) {
+  padding: 22px 0;
+  min-height: clamp(320px, 38vh, 440px);
+}
+body.sumi .timeline-card.finale { min-height: 100vh; }
+
+/* ---- Timeline nodes: each category carries a distinct ink (resting + active) ---- */
+body.sumi .timeline-card .node { background: var(--ai); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ai) 18%, transparent); }
+body.sumi .timeline-card.diagnosis .node { background: var(--shu); box-shadow: 0 0 0 4px color-mix(in srgb, var(--shu) 18%, transparent); }
+body.sumi .timeline-card.imaging .node { background: var(--ai); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ai) 18%, transparent); }
+body.sumi .timeline-card.treatment .node { background: var(--matsuba); box-shadow: 0 0 0 4px color-mix(in srgb, var(--matsuba) 18%, transparent); }
+body.sumi .timeline-card.data .node { background: color-mix(in srgb, var(--matsuba) 60%, var(--ai)); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ai) 14%, transparent); }
+body.sumi .timeline-card.labs .node { background: color-mix(in srgb, var(--ai) 70%, var(--paper)); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ai) 14%, transparent); }
+body.sumi .timeline-card.personal .node { background: var(--ink); box-shadow: 0 0 0 4px color-mix(in srgb, var(--ink) 16%, transparent); }
+
+/* Active node — override the leaked old pastels with the matching ink + a grow. */
+body.sumi .timeline-card.active .node { background: var(--ai); transform: scale(1.18); }
+body.sumi .timeline-card.diagnosis.active .node { background: var(--shu); }
+body.sumi .timeline-card.imaging.active .node { background: var(--ai); }
+body.sumi .timeline-card.treatment.active .node { background: var(--matsuba); }
+body.sumi .timeline-card.data.active .node,
+body.sumi .timeline-card.labs.active .node { background: color-mix(in srgb, var(--matsuba) 60%, var(--ai)); }
+body.sumi .timeline-card.personal.active .node { background: var(--ink); }
+
+body.sumi .timeline-card .card-date { color: var(--muted); letter-spacing: .14em; }
+body.sumi .timeline-card.active .card-body h2 { color: var(--ai); }
+body.sumi .timeline-card.active .card-body { border-color: color-mix(in srgb, var(--ink) 26%, var(--line)); }
+
+/* ---- Override leak: callout / event-link / finale cards keep no old pastels ---- */
+body.sumi .event-callout {
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--ai) 9%, transparent),
+      color-mix(in srgb, var(--shu) 6%, transparent)),
+    color-mix(in srgb, var(--white) 70%, var(--paper));
+  border-color: var(--line);
+}
+body.sumi .event-links a {
+  background: color-mix(in srgb, var(--ai) 12%, var(--white));
+  border-color: var(--line);
+  color: var(--ai);
+}
+body.sumi .event-links a:hover { background: color-mix(in srgb, var(--ai) 20%, var(--white)); }
+body.sumi .timeline-card.finale .node {
+  background: var(--shu);
+  box-shadow: 0 0 0 9px color-mix(in srgb, var(--shu) 18%, transparent);
+}
+body.sumi .timeline-card.finale .card-body {
+  background:
+    linear-gradient(135deg,
+      color-mix(in srgb, var(--ai) 12%, transparent),
+      color-mix(in srgb, var(--shu) 8%, transparent)),
+    var(--white);
+  box-shadow: 0 26px 70px rgba(26,26,25,.14);
+}
+body.sumi .timeline-card.finale .card-date { color: var(--shu); }
+
+/* ---- Footer ---- */
+body.sumi .footer {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+}
+body.sumi .footer a {
+  color: var(--ai);
+  text-decoration: none;
+  border-bottom: 1px solid color-mix(in srgb, var(--ai) 38%, transparent);  /* brushed underline */
+  transition: border-color .25s ease;
+}
+body.sumi .footer a:hover { border-bottom-color: var(--ai); }
+
+/* ============================================================================
+   EXPERT PASS — narrative ink, hero choreography, brushed details.
+   ============================================================================ */
+
+/* ---- Narrative ink: a faint full-bleed "tide" in the CURRENT chapter's ink, set by
+   timeline.js via --chapter and cross-faded with @property so the whole page takes on
+   the emotional weather of the moment you're reading. Behind content; gutters/edges only. */
+@property --chapter {
+  syntax: "<color>";
+  inherits: true;
+  initial-value: #1a1a19;
+}
+body.sumi { transition: --chapter 1.6s ease; }
+body.sumi .ink-tide {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(140% 95% at 50% -8%, var(--chapter, var(--ai)), transparent 66%),
+    radial-gradient(140% 95% at 50% 108%, var(--chapter, var(--ai)), transparent 68%);
+  opacity: .12;
+  mix-blend-mode: multiply;
+}
+
+/* ---- Hero choreography: a restrained, staggered settle on load (ink on water) ---- */
+@keyframes sumi-rise { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
+@keyframes sumi-fade { from { opacity: 0; } to { opacity: 1; } }
+@media (prefers-reduced-motion: no-preference) {
+  body.sumi .timeline-hero .kicker { animation: sumi-rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  body.sumi .timeline-hero h1 { animation: sumi-rise 1.15s cubic-bezier(.2,.7,.2,1) .12s both; }
+  body.sumi .timeline-hero p { animation: sumi-rise 1s cubic-bezier(.2,.7,.2,1) .28s both; }
+  body.sumi .timeline-hero .hero-actions { animation: sumi-rise 1s cubic-bezier(.2,.7,.2,1) .42s both; }
+  body.sumi .sumi-spine { animation: sumi-fade 1.8s ease .7s both; }
+}
+
+/* ---- Brushed details ---- */
+body.sumi ::selection { background: color-mix(in srgb, var(--shu) 26%, transparent); }
+/* Hanko-style seal + a hairline tail framing the vertical spine like a hung scroll. */
+body.sumi .sumi-spine::after {
+  content: "";
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  top: -22px;
+  width: 9px; height: 9px; border-radius: 2px;
+  background: var(--shu);
+}
+body.sumi .sumi-spine::before {
+  content: "";
+  position: absolute;
+  left: 50%; transform: translateX(-50%);
+  bottom: -20px;
+  width: 1px; height: 44px;
+  background: color-mix(in srgb, var(--ink) 28%, transparent);
+}
+/* Washi scrollbar. */
+body.sumi { scrollbar-width: thin; scrollbar-color: color-mix(in srgb, var(--ink) 30%, var(--paper)) transparent; }
+body.sumi::-webkit-scrollbar { width: 11px; }
+body.sumi::-webkit-scrollbar-track { background: var(--paper); }
+body.sumi::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--ink) 26%, var(--paper));
+  border: 3px solid var(--paper);
+  border-radius: 999px;
+}
+body.sumi::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--ink) 40%, var(--paper)); }
+
+/* ---- Motion preferences: quiet ALL motion, not just the washes ---- */
+@media (prefers-reduced-motion: reduce) {
+  body.sumi .wash { animation: none !important; }
+  body.sumi .story-layer,
+  body.sumi .story-layer.fly-in,
+  body.sumi .node,
+  body.sumi .card-body { animation: none !important; transition: none !important; }
+}
+
+/* ---- Responsive: lighten the compositing load on small / touch screens ---- */
+@media (max-width: 880px) {
+  body.sumi .sumi-spine { display: none; }
+  body.sumi .wash { filter: blur(32px); opacity: .18; animation: none; }
+  body.sumi .wash-c { display: none; }
+  body.sumi .ink-tide { display: none; }
+}
+
+/* ---- Windows High Contrast / forced-colors: drop the decorative ink layers ---- */
+@media (forced-colors: active) {
+  body.sumi .sumi-fluid-canvas,
+  body.sumi .ink-tide,
+  body.sumi .wash { display: none !important; }
+}
