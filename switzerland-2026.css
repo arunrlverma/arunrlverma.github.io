@@ -526,6 +526,62 @@
   font-size: 12px;
 }
 
+.stop.is-work .stop-card {
+  border-color: rgba(36, 116, 134, .34);
+  background: #f7fbf9;
+}
+
+.stop.is-work .stop-image {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(36, 116, 134, .94), rgba(52, 95, 77, .9)),
+    repeating-linear-gradient(135deg, rgba(255, 255, 255, .2) 0 1px, transparent 1px 9px);
+}
+
+.stop.is-work .stop-image::before {
+  content: "CALL";
+  position: absolute;
+  top: 10px;
+  left: 9px;
+  color: rgba(255, 255, 255, .34);
+  font-size: 20px;
+  font-weight: 950;
+  letter-spacing: .08em;
+}
+
+.stop.is-work .stop-image span {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 253, 248, .94);
+  color: var(--trip-green);
+}
+
+.stop.is-work .stop-kind {
+  min-width: 48px;
+  border-radius: 999px;
+  padding: 0 7px;
+  border-color: rgba(36, 116, 134, .28);
+  color: var(--trip-lake);
+  background: rgba(226, 241, 244, .72);
+}
+
+.stop.is-work .stop-note {
+  color: #344b45;
+}
+
+.work-chip {
+  display: inline-flex;
+  width: fit-content;
+  border: 1px solid rgba(36, 116, 134, .18);
+  border-radius: 999px;
+  background: #e8f4f1;
+  color: var(--trip-green);
+  padding: 5px 8px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
 .now-marker {
   position: absolute;
   top: 10px;

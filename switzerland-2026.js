@@ -40,7 +40,7 @@ const days = [
     id: "jun15",
     tab: "Mon",
     date: "Jun 15",
-    heading: "Arrival, Basel pickup, Bern lunch, optional Thun, Lucerne check-in",
+    heading: "Arrival, Basel pickup, Bern lunch, optional Thun, work calls",
     route: "Zurich Airport -> Basel pickup -> Bern -> Thun option -> Luzern",
     routePlaces: [zurichAirport, baselAirport, casinoParkingBern, "Restaurant Rosengarten Bern", schadauPark, coopThun, homeAddress],
   },
@@ -48,7 +48,7 @@ const days = [
     id: "jun16",
     tab: "Tue",
     date: "Jun 16",
-    heading: "Grocery breakfast, Grindelwald First, Old Town dinner",
+    heading: "Grocery breakfast, Grindelwald First, Old Town dinner, work calls",
     route: "Luzern -> Grindelwald First -> Luzern Old Town",
     routePlaces: [homeAddress, grindelwaldTerminal, lucerneAltstadtParking, "Restaurant Balances Luzern"],
   },
@@ -56,7 +56,7 @@ const days = [
     id: "jun17",
     tab: "Wed",
     date: "Jun 17",
-    heading: "Lake Lucerne, Rigi Kulm, Weggis, museum, final dinner",
+    heading: "Lake Lucerne, Rigi Kulm, Weggis, museum, work calls",
     route: "Luzern pier -> Vitznau -> Rigi Kulm -> Weggis -> Luzern",
     routePlaces: [homeAddress, lucerneRailParking, "Luzern Bahnhofquai Pier 1", "Vitznau Rigi Bahn", "Rigi Kulm", "Rigi Kaltbad", "Weggis Schiffstation", "Swiss Museum of Transport", "Wirtshaus Galliker Luzern"],
     routeUrl: links.lakeTimetable,
@@ -66,11 +66,33 @@ const days = [
     id: "jun18",
     tab: "Thu",
     date: "Jun 18",
-    heading: "Checkout, Basel drop-off, Zurich return",
+    heading: "Checkout, Basel drop-off, Zurich return, work calls",
     route: "Luzern -> Basel drop-off -> Zurich Airport",
     routePlaces: [homeAddress, baselAirport, zurichAirport],
   },
 ];
+
+function workBlock({ id, day, time, duration, durationMinutes, title, venue, brief, note }) {
+  return {
+    id,
+    day,
+    time,
+    duration,
+    durationMinutes,
+    title,
+    venue,
+    location: "CEST",
+    kind: "WORK",
+    compact: true,
+    work: true,
+    noActions: true,
+    image: "",
+    brief,
+    note,
+    parking: "Mainland Spain and Switzerland are both CEST in June.",
+    action: "Work",
+  };
+}
 
 const stops = [
   {
@@ -130,6 +152,17 @@ const stops = [
     parking: "Use short-term arrivals/drop-off at EuroAirport unless their exact pickup point is Basel city or Basel SBB.",
     action: "Drive",
   },
+  workBlock({
+    id: "jun15-teddy",
+    day: "jun15",
+    time: "10:00",
+    duration: "30m",
+    durationMinutes: 30,
+    title: "Teddy Himmler meeting",
+    venue: "Work call",
+    brief: "Spain time = Switzerland time. This overlaps the Zurich-to-Basel drive.",
+    note: "Teddy Himmler meeting. Mainland Spain and Switzerland are both on CEST in June, so 10:00 Spain time is 10:00 in Switzerland. This lands during the Zurich-to-Basel drive.",
+  }),
   {
     id: "jun15-basel-pickup",
     day: "jun15",
@@ -278,6 +311,17 @@ const stops = [
     parking: "Navigate to the apartment first for unloading. If there is no host parking, use Parkhaus Altstadt or Bahnhofparking.",
     action: "Drive",
   },
+  workBlock({
+    id: "jun15-evening-work",
+    day: "jun15",
+    time: "18:00",
+    duration: "1h 30m",
+    durationMinutes: 90,
+    title: "Work meetings",
+    venue: "Evening block",
+    brief: "18:00-19:30 CEST. This competes with Lucerne arrival if the Thun detour stays in.",
+    note: "Work meetings from 18:00 to 19:30 CEST. If the Thun detour stays in, plan for this to collide with the arrival and check-in window.",
+  }),
   {
     id: "jun15-checkin",
     day: "jun15",
@@ -299,6 +343,17 @@ const stops = [
       { label: "Bahnhof P", url: mapsSearch(lucerneRailParking) },
     ],
   },
+  workBlock({
+    id: "jun15-vc",
+    day: "jun15",
+    time: "21:30",
+    duration: "60m",
+    durationMinutes: 60,
+    title: "VC meeting",
+    venue: "Late work call",
+    brief: "21:30 CEST hold. Best taken from the apartment after dinner/reset.",
+    note: "VC meeting at 21:30 CEST. This should be protected as an apartment call after arrival and dinner/reset.",
+  }),
   {
     id: "jun16-breakfast",
     day: "jun16",
@@ -469,6 +524,17 @@ const stops = [
     parking: "Primary: Parkhaus Altstadt. Backup: Bahnhofparking P1.",
     action: "Park",
   },
+  workBlock({
+    id: "jun16-evening-work",
+    day: "jun16",
+    time: "18:00",
+    duration: "60m",
+    durationMinutes: 60,
+    title: "Work meetings",
+    venue: "Evening block",
+    brief: "18:00-19:00 CEST. This may need to happen from the car if Grindelwald runs long.",
+    note: "Work meetings from 18:00 to 19:00 CEST. This overlaps the Grindelwald-to-Lucerne return buffer if the mountain day slips.",
+  }),
   {
     id: "jun16-balances",
     day: "jun16",
@@ -490,6 +556,17 @@ const stops = [
       { label: "Reserve", url: "https://mytools.aleno.me/reservations/v2.0/reservations.html?k=eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJIT0RFIiwibG9jYWxlIjoiZW4ifQ.G0ibcAiWTr9tKb0ZW4FQsxF6XYnWBymADYoJqBNVTu9oXqvDcIs60tP8ABi1zNNgGQ6YrDz74OGoD89rZDLF3g" },
     ],
   },
+  workBlock({
+    id: "jun16-vc",
+    day: "jun16",
+    time: "19:30",
+    duration: "60m",
+    durationMinutes: 60,
+    title: "VC meeting",
+    venue: "Dinner conflict",
+    brief: "19:30-20:30 CEST. This overlaps Restaurant Balances unless dinner moves.",
+    note: "VC meeting from 19:30 to 20:30 CEST. This overlaps the current Restaurant Balances dinner plan unless dinner is moved later or the call is taken away from the table.",
+  }),
   {
     id: "jun17-park-pier",
     day: "jun17",
@@ -662,6 +739,17 @@ const stops = [
       { label: "Tickets", url: links.museumTickets },
     ],
   },
+  workBlock({
+    id: "jun17-evening-work",
+    day: "jun17",
+    time: "18:00",
+    duration: "60m",
+    durationMinutes: 60,
+    title: "Work meetings",
+    venue: "Evening block",
+    brief: "18:00-19:00 CEST. Keep the museum visit flexible so this does not get squeezed.",
+    note: "Work meetings from 18:00 to 19:00 CEST. This starts right after the museum window, so keep the museum visit flexible.",
+  }),
   {
     id: "jun17-galliker",
     day: "jun17",
@@ -682,6 +770,17 @@ const stops = [
       { label: "Website", url: links.gallikerSite },
     ],
   },
+  workBlock({
+    id: "jun17-vc",
+    day: "jun17",
+    time: "21:30",
+    duration: "60m",
+    durationMinutes: 60,
+    title: "VC meeting",
+    venue: "Late work call",
+    brief: "21:30 CEST hold after final dinner.",
+    note: "VC or late work meeting at 21:30 CEST. Best protected after Wirtshaus Galliker rather than during the restaurant window.",
+  }),
   {
     id: "jun18-checkout",
     day: "jun18",
@@ -758,6 +857,28 @@ const stops = [
     parking: "Rental returned before this point.",
     action: "Depart",
   },
+  workBlock({
+    id: "jun18-evening-work",
+    day: "jun18",
+    time: "18:00",
+    duration: "60m",
+    durationMinutes: 60,
+    title: "Work meetings",
+    venue: "Flight conflict",
+    brief: "18:00-19:00 CEST overlaps the ZRH-to-Valencia flight.",
+    note: "Work meetings from 18:00 to 19:00 CEST. This overlaps the return flight, so treat it as a real conflict unless airplane Wi-Fi and call conditions are acceptable.",
+  }),
+  workBlock({
+    id: "jun18-vc",
+    day: "jun18",
+    time: "21:30",
+    duration: "60m",
+    durationMinutes: 60,
+    title: "VC meeting",
+    venue: "Late work call",
+    brief: "21:30 CEST hold after landing in Valencia.",
+    note: "VC or late work meeting at 21:30 CEST after landing back in Valencia.",
+  }),
 ];
 
 function escapeHtml(value) {
@@ -878,11 +999,18 @@ function renderNext() {
   const detail = state.phase === "active" && next
     ? `${formatSwissDateTime(state.now)} CEST. Next move: ${next.time} ${next.title}. ${next.note}`
     : `${formatSwissDateTime(state.now)} CEST. ${focus.note}`;
+  const hasFocusMap = focus && !focus.noActions && focus.query;
+  const nextMap = document.getElementById("next-map");
 
   document.getElementById("next-title").textContent = title;
   document.getElementById("next-detail").textContent = detail;
-  document.getElementById("next-map").textContent = state.phase === "active" && next ? "Next map" : "Open map";
-  document.getElementById("next-map").href = mapsDirections(focus.query, focus.origin, travelModeForStop(focus));
+  nextMap.textContent = state.phase === "active" && next ? "Next map" : "Open map";
+  nextMap.style.display = hasFocusMap ? "" : "none";
+  if (hasFocusMap) {
+    nextMap.href = mapsDirections(focus.query, focus.origin, travelModeForStop(focus));
+  } else {
+    nextMap.removeAttribute("href");
+  }
   document.getElementById("live-clock").textContent = `Swiss time ${formatSwissTime(state.now)}`;
   document.getElementById("trip-progress").style.width = `${tripProgress(state).toFixed(1)}%`;
 }
@@ -927,11 +1055,15 @@ function renderStop(stop, status, state) {
   const articleClasses = ["stop", `is-${status}`];
   if (stop.compact) articleClasses.push("is-compact");
   if (stop.optional) articleClasses.push("is-optional");
-  const stopLinks = [
-    { label: stop.action || "Directions", url: mapsDirections(stop.query, stop.origin, travelModeForStop(stop)), primary: true },
-    { label: "Place", url: mapsSearch(stop.query) },
-    ...(stop.links || []),
-  ];
+  if (stop.work) articleClasses.push("is-work");
+  const imageStyle = stop.work ? "" : ` style="background-image: linear-gradient(180deg, rgba(7,18,18,.08), rgba(7,18,18,.58)), url('${escapeHtml(stop.image)}')"`;
+  const stopLinks = stop.noActions
+    ? []
+    : [
+      { label: stop.action || "Directions", url: mapsDirections(stop.query, stop.origin, travelModeForStop(stop)), primary: true },
+      { label: "Place", url: mapsSearch(stop.query) },
+      ...(stop.links || []),
+    ];
 
   return `
     <article class="${articleClasses.join(" ")}" data-stop-id="${escapeHtml(stop.id)}">
@@ -942,7 +1074,7 @@ function renderStop(stop, status, state) {
       </div>
       <div class="stop-card">
         ${status === "current" ? `<div class="now-marker"><span>Current time</span><strong>${formatSwissTime(state.now)} CEST</strong></div>` : ""}
-        <div class="stop-image" style="background-image: linear-gradient(180deg, rgba(7,18,18,.08), rgba(7,18,18,.58)), url('${escapeHtml(stop.image)}')">
+        <div class="stop-image"${imageStyle}>
           <span>${escapeHtml(stop.location)}</span>
         </div>
         <div class="stop-body">
@@ -955,15 +1087,18 @@ function renderStop(stop, status, state) {
             <span class="stop-kind">${escapeHtml(stop.kind)}</span>
           </div>
           <p class="stop-note">${escapeHtml(stop.compact && stop.brief ? stop.brief : stop.note)}</p>
+          ${stop.work ? `<div class="work-chip">Spain time = Switzerland time (CEST)</div>` : ""}
           ${stop.compact ? "" : renderStopItems(stop)}
           <div class="stop-meta">
             <span><b>Parking / transport:</b> ${escapeHtml(stop.parking)}</span>
           </div>
-          <div class="stop-actions">
-            ${stopLinks.map((link) => `
-              <a class="${link.primary ? "primary" : ""}" href="${link.url}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>
-            `).join("")}
-          </div>
+          ${stopLinks.length ? `
+            <div class="stop-actions">
+              ${stopLinks.map((link) => `
+                <a class="${link.primary ? "primary" : ""}" href="${link.url}" target="_blank" rel="noreferrer">${escapeHtml(link.label)}</a>
+              `).join("")}
+            </div>
+          ` : ""}
         </div>
       </div>
     </article>
