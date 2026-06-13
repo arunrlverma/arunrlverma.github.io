@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="styles.css?v=20260424-callout-fix">
-  <link rel="stylesheet" href="switzerland-2026.css?v=20260613b">
+  <link rel="stylesheet" href="switzerland-2026.css?v=20260613d">
 </head>
 <body class="trip-page">
   <header class="site-header trip-site-header">
@@ -36,7 +36,7 @@
           <div>
             <p class="trip-kicker">Executive pocket itinerary</p>
             <h1 id="trip-title">Switzerland command brief</h1>
-            <p class="trip-hero-text">Valencia to Zurich, drive through Bern, base in Lucerne, mountain days, and Basel airport endpoint.</p>
+            <p class="trip-hero-text">Valencia to Zurich, Basel pickup, Bern lunch, Lucerne base, Grindelwald First, Rigi by boat and rail, then Basel drop-off and Zurich return.</p>
           </div>
         </div>
       </section>
@@ -45,6 +45,11 @@
         <div>
           <span class="trip-kicker">Now / next</span>
           <h2 id="next-title">Trip starts Monday morning</h2>
+          <div class="trip-live-row">
+            <span id="live-clock">Swiss time --:--</span>
+            <span>Auto-updates</span>
+          </div>
+          <div class="time-rail" aria-hidden="true"><i id="trip-progress"></i></div>
           <p id="next-detail">The itinerary is ordered by local Switzerland time.</p>
         </div>
         <a id="next-map" class="trip-button primary" href="#" target="_blank" rel="noreferrer">Open map</a>
@@ -59,7 +64,7 @@
         <article>
           <span>Car</span>
           <strong>Smart #1, Jun 15-18</strong>
-          <p>Pickup after landing, endpoint Basel per latest instruction.</p>
+          <p>Pickup at ZRH, Basel pickup/drop, return to ZRH for the outbound flight.</p>
         </article>
         <article>
           <span>Base</span>
@@ -69,8 +74,8 @@
       </section>
 
       <section class="trip-notice">
-        <strong>Verify before departure</strong>
-        <p>The spreadsheet endpoint is Basel and your latest note confirms driving to Basel. The booking screenshot showed a Zurich return, so confirm the return airport and rental return location before Jun 18.</p>
+        <strong>Buy/check before departure</strong>
+        <p>First cable car, Lake Lucerne boat, Rigi rail/cable options, and Swiss Museum tickets now have official links on the relevant stops. Basel pickup/drop assumes EuroAirport; swap to Basel SBB or a hotel if that is the real point.</p>
       </section>
 
       <nav class="day-tabs" id="day-tabs" aria-label="Jump to day"></nav>
@@ -79,7 +84,7 @@
         <div>
           <span class="trip-kicker">Route overview</span>
           <h2>Four days, one-tap directions</h2>
-          <p>Each stop has direct Google Maps actions for directions, place lookup, and daily route where useful.</p>
+        <p>Each stop has one-tap Google Maps actions, plus tickets, menus, parking, or timetable links where they matter.</p>
         </div>
         <a class="trip-button primary" id="full-route" href="#" target="_blank" rel="noreferrer">Full arrival route</a>
       </section>
@@ -98,11 +103,11 @@
 
       <section class="credit-panel" aria-label="Image and source notes">
         <span class="trip-kicker">Sources</span>
-        <p>Itinerary source: uploaded spreadsheet and travel screenshots. Destination images are local copies from public web sources and Wikimedia pages; lodging image is cropped from your uploaded Airbnb screenshot.</p>
+        <p>Itinerary source: uploaded spreadsheet, travel screenshots, and official venue/operator pages. Destination images are local copies from public venue/operator pages where available; lodging image is cropped from your uploaded Airbnb screenshot.</p>
       </section>
     </section>
   </main>
 
-  <script src="switzerland-2026.js?v=20260613b"></script>
+  <script src="switzerland-2026.js?v=20260613d"></script>
 </body>
 </html>
