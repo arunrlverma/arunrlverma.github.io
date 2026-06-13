@@ -35,6 +35,7 @@
 .trip-notice,
 .day-tabs,
 .route-panel,
+.critical-panel,
 .day-section,
 .stay-panel,
 .credit-panel {
@@ -55,6 +56,7 @@
 .trip-hero h1,
 .trip-next h2,
 .route-panel h2,
+.critical-panel h2,
 .day-heading h2,
 .stay-panel h2 {
   margin: 0;
@@ -163,6 +165,7 @@
 
 .trip-next,
 .route-panel,
+.critical-panel,
 .stay-panel,
 .credit-panel,
 .trip-notice,
@@ -183,6 +186,7 @@
 
 .trip-next h2,
 .route-panel h2,
+.critical-panel h2,
 .day-heading h2,
 .stay-panel h2 {
   margin-top: 4px;
@@ -194,7 +198,8 @@
 .route-panel p,
 .day-heading p,
 .stay-panel p,
-.credit-panel p {
+.credit-panel p,
+.critical-panel p {
   margin: 7px 0 0;
   color: var(--trip-muted);
   font-size: 13px;
@@ -286,6 +291,27 @@
   color: #745a37;
   font-size: 13px;
   line-height: 1.45;
+}
+
+.critical-panel {
+  padding: 14px;
+}
+
+.critical-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.critical-list article {
+  border-top: 1px solid rgba(199, 59, 66, .16);
+  padding: 10px 0 2px;
+}
+
+.critical-list strong {
+  display: block;
+  color: #7b2830;
+  font-size: 13px;
 }
 
 .day-tabs {
@@ -443,6 +469,63 @@
   opacity: .7;
 }
 
+.stop.is-optional .stop-card {
+  border-style: dashed;
+  border-color: rgba(166, 106, 40, .42);
+}
+
+.stop.is-compact .stop-card {
+  display: grid;
+  grid-template-columns: 84px minmax(0, 1fr);
+  min-height: 132px;
+}
+
+.stop.is-compact .stop-image {
+  min-height: 100%;
+  padding: 7px;
+}
+
+.stop.is-compact .stop-image span {
+  border-radius: 7px;
+  padding: 5px 6px;
+  font-size: 10px;
+  line-height: 1.12;
+}
+
+.stop.is-compact .stop-body {
+  gap: 8px;
+  padding: 10px;
+}
+
+.stop.is-compact .stop-title h3 {
+  font-size: 15px;
+}
+
+.stop.is-compact .stop-title p,
+.stop.is-compact .stop-note,
+.stop.is-compact .stop-meta {
+  font-size: 12px;
+}
+
+.stop.is-compact .stop-meta {
+  display: none;
+}
+
+.stop.is-compact .stop-kind {
+  min-width: 28px;
+  height: 28px;
+  font-size: 10px;
+}
+
+.stop.is-compact .stop-actions {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stop.is-compact .stop-actions a {
+  min-height: 38px;
+  font-size: 12px;
+}
+
 .now-marker {
   position: absolute;
   top: 10px;
@@ -506,6 +589,19 @@
   font-size: 18px;
   font-weight: 850;
   line-height: 1.14;
+}
+
+.stop-flag {
+  display: inline-flex;
+  margin-bottom: 5px;
+  border-radius: 999px;
+  background: #fff1d8;
+  color: #744d18;
+  padding: 4px 7px;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: .06em;
+  text-transform: uppercase;
 }
 
 .stop-title p {
@@ -613,6 +709,7 @@
   .trip-notice,
   .day-tabs,
   .route-panel,
+  .critical-panel,
   .day-section,
   .stay-panel,
   .credit-panel {
@@ -645,6 +742,10 @@
   .stop-card {
     display: grid;
     grid-template-columns: 270px minmax(0, 1fr);
+  }
+
+  .stop.is-compact .stop-card {
+    grid-template-columns: 118px minmax(0, 1fr);
   }
 
   .stop-image {
