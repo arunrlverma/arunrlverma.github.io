@@ -1,6 +1,3 @@
-const PASSCODE_HASH = "87aaae57343329123adfb30dd631e39e14d441d02488829661864665d0ca11ab";
-const STORAGE_KEY = "switzerland-2026-unlocked";
-
 const homeAddress = "Maihofstrasse 39, 6004 Luzern, Switzerland";
 const zurichAirport = "Zurich Airport, 8058 Zurich-Flughafen, Switzerland";
 const baselAirport = "EuroAirport Basel Mulhouse Freiburg";
@@ -288,12 +285,6 @@ function routeLink(places) {
   return `https://www.google.com/maps/dir/?${params.toString()}`;
 }
 
-async function sha256(text) {
-  const bytes = new TextEncoder().encode(text);
-  const digest = await crypto.subtle.digest("SHA-256", bytes);
-  return [...new Uint8Array(digest)].map((byte) => byte.toString(16).padStart(2, "0")).join("");
-}
-
 function tripDateTime(stop) {
   const date = {
     jun15: "2026-06-15",
@@ -389,36 +380,4 @@ function renderTrip() {
   document.getElementById("full-route").href = routeLink(days[0].routePlaces);
 }
 
-function unlock() {
-  document.getElementById("trip-gate").hidden = true;
-  document.getElementById("trip-app").hidden = false;
-  renderTrip();
-}
-
-async function handleGate(event) {
-  event.preventDefault();
-  const input = document.getElementById("trip-passcode");
-  const error = document.getElementById("gate-error");
-  error.textContent = "";
-  try {
-    const hash = await sha256(input.value.trim());
-    if (hash === PASSCODE_HASH) {
-      localStorage.setItem(STORAGE_KEY, hash);
-      unlock();
-      return;
-    }
-    error.textContent = "That passcode did not match.";
-  } catch {
-    error.textContent = "This browser needs HTTPS for passcode unlock. Open the GitHub Pages URL.";
-  }
-}
-
-document.getElementById("gate-form").addEventListener("submit", handleGate);
-
-const localPreview =
-  new URLSearchParams(window.location.search).has("preview") &&
-  (window.location.protocol === "file:" || window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost");
-
-if (localPreview || localStorage.getItem(STORAGE_KEY) === PASSCODE_HASH) {
-  unlock();
-}
+renderTrip();

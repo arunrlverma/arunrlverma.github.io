@@ -28,7 +28,6 @@
   padding: 12px 12px 92px;
 }
 
-.trip-gate,
 .trip-app,
 .trip-hero,
 .trip-next,
@@ -43,25 +42,6 @@
   margin-inline: auto;
 }
 
-.trip-gate {
-  min-height: calc(100vh - 130px);
-  display: grid;
-  place-items: center;
-}
-
-.trip-gate[hidden] {
-  display: none;
-}
-
-.gate-card {
-  width: 100%;
-  border: 1px solid var(--trip-line);
-  background: var(--trip-card);
-  box-shadow: 0 22px 70px rgba(53, 45, 35, .13);
-  padding: 22px;
-}
-
-.gate-kicker,
 .trip-kicker,
 .trip-grid span {
   display: block;
@@ -72,7 +52,6 @@
   text-transform: uppercase;
 }
 
-.gate-card h1,
 .trip-hero h1,
 .trip-next h2,
 .route-panel h2,
@@ -84,31 +63,6 @@
   letter-spacing: 0;
 }
 
-.gate-card h1 {
-  margin-top: 8px;
-  font-size: 38px;
-  line-height: 1.02;
-}
-
-.gate-card p {
-  margin: 12px 0 0;
-  color: var(--trip-muted);
-  line-height: 1.5;
-}
-
-.gate-form {
-  display: grid;
-  gap: 9px;
-  margin-top: 18px;
-}
-
-.gate-form label {
-  font-size: 12px;
-  font-weight: 800;
-}
-
-.gate-form input,
-.gate-form button,
 .trip-button,
 .day-heading a,
 .stop-actions a {
@@ -123,7 +77,6 @@
   font-weight: 800;
 }
 
-.gate-form button,
 .trip-button.primary,
 .stop-actions a.primary {
   background: var(--trip-red);
@@ -131,19 +84,9 @@
   border-color: var(--trip-red);
 }
 
-.gate-error {
-  min-height: 20px;
-  color: #9b2d33 !important;
-  font-size: 13px;
-}
-
 .trip-app {
   display: grid;
   gap: 12px;
-}
-
-.trip-app[hidden] {
-  display: none;
 }
 
 .trip-hero {
@@ -516,7 +459,6 @@
 }
 
 @media (min-width: 780px) {
-  .trip-gate,
   .trip-app,
   .trip-hero,
   .trip-next,
