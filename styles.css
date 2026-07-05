@@ -6777,3 +6777,63 @@ html body.sumi.has-fluid .ink-picker {
   top: clamp(88px, 9vh, 104px);
   max-width: calc(100vw - 28px);
 }
+
+/* ============================================================
+   AUDIT PASS — site-wide accessibility, motion & polish
+   ============================================================ */
+/* Skip-to-content link */
+.skip-link {
+  position: fixed; top: 10px; left: 10px; z-index: 200;
+  transform: translateY(-180%);
+  background: #1a1a19; color: #fffdf7; padding: 10px 16px; border-radius: 8px;
+  font: 600 14px/1 "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+  text-decoration: none; transition: transform .18s ease;
+}
+.skip-link:focus { transform: translateY(0); outline: 2px solid #16407a; outline-offset: 3px; }
+
+/* Consistent visible focus baseline */
+a:focus-visible, button:focus-visible, summary:focus-visible,
+[tabindex]:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 2px solid #16407a; outline-offset: 2px; border-radius: 4px;
+}
+
+/* Balanced headline line-breaks */
+h1, h2, h3 { text-wrap: balance; }
+
+/* Keep hero headlines legible over the animated ink wash */
+.timeline-hero h1, .deep-hero h1, .cc-hero-title {
+  text-shadow: 0 1px 0 var(--paper, #fbf3e1), 0 0 24px var(--paper, #fbf3e1);
+}
+
+/* Comfortable reading measure + near-ink body for long legal prose */
+.cc-legal-paper p, .cc-legal-paper li { max-width: 68ch; color: #2a2822; }
+
+/* Touch targets on phones */
+@media (max-width: 880px) {
+  .site-header nav a { min-height: 40px; display: inline-flex; align-items: center; }
+  .hero-actions .chip { min-height: 40px; }
+  /* Sticky "from $99" bar must never cover the closing content */
+  body[data-page="command-center"] .cc-app { padding-bottom: 124px; }
+}
+
+/* One consistent micro-interaction language (motion-safe only) */
+@media (prefers-reduced-motion: no-preference) {
+  .cc-live-link, .portal-card, .donation-card, .download-card, .cc-file-card {
+    transition: transform .16s ease, box-shadow .18s ease;
+  }
+  .cc-live-link:hover, .portal-card:hover, .donation-card:hover, .download-card:hover {
+    transform: translateY(-2px);
+  }
+  .cc-live-link:active { transform: translateY(0); }
+}
+
+/* Back-to-top control (shown by JS on long pages) */
+.to-top {
+  position: fixed; right: 18px; bottom: 18px; z-index: 40;
+  width: 44px; height: 44px; border-radius: 50%;
+  display: grid; place-items: center;
+  background: rgba(26,26,25,.9); color: #fffdf7; border: 0; cursor: pointer;
+  font-size: 18px; opacity: 0; visibility: hidden; transition: opacity .2s, visibility .2s;
+  box-shadow: 0 6px 20px rgba(26,26,25,.24);
+}
+.to-top.show { opacity: 1; visibility: visible; }
