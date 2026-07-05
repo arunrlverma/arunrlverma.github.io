@@ -22,7 +22,7 @@ body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   letter-spacing: 0;
 }
 
@@ -1892,7 +1892,7 @@ body[data-page="command-center"] {
 .cc-board h2,
 .cc-detail h2,
 .cc-section-heading h2 {
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: 18px;
   font-weight: 780;
   line-height: 1.2;
@@ -2571,7 +2571,7 @@ body[data-page="command-center"]::before {
 
 .cc-phase-card h3 {
   margin-top: 10px;
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: 18px;
   font-weight: 820;
 }
@@ -2714,7 +2714,7 @@ body[data-page="command-center"] {
   --cc-blue: #8ebbd8;
   background: var(--cc-ink);
   color: var(--cc-cream);
-  font-family: "IBM Plex Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   overflow-x: hidden;
 }
 
@@ -2811,7 +2811,7 @@ body[data-page="command-center"] .kicker {
   margin-top: 12px;
   max-width: 760px;
   color: var(--cc-cream);
-  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
   font-size: 64px;
   line-height: 1.02;
   letter-spacing: 0;
@@ -2906,7 +2906,7 @@ body[data-page="command-center"] .kicker {
 .cc-detail h2,
 .cc-section-heading h2 {
   color: var(--cc-cream);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: 20px;
   font-weight: 700;
 }
@@ -3110,7 +3110,7 @@ body[data-page="command-center"] .kicker {
 
 .cc-report-detail h3 {
   color: var(--cc-cream);
-  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
   font-size: 38px;
 }
 
@@ -3282,7 +3282,7 @@ body[data-page="command-center"] {
   --cc-line: #dce5de;
   background: var(--cc-paper);
   color: var(--cc-ink);
-  font-family: "IBM Plex Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   overflow-x: hidden;
 }
 
@@ -3378,7 +3378,7 @@ body[data-page="command-center"] nav a:hover {
   max-width: 700px;
   margin-top: 18px;
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(46px, 5.35vw, 80px);
   font-weight: 700;
   line-height: 1.08;
@@ -3594,7 +3594,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-file-card h2 {
   margin: 9px 0 12px;
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(26px, 2.15vw, 36px);
   font-weight: 700;
   line-height: 1.08;
@@ -3801,7 +3801,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-reports h2,
 .cc-final-cta h2 {
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(36px, 4.2vw, 68px);
   font-weight: 700;
   line-height: 1.12;
@@ -3854,7 +3854,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-story-card blockquote {
   margin: 26px 0 18px;
   color: var(--cc-teal);
-  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
   font-size: clamp(28px, 2.7vw, 44px);
   font-style: italic;
   line-height: 1.16;
@@ -3862,7 +3862,7 @@ body[data-page="command-center"] nav a:hover {
 
 .cc-story-card h3 {
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: 24px;
   font-weight: 700;
 }
@@ -3897,7 +3897,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-soft-landing .cc-detail h2,
 .cc-soft-landing .cc-section-heading h2 {
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: 24px;
   font-weight: 700;
 }
@@ -4075,7 +4075,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-comparison-grid h3 {
   margin: 18px 0 12px;
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(24px, 2.4vw, 38px);
   line-height: 1.16;
 }
@@ -4135,7 +4135,7 @@ body[data-page="command-center"] nav a:hover {
 
 .cc-soft-landing .cc-report-detail h3 {
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(30px, 3vw, 46px);
 }
 
@@ -4179,7 +4179,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-social-section h2,
 .cc-price-section h2 {
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", "Helvetica Neue", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(36px, 4.2vw, 68px);
   font-weight: 700;
   line-height: 1.12;
@@ -4234,7 +4234,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-folder-grid h3 {
   margin: 18px 0 12px;
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(24px, 2.2vw, 36px);
   font-weight: 700;
   line-height: 1.12;
@@ -4345,7 +4345,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-social-grid p,
 .cc-price-card strong {
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
 }
 
 .cc-report-lines h3 {
@@ -4403,7 +4403,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-founder-section blockquote {
   margin: 0;
   color: var(--cc-teal);
-  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
   font-size: clamp(26px, 3vw, 48px);
   font-style: italic;
   line-height: 1.2;
@@ -4986,7 +4986,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-legal-paper h1 {
   margin: 14px 0 0;
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(34px, 4vw, 52px);
   font-weight: 700;
   line-height: 1.1;
@@ -5153,7 +5153,7 @@ body[data-page="command-center"] nav a:hover {
 .cc-step h3 {
   margin: 0 0 8px;
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(20px, 1.8vw, 26px);
   font-weight: 700;
   line-height: 1.18;
@@ -5362,7 +5362,7 @@ body[data-page="command-center"] button:focus-visible {
 .cc-security-head h2 {
   margin: 8px 0 0;
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(28px, 3vw, 44px);
   font-weight: 700;
   line-height: 1.12;
@@ -5803,7 +5803,7 @@ body[data-page="command-center"] .site-header {
   max-width: 940px;
   margin: 0 auto;
   color: #43575c;
-  font-family: "Libre Baskerville", Georgia, "Times New Roman", serif;
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
   font-size: clamp(21px, 2.5vw, 33px);
   line-height: 1.44;
   text-align: center;
@@ -6145,7 +6145,7 @@ body.cc-motion .reveal-grid.is-in-view > *:nth-child(7) { transition-delay: .40s
 .cc-soft-landing .cc-section-heading h2 {
   margin: 12px 0 0;
   color: var(--cc-navy);
-  font-family: "IBM Plex Sans", "Avenir Next", sans-serif;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
   font-size: clamp(30px, 3.7vw, 54px);
   font-weight: 700;
   line-height: 1.1;
@@ -6386,7 +6386,7 @@ body[data-page="command-center"] {
 .cc-founder-section blockquote { color: var(--cc-navy); position: relative; }
 .cc-founder-section blockquote::before {
   content: "\201C"; position: absolute; top: -.5em; left: -.2em; z-index: -1;
-  font-family: "Libre Baskerville", Georgia, serif; font-size: 7em; line-height: 1; color: rgba(84, 127, 130, .14);
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif; font-size: 7em; line-height: 1; color: rgba(84, 127, 130, .14);
 }
 .cc-founder-section p { margin-top: 14px; }
 
