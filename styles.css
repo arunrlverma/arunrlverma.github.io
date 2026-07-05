@@ -6837,3 +6837,36 @@ h1, h2, h3 { text-wrap: balance; }
   box-shadow: 0 6px 20px rgba(26,26,25,.24);
 }
 .to-top.show { opacity: 1; visibility: visible; }
+
+/* Contact page: supporting note under the card */
+.contact-note {
+  max-width: 54ch; margin: 22px 0 0;
+  color: var(--muted, #6b6256); font-size: 15.5px; line-height: 1.65;
+}
+
+/* Unify the mobile nav: every page wraps (no more horizontal scroll on CC) */
+@media (max-width: 880px) {
+  .site-header nav { flex-wrap: wrap; overflow-x: visible; justify-content: flex-start; }
+  body[data-page="command-center"] .site-header nav { width: auto; overflow-x: visible; flex-wrap: wrap; }
+}
+
+/* Anchor the featured pricing tier as the clear recommendation (desktop) */
+@media (min-width: 881px) {
+  body.sumi[data-page="command-center"] .cc-tier-featured {
+    transform: scale(1.035); box-shadow: 0 22px 60px rgba(26, 26, 25, .15); z-index: 2;
+  }
+}
+
+/* Keep images responsive once intrinsic width/height are declared */
+.vaccine-figure img, .cc-founder-portrait img { height: auto; max-width: 100%; }
+
+/* Lift the dark "lab" band body copy to a comfortable contrast */
+body.sumi[data-page="command-center"] .cc-pipeline-section .cc-section-heading p {
+  color: rgba(245, 239, 227, .92);
+}
+
+/* On mobile, surface the featured pricing tier first */
+@media (max-width: 880px) {
+  body[data-page="command-center"] .cc-price-tiers { display: flex; flex-direction: column; }
+  body[data-page="command-center"] .cc-tier-featured { order: -1; }
+}
