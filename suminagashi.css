@@ -205,8 +205,8 @@ body.sumi .summary {
   max-width: 62ch;
 }
 body.sumi .hero p { font-size: clamp(15px, 1.35vw, 17px); line-height: 1.65; }
-body.sumi .card-body p { font-size: 15.5px; color: color-mix(in srgb, var(--ink) 72%, var(--muted)); }
-body.sumi .summary { font-size: 16.5px !important; color: var(--ink) !important; }
+body.sumi .card-body p { font-size: 16px; color: color-mix(in srgb, var(--ink) 72%, var(--muted)); }
+body.sumi .summary { font-size: 16px !important; color: var(--ink) !important; }
 /* Card eyebrow: restrained indigo, not a second shout of vermillion. */
 body.sumi .card-body .eyebrow {
   color: color-mix(in srgb, var(--ai) 64%, var(--muted));
