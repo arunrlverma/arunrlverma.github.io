@@ -6967,3 +6967,37 @@ body.sumi .section-heading p { font-size: var(--fs-body); }
 body.sumi .caption,
 body.sumi .cc-mini-disclaimer,
 body.sumi .cc-cta-trust { font-size: var(--fs-caption); }
+
+/* ===== WEIGHT & RHYTHM — collapse the weight/line-height zoo ===== */
+:root {
+  --fw-body:  400;
+  --fw-med:   500;
+  --fw-head:  600;   /* all display + section headings; size carries hierarchy */
+  --fw-label: 700;   /* eyebrows and small bold labels */
+  --lh-display: 1.05;
+  --lh-heading: 1.2;
+  --lh-body:    1.6;
+  --lh-relaxed: 1.65;
+}
+
+/* Headings: one weight everywhere — the scale, not the weight, sets hierarchy */
+body.sumi .timeline-hero h1, body.sumi .deep-hero h1, body.sumi .contact-card h1,
+body.sumi .cc-legal-paper h1,
+body.sumi[data-page="command-center"] .cc-topbar h1.cc-hero-title,
+body.sumi .section-heading h2, body.sumi .combo-intro h2,
+body.sumi[data-page="command-center"] .cc-soft-landing .cc-section-heading h2,
+body.sumi[data-page="command-center"] .cc-founder-section h2,
+body.sumi[data-page="command-center"] .cc-final-cta h2,
+body.sumi[data-page="command-center"] .cc-privacy-inner h2,
+body.sumi .combo-panel h3, body.sumi .portal-card h3, body.sumi .vaccine-card h3,
+body.sumi .cc-legal-paper h2 {
+  font-weight: var(--fw-head);
+}
+
+/* Eyebrows / kickers — one bold label weight */
+body.sumi .kicker, body.sumi .eyebrow { font-weight: var(--fw-label); }
+
+/* Body & long-form reading rhythm — one line-height per role */
+body.sumi .hero p, body.sumi .cc-public-intro, body.sumi .combo-intro p,
+body.sumi .section-heading p { line-height: var(--lh-body); font-weight: var(--fw-body); }
+body.sumi .cc-legal-paper p, body.sumi .cc-legal-paper li { line-height: var(--lh-relaxed); }
