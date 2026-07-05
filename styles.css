@@ -6667,3 +6667,113 @@ body[data-page="command-center"] nav a:hover {
 body[data-page="command-center"] nav a.active {
   border-bottom: 2px solid #c8372d;
 }
+
+/* ============================================================
+   SUMI UNIFICATION — re-theme the command-center-family pages
+   (Command Center, Privacy, Terms) onto the warm ink-wash palette.
+   Scoped to body.sumi so it only applies once the shell is present.
+   ============================================================ */
+body.sumi[data-page="command-center"] {
+  --cc-navy: #17406f;   /* indigo-ink: headings + accents */
+  --cc-ink: #201e1a;    /* body ink */
+  --cc-muted: #6b6256;  /* warm grey-brown */
+  --cc-sage: #2e6e52;   /* pine */
+  --cc-teal: #2e6e52;
+  --cc-mist: #efe6d3;   /* warm tints */
+  --cc-mint: #ece3cf;
+  --cc-cream: #fffdf7;
+  --cc-paper: #fbf3e1;  /* washi */
+  --cc-peach: #f0e0cd;
+  --cc-gold: #c69a44;
+  --cc-line: #e0d6c0;
+  background: transparent;   /* let the ink-tide / washi wash show through */
+  color: var(--cc-ink);
+}
+
+/* Display headings → Shippori serif across the whole page */
+body.sumi[data-page="command-center"] h1,
+body.sumi[data-page="command-center"] h2,
+body.sumi[data-page="command-center"] h3,
+body.sumi[data-page="command-center"] .cc-hero-title,
+body.sumi[data-page="command-center"] .cc-section-heading h2 {
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Body copy → warm book serif */
+body.sumi[data-page="command-center"] p,
+body.sumi[data-page="command-center"] li,
+body.sumi[data-page="command-center"] summary,
+body.sumi[data-page="command-center"] blockquote,
+body.sumi[data-page="command-center"] figcaption,
+body.sumi[data-page="command-center"] .cc-public-intro {
+  font-family: "Iowan Old Style", "Palatino Linotype", "Hiragino Mincho ProN", "Yu Mincho", Charter, Georgia, serif;
+}
+
+/* Eyebrows / kickers → indigo, letterspaced like the sumi pages */
+body.sumi[data-page="command-center"] .kicker {
+  color: var(--cc-navy);
+}
+
+/* Primary + secondary CTAs → sumi ink buttons */
+body.sumi[data-page="command-center"] .cc-live-link {
+  background: #1a1a19;
+  color: #fffdf7;
+  border: 1px solid #1a1a19;
+  font-family: "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+}
+body.sumi[data-page="command-center"] .cc-live-link.secondary {
+  background: rgba(255, 253, 247, .5);
+  color: #1a1a19;
+  border: 1px solid rgba(37, 37, 35, .34);
+}
+
+/* The dark "lab" band → a deep indigo sumi-ink panel */
+body.sumi[data-page="command-center"] .cc-band-dark {
+  background: linear-gradient(158deg, #17395e, #0f2840);
+  color: #f2ecdf;
+  border-top: 1px solid rgba(245, 239, 227, .12);
+  border-bottom: 1px solid rgba(245, 239, 227, .12);
+}
+body.sumi[data-page="command-center"] .cc-band-dark .kicker {
+  color: #d9c07e;
+}
+
+/* Sticky CTA + footer → warm ink */
+body.sumi[data-page="command-center"] .cc-sticky-cta {
+  background: #1a1a19;
+  color: #fffdf7;
+}
+body.sumi[data-page="command-center"] .cc-footer {
+  background: color-mix(in srgb, #1a1a19 96%, #16407a);
+  color: #f2ecdf;
+}
+
+/* Legal pages: warm washi paper card */
+body.sumi[data-page="command-center"] .cc-legal-paper {
+  background: color-mix(in srgb, #fffdf7 70%, #fbf3e1);
+  border: 1px solid #e0d6c0;
+}
+
+/* Folded hero audience line + trimmed privacy line */
+body.sumi[data-page="command-center"] .cc-hero-audience {
+  margin: 2px auto 0;
+  max-width: 640px;
+  text-align: center;
+  color: var(--cc-muted);
+  font-style: italic;
+  font-size: 15px;
+}
+body.sumi[data-page="command-center"] .cc-privacy-line {
+  max-width: 660px;
+  margin: 0 0 6px;
+  color: var(--cc-muted);
+  line-height: 1.6;
+}
+
+/* Ink picker: always clear the sticky header; never overflow the viewport. */
+html body.sumi.has-fluid .ink-picker {
+  top: clamp(88px, 9vh, 104px);
+  max-width: calc(100vw - 28px);
+}

@@ -11,3 +11,6 @@ assets/downloads/vaccine-monitoring-summary.json
 
 # Local generation scratch files.
 tmp/
+
+# Internal planning docs — not for the public Pages site.
+docs/
