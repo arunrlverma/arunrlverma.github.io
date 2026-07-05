@@ -7001,3 +7001,8 @@ body.sumi .kicker, body.sumi .eyebrow { font-weight: var(--fw-label); }
 body.sumi .hero p, body.sumi .cc-public-intro, body.sumi .combo-intro p,
 body.sumi .section-heading p { line-height: var(--lh-body); font-weight: var(--fw-body); }
 body.sumi .cc-legal-paper p, body.sumi .cc-legal-paper li { line-height: var(--lh-relaxed); }
+
+/* Unified footer: compact legal/contact links */
+.footer-links a { color: inherit; text-decoration: none; }
+.footer-links a:hover { text-decoration: underline; }
+@media (max-width:560px){ .footer { flex-direction: column; gap: 8px; } }
