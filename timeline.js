@@ -582,8 +582,15 @@ document.addEventListener("keydown", (event) => {
 });
 
 fetch("assets/data/timeline.json?v=20260424-remove-ivosidenib-card")
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) throw new Error(`Timeline data request failed: ${response.status}`);
+    return response.json();
+  })
   .then((events) => {
     state.events = events;
     renderTimeline();
+  })
+  .catch((error) => {
+    console.error(error);
+    list.innerHTML = `<p role="alert" style="margin:24px 0;padding:18px 20px;border:1px solid rgba(37,37,35,.16);border-radius:14px;background:#fffdf8;color:#252523;font-size:15px;line-height:1.5;">The timeline couldn't load right now. Please refresh, or reach me at <a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a>.</p>`;
   });

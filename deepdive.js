@@ -47,7 +47,10 @@ function setVariant(items, id) {
 }
 
 fetch("assets/data/variants.json?v=20260424-tumor-data")
-  .then((response) => response.json())
+  .then((response) => {
+    if (!response.ok) throw new Error(`Variant data request failed: ${response.status}`);
+    return response.json();
+  })
   .then((items) => {
     variantList.innerHTML = items.map((item) => `
       <button class="variant-button" data-variant="${item.id}">
@@ -62,4 +65,8 @@ fetch("assets/data/variants.json?v=20260424-tumor-data")
       setVariant(items, button.dataset.variant);
     });
     setVariant(items, items[0]?.id);
+  })
+  .catch((error) => {
+    console.error(error);
+    variantList.innerHTML = `<p role="alert" style="margin:24px 0;padding:18px 20px;border:1px solid rgba(37,37,35,.16);border-radius:14px;background:#fffdf8;color:#252523;font-size:15px;line-height:1.5;">The variant data couldn't load right now. Please refresh, or reach me at <a href="mailto:verma.arun@gmail.com">verma.arun@gmail.com</a>.</p>`;
   });

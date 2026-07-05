@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Arun Verma">
+  <circle cx="16" cy="16" r="14.4" fill="#fffdf8" stroke="#252523" stroke-width="1.5"/>
+  <line x1="7" y1="25" x2="25" y2="7" stroke="#252523" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="21" cy="11" r="4" fill="#e9b9ab"/>
+</svg>
