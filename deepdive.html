@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20260706c-hero">
+  <link rel="stylesheet" href="styles.css?v=20260706d-audit3">
   <link rel="stylesheet" href="suminagashi.css?v=20260610i">
 </head>
 <body class="sumi" data-page="deepdive">
@@ -157,17 +157,30 @@
         </p>
       </div>
 
-      <div class="data-metrics">
-        <div class="data-metric"><span>What the tumor is</span><b>Astrocytoma, IDH-mutant, CNS WHO grade 2</b><small>right frontal lobe</small></div>
-        <div class="data-metric"><span>Why vorasidenib matters</span><b>Vorasidenib</b><small>FDA-approved IDH inhibitor for grade 2 IDH-mutant glioma after surgery</small></div>
-        <div class="data-metric"><span>Somatic calls</span><b>649</b><small>618 genes with somatic evidence</small></div>
-        <div class="data-metric"><span>Canonical drivers</span><b>4</b><small>25 other genes flagged for review</small></div>
-        <div class="data-metric"><span>Peptides screened</span><b>314,801</b><small>a big first-pass computational list, not clinical candidates</small></div>
-        <div class="data-metric"><span>Predicted strong HLA binders</span><b>2,104</b><small>peptides predicted to bind strongly</small></div>
-        <div class="data-metric"><span>Vaccine-design shortlist</span><b>18</b><small>prioritized long-peptide design candidates</small></div>
-        <div class="data-metric"><span>TMB / MSI</span><b>1.5 mut/Mb / MSS</b><small>earlier TMB estimates varied by assay/reporting method</small></div>
-        <div class="data-metric"><span>Tumor purity</span><b>32%</b><small>purity estimate used by the run</small></div>
-        <div class="data-metric"><span>PGx core-site call rate</span><b>80%</b><small>how much of the PGx core set was covered</small></div>
+      <div class="data-group">
+        <h3 class="data-subhead">Diagnosis</h3>
+        <div class="data-metrics">
+          <div class="data-metric"><span>What the tumor is</span><b>Astrocytoma, IDH-mutant, CNS WHO grade 2</b><small>right frontal lobe</small></div>
+          <div class="data-metric"><span>Why vorasidenib matters</span><b>Vorasidenib</b><small>FDA-approved IDH inhibitor for grade 2 IDH-mutant glioma after surgery</small></div>
+        </div>
+      </div>
+      <div class="data-group">
+        <h3 class="data-subhead">Genomics</h3>
+        <div class="data-metrics">
+          <div class="data-metric"><span>Somatic calls</span><b>649</b><small>618 genes with somatic evidence</small></div>
+          <div class="data-metric"><span>Canonical drivers</span><b>4</b><small>25 other genes flagged for review</small></div>
+          <div class="data-metric"><span>TMB / MSI</span><b>1.5 mut/Mb / MSS</b><small>earlier TMB estimates varied by assay/reporting method</small></div>
+          <div class="data-metric"><span>Tumor purity</span><b>32%</b><small>purity estimate used by the run</small></div>
+          <div class="data-metric"><span>PGx core-site call rate</span><b>80%</b><small>how much of the PGx core set was covered</small></div>
+        </div>
+      </div>
+      <div class="data-group">
+        <h3 class="data-subhead">Vaccine funnel</h3>
+        <div class="data-metrics">
+          <div class="data-metric"><span>Peptides screened</span><b>314,801</b><small>a big first-pass computational list, not clinical candidates</small></div>
+          <div class="data-metric"><span>Predicted strong HLA binders</span><b>2,104</b><small>peptides predicted to bind strongly</small></div>
+          <div class="data-metric"><span>Vaccine-design shortlist</span><b>18</b><small>prioritized long-peptide design candidates</small></div>
+        </div>
       </div>
     </section>
 
@@ -280,6 +293,6 @@
   </footer>
   <script src="deepdive.js?v=20260424-tumor-data"></script>
   <script src="suminagashi-fluid.js?v=20260610i"></script>
-  <script src="enhance.js?v=20260706" defer></script>
+  <script src="enhance.js?v=20260706b" defer></script>
 </body>
 </html>

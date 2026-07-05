@@ -6886,3 +6886,24 @@ body.sumi[data-page="command-center"] .cc-pipeline-section .cc-section-heading p
 }
 /* The hook word that stops the reader */
 .timeline-hero h1 em, .deep-hero h1 em { font-style: italic; color: #c8372d; }
+
+/* Thin scroll-progress rail (orientation on long pages) */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0; z-index: 60;
+  pointer-events: none; background: linear-gradient(90deg, #16407a, #c8372d);
+}
+
+/* Deep Dive: segment the metrics into themed groups */
+.data-group { margin-top: 28px; }
+.data-group:first-of-type { margin-top: 4px; }
+.data-subhead {
+  margin: 0 0 12px; font-size: 13px; letter-spacing: .16em; text-transform: uppercase;
+  color: #16407a; font-weight: 600;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+/* Compact mobile header — smaller nav pills reclaim first-screen space */
+@media (max-width: 560px) {
+  .site-header { padding-top: 14px; padding-bottom: 14px; gap: 10px; }
+  .site-header nav a { font-size: 12px; padding: 6px 10px; }
+}
