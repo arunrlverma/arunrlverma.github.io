@@ -6634,3 +6634,36 @@ body[data-page="command-center"] button:focus-visible,
   border-radius: 4px 4px 0 0;
 }
 .cc-price-refund + .cc-price-refund { margin-top: 8px; }
+
+/* --- Match the Command Center top nav to the light serif header used site-wide.
+   Appended last so it overrides the earlier command-center header themes. --- */
+body[data-page="command-center"] .site-header {
+  background: color-mix(in srgb, #fbf3e1 82%, transparent);
+  backdrop-filter: blur(8px) saturate(1.05);
+  border-bottom: 1px solid #e0d6c0;
+  color: #1a1a19;
+}
+body[data-page="command-center"] .brand {
+  color: #1a1a19;
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
+}
+body[data-page="command-center"] .brand-mark {
+  border: 1px solid #1a1a19;
+  background: radial-gradient(circle at 35% 35%, #1a1a19, #16407a 120%);
+}
+body[data-page="command-center"] nav a {
+  border-color: rgba(37, 37, 35, .14);
+  background: rgba(255, 253, 248, .72);
+  color: #6b6256;
+  font-family: "Iowan Old Style", "Palatino Linotype", "Hiragino Mincho ProN", "Yu Mincho", Charter, Georgia, serif;
+  white-space: normal;
+}
+body[data-page="command-center"] nav a.active,
+body[data-page="command-center"] nav a:hover {
+  border-color: rgba(37, 37, 35, .38);
+  background: #fffdf7;
+  color: #1a1a19;
+}
+body[data-page="command-center"] nav a.active {
+  border-bottom: 2px solid #c8372d;
+}
