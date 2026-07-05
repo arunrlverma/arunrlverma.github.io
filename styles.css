@@ -6870,3 +6870,19 @@ body.sumi[data-page="command-center"] .cc-pipeline-section .cc-section-heading p
   body[data-page="command-center"] .cc-price-tiers { display: flex; flex-direction: column; }
   body[data-page="command-center"] .cc-tier-featured { order: -1; }
 }
+
+/* First-impression hero CTAs (sumi story pages) */
+.hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 6px; }
+.hero-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 12px 22px; border-radius: 999px; line-height: 1; white-space: nowrap;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif; font-size: 15px;
+  text-decoration: none; background: #1a1a19; color: #fffdf7; border: 1px solid #1a1a19;
+}
+.hero-btn.ghost { background: rgba(255, 253, 247, .55); color: #1a1a19; border-color: rgba(37, 37, 35, .32); }
+@media (prefers-reduced-motion: no-preference) {
+  .hero-btn { transition: transform .16s ease, box-shadow .18s ease; }
+  .hero-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(26, 26, 25, .16); }
+}
+/* The hook word that stops the reader */
+.timeline-hero h1 em, .deep-hero h1 em { font-style: italic; color: #c8372d; }
