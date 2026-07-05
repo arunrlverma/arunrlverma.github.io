@@ -6907,3 +6907,63 @@ body.sumi[data-page="command-center"] .cc-pipeline-section .cc-section-heading p
   .site-header { padding-top: 14px; padding-bottom: 14px; gap: 10px; }
   .site-header nav a { font-size: 12px; padding: 6px 10px; }
 }
+
+/* ============================================================
+   TYPE SCALE — one logical ramp across the whole site.
+   Snaps the semantic roles onto a shared scale so headings,
+   labels, and body copy relate on every page. Specificity is
+   set to override the earlier per-page bespoke sizes.
+   ============================================================ */
+:root {
+  --fs-eyebrow: 12px;                       /* uppercase kickers / labels */
+  --fs-caption: 13px;                       /* captions, fine print */
+  --fs-small:   14px;                       /* secondary / meta text */
+  --fs-body:    16px;                        /* body copy */
+  --fs-lead:    clamp(17px, 1.35vw, 19px);  /* intros / leads */
+  --fs-h3:      clamp(20px, 1.6vw, 24px);
+  --fs-h2:      clamp(27px, 3vw, 38px);
+  --fs-display: clamp(40px, 5.2vw, 68px);   /* hero + page-title headlines */
+}
+
+/* Display: hero headlines + page titles — identical on every page */
+body.sumi .timeline-hero h1,
+body.sumi .deep-hero h1,
+body.sumi .contact-card h1,
+body.sumi .cc-legal-paper h1,
+body.sumi[data-page="command-center"] .cc-topbar h1.cc-hero-title {
+  font-size: var(--fs-display); line-height: 1.04; letter-spacing: -.015em;
+}
+
+/* Section headings — one h2 size everywhere */
+body.sumi .section-heading h2,
+body.sumi .combo-intro h2,
+body.sumi[data-page="command-center"] .cc-soft-landing .cc-section-heading h2,
+body.sumi[data-page="command-center"] .cc-founder-section h2,
+body.sumi[data-page="command-center"] .cc-final-cta h2,
+body.sumi[data-page="command-center"] .cc-privacy-inner h2 {
+  font-size: var(--fs-h2); line-height: 1.15;
+}
+
+/* Sub-headings + legal section heads */
+body.sumi .combo-panel h3,
+body.sumi .portal-card h3,
+body.sumi .vaccine-card h3,
+body.sumi .cc-legal-paper h2 { font-size: var(--fs-h3); line-height: 1.28; }
+
+/* Eyebrows / kickers — one label size + tracking */
+body.sumi .kicker, body.sumi .eyebrow {
+  font-size: var(--fs-eyebrow); letter-spacing: .14em; text-transform: uppercase;
+}
+
+/* Lead / intro paragraphs */
+body.sumi .hero p,
+body.sumi .cc-public-intro,
+body.sumi .combo-intro p { font-size: var(--fs-lead); line-height: 1.6; }
+
+/* Supporting section descriptions */
+body.sumi .section-heading p { font-size: var(--fs-body); }
+
+/* Captions & fine print */
+body.sumi .caption,
+body.sumi .cc-mini-disclaimer,
+body.sumi .cc-cta-trust { font-size: var(--fs-caption); }
