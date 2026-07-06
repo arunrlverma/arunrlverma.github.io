@@ -7006,3 +7006,52 @@ body.sumi .cc-legal-paper p, body.sumi .cc-legal-paper li { line-height: var(--l
 .footer-links a { color: inherit; text-decoration: none; }
 .footer-links a:hover { text-decoration: underline; }
 @media (max-width:560px){ .footer { flex-direction: column; gap: 8px; } }
+
+/* ============================================================
+   AUDIT FIXES — white-theme design (cards, product hero, greys)
+   ============================================================ */
+/* Cards need real containers now that the ground is white */
+body.sumi .card-body,
+body.sumi .portal-card,
+body.sumi .data-metric,
+body.sumi .download-card,
+body.sumi .donation-card,
+body.sumi .combo-panel,
+body.sumi .vaccine-card,
+body.sumi .variant-button {
+  background: #ffffff;
+  border-color: rgba(28, 26, 23, .14);
+  box-shadow: 0 1px 2px rgba(26, 26, 25, .05), 0 14px 30px -18px rgba(26, 26, 25, .20);
+}
+body.sumi .stage-frame {
+  box-shadow: 0 2px 6px rgba(26, 26, 25, .06), 0 26px 56px -26px rgba(26, 26, 25, .22);
+}
+
+/* One display serif (Shippori) unambiguously across all headings */
+body.sumi h1, body.sumi h2, body.sumi h3,
+body.sumi .cc-hero-title, body.sumi .cc-section-heading h2 {
+  font-family: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
+}
+
+/* Triangle Health hero -> white: drop the near-black band + backdrop, dark text */
+body.sumi[data-page="command-center"] .cc-site-hero::before { display: none; }
+body.sumi[data-page="command-center"] .cc-hero-backdrop { display: none; }
+body.sumi[data-page="command-center"] .cc-hero-title { color: var(--cc-navy); }
+body.sumi[data-page="command-center"] .cc-site-hero .cc-public-intro,
+body.sumi[data-page="command-center"] .cc-hero-audience,
+body.sumi[data-page="command-center"] .cc-cta-trust,
+body.sumi[data-page="command-center"] .cc-mini-disclaimer { color: var(--cc-muted); }
+
+/* Unify the two body greys on the product page to one warm muted */
+body.sumi[data-page="command-center"] { --ink-2: #55504a; --ink-3: #847e75; }
+
+/* Founder: white panel (no genome collage), near-ink quote (no green italic) */
+body.sumi[data-page="command-center"] .cc-founder-section {
+  background: #ffffff;
+  border: 1px solid rgba(28, 26, 23, .12);
+  box-shadow: 0 2px 6px rgba(26, 26, 25, .05), 0 22px 46px -24px rgba(26, 26, 25, .15);
+}
+body.sumi[data-page="command-center"] .cc-founder-section blockquote { color: var(--cc-ink); }
+
+/* No ambient ink here anymore -> paint the base white explicitly */
+body.sumi[data-page="command-center"] { background: #ffffff; }
