@@ -44,13 +44,12 @@
     <!-- HERO: big-type moment + signature flip cards -->
     <section class="cc-topbar cc-site-hero" aria-label="Triangle Health overview">
       <img class="cc-hero-backdrop" src="assets/media/illus-ai-treatment-map.webp" alt="" aria-hidden="true">
-      <h1 class="cc-hero-title">Your cancer data holds more than one report can show.</h1>
+      <h1 class="cc-hero-title">One tumor report answers a handful of questions. Your sequencing data can answer more.</h1>
       <div class="cc-hero-copy">
         <p class="cc-public-intro">
-          We analyze your tumor's DNA, RNA, and immune signals with research-grade pipelines, and turn it into
-          one clear report for your oncologist — so your next appointment starts with the right questions.
+          We run your tumor's DNA, RNA, and immune data through the same open-source tools cancer labs use, then write it up in one report your oncologist can actually read. Named tools, cited findings, plain English.
         </p>
-        <p class="cc-hero-audience">For second opinions, complex or rare cases, and an honest read of what's strong, weak, or unproven.</p>
+        <p class="cc-hero-audience">Most useful for a second opinion, or a rare or complicated case where the standard report ran out of answers.</p>
         <div class="cc-live-actions">
           <a class="cc-live-link" href="assets/downloads/triangle-unified-report.html">Read the sample report</a>
           <a class="cc-live-link secondary" href="https://d3mjr6kw1lskoo.cloudfront.net" target="_blank" rel="noopener">Start your analysis &#8599;</a>
@@ -64,7 +63,7 @@
             <div class="cc-file-face cc-file-front">
               <em>Drivers</em>
               <h2>What may be driving it</h2>
-              <p>Mutations, copy-number changes, fusions, and expression — ranked by evidence.</p>
+              <p>The specific mutations, copy-number changes, fusions, and expression, ranked by how strong the evidence is.</p>
               <small class="cc-flip-hint" aria-hidden="true">flip &#8631;</small>
             </div>
             <div class="cc-file-face cc-file-back">
@@ -77,8 +76,8 @@
           <div class="cc-file-inner">
             <div class="cc-file-face cc-file-front">
               <em>Vulnerabilities</em>
-              <h2>Where options may open</h2>
-              <p>Treatment, immune, and pathway hypotheses matched to your tumor.</p>
+              <h2>Treatment leads worth exploring</h2>
+              <p>Drug, immune, and pathway hypotheses matched to your tumor, each flagged as promising or shaky.</p>
               <small class="cc-flip-hint" aria-hidden="true">flip &#8631;</small>
             </div>
             <div class="cc-file-face cc-file-back">
@@ -108,14 +107,14 @@
     <section class="cc-founder-section reveal" aria-label="Founder story">
       <div class="cc-founder-intro">
         <div class="kicker">Why I built this</div>
-        <h2>My own cancer file had signals I didn't want to miss.</h2>
+        <h2>I built this because my own report wasn't telling me everything.</h2>
         <figure class="cc-founder-portrait">
           <img src="assets/media/2018-09-27-arun-portrait.webp" width="1600" height="1600" loading="lazy" decoding="async" alt="Portrait of Arun Verma">
           <figcaption>Arun Verma &middot; Founder &middot; cancer patient</figcaption>
         </figure>
       </div>
       <blockquote>
-        I found that my cancer overexpresses DLL3 — immunosuppressive, but not featureless. That changed my question from "what does the report say?" to "what might we be missing?" — signals I took to my oncologists, not conclusions I acted on alone.
+        My cancer overexpresses DLL3. That's immunosuppressive, but it also gives you something to aim at. Finding it stopped me trusting the report as the last word. I took what I found to my oncologists and asked what else we should be looking at. I didn't act on any of it alone.
       </blockquote>
       <p>Built for that moment, by someone who needed it himself. <span class="cc-inline-note">One person's experience; not a promise of findings for anyone.</span></p>
     </section>
@@ -124,7 +123,7 @@
     <section class="cc-stepper-section" aria-label="How it works">
       <div class="cc-section-heading reveal">
         <div class="kicker">How it works</div>
-        <h2>Three steps. We do the hard part.</h2>
+        <h2>Three steps. You upload; we run the rest.</h2>
       </div>
       <ol class="cc-stepper reveal-grid">
         <li class="cc-stepper-node">
@@ -140,7 +139,7 @@
         <li class="cc-stepper-node">
           <span class="cc-stepper-num">3</span>
           <h3>Walk in prepared</h3>
-          <p>A doctor-ready report — strong signals separated from weak.</p>
+          <p>One report your oncologist can read fast, with the solid findings kept separate from the shaky ones.</p>
         </li>
       </ol>
     </section>
@@ -149,7 +148,7 @@
     <section class="cc-sample-section cc-band-tint reveal" id="example-report" aria-label="Real sample report">
       <div class="cc-section-heading">
         <div class="kicker">See it first</div>
-        <h2>Don't take our word for it. Read a real report.</h2>
+        <h2>Read a real report before you spend anything.</h2>
         <p>A real report from the founder's own cancer data. Open it before you pay — yours reads differently, but the structure is the same.</p>
       </div>
       <div class="cc-sample-split">
@@ -184,8 +183,8 @@
     <section class="cc-pipeline-section cc-band-dark reveal" id="how-we-analyze" aria-label="How we analyze">
       <div class="cc-section-heading">
         <div class="kicker">Under the hood</div>
-        <h2>Not a chatbot. A real genomics pipeline.</h2>
-        <p>The same open tools cancer researchers use, on GRCh38 — then an AI layer weighs the evidence and writes it in plain language, every finding tied to its source.</p>
+        <h2>This isn't a chatbot reading your PDF. It's a genomics pipeline.</h2>
+        <p>Your files run through the open-source tools cancer labs use, aligned to GRCh38: Mutect2, VEP, STAR, MHCflurry, DepMap and more. Then AI weighs what came out and writes it up in plain English, with a source behind every claim.</p>
       </div>
       <div class="cc-pipeline reveal-grid">
         <div class="cc-pipe-io"><span>Inputs</span><b>DNA &middot; RNA &middot; immune</b></div>
@@ -230,8 +229,8 @@
     <!-- PRIVACY: reassurance pill row -->
     <section class="cc-privacy-section reveal" aria-label="Data privacy and security">
       <div class="cc-privacy-inner">
-        <h2>Your genome stays yours.</h2>
-        <p class="cc-privacy-line">Encrypted in transit and at rest, analyzed only in our own pipeline, never sold or used to train AI, and yours to delete anytime.</p>
+        <h2>We don't sell your genome or train AI on it.</h2>
+        <p class="cc-privacy-line">It's encrypted in transit and at rest, analyzed only in our own pipeline, and you can delete it permanently whenever you want.</p>
         <a class="cc-privacy-link" href="privacy.html">Read the privacy policy &rarr;</a>
       </div>
     </section>
@@ -240,7 +239,7 @@
     <section class="cc-price-section reveal" id="pricing" aria-label="Pricing">
       <div class="cc-section-heading">
         <div class="kicker">Pricing</div>
-        <h2>Pick the depth that fits.</h2>
+        <h2>Three tiers. Pay once.</h2>
         <p>One-time fee, no subscription. Most reports are ready within a few days. Read the full sample report before you pay.</p>
       </div>
       <div class="cc-price-tiers">
@@ -297,7 +296,7 @@
         </details>
         <details>
           <summary>Is this just ChatGPT in a wrapper?</summary>
-          <p>No. Your files run through a real genomics pipeline — the same open tools used in cancer research (Mutect2, MuSE, VEP, STAR, MHCflurry, DepMap), with mutations called from the consensus of two tools. AI weighs the evidence and writes it in plain language, every claim tied to its source.</p>
+          <p>No. Your files run through a real genomics pipeline built on the open tools cancer labs use: Mutect2, MuSE, VEP, STAR, MHCflurry, DepMap. Mutations only count when two separate callers agree on them. AI comes in at the end to weigh the results and write them up, and every claim points back to its source.</p>
         </details>
         <details>
           <summary>Where does my genomic data go?</summary>
@@ -329,8 +328,8 @@
     <!-- CLOSE -->
     <section class="cc-final-cta reveal" aria-label="Start your analysis">
       <div class="kicker">Private analysis</div>
-      <h2>The answer may already be in your data.</h2>
-      <p class="cc-final-sub">Read the free sample report, then run the analysis on your own files.</p>
+      <h2>What your last report left out may already be in the raw data.</h2>
+      <p class="cc-final-sub">Read the free sample, then run it on your own files.</p>
       <div class="cc-live-actions">
         <a class="cc-live-link" href="assets/downloads/triangle-unified-report.html">Read the sample report</a>
         <a class="cc-live-link secondary" href="https://d3mjr6kw1lskoo.cloudfront.net" target="_blank" rel="noopener">Start your analysis &#8599;</a>
