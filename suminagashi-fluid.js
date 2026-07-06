@@ -32,7 +32,7 @@
     matsuba: [0xa4 / 255, 0xcf / 255, 0xb4 / 255],   // pastel sage
   };
   const INK_KEYS = Object.keys(INKS);
-  const PAPER = [0xfb / 255, 0xf3 / 255, 0xe1 / 255];   // matches the page washi (#fbf3e1)
+  const PAPER = [1, 1, 1];   // white page ground
   const ABS_E = 0.012;
   function inkAbsorption(rgb, strength) {
     return [

@@ -6638,7 +6638,7 @@ body[data-page="command-center"] button:focus-visible,
 /* --- Match the Command Center top nav to the light serif header used site-wide.
    Appended last so it overrides the earlier command-center header themes. --- */
 body[data-page="command-center"] .site-header {
-  background: color-mix(in srgb, #fbf3e1 82%, transparent);
+  background: rgba(255, 255, 255, .85);
   backdrop-filter: blur(8px) saturate(1.05);
   border-bottom: 1px solid #e0d6c0;
   color: #1a1a19;
@@ -6682,7 +6682,7 @@ body.sumi[data-page="command-center"] {
   --cc-mist: #efe6d3;   /* warm tints */
   --cc-mint: #ece3cf;
   --cc-cream: #fffdf7;
-  --cc-paper: #fbf3e1;  /* washi */
+  --cc-paper: #ffffff;  /* white ground */
   --cc-peach: #f0e0cd;
   --cc-gold: #c69a44;
   --cc-line: #e0d6c0;

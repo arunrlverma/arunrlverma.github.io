@@ -9,15 +9,15 @@
 
 body.sumi {
   /* Traditional suminagashi palette (reference hexes), retuned over the paper system. */
-  --paper: #fbf3e1;          /* 和紙 warm washi */
-  --paper-deep: #f0e7d0;
+  --paper: #ffffff;          /* white ground */
+  --paper-deep: #f4f4f5;
   --ink: #1a1a19;            /* 墨 sumi */
   --muted: #6b6256;          /* warm grey-brown for body copy */
-  --line: #e0d6c0;
+  --line: #e7e6e3;
   --ai: #16407a;             /* 藍 indigo */
   --shu: #c8372d;            /* 朱 vermillion */
   --matsuba: #2e6e52;        /* 松葉 pine-needle green */
-  --white: #fffdf7;
+  --white: #ffffff;
 
   /* Two faces: Shippori for display, a refined book serif for the long read. */
   --display-serif: "Shippori Mincho", "Hiragino Mincho ProN", Georgia, serif;
@@ -219,9 +219,9 @@ body.sumi .fact-list li {
 
 /* ---- Header / nav ---- */
 body.sumi .site-header {
-  background: color-mix(in srgb, var(--paper) 80%, transparent);
+  background: rgba(255, 255, 255, .85);
   backdrop-filter: blur(8px) saturate(1.05);
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(20, 20, 20, .08);
 }
 body.sumi .brand-mark {
   background: radial-gradient(circle at 35% 35%, var(--ink), var(--ai) 120%);
