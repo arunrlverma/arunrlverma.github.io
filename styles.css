@@ -7055,3 +7055,15 @@ body.sumi[data-page="command-center"] .cc-founder-section blockquote { color: va
 
 /* No ambient ink here anymore -> paint the base white explicitly */
 body.sumi[data-page="command-center"] { background: #ffffff; }
+
+/* Conversion: above-fold offer strip, demoted hero link, human off-ramp */
+body.sumi[data-page="command-center"] .cc-offer-strip {
+  margin: 8px auto 2px; max-width: 640px; color: var(--cc-ink); font-size: 15px; line-height: 1.5;
+}
+body.sumi[data-page="command-center"] .cc-offer-strip strong { color: var(--cc-navy); }
+body.sumi[data-page="command-center"] .cc-hero-textlink {
+  color: var(--cc-navy); text-decoration: underline; text-underline-offset: 3px; font-size: 15px;
+}
+body.sumi[data-page="command-center"] .cc-price-human { text-align: center; margin-top: 14px; color: var(--cc-muted); font-size: 14px; }
+/* Keep the back-to-top clear of the sticky CTA on the product page */
+body[data-page="command-center"] .to-top { bottom: 86px; }
