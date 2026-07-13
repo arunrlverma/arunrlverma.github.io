@@ -137,15 +137,22 @@
   targets.forEach(function (el) { io.observe(el); });
 })();
 
-/* Persistent scroll CTA: show after the hero, hide near the final CTA (v12) */
+/* Persistent scroll CTA: show after the hero, hide through the full ending. */
 (function () {
   "use strict";
   var bar = document.getElementById("sticky-cta");
   if (!bar || !("IntersectionObserver" in window)) return;
   var hero = document.querySelector(".cc-site-hero");
-  var end = document.querySelector(".cc-final-cta");
+  var endings = Array.from(document.querySelectorAll(".cc-final-cta, .story-handoff"));
+  var endingStates = endings.map(function () { return false; });
   var pastHero = false, atEnd = false;
   function update() { bar.classList.toggle("show", pastHero && !atEnd); }
   if (hero) new IntersectionObserver(function (e) { pastHero = !e[0].isIntersecting; update(); }, { threshold: 0 }).observe(hero);
-  if (end) new IntersectionObserver(function (e) { atEnd = e[0].isIntersecting; update(); }, { threshold: 0 }).observe(end);
+  endings.forEach(function (ending, index) {
+    new IntersectionObserver(function (entries) {
+      endingStates[index] = entries[0].isIntersecting;
+      atEnd = endingStates.some(Boolean);
+      update();
+    }, { threshold: 0 }).observe(ending);
+  });
 })();

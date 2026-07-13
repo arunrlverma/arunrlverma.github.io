@@ -1137,6 +1137,11 @@ body.sumi.editorial-page[data-page="command-center"]::before {
   display: none !important;
 }
 
+body.sumi.editorial-page main,
+body.sumi.editorial-page[data-page="command-center"] .cc-app {
+  overflow: visible !important;
+}
+
 body.sumi.editorial-page[data-page="command-center"] .site-header {
   background: #fff !important;
   -webkit-backdrop-filter: none !important;
@@ -1301,5 +1306,433 @@ body.sumi.editorial-page.legal-page[data-page="command-center"] .cc-legal-paper 
   body.sumi.editorial-page[data-page="command-center"] .cc-privacy-inner h2,
   body.sumi.editorial-page[data-page="command-center"] .cc-final-cta h2 {
     font-size: 34px;
+  }
+}
+
+/* Reader orientation for the two long editorial chapters. */
+body.sumi.editorial-page .section-reader-wrap {
+  position: sticky;
+  top: 68px;
+  z-index: 15;
+  width: 100%;
+}
+
+body.sumi.editorial-page .section-reader {
+  position: relative;
+  min-height: 54px;
+  overflow: visible !important;
+  border-bottom: 1px solid var(--ed-line);
+  background: rgba(255, 255, 255, .96);
+  -webkit-backdrop-filter: blur(12px) saturate(1.05);
+  backdrop-filter: blur(12px) saturate(1.05);
+}
+
+body.sumi.editorial-page .section-reader-inner {
+  display: grid;
+  grid-template-columns: minmax(160px, .55fr) minmax(0, 1.45fr);
+  align-items: center;
+  gap: 24px;
+  width: min(calc(100% - 96px), 1120px);
+  min-height: 54px;
+  margin: 0 auto;
+}
+
+body.sumi.editorial-page .section-reader-status {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 10px;
+}
+
+body.sumi.editorial-page .section-reader-current {
+  overflow: hidden;
+  color: var(--ed-indigo);
+  font-family: "Shippori Mincho", Georgia, serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+body.sumi.editorial-page .section-reader-position {
+  flex: 0 0 auto;
+  color: var(--ed-muted);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+body.sumi.editorial-page .section-reader-links {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: flex-end;
+  gap: clamp(12px, 1.6vw, 24px);
+}
+
+body.sumi.editorial-page .section-reader-links a {
+  position: relative;
+  padding: 18px 0 16px;
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--ed-muted);
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+body.sumi.editorial-page .section-reader-links a::after {
+  content: "";
+  position: absolute;
+  right: 100%;
+  bottom: -1px;
+  left: 0;
+  height: 2px;
+  background: var(--ed-red);
+  transition: right .16s ease;
+}
+
+body.sumi.editorial-page .section-reader-links a:hover,
+body.sumi.editorial-page .section-reader-links a[aria-current="location"] {
+  color: var(--ed-ink);
+}
+
+body.sumi.editorial-page .section-reader-links a:hover::after,
+body.sumi.editorial-page .section-reader-links a[aria-current="location"]::after {
+  right: 0;
+}
+
+body.sumi.editorial-page .section-reader-toggle {
+  display: none;
+  min-height: 38px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 11px;
+  border: 1px solid var(--ed-line-strong);
+  border-radius: 3px;
+  background: #fff;
+  color: var(--ed-ink);
+  font: 700 11px/1.2 "Iowan Old Style", Georgia, serif;
+  cursor: pointer;
+}
+
+body.sumi.editorial-page .section-reader-toggle svg {
+  transition: transform .16s ease;
+}
+
+body.sumi.editorial-page .section-reader.is-open .section-reader-toggle svg {
+  transform: rotate(180deg);
+}
+
+body.sumi.editorial-page .section-reader a:focus-visible,
+body.sumi.editorial-page .section-reader-toggle:focus-visible {
+  outline: 2px solid var(--ed-indigo);
+  outline-offset: 3px;
+}
+
+body.sumi.editorial-page[data-page="deepdive"] #treatment-plan,
+body.sumi.editorial-page[data-page="deepdive"] #data-portal,
+body.sumi.editorial-page[data-page="deepdive"] #tumor-data,
+body.sumi.editorial-page[data-page="deepdive"] #vaccine-funnel,
+body.sumi.editorial-page[data-page="deepdive"] #variant-explorer,
+body.sumi.editorial-page[data-page="deepdive"] #support-research,
+body.sumi.editorial-page[data-page="command-center"] #why-it-exists,
+body.sumi.editorial-page[data-page="command-center"] #how-it-works,
+body.sumi.editorial-page[data-page="command-center"] #example-report,
+body.sumi.editorial-page[data-page="command-center"] #how-we-analyze,
+body.sumi.editorial-page[data-page="command-center"] #what-to-upload,
+body.sumi.editorial-page[data-page="command-center"] #data-privacy,
+body.sumi.editorial-page[data-page="command-center"] #pricing,
+body.sumi.editorial-page[data-page="command-center"] #faq {
+  scroll-margin-top: 134px;
+}
+
+/* Provenance is visible beside a claim, with restrained colors for each source type. */
+body.sumi.editorial-page .evidence-badge {
+  display: inline-flex;
+  min-height: 24px;
+  align-items: center;
+  width: max-content;
+  max-width: 100%;
+  padding: 4px 7px;
+  border: 1px solid currentColor;
+  border-radius: 2px;
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+body.sumi.editorial-page .evidence-record {
+  background: rgba(23, 64, 111, .06);
+  color: var(--ed-indigo);
+}
+
+body.sumi.editorial-page .evidence-published {
+  background: rgba(46, 110, 82, .07);
+  color: var(--ed-pine);
+}
+
+body.sumi.editorial-page .evidence-computed {
+  background: rgba(183, 137, 49, .08);
+  color: #785914;
+}
+
+body.sumi.editorial-page .evidence-exploratory {
+  background: rgba(200, 55, 45, .06);
+  color: var(--ed-red);
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .evidence-key {
+  display: grid;
+  grid-template-columns: minmax(210px, .7fr) minmax(0, 1.3fr);
+  gap: clamp(32px, 5vw, 72px);
+  margin: 42px 0 52px;
+  padding: 28px 0;
+  border-top: 1px solid var(--ed-line);
+  border-bottom: 1px solid var(--ed-line);
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .evidence-key-heading p {
+  margin: 9px 0 0;
+  color: var(--ed-ink);
+  font-size: 15px;
+  line-height: 1.55;
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .evidence-key-heading small {
+  display: block;
+  margin-top: 12px;
+  color: var(--ed-muted);
+  font-size: 11px;
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .evidence-key ul {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px 26px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .evidence-key li {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--ed-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .combo-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .evidence-line {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 11px;
+  margin-top: auto;
+  padding-top: 22px;
+  border-top: 1px solid var(--ed-line);
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .evidence-line a {
+  color: var(--ed-indigo);
+  font-size: 11px;
+  font-weight: 700;
+  text-underline-offset: 3px;
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .evidence-line a::after {
+  content: "\2197";
+  margin-left: 3px;
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .novelty-note > .evidence-badge {
+  display: flex;
+  margin-bottom: 12px;
+}
+
+body.sumi.editorial-page .section-evidence,
+body.sumi.editorial-page[data-page="deepdive"] .data-subhead-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+body.sumi.editorial-page .section-evidence {
+  margin-top: 18px;
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .data-subhead-row {
+  margin-bottom: 16px;
+}
+
+body.sumi.editorial-page[data-page="deepdive"] .data-subhead-row .data-subhead {
+  margin: 0 auto 0 0;
+}
+
+body.sumi.editorial-page[data-page="command-center"] .cc-pipeline-section .section-evidence .evidence-badge {
+  border-color: rgba(255, 255, 255, .62);
+  background: transparent;
+  color: #fff;
+}
+
+body.sumi.editorial-page[data-page="contact"] .contact-main .story-handoff {
+  width: 100%;
+  margin-top: 112px;
+  padding-bottom: 0;
+}
+
+@media (max-width: 1100px) and (min-width: 881px) {
+  body.sumi.editorial-page .section-reader-inner {
+    grid-template-columns: minmax(130px, .4fr) minmax(0, 1.6fr);
+  }
+
+  body.sumi.editorial-page .section-reader-links {
+    gap: 12px;
+  }
+
+  body.sumi.editorial-page .section-reader-links a {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 880px) {
+  body.sumi.editorial-page .section-reader-wrap {
+    top: 60px;
+  }
+
+  body.sumi.editorial-page .section-reader {
+    min-height: 52px;
+  }
+
+  body.sumi.editorial-page .section-reader-inner {
+    position: relative;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 12px;
+    width: 100%;
+    min-height: 52px;
+    padding: 7px 20px;
+  }
+
+  body.sumi.editorial-page .section-reader-toggle {
+    display: inline-flex;
+  }
+
+  body.sumi.editorial-page .section-reader-links {
+    justify-content: flex-start;
+    gap: 20px;
+    grid-column: 1 / -1;
+    padding-bottom: 8px;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+
+  body.sumi.editorial-page .section-reader-links::-webkit-scrollbar {
+    display: none;
+  }
+
+  body.sumi.editorial-page .section-reader.is-enhanced .section-reader-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: 0;
+    gap: 0;
+    padding: 0 20px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-6px);
+    border-bottom: 1px solid var(--ed-line);
+    background: rgba(255, 255, 255, .98);
+    box-shadow: 0 18px 38px -28px rgba(31, 30, 27, .42);
+    transition: max-height .22s ease, padding .22s ease, opacity .16s ease, transform .18s ease, visibility .18s;
+  }
+
+  body.sumi.editorial-page .section-reader.is-enhanced.is-open .section-reader-links {
+    max-height: 430px;
+    padding-top: 10px;
+    padding-bottom: 14px;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+
+  body.sumi.editorial-page .section-reader.is-enhanced .section-reader-links a {
+    min-height: 44px;
+    padding: 14px 12px;
+    border-bottom: 1px solid color-mix(in srgb, var(--ed-line) 72%, transparent);
+    white-space: normal;
+  }
+
+  body.sumi.editorial-page .section-reader.is-enhanced .section-reader-links a::after {
+    top: 11px;
+    right: auto;
+    bottom: 11px;
+    width: 2px;
+    height: auto;
+    opacity: 0;
+  }
+
+  body.sumi.editorial-page .section-reader.is-enhanced .section-reader-links a[aria-current="location"]::after {
+    opacity: 1;
+  }
+
+  body.sumi.editorial-page[data-page="deepdive"] #treatment-plan,
+  body.sumi.editorial-page[data-page="deepdive"] #data-portal,
+  body.sumi.editorial-page[data-page="deepdive"] #tumor-data,
+  body.sumi.editorial-page[data-page="deepdive"] #vaccine-funnel,
+  body.sumi.editorial-page[data-page="deepdive"] #variant-explorer,
+  body.sumi.editorial-page[data-page="deepdive"] #support-research,
+  body.sumi.editorial-page[data-page="command-center"] #why-it-exists,
+  body.sumi.editorial-page[data-page="command-center"] #how-it-works,
+  body.sumi.editorial-page[data-page="command-center"] #example-report,
+  body.sumi.editorial-page[data-page="command-center"] #how-we-analyze,
+  body.sumi.editorial-page[data-page="command-center"] #what-to-upload,
+  body.sumi.editorial-page[data-page="command-center"] #data-privacy,
+  body.sumi.editorial-page[data-page="command-center"] #pricing,
+  body.sumi.editorial-page[data-page="command-center"] #faq {
+    scroll-margin-top: 120px;
+  }
+
+  body.sumi.editorial-page[data-page="deepdive"] .evidence-key {
+    grid-template-columns: 1fr;
+  }
+
+  body.sumi.editorial-page[data-page="contact"] .contact-main .story-handoff {
+    margin-top: 76px;
+  }
+}
+
+@media (max-width: 560px) {
+  body.sumi.editorial-page[data-page="deepdive"] .evidence-key ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.sumi.editorial-page .section-reader-links a::after,
+  body.sumi.editorial-page .section-reader-toggle svg,
+  body.sumi.editorial-page .section-reader.is-enhanced .section-reader-links {
+    transition: none;
   }
 }

@@ -23,8 +23,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&family=Shippori+Mincho:wght@400;500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css?v=20260706k-conv">
-  <link rel="stylesheet" href="suminagashi.css?v=20260713-ux1">
-  <link rel="stylesheet" href="editorial-pages.css?v=20260713-unify1">
+  <link rel="stylesheet" href="suminagashi.css?v=20260713-journey2">
+  <link rel="stylesheet" href="editorial-pages.css?v=20260713-journey2">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Product","name":"Triangle Health","description":"Research-grade analysis of your cancer's DNA, RNA, and immune signals, turned into one clear report for your oncology team.","brand":{"@type":"Brand","name":"Arun Verma"},"offers":[{"@type":"Offer","name":"Report","price":"99","priceCurrency":"USD"},{"@type":"Offer","name":"Full analysis","price":"199","priceCurrency":"USD"},{"@type":"Offer","name":"Full + consult","price":"599","priceCurrency":"USD"}]}
   </script>
@@ -114,11 +114,37 @@
       </div>
     </section>
 
+    <div class="section-reader-wrap">
+    <nav class="section-reader" data-section-reader aria-label="Triangle Health sections">
+      <div class="section-reader-inner">
+        <div class="section-reader-status" aria-live="polite">
+          <span class="section-reader-current" data-section-current>Why it exists</span>
+          <span class="section-reader-position" data-section-position>1 of 8</span>
+        </div>
+        <button class="section-reader-toggle" type="button" aria-expanded="false" aria-controls="triangle-section-links">
+          <span>Sections</span>
+          <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
+        </button>
+        <div class="section-reader-links" id="triangle-section-links">
+          <a href="#why-it-exists" data-section-label="Why it exists">Why</a>
+          <a href="#how-it-works" data-section-label="How it works">How it works</a>
+          <a href="#example-report" data-section-label="Sample report">Sample</a>
+          <a href="#how-we-analyze" data-section-label="Analysis pipeline">Pipeline</a>
+          <a href="#what-to-upload" data-section-label="What to upload">Upload</a>
+          <a href="#data-privacy" data-section-label="Data privacy">Privacy</a>
+          <a href="#pricing">Pricing</a>
+          <a href="#faq">FAQ</a>
+        </div>
+      </div>
+    </nav>
+    </div>
+
     <!-- FOUNDER: portrait + quote split -->
-    <section class="cc-founder-section reveal" aria-label="Founder story">
+    <section class="cc-founder-section reveal" id="why-it-exists" aria-label="Founder story">
       <div class="cc-founder-intro">
         <div class="kicker">Why I built this</div>
         <h2>I built this because my own report wasn't telling me everything.</h2>
+        <div class="section-evidence"><span class="evidence-badge evidence-record">Personal experience</span></div>
         <figure class="cc-founder-portrait">
           <img src="assets/media/2018-09-27-arun-portrait.webp" width="1600" height="1600" loading="lazy" decoding="async" alt="Portrait of Arun Verma">
           <figcaption>Arun Verma &middot; Founder &middot; cancer patient</figcaption>
@@ -131,7 +157,7 @@
     </section>
 
     <!-- HOW IT WORKS: horizontal numbered stepper (the only numbered section) -->
-    <section class="cc-stepper-section" aria-label="How it works">
+    <section class="cc-stepper-section" id="how-it-works" aria-label="How it works">
       <div class="cc-section-heading reveal">
         <div class="kicker">How it works</div>
         <h2>Three steps. You upload; we run the rest.</h2>
@@ -161,6 +187,7 @@
         <div class="kicker">See it first</div>
         <h2>Read a real report before you spend anything.</h2>
         <p>A real report from the founder's own cancer data. Open it before you pay — yours reads differently, but the structure is the same.</p>
+        <div class="section-evidence"><span class="evidence-badge evidence-record">Real patient example</span></div>
       </div>
       <div class="cc-sample-split">
         <div class="cc-sample-contents">
@@ -196,6 +223,7 @@
         <div class="kicker">Under the hood</div>
         <h2>This isn't a chatbot reading your PDF. It's a genomics pipeline.</h2>
         <p>Your files run through the open-source tools cancer labs use, aligned to GRCh38: Mutect2, VEP, STAR, MHCflurry, DepMap and more. Then AI weighs what came out and writes it up in plain English, with a source behind every claim.</p>
+        <div class="section-evidence"><span class="evidence-badge evidence-computed">Documented pipeline</span></div>
       </div>
       <div class="cc-pipeline reveal-grid">
         <div class="cc-pipe-io"><span>Inputs</span><b>DNA &middot; RNA &middot; immune</b></div>
@@ -212,7 +240,7 @@
     </section>
 
     <!-- WHAT TO UPLOAD: good / better / best ladder -->
-    <section class="cc-ladder-section" aria-label="What to upload">
+    <section class="cc-ladder-section" id="what-to-upload" aria-label="What to upload">
       <div class="cc-section-heading reveal">
         <div class="kicker">What to upload</div>
         <h2>Start with whatever you have.</h2>
@@ -238,7 +266,7 @@
     </section>
 
     <!-- PRIVACY: reassurance pill row -->
-    <section class="cc-privacy-section reveal" aria-label="Data privacy and security">
+    <section class="cc-privacy-section reveal" id="data-privacy" aria-label="Data privacy and security">
       <div class="cc-privacy-inner">
         <h2>We don't sell your genome or train AI on it.</h2>
         <p class="cc-privacy-line">It's encrypted in transit and at rest, analyzed only in our own pipeline, and you can delete it permanently whenever you want.</p>
@@ -356,6 +384,28 @@
         Always review any finding, treatment idea, or research-stage suggestion with your oncology team before acting.
       </p>
     </section>
+
+    <section class="story-handoff" aria-labelledby="triangle-handoff-title">
+      <div class="story-handoff-copy">
+        <span class="story-part">Part 3 of 4 &middot; The tool</span>
+        <h2 id="triangle-handoff-title">The product came out of the story. The final chapter is a conversation.</h2>
+        <p>Write if the experience, the data, or the tool overlaps with something you are trying to understand.</p>
+      </div>
+      <div class="story-handoff-links">
+        <a class="story-handoff-link story-handoff-previous" href="deepdive.html">
+          <span>Previous chapter</span>
+          <strong>Cancer Deep Dive</strong>
+          <small>The biology behind the tool</small>
+          <b aria-hidden="true">&larr;</b>
+        </a>
+        <a class="story-handoff-link story-handoff-next" href="contact.html">
+          <span>Next chapter</span>
+          <strong>Contact Arun</strong>
+          <small>Continue the conversation</small>
+          <b aria-hidden="true">&rarr;</b>
+        </a>
+      </div>
+    </section>
   </main>
 
   <a class="cc-sticky-cta" id="sticky-cta" href="#example-report" aria-label="Read a free sample report">
@@ -367,7 +417,8 @@
     <span>© 2026 Arun Verma · Personal &amp; research use, not medical advice.</span>
     <span class="footer-links"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:verma.arun@gmail.com">Email</a></span>
   </footer>
-  <script src="command-center-interactive.js?v=20260531-v12"></script>
-  <script src="enhance.js?v=20260713-ux1" defer></script>
+  <script src="command-center-interactive.js?v=20260713-journey2"></script>
+  <script src="section-reader.js?v=20260713-journey2" defer></script>
+  <script src="enhance.js?v=20260713-journey2" defer></script>
 </body>
 </html>

@@ -37,7 +37,11 @@
 
       if (open) {
         var firstLink = primaryNav.querySelector("a");
-        if (firstLink) firstLink.focus({ preventScroll: true });
+        if (firstLink) {
+          window.requestAnimationFrame(function () {
+            firstLink.focus({ preventScroll: true });
+          });
+        }
       } else if (restoreFocus) {
         navToggle.focus();
       }
