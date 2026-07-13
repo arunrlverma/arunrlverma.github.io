@@ -7,6 +7,23 @@ const categoryLabels = {
   personal: "Personal"
 };
 
+const TIMELINE_CHAPTERS = [
+  { id: "before", label: "Before", endsAt: "2023-08-14" },
+  { id: "diagnosis", label: "Diagnosis and surgery", startsAt: "2023-08-15", endsAt: "2023-12-31" },
+  { id: "treatment", label: "Treatment and rebuilding", startsAt: "2024-01-01", endsAt: "2024-12-31" },
+  { id: "living", label: "Living with it", startsAt: "2025-01-01", endsAt: "2025-12-31" },
+  { id: "now", label: "Now", startsAt: "2026-01-01" }
+];
+
+function chapterForEvent(event) {
+  const date = event?.date === "before" ? "0000-00-00" : event?.date || "0000-00-00";
+  return TIMELINE_CHAPTERS.find((chapter) => {
+    const afterStart = !chapter.startsAt || date >= chapter.startsAt;
+    const beforeEnd = !chapter.endsAt || date <= chapter.endsAt;
+    return afterStart && beforeEnd;
+  }) || TIMELINE_CHAPTERS[TIMELINE_CHAPTERS.length - 1];
+}
+
 // Narrative ink — each chapter carries an ink so the page takes on the emotional weather
 // of the moment. Drives the full-bleed .ink-tide layer via the --chapter custom property.
 const CHAPTER_INK = {
@@ -29,6 +46,7 @@ function publishChapter(category) {
 
 const state = {
   events: [],
+  visibleIndexes: [],
   filter: "all",
   activeIndex: 0,
   activeVisualIndex: 0,
@@ -46,6 +64,9 @@ const stageCategory = document.querySelector("#stage-category");
 const stageMedia = document.querySelector("#stage-media");
 const stagePicker = document.querySelector("#stage-picker");
 const stageCaption = document.querySelector("#stage-caption");
+const timelineChapter = document.querySelector("#timeline-chapter");
+const timelinePosition = document.querySelector("#timeline-position");
+const chapterSelect = document.querySelector("#chapter-select");
 
 function readableDate(value) {
   if (value === "before") return "Before";
@@ -71,10 +92,10 @@ function mediaMarkup(media) {
   }
   if (media.type === "video") {
     return `
-      <video src="${media.src}" ${media.poster ? `poster="${media.poster}"` : ""} muted loop playsinline controls></video>
+      <video src="${media.src}" ${media.poster ? `poster="${media.poster}"` : ""} preload="none" playsinline controls></video>
     `;
   }
-  return `<img class="${media.fit === "contain" ? "fit-contain" : ""}" src="${media.src}" alt="${media.caption || "Timeline artifact"}">`;
+  return `<img class="${media.fit === "contain" ? "fit-contain" : ""}" src="${media.src}" alt="${media.caption || "Timeline artifact"}" loading="lazy" decoding="async">`;
 }
 
 function mediaPreview(media) {
@@ -203,10 +224,11 @@ function collectStoryStack(activeIndex, selectedMediaIndex = 0) {
 function stageLayerMediaMarkup(item, index) {
   if (item.type === "video" && index === 0 && item.videoSrc) {
     return `
-      <video src="${item.videoSrc}" ${item.poster ? `poster="${item.poster}"` : ""} autoplay muted loop playsinline controls></video>
+      <video src="${item.videoSrc}" ${item.poster ? `poster="${item.poster}"` : ""} preload="none" playsinline controls></video>
     `;
   }
-  return `<img src="${item.src}" alt="${item.caption || item.eventTitle || "Timeline artifact"}">`;
+  const priority = item.isActive ? 'loading="eager" fetchpriority="high"' : 'loading="lazy" fetchpriority="low"';
+  return `<img src="${item.src}" alt="${item.caption || item.eventTitle || "Timeline artifact"}" ${priority} decoding="async">`;
 }
 
 function createStackLayer(item) {
@@ -329,7 +351,7 @@ function stagePickerMarkup(mediaItems, selectedIndex = 0, eventIndex = 0) {
         const preview = mediaPreview(media);
         return `
           <button class="stage-choice ${index === selectedIndex ? "active" : ""}" data-stage-event="${eventIndex}" data-stage-media="${index}" aria-label="Show artifact ${index + 1}">
-            <img src="${preview}" alt="">
+            <img src="${preview}" alt="" loading="lazy" decoding="async">
             ${media.type === "video" ? `<span class="play-mark">Play</span>` : ""}
           </button>
         `;
@@ -354,7 +376,7 @@ function stackedMediaMarkup(mediaItems, selectedIndex = 0) {
     <div class="photo-stack">
       ${images.map((item) => `
         <figure class="photo-layer ${item.fit === "contain" ? "fit-contain" : ""}">
-          <img src="${item.src}" alt="${item.caption || "Timeline artifact"}">
+          <img src="${item.src}" alt="${item.caption || "Timeline artifact"}" loading="lazy" decoding="async">
         </figure>
       `).join("")}
     </div>
@@ -378,12 +400,45 @@ function eventCalloutMarkup(event) {
   const preview = mediaPreview(media);
   return `
     <aside class="event-callout ${preview ? "" : "no-media"}">
-      ${preview ? `<img src="${preview}" alt="${media?.caption || event.callout.title || "Timeline artifact"}">` : ""}
+      ${preview ? `<img src="${preview}" alt="${media?.caption || event.callout.title || "Timeline artifact"}" loading="lazy" decoding="async">` : ""}
       <div>
         <b>${event.callout.title || ""}</b>
         <p>${event.callout.body || ""}</p>
       </div>
     </aside>
+  `;
+}
+
+function mobileEventMediaMarkup(event) {
+  if (event.layout === "finale") return "";
+  const media = event.media?.[0];
+  if (!media) return "";
+  const caption = media.caption || "";
+  const captionMarkup = caption ? `<figcaption>${caption}</figcaption>` : "";
+  const fitClass = media.fit === "contain" ? " fit-contain" : "";
+
+  if (media.type === "video") {
+    const poster = media.poster || "";
+    return `
+      <figure class="mobile-event-media${fitClass}">
+        <button class="mobile-video-poster" type="button" data-video-src="${media.src}" ${poster ? `data-video-poster="${poster}"` : ""} aria-label="Play ${caption || event.title}">
+          ${poster ? `<img src="${poster}" alt="" loading="lazy" decoding="async">` : ""}
+          <span class="mobile-video-play" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="6 3 20 12 6 21 6 3"></polygon>
+            </svg>
+          </span>
+        </button>
+        ${captionMarkup}
+      </figure>
+    `;
+  }
+
+  return `
+    <figure class="mobile-event-media${fitClass}">
+      <img src="${media.src}" alt="${caption ? "" : event.title}" loading="lazy" decoding="async" fetchpriority="low">
+      ${captionMarkup}
+    </figure>
   `;
 }
 
@@ -393,11 +448,47 @@ function finaleMarkup(event) {
     <div class="finale-showcase" aria-label="Triangle product screenshots">
       ${event.media.map((media) => `
         <figure class="finale-screen">
-          <img src="${media.src}" alt="${media.caption || "Triangle product screenshot"}">
+          <img src="${media.src}" alt="${media.caption || "Triangle product screenshot"}" loading="lazy" decoding="async">
         </figure>
       `).join("")}
     </div>
   `;
+}
+
+function renderChapterOptions() {
+  if (!chapterSelect) return;
+  const availableChapterIds = new Set(
+    state.visibleIndexes.map((index) => chapterForEvent(state.events[index]).id)
+  );
+  chapterSelect.innerHTML = [
+    '<option value="">Jump</option>',
+    ...TIMELINE_CHAPTERS
+      .filter((chapter) => availableChapterIds.has(chapter.id))
+      .map((chapter) => `<option value="${chapter.id}">${chapter.label}</option>`)
+  ].join("");
+}
+
+function updateTimelineToolbar(index) {
+  const event = state.events[index];
+  if (!event) return;
+  const chapter = chapterForEvent(event);
+  const visiblePosition = state.visibleIndexes.indexOf(index);
+  if (timelineChapter) timelineChapter.textContent = chapter.label;
+  if (timelinePosition) {
+    const current = visiblePosition >= 0 ? visiblePosition + 1 : 1;
+    timelinePosition.textContent = `${current} of ${state.visibleIndexes.length}`;
+  }
+}
+
+function scrollToChapter(chapterId, pushHistory = true) {
+  if (!chapterId) return;
+  const target = document.querySelector(`#chapter-${chapterId}`);
+  if (!target) return;
+  const hash = `#chapter-${chapterId}`;
+  if (pushHistory && window.location.hash !== hash) {
+    window.history.pushState({ chapter: chapterId }, "", hash);
+  }
+  target.scrollIntoView({ block: "start", behavior: "auto" });
 }
 
 function setActive(index, mediaIndex = 0, mediaIndexIsStageIndex = false) {
@@ -406,8 +497,17 @@ function setActive(index, mediaIndex = 0, mediaIndexIsStageIndex = false) {
   state.activeIndex = index;
 
   document.querySelectorAll(".timeline-card").forEach((card) => {
-    card.classList.toggle("active", Number(card.dataset.index) === index);
+    const active = Number(card.dataset.index) === index;
+    card.classList.toggle("active", active);
+    if (active) card.setAttribute("aria-current", "step");
+    else card.removeAttribute("aria-current");
   });
+  updateTimelineToolbar(index);
+
+  if (window.matchMedia && window.matchMedia("(max-width: 880px)").matches) {
+    publishChapter(event.category);
+    return;
+  }
 
   const visualIndex = nearestVisualIndex(index);
   const visualEvent = state.events[visualIndex] || event;
@@ -441,17 +541,28 @@ function renderTimeline() {
   state.stackSources = [];
   stageMedia.innerHTML = "";
   const visible = state.events.filter(eventMatches);
+  state.visibleIndexes = visible.map((event) => state.events.indexOf(event));
+  renderChapterOptions();
+  const anchoredChapters = new Set();
   visible.forEach((event) => {
     const originalIndex = state.events.indexOf(event);
+    const chapter = chapterForEvent(event);
     const card = document.createElement("article");
     card.className = `timeline-card ${event.category || ""} ${event.layout || ""}`;
     card.dataset.index = String(originalIndex);
+    card.dataset.chapter = chapter.id;
+    card.setAttribute("aria-labelledby", `timeline-title-${originalIndex}`);
+    if (!anchoredChapters.has(chapter.id)) {
+      card.id = `chapter-${chapter.id}`;
+      anchoredChapters.add(chapter.id);
+    }
     card.innerHTML = `
       <button class="node" data-event="${originalIndex}" aria-label="Select ${event.title}"></button>
       <div class="card-date">${eventDate(event)}</div>
       <div class="card-body">
         <div class="eyebrow">${event.eyebrow || categoryLabels[event.category] || "Event"}</div>
-        <h2>${event.title}</h2>
+        <h2 id="timeline-title-${originalIndex}">${event.title}</h2>
+        ${mobileEventMediaMarkup(event)}
         <p class="summary">${event.summary}</p>
         <p>${event.body || ""}</p>
         ${eventCalloutMarkup(event)}
@@ -460,7 +571,7 @@ function renderTimeline() {
         ${event.layout === "finale" ? finaleMarkup(event) : ""}
         ${event.layout !== "finale" && event.media?.length > 1 ? `<div class="thumb-strip">${event.media.map((item, i) => `
           <button class="thumb" data-event="${originalIndex}" data-media="${i}" aria-label="Show artifact ${i + 1}">
-            ${item.type === "video" ? `<span>Video</span>` : `<img src="${item.src}" alt="">`}
+            ${item.type === "video" ? `<span>Video</span>` : `<img src="${item.src}" alt="" loading="lazy" decoding="async">`}
           </button>
         `).join("")}</div>` : ""}
       </div>
@@ -526,9 +637,27 @@ document.addEventListener("click", (event) => {
   if (filter) {
     state.filter = filter.dataset.filter;
     document.querySelectorAll("[data-filter]").forEach((button) => {
-      button.classList.toggle("active", button === filter);
+      const active = button === filter;
+      button.classList.toggle("active", active);
+      button.setAttribute("aria-pressed", String(active));
     });
     renderTimeline();
+    return;
+  }
+
+  const mobileVideoPoster = event.target.closest(".mobile-video-poster");
+  if (mobileVideoPoster) {
+    const video = document.createElement("video");
+    video.className = "mobile-event-video";
+    video.src = mobileVideoPoster.dataset.videoSrc;
+    if (mobileVideoPoster.dataset.videoPoster) video.poster = mobileVideoPoster.dataset.videoPoster;
+    video.controls = true;
+    video.playsInline = true;
+    video.preload = "metadata";
+    video.setAttribute("aria-label", mobileVideoPoster.getAttribute("aria-label").replace(/^Play /, ""));
+    mobileVideoPoster.replaceWith(video);
+    const playback = video.play();
+    if (playback?.catch) playback.catch(() => {});
     return;
   }
 
@@ -581,6 +710,29 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
+if (chapterSelect) {
+  chapterSelect.addEventListener("change", () => {
+    const chapterId = chapterSelect.value;
+    chapterSelect.value = "";
+    scrollToChapter(chapterId);
+  });
+}
+
+const desktopStageQuery = window.matchMedia && window.matchMedia("(min-width: 881px)");
+if (desktopStageQuery) {
+  const syncStageLayout = () => {
+    state.activeVisualKey = "";
+    setActive(state.activeIndex);
+  };
+  if (desktopStageQuery.addEventListener) desktopStageQuery.addEventListener("change", syncStageLayout);
+  else desktopStageQuery.addListener(syncStageLayout);
+}
+
+window.addEventListener("popstate", () => {
+  const match = window.location.hash.match(/^#chapter-([a-z]+)$/);
+  if (match) window.requestAnimationFrame(() => scrollToChapter(match[1], false));
+});
+
 fetch("assets/data/timeline.json?v=20260424-remove-ivosidenib-card")
   .then((response) => {
     if (!response.ok) throw new Error(`Timeline data request failed: ${response.status}`);
@@ -589,6 +741,8 @@ fetch("assets/data/timeline.json?v=20260424-remove-ivosidenib-card")
   .then((events) => {
     state.events = events;
     renderTimeline();
+    const match = window.location.hash.match(/^#chapter-([a-z]+)$/);
+    if (match) window.requestAnimationFrame(() => scrollToChapter(match[1], false));
   })
   .catch((error) => {
     console.error(error);

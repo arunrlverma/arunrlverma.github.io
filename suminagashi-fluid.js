@@ -8,9 +8,12 @@
    Modelled on the reference (suminagashi-fjdbyyqi.manus.space); WebGL2, no dependencies. */
 (function () {
   if (!document.body || !document.body.classList.contains("sumi")) return;  // any suminagashi page
+  const hero = document.querySelector(".timeline-hero");
+  if (!hero) return;
 
   const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const mobile = (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) || window.innerWidth < 880;
+  const staticMode = reduceMotion || mobile;
 
   const canvas = document.createElement("canvas");
   canvas.className = "sumi-fluid-canvas";
@@ -22,7 +25,7 @@
   gl.getExtension("OES_texture_float_linear");
 
   document.body.classList.add("has-fluid");
-  document.body.appendChild(canvas);          // full-page fixed layer (see .sumi-fluid-canvas CSS)
+  hero.prepend(canvas);
 
   // ---- palette (display colors → absorption) + paper ----
   const INKS = {
@@ -286,8 +289,9 @@
   // ---- sizing ----
   let dpr = mobile ? 1 : Math.min(window.devicePixelRatio || 1, 1.5);
   function resize() {
-    const w = Math.max(1, Math.floor(window.innerWidth * dpr));
-    const h = Math.max(1, Math.floor(window.innerHeight * dpr));
+    const rect = hero.getBoundingClientRect();
+    const w = Math.max(1, Math.floor(rect.width * dpr));
+    const h = Math.max(1, Math.floor(rect.height * dpr));
     if (canvas.width === w && canvas.height === h && velocity) return;
     canvas.width = w; canvas.height = h;
     initFBOs();
@@ -296,7 +300,13 @@
   // ---- interaction ----
   const pointer = { down: false, x: 0, y: 0 };
   let lastInteraction = 0, color = currentInk(false), primed = false;
-  function norm(e) { return { x: e.clientX / window.innerWidth, y: 1 - e.clientY / window.innerHeight }; }
+  function norm(e) {
+    const rect = hero.getBoundingClientRect();
+    return {
+      x: Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width)),
+      y: Math.max(0, Math.min(1, 1 - ((e.clientY - rect.top) / rect.height)))
+    };
+  }
   function onDown(e) {
     if (e.target.closest("button, a, input, textarea, select")) return;  // don't hijack controls/links
     const n = norm(e);
@@ -342,9 +352,9 @@
     if (!running) return;
     const dt = last ? Math.min((t - last) / 1000, 0.0166) : 0.0166;
     last = t;
-    if (reduceMotion) {
+    if (staticMode) {
       step(dt); render(); staticSteps++;
-      if (staticSteps < 120) rafId = requestAnimationFrame(frame); else running = false;
+      if (staticSteps < 84) rafId = requestAnimationFrame(frame); else running = false;
       return;
     }
     // idle auto-drops so the water is always moving
@@ -363,23 +373,41 @@
 
   resize();
   seed();
-  if (reduceMotion) {
-    startLoop();                                    // settles a fixed number of steps, then freezes
+  if (staticMode) {
+    startLoop();                                    // settle once, then freeze on touch/reduced motion
+    let rt; window.addEventListener("resize", () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => {
+        resize();
+        seed();
+        staticSteps = 0;
+        startLoop();
+      }, 200);
+    }, { passive: true });
   } else {
-    // Hover/drag splats only on fine pointers — on touch, drag must scroll the page, so mobile
-    // gets the live auto-flowing water (idle drops) without touch hijacking.
-    if (!mobile) {
-      window.addEventListener("pointerdown", onDown, { passive: true });
-      window.addEventListener("pointermove", onMove, { passive: true });
-      window.addEventListener("pointerup", onUp, { passive: true });
-      window.addEventListener("pointercancel", onUp, { passive: true });
-      window.addEventListener("blur", onUp);
-    }
-    // pause the whole sim when the tab is hidden — no GPU/battery burn in the background
+    hero.addEventListener("pointerdown", onDown, { passive: true });
+    hero.addEventListener("pointermove", onMove, { passive: true });
+    window.addEventListener("pointerup", onUp, { passive: true });
+    window.addEventListener("pointercancel", onUp, { passive: true });
+    window.addEventListener("blur", onUp);
+
+    let heroInView = true;
     document.addEventListener("visibilitychange", () => {
-      if (document.hidden) stopLoop(); else { lastInteraction = now(); startLoop(); }
+      if (document.hidden || !heroInView) stopLoop();
+      else { lastInteraction = now(); startLoop(); }
     });
-    startLoop();
+
+    if ("IntersectionObserver" in window) {
+      const heroObserver = new IntersectionObserver((entries) => {
+        heroInView = entries[0]?.isIntersecting ?? true;
+        if (heroInView && !document.hidden) startLoop();
+        else stopLoop();
+      }, { threshold: 0.02 });
+      heroObserver.observe(hero);
+    } else {
+      startLoop();
+    }
+
     let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(resize, 200); }, { passive: true });
   }
 })();

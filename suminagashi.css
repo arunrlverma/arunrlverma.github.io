@@ -93,16 +93,14 @@ body.sumi .timeline-hero {
       color-mix(in srgb, var(--paper) 70%, transparent),
       color-mix(in srgb, var(--paper) 88%, transparent));
 }
-/* Full-page fluid: a fixed multiply layer that inks the whole washi surface; the page rides
-   above it (multiply means white = unchanged, so only the ink darkens/tints the paper). */
+/* The live ink belongs to the opening scene only; the long read below stays still and quiet. */
 body.has-fluid .timeline-hero { background: transparent; }
 body.has-fluid .sumi-fluid-canvas {
-  position: fixed; inset: 0; width: 100%; height: 100%;
+  position: absolute; inset: 0; width: 100%; height: 100%;
   z-index: 0; display: block; pointer-events: none;
   mix-blend-mode: multiply;
 }
-body.has-fluid main,
-body.has-fluid .footer { position: relative; z-index: 1; }
+body.has-fluid .timeline-hero > :not(.sumi-fluid-canvas) { position: relative; z-index: 1; }
 /* keep the headline + intro legible where ink swirls beneath them */
 body.sumi .timeline-hero h1,
 body.sumi .timeline-hero .kicker,
@@ -362,7 +360,7 @@ body.sumi .ink-tide {
   background:
     radial-gradient(140% 95% at 50% -8%, var(--chapter, var(--ai)), transparent 66%),
     radial-gradient(140% 95% at 50% 108%, var(--chapter, var(--ai)), transparent 68%);
-  opacity: .12;
+  opacity: .055;
   mix-blend-mode: multiply;
 }
 
@@ -429,4 +427,369 @@ body.sumi::-webkit-scrollbar-thumb:hover { background: color-mix(in srgb, var(--
   body.sumi .sumi-fluid-canvas,
   body.sumi .ink-tide,
   body.sumi .wash { display: none !important; }
+}
+
+/* ============================================================================
+   UX PASS — compact navigation, chapter orientation, and mobile-first reading.
+   The interface stays editorial: controls recede, the story and artifacts lead.
+   ============================================================================ */
+
+body.sumi .sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Shared navigation: quiet text on desktop, one deliberate control on mobile. */
+body.sumi .site-header {
+  min-height: 68px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+body.sumi .site-header nav {
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: clamp(18px, 2.3vw, 34px);
+}
+body.sumi .site-header nav a,
+body.sumi[data-page="command-center"] .site-header nav a {
+  position: relative;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  padding: 8px 0;
+  color: var(--muted);
+  font-size: 14px;
+  white-space: nowrap;
+}
+body.sumi .site-header nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: 2px;
+  height: 1px;
+  background: var(--shu);
+  transition: right .2s ease;
+}
+body.sumi .site-header nav a:hover,
+body.sumi .site-header nav a.active,
+body.sumi[data-page="command-center"] .site-header nav a:hover,
+body.sumi[data-page="command-center"] .site-header nav a.active {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+}
+body.sumi .site-header nav a:hover::after,
+body.sumi .site-header nav a.active::after { right: 0; }
+
+body.sumi .nav-toggle {
+  display: none;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  border-radius: 50%;
+  background: rgba(255,255,255,.76);
+  color: var(--ink);
+  cursor: pointer;
+}
+body.sumi .nav-icon { width: 20px; height: 20px; }
+body.sumi .nav-icon-close { display: none; }
+body.sumi .nav-toggle:focus-visible,
+body.sumi .chapter-select-wrap select:focus-visible,
+body.sumi .mobile-video-poster:focus-visible {
+  outline: 2px solid var(--ai);
+  outline-offset: 3px;
+}
+
+/* The hero states its scale without turning into a product dashboard. */
+body.sumi .timeline-hero .hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 10px;
+  max-width: 720px;
+  margin-top: 20px;
+  color: color-mix(in srgb, var(--ink) 62%, var(--muted));
+  font-family: var(--body-serif);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+}
+body.sumi .timeline-hero .hero-meta span[aria-hidden="true"] { color: var(--shu); }
+
+/* Timeline orientation and chapter navigation. */
+body.sumi .timeline-shell {
+  scroll-margin-top: 72px;
+  row-gap: 0;
+  background: rgba(255,255,255,.82);
+}
+body.sumi .timeline-toolbar {
+  grid-column: 1 / -1;
+  position: sticky;
+  top: 68px;
+  z-index: 14;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 18px;
+  min-height: 54px;
+  margin-top: -18px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
+  background: rgba(255,255,255,.94);
+  -webkit-backdrop-filter: blur(12px) saturate(1.05);
+  backdrop-filter: blur(12px) saturate(1.05);
+}
+body.sumi .timeline-location {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  min-width: 0;
+}
+body.sumi .timeline-chapter {
+  overflow: hidden;
+  color: var(--ai);
+  font-family: var(--display-serif);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+body.sumi .timeline-position {
+  flex: 0 0 auto;
+  color: var(--muted);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: .04em;
+  white-space: nowrap;
+}
+body.sumi .chapter-select-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--ink);
+}
+body.sumi .chapter-select-wrap select {
+  width: 116px;
+  min-height: 36px;
+  appearance: none;
+  padding: 7px 34px 7px 12px;
+  border: 1px solid color-mix(in srgb, var(--ink) 18%, transparent);
+  border-radius: 3px;
+  background: var(--white);
+  color: var(--ink);
+  font: 600 12px/1.2 var(--body-serif);
+  cursor: pointer;
+}
+body.sumi .chapter-select-wrap svg {
+  position: absolute;
+  right: 10px;
+  pointer-events: none;
+}
+body.sumi .timeline-filters {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 0 24px;
+  border-bottom: 1px solid color-mix(in srgb, var(--line) 72%, transparent);
+}
+body.sumi .timeline-filters .chip {
+  flex: 0 0 auto;
+  min-height: 38px;
+  padding: 8px 13px;
+}
+body.sumi .artifact-stage { top: 138px; }
+body.sumi .timeline-card { scroll-margin-top: 138px; }
+
+/* The active moment changes ink, not geometry. */
+body.sumi .timeline-card { --event-ink: var(--ai); }
+body.sumi .timeline-card.personal { --event-ink: var(--ink); }
+body.sumi .timeline-card.diagnosis { --event-ink: var(--shu); }
+body.sumi .timeline-card.imaging { --event-ink: var(--ai); }
+body.sumi .timeline-card.treatment { --event-ink: var(--matsuba); }
+body.sumi .timeline-card.data,
+body.sumi .timeline-card.labs { --event-ink: color-mix(in srgb, var(--matsuba) 62%, var(--ai)); }
+body.sumi .timeline-card .card-body {
+  border-inline-start: 3px solid color-mix(in srgb, var(--event-ink) 24%, var(--line));
+  box-shadow: 0 12px 30px -25px rgba(26,26,25,.42);
+}
+body.sumi .timeline-card.active .card-body {
+  border-inline-start-color: var(--event-ink);
+  transform: none;
+}
+body.sumi .timeline-card.active .card-body h2 { color: var(--event-ink); }
+body.sumi .stage-frame { box-shadow: 0 16px 38px -24px rgba(26,26,25,.35); }
+
+/* Media belongs to its story card on phones; desktop keeps the hung artifact stage. */
+body.sumi .mobile-event-media { display: none; }
+
+@media (max-width: 880px) {
+  body.sumi .site-header.nav-enhanced,
+  body.sumi[data-page="command-center"] .site-header.nav-enhanced {
+    min-height: 60px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 9px 18px;
+  }
+  body.sumi .site-header.nav-enhanced .brand { min-height: 40px; }
+  body.sumi .site-header.nav-enhanced .nav-toggle { display: grid; flex: 0 0 auto; }
+  body.sumi .site-header.nav-enhanced.nav-open .nav-icon-menu { display: none; }
+  body.sumi .site-header.nav-enhanced.nav-open .nav-icon-close { display: block; }
+  body.sumi .site-header.nav-enhanced nav {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    display: grid;
+    width: 100%;
+    max-height: 0;
+    gap: 0;
+    padding: 0 18px;
+    overflow: hidden;
+    visibility: hidden;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateY(-7px);
+    border-bottom: 1px solid var(--line);
+    background: rgba(255,255,255,.97);
+    box-shadow: 0 18px 38px -28px rgba(26,26,25,.42);
+    transition: max-height .24s ease, opacity .18s ease, transform .2s ease, visibility .2s;
+  }
+  body.sumi .site-header.nav-enhanced.nav-open nav {
+    max-height: 280px;
+    padding-top: 8px;
+    padding-bottom: 14px;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: none;
+  }
+  body.sumi .site-header.nav-enhanced nav a,
+  body.sumi[data-page="command-center"] .site-header.nav-enhanced nav a {
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 11px 14px;
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 74%, transparent);
+    font-size: 15px;
+  }
+  body.sumi .site-header.nav-enhanced nav a:last-child { border-bottom: 0; }
+  body.sumi .site-header.nav-enhanced nav a::after {
+    top: 12px;
+    right: auto;
+    bottom: 12px;
+    width: 3px;
+    height: auto;
+    opacity: 0;
+  }
+  body.sumi .site-header.nav-enhanced nav a:hover::after,
+  body.sumi .site-header.nav-enhanced nav a.active::after { opacity: 1; }
+
+  body.sumi .timeline-shell {
+    padding-top: 0;
+    background: rgba(255,255,255,.92);
+  }
+  body.sumi .timeline-toolbar {
+    top: 60px;
+    min-height: 52px;
+    margin: 0 -20px;
+    padding: 8px 20px;
+  }
+  body.sumi .timeline-location { gap: 8px; }
+  body.sumi .timeline-chapter { font-size: 11px; letter-spacing: .08em; }
+  body.sumi .timeline-position { font-size: 11px; }
+  body.sumi .chapter-select-wrap select { width: 92px; min-height: 36px; }
+  body.sumi .timeline-filters {
+    flex-wrap: nowrap;
+    margin-right: -20px;
+    padding: 14px 20px 18px 0;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+  body.sumi .timeline-filters::-webkit-scrollbar { display: none; }
+  body.sumi .timeline-filters .chip { min-height: 40px; scroll-snap-align: start; }
+  body.sumi .artifact-stage { display: none; }
+  body.sumi .timeline-card { scroll-margin-top: 124px; }
+  body.sumi .timeline-card:not(.finale) {
+    min-height: 0;
+    padding: 24px 0 34px;
+  }
+  body.sumi .timeline-card .card-body {
+    padding: 17px;
+    box-shadow: 0 10px 26px -22px rgba(26,26,25,.38);
+  }
+  body.sumi .mobile-event-media {
+    display: block;
+    margin: 16px 0 15px;
+  }
+  body.sumi .mobile-event-media img,
+  body.sumi .mobile-event-media video,
+  body.sumi .mobile-video-poster {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+  body.sumi .mobile-event-media.fit-contain img,
+  body.sumi .mobile-event-media.fit-contain video { object-fit: contain; background: #f6f6f4; }
+  body.sumi .mobile-video-poster {
+    position: relative;
+    padding: 0;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 2px;
+    background: #efefec;
+    color: #fff;
+    cursor: pointer;
+  }
+  body.sumi .mobile-video-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: grid;
+    width: 48px;
+    height: 48px;
+    place-items: center;
+    transform: translate(-50%, -50%);
+    border: 1px solid rgba(255,255,255,.72);
+    border-radius: 50%;
+    background: rgba(26,26,25,.76);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+  }
+  body.sumi .mobile-video-play svg { margin-left: 2px; }
+  body.sumi .mobile-event-media figcaption {
+    margin-top: 8px;
+    color: color-mix(in srgb, var(--ink) 62%, var(--muted));
+    font-size: 12px;
+    line-height: 1.45;
+  }
+}
+
+@media (max-width: 360px) {
+  body.sumi .timeline-position { display: none; }
+  body.sumi .chapter-select-wrap select { width: 82px; padding-left: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.sumi .site-header.nav-enhanced nav { transition: none; }
 }
