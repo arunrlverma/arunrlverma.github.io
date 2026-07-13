@@ -1,19 +1,22 @@
 /* Suminagashi fluid — a real GPU fluid simulation (Stam stable-fluids: advect → curl →
-   vorticity → divergence → Jacobi pressure → gradient-subtract → dye), confined to the hero.
+   vorticity → divergence → Jacobi pressure → gradient-subtract → dye), confined to one
+   ink stage per page. The timeline stays interactive; later chapters settle once and stop.
    Ink is SUBTRACTIVE: the dye field stores Beer–Lambert absorption and the display shader
    paints PAPER · exp(−absorption), so ink darkens the washi like real sumi rather than glowing.
-   Hold/drag on the hero to flow ink; pick a color from the swatches; when idle it keeps
-   dropping ink so the water is always moving. Pauses (Page Visibility) when the tab is hidden.
-   Reduced-motion → a static settled composition.
+   Hold/drag on the timeline hero to flow ink; when idle it adds occasional drops. The live
+   stage pauses when it leaves the viewport or the tab is hidden. Touch, reduced-motion, and
+   explicitly settled stages render a short deterministic composition, then freeze.
    Modelled on the reference (suminagashi-fjdbyyqi.manus.space); WebGL2, no dependencies. */
 (function () {
   if (!document.body || !document.body.classList.contains("sumi")) return;  // any suminagashi page
-  const hero = document.querySelector(".timeline-hero");
+  const hero = document.querySelector("[data-ink-stage], .timeline-hero");
   if (!hero) return;
 
   const reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const mobile = (window.matchMedia && window.matchMedia("(pointer: coarse)").matches) || window.innerWidth < 880;
-  const staticMode = reduceMotion || mobile;
+  const inkProfile = hero.dataset.inkProfile || "story";
+  const settledStage = hero.dataset.inkMotion === "settled";
+  const staticMode = settledStage || reduceMotion || mobile;
 
   const canvas = document.createElement("canvas");
   canvas.className = "sumi-fluid-canvas";
@@ -22,17 +25,18 @@
   if (!gl) return;                                  // no WebGL2 → hero stays clean paper (graceful)
   const ext = gl.getExtension("EXT_color_buffer_float");
   if (!ext) return;                                 // can't render to float → bail gracefully
-  gl.getExtension("OES_texture_float_linear");
+  const floatLinear = gl.getExtension("OES_texture_float_linear");
 
   document.body.classList.add("has-fluid");
+  hero.classList.add("has-fluid-stage");
   hero.prepend(canvas);
 
   // ---- palette (display colors → absorption) + paper ----
   const INKS = {
-    sumi:    [0xbd / 255, 0xbc / 255, 0xc8 / 255],   // pastel grey-lilac
-    ai:      [0x88 / 255, 0xb0 / 255, 0xdb / 255],   // pastel indigo-blue
-    shu:     [0xe8 / 255, 0x9e / 255, 0x92 / 255],   // pastel coral
-    matsuba: [0xa4 / 255, 0xcf / 255, 0xb4 / 255],   // pastel sage
+    sumi:    [0x8c / 255, 0x8b / 255, 0x94 / 255],   // diluted charcoal
+    ai:      [0x5f / 255, 0x83 / 255, 0xad / 255],   // washed indigo
+    shu:     [0xc8 / 255, 0x79 / 255, 0x70 / 255],   // washed vermillion
+    matsuba: [0x73 / 255, 0x9b / 255, 0x7f / 255],   // pine-needle wash
   };
   const INK_KEYS = Object.keys(INKS);
   const PAPER = [1, 1, 1];   // white page ground
@@ -55,14 +59,14 @@
   }
 
   const config = {
-    SIM_RES: mobile ? 128 : 256,
-    DYE_RES: mobile ? 640 : 1024,
-    PRESSURE_ITER: mobile ? 20 : 28,
+    SIM_RES: staticMode ? 128 : 256,
+    DYE_RES: staticMode ? 512 : 1024,
+    PRESSURE_ITER: staticMode ? 18 : 28,
     PRESSURE_DECAY: 0.8,
     VEL_DISSIPATION: 0.16,
-    DYE_DISSIPATION: 0.07,
-    CURL: 14,
-    SPLAT_RADIUS: 0.0026,
+    DYE_DISSIPATION: staticMode ? 0.09 : 0.055,
+    CURL: staticMode ? 11 : 16,
+    SPLAT_RADIUS: 0.0019,
     SPLAT_FORCE: 5200,
   };
 
@@ -156,6 +160,17 @@
       vec3 splat = exp(-dot(p, p) / uRadius) * uColor;
       fragColor = vec4(texture(uTarget, vUv).xyz + splat, 1.0);
     }`));
+  const ringP = program(VERT, F(`
+    uniform sampler2D uTarget; uniform float uAspect; uniform vec3 uColor; uniform vec2 uPoint; uniform float uRadius;
+    void main(){
+      vec2 p = vUv - uPoint; p.x *= uAspect;
+      float d = dot(p, p);
+      float outer = exp(-d / (uRadius * 1.9));
+      float inner = exp(-d / (uRadius * 0.58));
+      float band = max(outer - inner, 0.0);
+      vec3 ink = texture(uTarget, vUv).xyz + band * uColor;
+      fragColor = vec4(max(ink, vec3(0.0)), 1.0);
+    }`));
   const clearP = program(VERT, F(`
     uniform sampler2D uTexture; uniform float uValue;
     void main(){ fragColor = uValue * texture(uTexture, vUv); }`));
@@ -201,7 +216,7 @@
 
   let velocity, dye, divergence, curl, pressure, simRes, dyeRes;
   function initFBOs() {
-    const lin = gl.LINEAR, near = gl.NEAREST;
+    const lin = floatLinear ? gl.LINEAR : gl.NEAREST, near = gl.NEAREST;
     simRes = resolution(config.SIM_RES);
     dyeRes = resolution(config.DYE_RES);
     velocity = makeDouble(simRes.w, simRes.h, gl.RG16F, gl.RG, gl.HALF_FLOAT, lin);
@@ -212,8 +227,11 @@
   }
   function resolution(res) {
     const aspect = canvas.width / canvas.height || 1;
-    const min = Math.round(res), max = Math.round(res * aspect);
-    return aspect >= 1 ? { w: max, h: min } : { w: min, h: Math.round(res / aspect) };
+    const min = Math.round(res);
+    const max = Math.round(res * 2);
+    return aspect >= 1
+      ? { w: Math.min(Math.round(res * aspect), max), h: min }
+      : { w: min, h: Math.min(Math.round(res / aspect), max) };
   }
 
   function blit(target) {
@@ -246,10 +264,23 @@
     gl.uniform3f(splatP.u.uColor, absorption[0], absorption[1], absorption[2]);
     blit(dye.write); dye.swap();
   }
-  // a drop = ink + a little outward velocity so it blooms and flows
-  function drop(x, y, rgb, strength, force) {
-    splatDye(x, y, inkAbsorption(rgb, strength), 2.0);
-    const a = Math.random() * Math.PI * 2;
+  function splatRingDye(x, y, absorption, radiusMul) {
+    use(ringP, dye.texel);
+    bindTex(ringP.u.uTarget, dye.read.tex, 0);
+    gl.uniform1f(ringP.u.uAspect, canvas.width / canvas.height);
+    gl.uniform2f(ringP.u.uPoint, x, y);
+    gl.uniform1f(ringP.u.uRadius, config.SPLAT_RADIUS * (radiusMul || 1));
+    gl.uniform3f(ringP.u.uColor, absorption[0], absorption[1], absorption[2]);
+    blit(dye.write); dye.swap();
+  }
+  // A drop has two soft rings and a trace of pigment at its center, closer to
+  // traditional suminagashi than a single blurred dye cloud.
+  function drop(x, y, rgb, strength, force, angle, radiusMul) {
+    const scale = radiusMul || 1;
+    splatRingDye(x, y, inkAbsorption(rgb, strength * 0.78), 2.8 * scale);
+    splatRingDye(x, y, inkAbsorption(rgb, strength * 0.38), 1.15 * scale);
+    splatDye(x, y, inkAbsorption(rgb, strength * 0.08), 0.5 * scale);
+    const a = typeof angle === "number" ? angle : Math.random() * Math.PI * 2;
     splatVelocity(x, y, Math.cos(a) * force, Math.sin(a) * force, 1.4);
   }
 
@@ -292,9 +323,10 @@
     const rect = hero.getBoundingClientRect();
     const w = Math.max(1, Math.floor(rect.width * dpr));
     const h = Math.max(1, Math.floor(rect.height * dpr));
-    if (canvas.width === w && canvas.height === h && velocity) return;
+    if (canvas.width === w && canvas.height === h && velocity) return false;
     canvas.width = w; canvas.height = h;
     initFBOs();
+    return true;
   }
 
   // ---- interaction ----
@@ -312,7 +344,7 @@
     const n = norm(e);
     pointer.down = true; pointer.x = n.x; pointer.y = n.y;
     color = currentInk(true);
-    drop(n.x, n.y, color, 0.6 + Math.random() * 0.3, 900);
+    drop(n.x, n.y, color, 0.42 + Math.random() * 0.18, 760);
     lastInteraction = now();
   }
   function onMove(e) {
@@ -343,10 +375,41 @@
   });
 
   // ---- run loop ----
-  let last = 0, nextDrop = 1400, running = false, rafId = 0, staticSteps = 0;
+  let last = 0, nextDrop = 2800, running = false, rafId = 0, staticSteps = 0;
+  const PROFILE_SEEDS = {
+    story: [
+      [0.28, 0.66, "ai", 0.48, 560, 0.4, 1.0],
+      [0.62, 0.52, "shu", 0.44, 520, 2.3, 1.05],
+      [0.50, 0.30, "matsuba", 0.46, 540, 4.1, 0.95],
+      [0.18, 0.26, "sumi", 0.42, 500, 5.4, 0.9],
+    ],
+    biology: [
+      [0.84, 0.76, "shu", 0.44, 420, 2.7, 1.18],
+      [0.70, 0.48, "sumi", 0.38, 390, 4.4, 1.0],
+      [0.90, 0.24, "ai", 0.40, 410, 1.2, 1.12],
+      [0.58, 0.14, "shu", 0.24, 320, 5.6, 0.78],
+    ],
+    tool: [
+      [0.84, 0.74, "ai", 0.40, 410, 2.8, 1.15],
+      [0.72, 0.49, "matsuba", 0.42, 420, 4.6, 1.08],
+      [0.91, 0.27, "sumi", 0.32, 350, 1.0, 0.94],
+      [0.61, 0.16, "ai", 0.24, 310, 5.7, 0.76],
+    ],
+    contact: [
+      [0.88, 0.72, "sumi", 0.32, 330, 2.6, 1.14],
+      [0.76, 0.38, "ai", 0.30, 320, 4.5, 1.0],
+      [0.92, 0.16, "shu", 0.18, 260, 1.1, 0.72],
+    ],
+    legal: [
+      [0.84, 0.66, "ai", 0.26, 280, 2.8, 1.05],
+      [0.68, 0.22, "matsuba", 0.20, 250, 4.7, 0.82],
+    ],
+  };
   function seed() {
-    const spots = [[0.28, 0.66, INKS.ai], [0.62, 0.52, INKS.shu], [0.5, 0.3, INKS.matsuba], [0.18, 0.26, INKS.sumi]];
-    spots.forEach(([x, y, c]) => drop(x, y, c, 0.7, 700));
+    const spots = PROFILE_SEEDS[inkProfile] || PROFILE_SEEDS.story;
+    spots.forEach(([x, y, ink, strength, force, angle, radius]) => {
+      drop(x, y, INKS[ink], strength, force, angle, radius);
+    });
   }
   function frame(t) {
     if (!running) return;
@@ -354,7 +417,7 @@
     last = t;
     if (staticMode) {
       step(dt); render(); staticSteps++;
-      if (staticSteps < 84) rafId = requestAnimationFrame(frame); else running = false;
+      if (staticSteps < 68) rafId = requestAnimationFrame(frame); else running = false;
       return;
     }
     // idle auto-drops so the water is always moving
@@ -362,8 +425,8 @@
     if (now() - lastInteraction > 2500 && nextDrop <= 0) {
       const x = 0.12 + Math.random() * 0.76, y = 0.16 + Math.random() * 0.66;
       const c = inkMode === "cycle" ? INKS[INK_KEYS[Math.floor(Math.random() * INK_KEYS.length)]] : (INKS[inkMode] || INKS.sumi);
-      drop(x, y, c, 0.5 + Math.random() * 0.25, 600);
-      nextDrop = 1100 + Math.random() * 1600;
+      drop(x, y, c, 0.30 + Math.random() * 0.16, 480);
+      nextDrop = 3000 + Math.random() * 2400;
     }
     step(dt); render();
     rafId = requestAnimationFrame(frame);
@@ -378,7 +441,7 @@
     let rt; window.addEventListener("resize", () => {
       clearTimeout(rt);
       rt = setTimeout(() => {
-        resize();
+        if (!resize()) return;
         seed();
         staticSteps = 0;
         startLoop();
@@ -408,6 +471,13 @@
       startLoop();
     }
 
-    let rt; window.addEventListener("resize", () => { clearTimeout(rt); rt = setTimeout(resize, 200); }, { passive: true });
+    let rt; window.addEventListener("resize", () => {
+      clearTimeout(rt);
+      rt = setTimeout(() => {
+        if (!resize()) return;
+        seed();
+        lastInteraction = now();
+      }, 200);
+    }, { passive: true });
   }
 })();

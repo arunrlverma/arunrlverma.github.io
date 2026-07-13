@@ -1,7 +1,7 @@
 /* ============================================================================
-   Suminagashi (墨流し — "floating ink") skin for the home / timeline page only.
-   Scoped to body.sumi so deepdive / command-center / contact keep
-   their current look. Infuses the reference aesthetic: warm washi paper, drifting
+   Suminagashi (墨流し — "floating ink") system for the full narrative site.
+   The timeline carries live water; later chapters use quiet settled impressions.
+   Scoped to body.sumi. Infuses the reference aesthetic: warm washi paper, drifting
    ink-bloom washes, the traditional four-ink palette (sumi · ai · shu · matsuba),
    Shippori Mincho DISPLAY type over a readable book serif for long reading, and a
    vertical side spine. Palette aligned to the reference's confirmed hexes.
@@ -73,9 +73,7 @@ body.sumi .wash-c {
 @keyframes sumi-drift-a { to { transform: translate(4vw, 3vh) rotate(8deg) scale(1.08); } }
 @keyframes sumi-drift-b { to { transform: translate(-3vw, 4vh) rotate(-6deg) scale(1.1); } }
 
-/* ---- Hero = the visible ink stage. Make the hero backdrop a translucent paper veil
-   so the interactive ink canvas (z-index:-1) actually shows behind the headline —
-   the focal "floating ink" moment — while keeping body copy legible. ---- */
+/* ---- Ink stages. The opening is live water; later chapters render once and freeze. ---- */
 body.sumi .timeline-hero {
   position: relative;
   overflow: hidden;
@@ -93,19 +91,42 @@ body.sumi .timeline-hero {
       color-mix(in srgb, var(--paper) 70%, transparent),
       color-mix(in srgb, var(--paper) 88%, transparent));
 }
-/* The live ink belongs to the opening scene only; the long read below stays still and quiet. */
+/* Only the timeline loses its fallback veil once the live canvas is available. */
 body.has-fluid .timeline-hero { background: transparent; }
-body.has-fluid .sumi-fluid-canvas {
+body.has-fluid .ink-stage > .sumi-fluid-canvas {
   position: absolute; inset: 0; width: 100%; height: 100%;
   z-index: 0; display: block; pointer-events: none;
   mix-blend-mode: multiply;
+  contain: strict;
 }
-body.has-fluid .timeline-hero > :not(.sumi-fluid-canvas) { position: relative; z-index: 1; }
+body.has-fluid .ink-stage[data-ink-motion="settled"] > .sumi-fluid-canvas {
+  opacity: .52;
+  filter: saturate(.82) contrast(1.03);
+}
+body.has-fluid .ink-stage[data-ink-profile="biology"] > .sumi-fluid-canvas { opacity: .5; }
+body.has-fluid .ink-stage[data-ink-profile="tool"] > .sumi-fluid-canvas { opacity: .44; }
+body.has-fluid .ink-stage[data-ink-profile="contact"] > .sumi-fluid-canvas { opacity: .3; }
+body.has-fluid .ink-stage[data-ink-profile="legal"] > .sumi-fluid-canvas { opacity: .22; }
+
+body.has-fluid .timeline-hero > :not(.sumi-fluid-canvas),
+body.has-fluid .deep-hero > :not(.sumi-fluid-canvas),
+body.has-fluid .cc-site-hero > :not(.sumi-fluid-canvas):not(.cc-hero-backdrop),
+body.has-fluid .contact-main > :not(.sumi-fluid-canvas),
+body.has-fluid .cc-legal-hero > :not(.sumi-fluid-canvas) {
+  position: relative;
+  z-index: 1;
+}
 /* keep the headline + intro legible where ink swirls beneath them */
 body.sumi .timeline-hero h1,
 body.sumi .timeline-hero .kicker,
 body.sumi .timeline-hero p {
   text-shadow: 0 0 14px var(--paper), 0 0 30px var(--paper);
+}
+
+@media (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  body.has-fluid .timeline-hero { cursor: crosshair; }
+  body.has-fluid .timeline-hero a,
+  body.has-fluid .timeline-hero button { cursor: pointer; }
 }
 
 /* ---- Ink picker (choose the water's color) ---- */

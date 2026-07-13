@@ -897,6 +897,19 @@
   line-height: 1.6;
 }
 
+.legal-page .cc-legal-hero {
+  position: relative;
+  isolation: isolate;
+  margin: 0 0 58px;
+  padding: 0 0 28px;
+  border-bottom: 1px solid var(--ed-line);
+  overflow: hidden;
+}
+
+.legal-page .cc-legal-hero .cc-legal-meta {
+  margin-bottom: 0;
+}
+
 .legal-page .cc-legal-paper h2 {
   margin: 44px 0 12px;
   padding-top: 24px;
