@@ -48,6 +48,20 @@
       -Math.log(Math.max(rgb[2], ABS_E)) * strength,
     ];
   }
+  // Narrative ink: on the default "cycle" setting, idle drops follow the story's current
+  // chapter ink (--chapter, published by timeline.js) so the water takes on the emotional
+  // weather of what you're reading.
+  function chapterInk() {
+    try {
+      const v = getComputedStyle(document.documentElement).getPropertyValue("--chapter").trim();
+      let c = null;
+      const m = v.match(/rgba?\(\s*([\d.]+)[,\s]+([\d.]+)[,\s]+([\d.]+)/);
+      if (m) c = [+m[1] / 255, +m[2] / 255, +m[3] / 255];
+      else { const s = v.match(/color\(srgb\s+([\d.]+)\s+([\d.]+)\s+([\d.]+)/); if (s) c = [+s[1], +s[2], +s[3]]; }
+      if (!c || c[0] + c[1] + c[2] < 0.9) return null;   // ignore the un-published near-black initial
+      return c;
+    } catch (_) { return null; }
+  }
   let inkMode = "cycle", inkCycleIdx = 0;
   function currentInk(advance) {
     if (inkMode === "cycle") {
@@ -424,7 +438,10 @@
     nextDrop -= dt * 1000;
     if (now() - lastInteraction > 2500 && nextDrop <= 0) {
       const x = 0.12 + Math.random() * 0.76, y = 0.16 + Math.random() * 0.66;
-      const c = inkMode === "cycle" ? INKS[INK_KEYS[Math.floor(Math.random() * INK_KEYS.length)]] : (INKS[inkMode] || INKS.sumi);
+      const ch = inkMode === "cycle" ? chapterInk() : null;
+      const c = ch && Math.random() < 0.8
+        ? ch
+        : (inkMode === "cycle" ? INKS[INK_KEYS[Math.floor(Math.random() * INK_KEYS.length)]] : (INKS[inkMode] || INKS.sumi));
       drop(x, y, c, 0.30 + Math.random() * 0.16, 480);
       nextDrop = 3000 + Math.random() * 2400;
     }
