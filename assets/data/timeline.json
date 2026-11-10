@@ -5,40 +5,18 @@
     "title": "Life before the scan",
     "category": "personal",
     "summary": "Before cancer was part of my vocabulary, life was already full: travel, love, work, plans, and the quiet assumption that tomorrow would mostly resemble today.",
-    "body": "The diagnosis did not create my life. It interrupted one that was already moving.",
+    "body": "None of it was about being sick. I keep the earliest photos in so it doesn't get read as a story that starts with cancer.",
     "media": [
       {
         "type": "image",
         "src": "assets/media/2018-09-27-arun-portrait.webp",
         "caption": "Me, before any of this."
-      }
-    ]
-  },
-  {
-    "date": "2019-12-31",
-    "displayDate": "Before",
-    "eyebrow": "Before",
-    "title": "A life already in motion",
-    "category": "personal",
-    "summary": "There was a whole life before the scan reports arrived: love, travel, work, and plans that had nothing to do with cancer.",
-    "body": "There was a life here before any of this. I keep the earliest photos in so it doesn't get read as a story that starts with cancer.",
-    "media": [
+      },
       {
         "type": "image",
         "src": "assets/media/2019-12-31-before.webp",
         "caption": "2019."
-      }
-    ]
-  },
-  {
-    "date": "2021-08-29",
-    "displayDate": "Before",
-    "eyebrow": "Before",
-    "title": "Before the medical language arrived",
-    "category": "personal",
-    "summary": "Ordinary days, travel, love, and plans came before scan reports and treatment names became part of the calendar.",
-    "body": "Travel, work, people I love. None of it was about being sick, and I don't want the timeline to pretend it was.",
-    "media": [
+      },
       {
         "type": "image",
         "src": "assets/media/2021-08-29-before.webp",
@@ -52,13 +30,7 @@
     "title": "One word in an app: lesion",
     "category": "diagnosis",
     "summary": "I found out by email while I was at dinner with my wife. I opened the app, saw the word lesion, and had to Google what it meant.",
-    "body": "I had no symptoms. A whole-body MRI I'd taken for other reasons found a non-enhancing right frontal lesion. I didn't know what any of that meant. The first real problem wasn't the tumour, it was figuring out which surgeon to trust.",
-    "facts": [
-      "No symptoms",
-      "Incidental whole-body MRI finding",
-      "Right frontal lesion",
-      "The moment the search began"
-    ],
+    "body": "I had no symptoms. A whole-body MRI I'd taken for other reasons found a non-enhancing right frontal lesion. The first real problem was figuring out which surgeon to trust.",
     "media": [
       {
         "type": "video",
@@ -74,14 +46,8 @@
     "eyebrow": "Choosing care",
     "title": "I built a doctor search engine",
     "category": "personal",
-    "summary": "I treated finding a brain surgeon like a system: broad search, doctor-to-doctor reputation, then real consults.",
-    "body": "I made a sheet for the logistics everyone kept asking for, then another for the real question: who had actually spent years on this exact condition? I started with 23 doctors and looked for publications, clinical trials, specialization, and reputation inside medicine, then narrowed the list through conversations and consults.",
-    "facts": [
-      "23 doctors researched",
-      "Doctor-to-doctor reputation narrowed the list",
-      "Consults in multiple cities",
-      "Decision rule: choose honesty over comfort"
-    ],
+    "summary": "I treated finding a brain surgeon like a system.",
+    "body": "I made a sheet for the real question: who had actually spent years on this exact condition? I started with 23 doctors, looked for publications, clinical trials, and reputation inside medicine, then narrowed the list through consults in multiple cities.",
     "media": [
       {
         "type": "image",
@@ -96,13 +62,7 @@
     "title": "Right frontal craniotomy and gross total resection",
     "category": "treatment",
     "summary": "Resection described as gross total/near-total for an astrocytoma, IDH-mutant, CNS WHO grade 2.",
-    "body": "My records place the surgery and pathology around September 1 to September 5, 2023: right frontal craniotomy, resection described as gross total/near-total, and pathology consistent with astrocytoma, IDH-mutant, CNS WHO grade 2.",
-    "facts": [
-      "Astrocytoma, IDH-mutant, CNS WHO grade 2",
-      "Right frontal lobe",
-      "IDH-mutant phenotype documented",
-      "Gross total/near-total in available records"
-    ],
+    "body": "My records place the surgery and pathology around September 1 to September 5, 2023.",
     "media": [
       {
         "type": "video",
@@ -117,25 +77,14 @@
     "eyebrow": "Recovery",
     "title": "The postoperative chapter begins",
     "category": "personal",
-    "summary": "Recovery began with a new physical reality: healing from surgery while the postoperative cavity became the new baseline on scans.",
-    "body": "The notes describe a fluid-filled postoperative cavity and minimal surrounding T2/FLAIR change. That's the scan. Day to day it was tiredness, sleeping a lot, and not trusting my own energy.",
+    "summary": "The notes describe a fluid-filled postoperative cavity and minimal surrounding T2/FLAIR change. That's the scan.",
+    "body": "On me it was a shaved patch, the stitches, and being tired in a way sleep didn't fix. I slept a lot and didn't trust my own energy.",
     "media": [
       {
         "type": "image",
         "src": "assets/media/2023-09-22-recovery.webp",
         "caption": "Recovery after surgery."
-      }
-    ]
-  },
-  {
-    "date": "2023-09-29",
-    "displayDate": "Late Sept 2023",
-    "eyebrow": "Healing",
-    "title": "The visible part of recovery",
-    "category": "personal",
-    "summary": "Recovery was not only something in the radiology report. It was visible in the mirror, in the scar, and in the slow return to ordinary days.",
-    "body": "The scan called it a postoperative cavity. On me it was a shaved patch, the stitches, and being tired in a way sleep didn't fix.",
-    "media": [
+      },
       {
         "type": "image",
         "src": "assets/media/2023-09-29-recovery.webp",
@@ -149,15 +98,12 @@
     "eyebrow": "Molecular picture",
     "title": "The tumor gets a molecular identity",
     "category": "data",
-    "summary": "The cancer stopped being only a scan and a grade for me. It became IDH1 R132C, ATRX, TP53, MGMT, TMB, MSI, and a set of clues I could actually learn from.",
-    "body": "The molecular picture changed how I understood my cancer. It was still personal and terrifying, but now there were specific mutations, biomarkers, and uncertainties I could take into research, second opinions, and treatment conversations.",
+    "summary": "The cancer stopped being only a scan and a grade for me.",
+    "body": "It was still personal and terrifying, but now there were specific mutations, biomarkers, and uncertainties I could take into research, second opinions, and treatment conversations.",
     "facts": [
       "IDH1 p.R132C",
-      "ATRX loss/alteration",
-      "TP53 alteration",
-      "MGMT promoter methylated",
-      "TMB low",
-      "MSI stable / MMR normal"
+      "ATRX loss/alteration, TP53 alteration",
+      "MGMT promoter methylated, TMB low, MSI stable / MMR normal"
     ],
     "media": [
       {
@@ -172,10 +118,9 @@
     "eyebrow": "Surveillance MRI",
     "title": "The three-month MRI rhythm begins",
     "category": "imaging",
-    "summary": "Residual fluid-filled postoperative bed; minimal wispy peri-resection enhancement unchanged.",
-    "body": "Surveillance meant returning to the scanner every few months: schedule the MRI, wait, read the report, exhale if it says stable, then start the cycle again. No masslike enhancement was reported here.",
+    "summary": "Surveillance meant returning to the scanner every few months: schedule the MRI, wait, read the report, exhale if it says stable, then start the cycle again.",
+    "body": "No masslike enhancement was reported here.",
     "facts": [
-      "No masslike enhancement",
       "Minimal wispy enhancement unchanged",
       "Postoperative cavity visible"
     ],
@@ -193,8 +138,8 @@
     "eyebrow": "Portugal",
     "title": "Portugal, trying to enjoy life",
     "category": "personal",
-    "summary": "After surgery and early surveillance, we went to Portugal and tried to let life be bigger than the diagnosis.",
-    "body": "I didn't want every month to be a medical month. So we went to Portugal. The fear came along, but it didn't get to run the trip.",
+    "summary": "I didn't want every month to be a medical month. So we went to Portugal.",
+    "body": "The fear came along, but it didn't get to run the trip.",
     "media": [
       {
         "type": "image",
@@ -209,18 +154,12 @@
     "eyebrow": "AI research",
     "title": "I used AI to map the most hopeful treatment path",
     "category": "data",
-    "summary": "After surgery, I used AI as a research co-pilot to read the glioma literature and look for a credible optimistic path forward.",
+    "summary": "After surgery, I used AI to read the glioma literature and look for a credible optimistic path forward.",
     "body": "The pattern I kept coming back to was two-pronged: inhibit mutant IDH biology, then explore whether a vaccine could help the immune system recognize tumor-specific peptides. This was not a treatment decision by itself. It was the research map I brought into conversations with clinicians.",
     "callout": {
       "title": "The idea I wanted to pressure-test",
       "body": "IDH inhibition had a real biological and clinical story. IDH vaccination had a separate immune-recognition story. The hopeful question was whether those two ideas could sit together: one approach aimed at mutant IDH metabolism, the other at tumor-specific immune visibility. That second part was still exploratory."
     },
-    "facts": [
-      "AI-assisted literature review",
-      "IDH inhibition",
-      "Vaccine / T-cell recognition",
-      "Exploratory combination hypothesis"
-    ],
     "media": [
       {
         "type": "image",
@@ -262,14 +201,7 @@
     "title": "The Camino trips",
     "category": "personal",
     "summary": "We walked parts of the Camino. It wasn't treatment and it wasn't a metaphor. It was just walking, which turned out to be what I needed.",
-    "body": "After surgery and early surveillance, we went to Portugal and walked parts of the Camino. There were scans, records, medication decisions, and vaccine planning in the background. There was also weather, distance, food, conversation, and the stubborn fact that life was still happening.",
-    "facts": [
-      "Around June 2024",
-      "After surgery and surveillance",
-      "Before IDH inhibitor therapy",
-      "A personal milestone, not a medical endpoint",
-      "Portugal and Camino"
-    ],
+    "body": "There were scans, records, medication decisions, and vaccine planning in the background. There was also weather, distance, food, conversation, and the stubborn fact that life was still happening.",
     "media": [
       {
         "type": "image",
@@ -290,10 +222,9 @@
     "eyebrow": "Targeted therapy",
     "title": "Ivosidenib begins",
     "category": "treatment",
-    "summary": "The records place the ivosidenib start in late June 2024 as the first IDH inhibitor chapter.",
-    "body": "This is where targeted therapy became a daily reality: medication, monitoring, lab checks, and decisions made in conversation with clinicians.",
+    "summary": "The records place the ivosidenib start in late June 2024 as the first IDH inhibitor.",
+    "body": "Targeted therapy became a daily reality: medication, monitoring, lab checks, and decisions made in conversation with clinicians.",
     "facts": [
-      "IDH inhibitor",
       "Planned 500 mg daily"
     ],
     "media": [
@@ -310,13 +241,7 @@
     "title": "Vaccine priming starts in Tübingen",
     "category": "treatment",
     "summary": "My first personalized peptide vaccine doses happened July 9-12, 2024.",
-    "body": "The first four doses happened across July 9, 10, 11, and 12 with Leukine and Imiquimod, with the July 12 visit also used for an immune-monitoring blood draw.",
-    "facts": [
-      "First dose: 2024-07-09",
-      "Priming sequence: July 9-12",
-      "Leukine + Imiquimod",
-      "Blood draw at V4"
-    ],
+    "body": "The first four doses were given with Leukine and Imiquimod. The July 12 visit was also used for an immune-monitoring blood draw.",
     "media": [
       {
         "type": "image",
@@ -332,13 +257,7 @@
     "title": "We started building Triangle",
     "category": "data",
     "summary": "Triangle started in September 2024, after we raised the money to turn the patient-navigation process I had built for myself into a real product.",
-    "body": "The idea came from living the problem: fragmented records, medical jargon, treatment options buried across papers and trials, and the unfair advantage of knowing how to work the system. September 2024 was when that personal operating system became the beginning of the Triangle build.",
-    "facts": [
-      "Started in Sept 2024",
-      "Funding raised in 2024",
-      "Born from the patient-navigation process",
-      "A product version of the system I needed"
-    ],
+    "body": "The idea came from living the problem: fragmented records, medical jargon, treatment options buried across papers and trials, and the unfair advantage of knowing how to work the system.",
     "media": [
       {
         "type": "image",
@@ -353,11 +272,9 @@
     "title": "Vorasidenib starts",
     "category": "treatment",
     "summary": "Vorasidenib 40 mg daily began as the alternative IDH inhibitor.",
-    "body": "Vorasidenib became one of the anchors of what I was doing, with liver-function monitoring and temporary hold/resume moments later on. The idea was two-pronged: inhibit mutant IDH activity while the exploratory vaccine tried to help T cells recognize selected tumor-specific peptide targets. The vaccine, and the combination, are still exploratory.",
+    "body": "It became one of the anchors of what I was doing, with liver-function monitoring and temporary hold/resume moments later on. The vaccine, and combining it with vorasidenib, are still exploratory.",
     "facts": [
-      "Vorasidenib 40 mg daily",
-      "Targets mutant IDH biology",
-      "Ongoing surveillance while on therapy"
+      "Targets mutant IDH biology"
     ],
     "media": [
       {
@@ -372,12 +289,10 @@
     "eyebrow": "Immune monitoring",
     "title": "First clear vaccine response",
     "category": "data",
-    "summary": "Four-month monitoring detected CD4+ responses to 5 of 17 peptides and CD8+ responses to 4 of 17 peptides.",
-    "body": "The report summarized this as specific T-cell response to 8 of the 17 vaccinated mutation-spanning peptides. I read this as an important early immune-readout moment: not proof of clinical benefit, but evidence that my immune system had measurable responses to parts of the vaccine cocktail.",
+    "summary": "Four-month monitoring detected specific T-cell response to 8 of the 17 vaccinated mutation-spanning peptides.",
+    "body": "I read this as evidence that my immune system had measurable responses to parts of the vaccine cocktail. It is not proof of clinical benefit.",
     "facts": [
-      "8/17 mutation-spanning peptides",
-      "CD4+: 5/17",
-      "CD8+: 4/17",
+      "CD4+: 5/17, CD8+: 4/17",
       "IDH1 short peptide CD8 SI 11.9",
       "ATRX long peptide CD4 SI 11.0"
     ],
@@ -394,8 +309,8 @@
     "eyebrow": "Surveillance MRI",
     "title": "No masslike enhancing recurrence",
     "category": "imaging",
-    "summary": "MRI brain reported no residual or recurrent masslike enhancement.",
-    "body": "Another surveillance scan, another wait for language that could change everything. This one stayed calm: no residual or recurrent masslike enhancement.",
+    "summary": "Another surveillance scan, another wait for language that could change everything.",
+    "body": "This one stayed calm: MRI brain reported no residual or recurrent masslike enhancement.",
     "media": [
       {
         "type": "image",
@@ -411,12 +326,6 @@
     "category": "treatment",
     "summary": "CeCurio documented the 9th personalized peptide vaccination on March 10, 2025.",
     "body": "The visit note recorded ECOG 0 and KPS 100%, no reported disease symptoms, current vorasidenib treatment, and the last MRI without signs of tumor in December 2024. The vaccine was administered with Leukine and Imiquimod.",
-    "facts": [
-      "9th vaccine dose",
-      "ECOG 0 / KPS 100%",
-      "On vorasidenib protocol",
-      "No disease symptoms reported"
-    ],
     "media": [
       {
         "type": "image",
@@ -431,11 +340,10 @@
     "title": "Vorasidenib held for elevated LFTs",
     "category": "labs",
     "summary": "ALT/AST elevations led to a temporary vorasidenib hold.",
-    "body": "Treatment was not just the pill. It was monitoring, thresholds, holds, and restarts: the invisible maintenance work around trying to stay on therapy safely.",
+    "body": "Monitoring, thresholds, holds, and restarts: the invisible maintenance work around trying to stay on therapy safely.",
     "facts": [
-      "ALT peak documented around 141 U/L",
-      "AST peak documented around 55 U/L",
-      "Therapy temporarily held"
+      "ALT peak around 141 U/L",
+      "AST peak around 55 U/L"
     ],
     "media": [
       {
@@ -451,12 +359,11 @@
     "title": "Ten-month vaccine response persists",
     "category": "data",
     "summary": "Ten months after the first vaccine, immune monitoring detected responses to 9 of 18 vaccinated mutation-spanning peptides.",
-    "body": "The June 23, 2025 immune-monitoring report described CD4+ T-cell responses to 5 of 18 tested peptides and CD8+ T-cell responses to 6 of 18 tested peptides. For me, this makes the vaccine story more concrete than a design idea: there are longitudinal immune readouts.",
+    "body": "For me, this makes the vaccine story more concrete than a design idea: there are longitudinal immune readouts.",
     "facts": [
-      "9/18 mutation-spanning peptides detectable",
       "CD4+: 5/18",
       "CD8+: 6/18",
-      "Blood draw: 2025-05-12"
+      "Blood draw May 12, report June 23, 2025"
     ],
     "media": [
       {
@@ -487,12 +394,10 @@
     "title": "One-year vaccine response still detectable",
     "category": "data",
     "summary": "One year and one month after the first vaccine, specific T-cell responses to at least 5 of 18 vaccinated mutation-spanning peptides were still detectable.",
-    "body": "The report also noted low measured CD4+/CD8+ cell numbers and/or viability after in-vitro culture and recommended repeating the assay. I want that caveat next to the result: still detectable, but with sample-quality limits.",
+    "body": "The report also noted low measured CD4+/CD8+ cell numbers and/or viability after in-vitro culture and recommended repeating the assay. I want that caveat next to the result.",
     "facts": [
-      "At least 5/18 still detectable",
       "CD4+ pools: 3/14",
-      "CD8+ pools: 3/14",
-      "Repeat assay recommended"
+      "CD8+ pools: 3/14"
     ],
     "media": [
       {
@@ -509,14 +414,7 @@
     "title": "Triangle becomes a real company",
     "category": "data",
     "summary": "By December 2025, the patient-navigation system I had built for myself had become real work.",
-    "body": "It was no longer just a private spreadsheet and operating system. Triangle had become a product effort around complete records, AI-powered research, and a doctor in the loop.",
-    "facts": [
-      "Build began Sept 2024",
-      "Funding raised in 2024",
-      "AI-powered research",
-      "Complete records",
-      "Doctor-in-the-loop model"
-    ],
+    "body": "Triangle had become a product effort around complete records, AI-powered research, and a doctor in the loop.",
     "media": [
       {
         "type": "image",
@@ -541,11 +439,8 @@
     "title": "The doctor-search system became the deeper lesson",
     "category": "personal",
     "summary": "The surgeon search made one thing obvious: the healthcare system works best for people who already know how to work the system.",
-    "body": "I started with a simple sheet, then turned it into a search process: a broad list, publications and trials, reputation inside medicine, and consults that showed me how each doctor thought. The final decision rule was not who made me feel safest in the moment. It was who corrected me, pushed back, and helped me make the right decision.",
+    "body": "The final decision rule was not who made me feel safest in the moment. It was who corrected me, pushed back, and helped me make the right decision.",
     "facts": [
-      "Search broadly",
-      "Use reputation inside medicine",
-      "Evaluate how doctors think",
       "Choose honesty over comfort"
     ],
     "media": [
@@ -565,8 +460,7 @@
     "body": "Stable is not the same as done. It's scans on a schedule, regular labs, staying on treatment, and learning to live in the gaps between appointments.",
     "facts": [
       "No masslike or nodular enhancing recurrence reported",
-      "ALT/AST improved relative to prior peaks",
-      "Stable status documented"
+      "ALT/AST improved relative to prior peaks"
     ],
     "media": [
       {
@@ -582,8 +476,8 @@
     "eyebrow": "Still moving",
     "title": "Still moving forward",
     "category": "personal",
-    "summary": "Near the end of the timeline, I wanted one more image that is not a scan, a lab, or a company screenshot.",
-    "body": "I didn't want the whole point to be surviving the scans. I wanted a life big enough that the cancer was one part of it and not the headline.",
+    "summary": "I didn't want the whole point to be surviving the scans.",
+    "body": "I wanted a life big enough that the cancer was one part of it and not the headline.",
     "media": [
       {
         "type": "image",
@@ -599,8 +493,8 @@
     "eyebrow": "Triangle today",
     "title": "The thing I needed is now a real product",
     "category": "data",
-    "summary": "The ending for now is simple: Triangle is on screen.",
-    "body": "The system I wished I had during diagnosis has become a product other patients can use.",
+    "summary": "The system I wished I had during diagnosis has become a product other patients can use.",
+    "body": "",
     "media": [
       {
         "type": "image",
