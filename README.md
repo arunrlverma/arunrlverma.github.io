@@ -32,7 +32,3 @@ folder is intentionally gitignored so only the web-optimized media is published.
 
 For `arunverma.io`, configure GitHub Pages to serve from the main branch root, then point
 the GoDaddy apex DNS records to GitHub Pages and set `www` as a CNAME to the Pages host.
-
-## Content Notes
-
-Many captions are placeholders marked "Caption to refine." The EXIF-derived dates were used where available, but a few JPGs had no embedded capture date and should be manually placed later.

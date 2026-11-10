@@ -4,12 +4,12 @@
     "gene": "IDH1",
     "finding": "p.R132C",
     "type": "Somatic tumor driver",
-    "role": "This is the defining mutation in my tumor and the reason IDH inhibition is central to my treatment story.",
+    "role": "The defining mutation in my tumor, and the reason for IDH inhibition.",
     "vaf": "23.4-26.8% reported across tumor reports",
     "confidence": "High",
-    "biology": "IDH1 R132C changes tumor metabolism, including production of 2-HG. It is one of the clearest biological anchors in my case.",
-    "treatment": "This connects my tumor biology to IDH inhibitor therapy: ivosidenib first, then vorasidenib as the drug I am on now.",
-    "vaccine": "It also matters for the exploratory vaccine story because mutation-spanning peptides can be designed around tumor mutations like this one.",
+    "biology": "IDH1 R132C changes tumor metabolism, including production of 2-HG.",
+    "treatment": "IDH inhibitor therapy: ivosidenib first, then vorasidenib, which I am on now.",
+    "vaccine": "Mutation-spanning peptides can be designed around a mutation like this one. Still exploratory.",
     "source": "Tempus / BostonGene summaries"
   },
   {
@@ -17,7 +17,7 @@
     "gene": "ATRX",
     "finding": "G1712D / ATRX loss",
     "type": "Tumor lineage and chromatin finding",
-    "role": "This fits the molecular pattern of IDH-mutant astrocytoma and helps explain what kind of tumor this is.",
+    "role": "This fits the molecular pattern of IDH-mutant astrocytoma.",
     "vaf": "69.7% VAF reported by Tempus for ATRX G1712D",
     "confidence": "High",
     "biology": "ATRX is involved in chromatin maintenance and telomere biology. ATRX alteration or loss is common in IDH-mutant astrocytoma.",
@@ -33,8 +33,8 @@
     "role": "I have Li-Fraumeni, so TP53 sits on both sides of the story: inherited cancer-risk context and tumor biology.",
     "vaf": "Tumor VAF values around 49-64% appear in reports depending on assay and notation",
     "confidence": "Known Li-Fraumeni context",
-    "biology": "TP53 is a core genome-stability gene. Because I have Li-Fraumeni, I separate inherited TP53 risk from tumor-only TP53 findings instead of blending them together.",
-    "treatment": "This matters for surveillance, family-risk context, and how the case is framed, but I am not presenting TP53 here as a standalone treatment selector.",
+    "biology": "TP53 is a core genome-stability gene. Because I have Li-Fraumeni, I keep inherited TP53 risk separate from tumor-only findings.",
+    "treatment": "This matters for surveillance and family risk. I am not presenting TP53 as a standalone treatment selector.",
     "vaccine": "It could matter for mutation-spanning peptide candidates if a specific tumor TP53 alteration is used in vaccine design.",
     "source": "Germline records + Tempus / BostonGene summaries"
   },
@@ -47,8 +47,8 @@
     "vaf": "Not a VAF-based variant",
     "confidence": "Reported methylated",
     "biology": "MGMT promoter methylation can matter in glioma treatment discussions, especially in the context of alkylating chemotherapy.",
-    "treatment": "This is treatment-context biology. It helps frame future discussions, but it is not a vaccine target.",
-    "vaccine": "Not a vaccine target; it belongs in the treatment-context part of the biology.",
+    "treatment": "It helps frame future treatment discussions.",
+    "vaccine": "Not a vaccine target.",
     "source": "Pathology / molecular summaries"
   },
   {
@@ -99,7 +99,7 @@
     "vaf": "VAF 52.2%; CCF 100%",
     "confidence": "High-priority pipeline candidate",
     "biology": "ATRX is part of the tumor identity and also appears in the vaccine-candidate list.",
-    "treatment": "Not a direct drug target here, but a core part of the molecular story.",
+    "treatment": "Not a direct drug target here.",
     "vaccine": "Short epitope LVDPDPDFV was paired with long peptide FNKALVDPDPDFV.",
     "source": "Report"
   }

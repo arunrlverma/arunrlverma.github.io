@@ -7,7 +7,7 @@
    stage pauses when it leaves the viewport or the tab is hidden. Touch, reduced-motion, and
    explicitly settled stages render a short deterministic composition, then freeze.
    Modelled on the reference (suminagashi-fjdbyyqi.manus.space); WebGL2, no dependencies. */
-(function () {
+function startSumiFluid() {
   if (!document.body || !document.body.classList.contains("sumi")) return;  // any suminagashi page
   const hero = document.querySelector("[data-ink-stage], .timeline-hero");
   if (!hero) return;
@@ -497,4 +497,5 @@
       }, 200);
     }, { passive: true });
   }
-})();
+}
+requestAnimationFrame(function () { setTimeout(startSumiFluid, 0); });

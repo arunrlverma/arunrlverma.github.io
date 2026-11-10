@@ -143,16 +143,6 @@
   overflow: hidden;
 }
 
-.editorial-page[data-page="deepdive"] .deep-hero::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  background: url("assets/media/illus-molecular-identity.webp") right center / cover no-repeat;
-  opacity: .055;
-  pointer-events: none;
-}
-
 .editorial-page[data-page="deepdive"] .deep-hero h1 {
   max-width: 980px;
   margin-top: 12px;
@@ -786,20 +776,6 @@
   overflow: hidden;
 }
 
-.editorial-page[data-page="contact"] .contact-main::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  width: 52%;
-  background: url("assets/media/2018-09-27-arun-portrait.webp") center 24% / cover no-repeat;
-  mix-blend-mode: multiply;
-  opacity: .1;
-  pointer-events: none;
-}
-
 .editorial-page[data-page="contact"] .contact-card {
   width: min(100%, 880px);
   max-width: none;
@@ -1022,11 +998,6 @@
   .editorial-page[data-page="deepdive"] .variant-facts,
   .editorial-page[data-page="deepdive"] .detail-columns {
     grid-template-columns: 1fr;
-  }
-
-  .editorial-page[data-page="contact"] .contact-main::before {
-    width: 100%;
-    opacity: .055;
   }
 }
 
@@ -1749,3 +1720,133 @@ body.sumi.editorial-page[data-page="contact"] .contact-main .story-handoff {
     transition: none;
   }
 }
+
+/* ============================================================================
+   SIMPLIFY PASS, November 2026 — Deep Dive, Triangle Health, Contact, legal pages.
+   Everything added in this pass lives in this one block. Edit here, not above.
+   ============================================================================ */
+
+/* B1. Type: the same h1, lead and h2 as the Timeline; nothing under 12px. */
+body.sumi.editorial-page[data-page="deepdive"] .deep-hero h1,
+body.sumi.editorial-page[data-page="contact"] .contact-card h1,
+body.sumi.editorial-page[data-page="command-center"] .cc-topbar h1.cc-hero-title,
+body.sumi.editorial-page.legal-page[data-page="command-center"] .cc-legal-paper h1 { font-size: clamp(34px, 4.4vw, 56px); line-height: 1.1; }
+body.sumi.editorial-page[data-page="deepdive"] .deep-hero > p,
+body.sumi.editorial-page[data-page="command-center"] .cc-public-intro,
+body.sumi.editorial-page[data-page="contact"] .contact-note { font-size: clamp(16px, 1.45vw, 18px); line-height: 1.65; }
+body.sumi.editorial-page[data-page="command-center"] .cc-founder-section h2 { font-size: 46px; }
+body.sumi.editorial-page[data-page="deepdive"] .variant-detail h3 { font-size: 24px; font-weight: 500; }
+body.sumi.editorial-page .evidence-badge { font-size: 12px; letter-spacing: .04em; }
+body.sumi.editorial-page[data-page="deepdive"] .evidence-line a { display: inline-block; padding: 10px 0; font-size: 14px; }
+body.sumi.editorial-page[data-page="deepdive"] .evidence-reviewed { margin: 14px 0 28px; color: var(--ed-muted); font-size: 12px; }
+body.sumi.editorial-page[data-page="deepdive"] .combo-panel > p { margin-bottom: 18px; }
+body.sumi.editorial-page[data-page="deepdive"] .variant-facts dt { color: #6b6256; font-size: 12px; }
+body.sumi.editorial-page[data-page="deepdive"] .mechanism-steps span,
+body.sumi.editorial-page[data-page="deepdive"] .variant-button span { font-size: 12px; }
+body.sumi.editorial-page[data-page="deepdive"] .mechanism-steps span,
+body.sumi.editorial-page[data-page="deepdive"] .combo-number,
+body.sumi.editorial-page[data-page="deepdive"] .variant-facts dt,
+body.sumi.editorial-page[data-page="deepdive"] .variant-button span { font-weight: 700; }
+@media (max-width: 600px) {
+  body.sumi.editorial-page[data-page="deepdive"] .combo-intro h2,
+  body.sumi.editorial-page[data-page="deepdive"] .section-heading h2,
+  body.sumi.editorial-page[data-page="command-center"] .cc-founder-section h2,
+  body.sumi.editorial-page[data-page="command-center"] .cc-section-heading h2 { font-size: 26px; }
+}
+
+/* B2. With the section bar gone, anchor jumps clear one header only. */
+body.sumi.editorial-page[data-page="deepdive"] #treatment-plan,
+body.sumi.editorial-page[data-page="deepdive"] #tumor-data,
+body.sumi.editorial-page[data-page="deepdive"] #vaccine-funnel,
+body.sumi.editorial-page[data-page="deepdive"] #variant-explorer,
+body.sumi.editorial-page[data-page="deepdive"] #support-research,
+body.sumi.editorial-page[data-page="command-center"] #why-it-exists,
+body.sumi.editorial-page[data-page="command-center"] #example-report,
+body.sumi.editorial-page[data-page="command-center"] #faq { scroll-margin-top: 84px; }
+
+/* B3. Deep Dive: white hero, one card spec, rows that fill. */
+body.sumi.editorial-page[data-page="deepdive"] .combo-panel { border-top: 1px solid var(--ed-line); }
+body.sumi.editorial-page[data-page="deepdive"] .data-metrics { display: flex; flex-wrap: wrap; }
+body.sumi.editorial-page[data-page="deepdive"] .data-metric { flex: 1 1 200px; min-width: 0; min-height: 0; border-left: 1px solid var(--ed-line); }
+body.sumi.editorial-page[data-page="deepdive"] .donation-section .section-heading { margin-bottom: 0; }
+body.sumi.editorial-page[data-page="deepdive"] .donation-section .section-heading a { color: var(--ed-indigo); text-underline-offset: 3px; }
+body.sumi.editorial-page[data-page="deepdive"] #variant-list > .variant-detail { grid-column: 1 / -1; margin: 0 0 6px; }
+@media (min-width: 1101px) {
+  body.sumi.editorial-page[data-page="deepdive"] .variant-list { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (max-width: 880px) {
+  body.sumi.editorial-page[data-page="deepdive"] .variant-button { scroll-margin-top: 72px; }
+}
+@media (max-width: 600px) {
+  body.sumi.editorial-page[data-page="deepdive"] .data-metric { flex-basis: calc(50% - 7px); padding: 14px; }
+}
+
+/* B4. Triangle Health: every section white; one button; a plain disclaimer. */
+body.sumi.editorial-page[data-page="command-center"] .cc-app { padding-bottom: 0; }
+body.sumi.editorial-page[data-page="command-center"] .to-top { bottom: 18px; }
+body.sumi.editorial-page[data-page="command-center"] .cc-faq-section::before { display: none; }
+body.sumi.editorial-page[data-page="command-center"] .cc-live-link { min-height: 44px; padding: 0 22px; font-size: 16px; line-height: 1; }
+body.sumi.editorial-page[data-page="command-center"] .cc-report-frame-veil span { border-radius: 4px; background: var(--ed-ink); }
+body.sumi.editorial-page[data-page="command-center"] .cc-disclaimer {
+  display: block; padding: 28px 0 40px; border: 0; border-top: 1px solid var(--ed-line); border-radius: 0; background: none;
+}
+body.sumi.editorial-page[data-page="command-center"] .cc-disclaimer-tag { display: block; margin-bottom: 10px; }
+body.sumi.editorial-page[data-page="command-center"] .cc-disclaimer p { max-width: 68ch; color: var(--ed-ink); font-size: 16px; line-height: 1.65; }
+@media (max-width: 880px) {
+  body.sumi.editorial-page[data-page="command-center"] .cc-report-preview { display: none; }
+  body.sumi.editorial-page[data-page="deepdive"] .deep-hero,
+  body.sumi.editorial-page[data-page="command-center"] .cc-site-hero,
+  body.sumi.editorial-page[data-page="contact"] .contact-main { padding-inline: 20px; }
+  body.sumi.editorial-page[data-page="command-center"] .cc-founder-section,
+  body.sumi.editorial-page[data-page="command-center"] .cc-sample-section,
+  body.sumi.editorial-page[data-page="command-center"] .cc-faq-section { width: min(calc(100% - 40px), 1120px) !important; max-width: none !important; padding-inline: 0; }
+  body.sumi.editorial-page[data-page="command-center"] .cc-faq { margin-inline: 0; }
+}
+
+/* B5. Contact: white ground, text on the page edge. */
+body.sumi.editorial-page[data-page="contact"] .contact-main { place-items: normal; }
+body.sumi.editorial-page[data-page="contact"] .mail-link { min-height: 44px; padding: 0 22px; font-size: 16px; }
+
+/* B6. Legal: one rule under the title; comfortable back link. */
+body.sumi.editorial-page.legal-page[data-page="command-center"] .cc-legal-paper { width: min(calc(100% - 96px), 1120px); }
+@media (max-width: 880px) {
+  body.sumi.editorial-page.legal-page[data-page="command-center"] .cc-legal-paper { width: min(calc(100% - 40px), 1120px); }
+}
+body.sumi.editorial-page.legal-page .cc-legal-hero { margin-bottom: 14px; padding-bottom: 0; border-bottom: 0; }
+body.sumi.editorial-page.legal-page .cc-legal-back { display: inline-block; padding: 10px 0; }
+
+/* B7. Type sizes: the same eight as the Timeline (12, 14, 16, 18, 20, 24, 46, 56). */
+body.sumi.editorial-page[data-page="deepdive"] .section-heading > p,
+body.sumi.editorial-page[data-page="deepdive"] .combo-intro > p,
+body.sumi.editorial-page[data-page="command-center"] .cc-section-heading > p { font-size: clamp(16px, 1.45vw, 18px); line-height: 1.65; }
+body.sumi.editorial-page[data-page="deepdive"] .novelty-note { font-size: 16px; }
+body.sumi.editorial-page[data-page="deepdive"] .variant-button strong { font-family: var(--display-serif); }
+body.sumi.editorial-page[data-page="deepdive"] .variant-detail dd,
+body.sumi.editorial-page[data-page="deepdive"] .variant-detail section p,
+body.sumi.editorial-page[data-page="deepdive"] .variant-detail h4 { font-size: 14px; }
+body.sumi.editorial-page[data-page="command-center"] .cc-faq summary { font-size: 18px; }
+body.sumi.editorial-page[data-page="command-center"] .cc-founder-section blockquote { font-size: 24px; }
+body.sumi.editorial-page[data-page="command-center"] .cc-cta-trust,
+body.sumi.editorial-page[data-page="command-center"] .cc-inline-note,
+body.sumi.editorial-page[data-page="command-center"] .cc-report-preview-bar span,
+body.sumi.editorial-page[data-page="command-center"] .cc-report-frame-veil span { font-size: 14px; }
+body.sumi.editorial-page.legal-page[data-page="command-center"] .cc-legal-paper p,
+body.sumi.editorial-page.legal-page[data-page="command-center"] .cc-legal-paper li { font-size: 16px; }
+body.sumi.editorial-page.legal-page[data-page="command-center"] .cc-legal-paper h2 { font-size: 20px; }
+
+/* B8. The vaccine drawing keeps its own 2:1 shape, so no empty bands on a phone. */
+body.sumi.editorial-page[data-page="deepdive"] .vaccine-figure { aspect-ratio: auto; }
+body.sumi.editorial-page[data-page="deepdive"] .vaccine-figure img { height: auto; }
+
+/* B9. Phones: the oversized quote mark slid under the portrait; leave it out there. */
+@media (max-width: 880px) {
+  body.sumi.editorial-page[data-page="command-center"] .cc-founder-section blockquote::before { display: none; }
+}
+
+/* B10. Variant tiles keep their rows when the detail opens between them. */
+body.sumi.editorial-page[data-page="deepdive"] .variant-list { grid-auto-flow: row dense; }
+
+/* B11. Questions: an open row looks like a closed one, on the same grey hairline. */
+body.sumi.editorial-page[data-page="command-center"] .cc-faq details { border-bottom-color: var(--ed-line); }
+body.sumi.editorial-page[data-page="command-center"] .cc-faq details:last-child { border-bottom: 0; }
+body.sumi.editorial-page[data-page="command-center"] .cc-faq details[open] { margin: 0; padding: 0; border-left: 0; border-radius: 0; background: none; }

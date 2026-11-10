@@ -93,12 +93,6 @@
     else mobileNavQuery.addListener(closeNavOnDesktop);
   }
 
-  // Thin scroll-progress rail — orientation on long pages.
-  var bar = document.createElement("div");
-  bar.className = "scroll-progress";
-  bar.setAttribute("aria-hidden", "true");
-  document.body.appendChild(bar);
-
   // Back-to-top control — appears after scrolling.
   var btn = document.createElement("button");
   btn.className = "to-top";
@@ -115,7 +109,6 @@
     var doc = document.documentElement;
     var max = doc.scrollHeight - doc.clientHeight;
     var y = window.scrollY || doc.scrollTop;
-    bar.style.width = (max > 0 ? (y / max) * 100 : 0) + "%";
     btn.classList.toggle("show", y > 700);
     ticking = false;
   }

@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fbf3e1">
+  <meta name="theme-color" content="#ffffff">
   <link rel="apple-touch-icon" href="assets/media/apple-touch-icon.png">
   <title>Arun Verma | My Cancer Timeline</title>
   <meta name="description" content="Arun Verma's personal cancer timeline, from the first shocking scan through surgery, treatment, data, Camino, and the work that became Triangle.">
@@ -12,18 +12,16 @@
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Arun Verma">
   <meta property="og:title" content="Arun Verma | My Cancer Timeline">
-  <meta property="og:description" content="A personal cancer timeline — from the first scan through surgery, treatment, data, and the Camino.">
+  <meta property="og:description" content="A personal cancer timeline, from the first scan through surgery, treatment, data, and the Camino.">
   <meta property="og:url" content="https://arunverma.io/">
   <meta property="og:image" content="https://arunverma.io/assets/media/og-home.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Arun Verma | My Cancer Timeline">
-  <meta name="twitter:description" content="A personal cancer timeline — from the first scan through surgery, treatment, data, and the Camino.">
+  <meta name="twitter:description" content="A personal cancer timeline, from the first scan through surgery, treatment, data, and the Camino.">
   <meta name="twitter:image" content="https://arunverma.io/assets/media/og-home.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20260706p-magic">
-  <link rel="stylesheet" href="suminagashi.css?v=20260713-ink2">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/shippori-mincho-500-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=20261109">
+  <link rel="stylesheet" href="suminagashi.css?v=20261109">
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Person","name":"Arun Verma","url":"https://arunverma.io/","email":"verma.arun@gmail.com","description":"Building tools to understand and move through cancer, and sharing the story and data along the way."}
   </script>
@@ -34,7 +32,6 @@
   <div class="wash wash-a"></div>
   <div class="wash wash-b"></div>
   <div class="wash wash-c"></div>
-  <div class="sumi-spine" aria-hidden="true">A CANCER STORY <span class="dot">·</span> TOLD IN ORDER</div>
   <header class="site-header">
     <a class="brand" href="index.html" aria-label="Arun Verma home">
       <span class="brand-mark"></span>
@@ -55,21 +52,9 @@
       <p>
         No symptoms. Then surgery, years of scans, a targeted drug, a personalized vaccine, a lot of walking. All of it, in order.
       </p>
-      <p class="hero-meta" aria-label="Timeline overview">
-        <span>29 moments</span><span aria-hidden="true">·</span><span>August 2023 to now</span><span aria-hidden="true">·</span><span>About 10 minutes</span>
-      </p>
       <div class="hero-cta">
         <a class="hero-btn" href="#timeline">Begin the timeline ↓</a>
         <a class="hero-btn ghost" href="deepdive.html">The medical detail →</a>
-      </div>
-      <div class="ink-picker" aria-label="Ink color for the water">
-        <span class="pk-label">Ink</span>
-        <button class="ink-swatch active" type="button" data-ink="cycle" aria-label="Cycle through inks"></button>
-        <button class="ink-swatch" type="button" data-ink="sumi" style="--sw:#bdbcc8" aria-label="Soft grey"></button>
-        <button class="ink-swatch" type="button" data-ink="ai" style="--sw:#88b0db" aria-label="Soft blue"></button>
-        <button class="ink-swatch" type="button" data-ink="shu" style="--sw:#e89e92" aria-label="Soft coral"></button>
-        <button class="ink-swatch" type="button" data-ink="matsuba" style="--sw:#a4cfb4" aria-label="Soft sage"></button>
-        <span class="pk-hint">hold &amp; drag the water</span>
       </div>
     </section>
 
@@ -77,7 +62,6 @@
       <div class="timeline-toolbar" aria-label="Timeline position">
         <div class="timeline-location">
           <span class="timeline-chapter" id="timeline-chapter">Before</span>
-          <span class="timeline-position" id="timeline-position" aria-live="polite">1 of 29</span>
         </div>
         <div class="chapter-select-wrap">
           <label class="sr-only" for="chapter-select">Jump to chapter</label>
@@ -90,15 +74,6 @@
         </div>
       </div>
 
-      <div class="timeline-filters" aria-label="Filter timeline">
-        <button class="chip active" data-filter="all" aria-pressed="true">All</button>
-        <button class="chip" data-filter="diagnosis" aria-pressed="false">Diagnosis</button>
-        <button class="chip" data-filter="imaging" aria-pressed="false">Imaging</button>
-        <button class="chip" data-filter="labs" aria-pressed="false">Labs</button>
-        <button class="chip" data-filter="treatment" aria-pressed="false">Treatment</button>
-        <button class="chip" data-filter="data" aria-pressed="false">Data</button>
-        <button class="chip" data-filter="personal" aria-pressed="false">Personal</button>
-      </div>
 
       <aside class="artifact-stage" aria-live="polite">
         <div class="stage-frame">
@@ -115,17 +90,11 @@
       <div class="timeline-list" id="timeline-list"></div>
     </section>
 
-    <section class="story-handoff" aria-labelledby="timeline-handoff-title">
-      <div class="story-handoff-copy">
-        <span class="story-part">Part 1 of 4 &middot; The story</span>
-        <h2 id="timeline-handoff-title">The timeline tells what happened. The next chapter explains what I found inside the tumor.</h2>
-        <p>Move from the lived sequence into the mutations, treatment logic, evidence, and uncertainty behind it.</p>
-      </div>
+    <section class="story-handoff" aria-label="Next page">
       <div class="story-handoff-links story-handoff-links-single">
         <a class="story-handoff-link story-handoff-next" href="deepdive.html">
           <span>Next chapter</span>
           <strong>Cancer Deep Dive</strong>
-          <small>The biology, in plain language</small>
           <b aria-hidden="true">&rarr;</b>
         </a>
       </div>
@@ -137,8 +106,8 @@
     <span class="footer-links"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:verma.arun@gmail.com">Email</a></span>
   </footer>
 
-  <script src="timeline.js?v=20260713-ux1"></script>
-  <script src="suminagashi-fluid.js?v=20260706p-magic"></script>
-  <script src="enhance.js?v=20260713-journey2" defer></script>
+  <script src="timeline.js?v=20261109"></script>
+  <script src="suminagashi-fluid.js?v=20261109"></script>
+  <script src="enhance.js?v=20261109" defer></script>
 </body>
 </html>

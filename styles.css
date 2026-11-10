@@ -6116,7 +6116,6 @@ body.cc-motion .reveal-grid.is-in-view > *:nth-child(7) { transition-delay: .40s
 .cc-final-cta .cc-mini-disclaimer { text-align: center; max-width: 540px; margin-left: auto; margin-right: auto; }
 .cc-inline-note { display: block; margin-top: 6px; color: #75827c; font-size: 13px; font-style: italic; }
 
-/* Pricing escape-hatch link under the $199 button */
 .cc-price-sample-link {
   display: block;
   margin-top: 12px;
@@ -6246,7 +6245,6 @@ body.cc-motion .reveal-grid.is-in-view > *:nth-child(7) { transition-delay: .40s
 .cc-privacy-link { display: inline-block; margin-top: 22px; color: var(--cc-teal); font-weight: 600; text-decoration: none; }
 .cc-privacy-link:hover { color: var(--cc-navy); }
 
-/* PRICING — single centered card, $199 as the big type moment */
 .cc-price-section { display: block; border: 0; width: min(100% - 44px, 1720px); margin: 0 auto; padding: clamp(60px, 6.5vw, 108px) 0; }
 .cc-price-solo { max-width: 520px; margin: 0 auto; text-align: center; border: 1px solid var(--cc-line); border-radius: 22px; background: rgba(255, 255, 255, .74); padding: clamp(36px, 4vw, 58px); box-shadow: 0 28px 66px rgba(24, 53, 83, .1); }
 .cc-price-solo .kicker { color: var(--cc-sage); }
@@ -6812,7 +6810,6 @@ h1, h2, h3 { text-wrap: balance; }
 @media (max-width: 880px) {
   .site-header nav a { min-height: 40px; display: inline-flex; align-items: center; }
   .hero-actions .chip { min-height: 40px; }
-  /* Sticky "from $99" bar must never cover the closing content */
   body[data-page="command-center"] .cc-app { padding-bottom: 124px; }
 }
 

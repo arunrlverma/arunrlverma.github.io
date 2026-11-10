@@ -4,7 +4,7 @@ const variantDetail = document.querySelector("#variant-detail");
 function detailMarkup(item) {
   return `
     <div class="eyebrow">${item.type}</div>
-    <h3>${item.gene} ${item.finding}</h3>
+    <h3>${item.finding.startsWith(item.gene) ? item.finding : `${item.gene} ${item.finding}`}</h3>
     <p class="detail-role">${item.role}</p>
     <dl class="variant-facts">
       <div>
@@ -37,16 +37,27 @@ function detailMarkup(item) {
   `;
 }
 
+const compact = window.matchMedia("(max-width: 880px)");
+
+function placeDetail() {
+  const active = variantList.querySelector(".variant-button.active");
+  if (compact.matches && active) active.after(variantDetail);
+  else variantList.after(variantDetail);
+}
+compact.addEventListener("change", placeDetail);
+
 function setVariant(items, id) {
   const item = items.find((entry) => entry.id === id) || items[0];
   if (!item) return;
   document.querySelectorAll(".variant-button").forEach((button) => {
     button.classList.toggle("active", button.dataset.variant === item.id);
+    button.setAttribute("aria-pressed", String(button.dataset.variant === item.id));
   });
   variantDetail.innerHTML = detailMarkup(item);
+  placeDetail();
 }
 
-fetch("assets/data/variants.json?v=20260424-tumor-data")
+fetch("assets/data/variants.json?v=20261109")
   .then((response) => {
     if (!response.ok) throw new Error(`Variant data request failed: ${response.status}`);
     return response.json();
@@ -63,6 +74,7 @@ fetch("assets/data/variants.json?v=20260424-tumor-data")
       const button = event.target.closest(".variant-button");
       if (!button) return;
       setVariant(items, button.dataset.variant);
+      if (compact.matches) button.scrollIntoView({ block: "start" });
     });
     setVariant(items, items[0]?.id);
   })

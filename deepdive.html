@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#fbf3e1">
+  <meta name="theme-color" content="#ffffff">
   <link rel="apple-touch-icon" href="assets/media/apple-touch-icon.png">
   <title>Arun Verma | Cancer Deep Dive</title>
   <meta name="description" content="A visual, plain-language explainer for the genetics and biology of Arun's cancer.">
@@ -14,17 +14,15 @@
   <meta property="og:title" content="Arun Verma | Cancer Deep Dive">
   <meta property="og:description" content="A visual, plain-language explainer for the genetics and biology of Arun's cancer.">
   <meta property="og:url" content="https://arunverma.io/deepdive.html">
-  <meta property="og:image" content="https://arunverma.io/assets/media/2026-04-23-triangle-genome.webp">
+  <meta property="og:image" content="https://arunverma.io/assets/media/og-home.png">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Arun Verma | Cancer Deep Dive">
   <meta name="twitter:description" content="A visual, plain-language explainer for the genetics and biology of Arun's cancer.">
-  <meta name="twitter:image" content="https://arunverma.io/assets/media/2026-04-23-triangle-genome.webp">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;700&display=swap">
-  <link rel="stylesheet" href="styles.css?v=20260706p-magic">
-  <link rel="stylesheet" href="suminagashi.css?v=20260713-ink2">
-  <link rel="stylesheet" href="editorial-pages.css?v=20260713-ink2">
+  <meta name="twitter:image" content="https://arunverma.io/assets/media/og-home.png">
+  <link rel="preload" as="font" type="font/woff2" href="assets/fonts/shippori-mincho-500-latin.woff2" crossorigin>
+  <link rel="stylesheet" href="styles.css?v=20261109">
+  <link rel="stylesheet" href="suminagashi.css?v=20261109">
+  <link rel="stylesheet" href="editorial-pages.css?v=20261109">
 </head>
 <body class="sumi editorial-page" data-page="deepdive">
   <a class="skip-link" href="#main">Skip to content</a>
@@ -37,88 +35,35 @@
       <a href="contact.html">Contact</a>
     </nav>
   </header>
-  <div class="sumi-spine" aria-hidden="true">MY CANCER <span class="dot">&middot;</span> EXPLAINED</div>
 
   <main id="main">
     <section class="hero deep-hero ink-stage" data-ink-stage data-ink-motion="settled" data-ink-profile="biology">
       <div class="kicker">My cancer, explained visually</div>
       <h1>I sequenced my own tumor. Here is what it is made of.</h1>
       <p>
-        The mutations that define it are IDH1, ATRX, and TP53. A peptide pipeline took 314,801 candidates down to 18. This page walks through all of it in plain language, and where a number came from, I say so.
+        It is an IDH-mutant astrocytoma. The mutations that define it are IDH1, ATRX, and TP53. A peptide pipeline took 314,801 candidates down to 18. Where a number came from, I say so.
       </p>
-      <div class="editorial-hero-meta" aria-label="Page summary">
-        <span>Astrocytoma, IDH-mutant</span>
-        <span aria-hidden="true">&middot;</span>
-        <span>4 canonical drivers</span>
-        <span aria-hidden="true">&middot;</span>
-        <span>18 vaccine candidates</span>
-      </div>
       <div class="hero-cta">
         <a class="hero-btn" href="#tumor-data">Start with the numbers ↓</a>
         <a class="hero-btn ghost" href="#variant-explorer">See the actual mutations →</a>
       </div>
     </section>
 
-    <div class="section-reader-wrap">
-    <nav class="section-reader" data-section-reader aria-label="Cancer Deep Dive sections">
-      <div class="section-reader-inner">
-        <div class="section-reader-status" aria-live="polite">
-          <span class="section-reader-current" data-section-current>Treatment idea</span>
-          <span class="section-reader-position" data-section-position>1 of 6</span>
-        </div>
-        <button class="section-reader-toggle" type="button" aria-expanded="false" aria-controls="deep-section-links">
-          <span>Sections</span>
-          <svg aria-hidden="true" viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"></path></svg>
-        </button>
-        <div class="section-reader-links" id="deep-section-links">
-          <a href="#treatment-plan">Treatment idea</a>
-          <a href="#data-portal">Data portal</a>
-          <a href="#tumor-data">Numbers</a>
-          <a href="#vaccine-funnel">Vaccine</a>
-          <a href="#variant-explorer">Variants</a>
-          <a href="#support-research">Support</a>
-        </div>
-      </div>
-    </nav>
-    </div>
 
     <section class="combo-section" id="treatment-plan" aria-label="Combination treatment concept">
       <div class="combo-intro">
         <div class="kicker">The plan, in two moves</div>
-        <h2>Hit the mutation with an approved drug, then try to make the tumor visible to my immune system</h2>
-        <p>
-          What I am trying to do is go after the tumor in two different ways: use an FDA-approved IDH
-          inhibitor for the mutation that defines my cancer, and explore a personalized vaccine that tries
-          to make selected tumor mutations visible to my immune system. This is my treatment story, not
-          proof that the vaccine, or the combination, improves outcomes.
-        </p>
+        <h2>An approved drug and a personal vaccine</h2>
+        <p>This is my treatment story, not proof that the vaccine, or the combination, improves outcomes.</p>
       </div>
 
-      <aside class="evidence-key" aria-labelledby="evidence-key-title">
-        <div class="evidence-key-heading">
-          <span class="kicker">Evidence key</span>
-          <p id="evidence-key-title">The label beside a claim tells you where it comes from, not how important it sounds.</p>
-          <small>Evidence reviewed <time datetime="2026-07-13">July 13, 2026</time>.</small>
-        </div>
-        <ul>
-          <li><span class="evidence-badge evidence-record">From my record</span><span>Pathology, imaging, or a molecular report.</span></li>
-          <li><span class="evidence-badge evidence-published">Published evidence</span><span>A regulator or peer-reviewed study.</span></li>
-          <li><span class="evidence-badge evidence-computed">Computed analysis</span><span>A pipeline result, not a clinical conclusion.</span></li>
-          <li><span class="evidence-badge evidence-exploratory">Exploratory idea</span><span>Plausible, personal, and not established benefit.</span></li>
-        </ul>
-      </aside>
 
       <div class="combo-grid">
         <article class="combo-panel">
           <span class="combo-number">01</span>
           <h3>Vorasidenib</h3>
-          <p>
-            My tumor has IDH1 R132C. That is why IDH inhibition matters here. Vorasidenib is FDA-approved
-            for grade 2 astrocytoma or oligodendroglioma with a susceptible IDH1 or IDH2 mutation after
-            surgery, and it is the IDH inhibitor I am on now.
-          </p>
+          <p>My tumor has IDH1 R132C. Vorasidenib is FDA-approved for grade 2 astrocytoma or oligodendroglioma with a susceptible IDH1 or IDH2 mutation after surgery. It is the IDH inhibitor I am on now.</p>
           <div class="evidence-line">
-            <span class="evidence-badge evidence-published">Published evidence</span>
             <a href="https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-vorasidenib-grade-2-astrocytoma-or-oligodendroglioma-susceptible-idh1-or-idh2-mutation" target="_blank" rel="noopener">FDA indication</a>
             <a href="https://www.nejm.org/doi/abs/10.1056/NEJMoa2304194" target="_blank" rel="noopener">INDIGO trial</a>
           </div>
@@ -126,92 +71,34 @@
         <article class="combo-panel">
           <span class="combo-number">02</span>
           <h3>Personal neoantigen vaccine</h3>
-          <p>
-            The vaccine is built from my tumor's own mutations, so it only exists for me. Nobody knows yet whether it helps, and nobody knows whether pairing it with the IDH drug helps — both are still experiments. It's made of peptides that cross the mutated spots, the idea being to point my T cells at fragments of protein that shouldn't be in a healthy body.
-          </p>
+          <p>The vaccine is built from my tumor's own mutations, so it only exists for me. It's made of peptides that cross the mutated spots, the idea being to point my T cells at fragments of protein that shouldn't be in a healthy body. Nobody knows yet whether it helps, or whether pairing it with the IDH drug helps.</p>
           <div class="evidence-line">
-            <span class="evidence-badge evidence-published">Published evidence</span>
             <span class="evidence-badge evidence-exploratory">Personal benefit unknown</span>
             <a href="https://www.cancer.gov/news-events/cancer-currents-blog/2022/mrna-vaccines-to-treat-cancer" target="_blank" rel="noopener">NCI overview</a>
           </div>
         </article>
       </div>
 
-      <div class="combo-flow" aria-label="Treatment flow">
-        <div class="flow-step">
-          <span>IDH1 R132C tumor biology</span>
-        </div>
-        <div class="flow-line"></div>
-        <div class="flow-step">
-          <span>IDH pathway inhibition with vorasidenib</span>
-        </div>
-        <div class="flow-line"></div>
-        <div class="flow-step">
-          <span>Personal neoantigen vaccine</span>
-        </div>
-      </div>
+
+      <p class="evidence-reviewed">Evidence reviewed <time datetime="2026-07-13">July 13, 2026</time>.</p>
 
       <div class="novelty-note">
-        <span class="evidence-badge evidence-exploratory">Exploratory idea</span>
-        <b>Why this feels different to me:</b> it isn't a drug, then a vaccine, in sequence. It's two mechanisms
-        at once — quiet the mutant IDH enzyme and drop its 2-HG output, while separately teaching the immune
-        system to spot a handful of tumor-specific peptides. That second half, and running both together, is
-        still unproven.
+        <b>Why this feels different to me:</b> two mechanisms at once. Quiet the mutant IDH enzyme and drop its 2-HG output, while separately teaching the immune system to spot a handful of tumor-specific peptides. The vaccine half, and running both together, is still unproven.
       </div>
     </section>
 
-    <section class="research-section portal-section" id="data-portal" aria-label="Cancer data portal">
-      <div class="section-heading">
-        <div class="kicker">Data portal</div>
-        <h2>Where to start</h2>
-        <p>
-          This isn't a tidy conclusion. It's the case laid open: what got measured, what I computed myself, what's public on this page, and what you'd have to email me for.
-        </p>
-      </div>
-
-      <div class="portal-grid">
-        <a class="portal-card timeline" href="index.html">
-          <span>Timeline</span>
-          <h3>The clinical story</h3>
-          <p>Diagnosis, surgery, surveillance, treatment starts, vaccine milestones, and the life around all of it.</p>
-        </a>
-        <a class="portal-card" href="#tumor-data">
-          <span>Overview</span>
-          <h3>The numbers I track</h3>
-          <p>Diagnosis, IDH inhibitor context, somatic calls, peptide funnel counts, TMB/MSI, purity, and PGx coverage.</p>
-        </a>
-        <a class="portal-card" href="#vaccine-funnel">
-          <span>Vaccine funnel</span>
-          <h3>From mutations to peptides</h3>
-          <p>How my tumor mutations became a computational peptide list, then a smaller vaccine-design shortlist.</p>
-        </a>
-        <a class="portal-card" href="#variant-explorer">
-          <span>Variant atlas</span>
-          <h3>My tumor findings</h3>
-          <p>IDH1, ATRX, TP53 / Li-Fraumeni context, MGMT methylation, HLA type, and vaccine-relevant peptides.</p>
-        </a>
-        <a class="portal-card request" href="mailto:verma.arun@gmail.com?subject=Research%20data%20request">
-          <span>Raw access</span>
-          <h3>Ask for source data</h3>
-          <p>Raw genome, tumor VCF, peptide-level files, and source reports need privacy boundaries and version notes.</p>
-        </a>
-      </div>
-    </section>
 
     <section class="research-section" id="tumor-data" aria-label="My data overview">
       <div class="section-heading">
         <div class="kicker">Data</div>
         <h2>The numbers</h2>
-        <p>
-          Some of these come straight off my medical reports. Others are first-pass counts from code I wrote to make sense of the raw files. I've marked which is which.
-        </p>
+        <p>Some come straight off my medical reports. Others are first-pass counts from code I wrote, not clinical conclusions. I've marked which is which.</p>
       </div>
 
       <div class="data-group">
         <div class="data-subhead-row"><h3 class="data-subhead">Diagnosis</h3><span class="evidence-badge evidence-record">From my record</span></div>
         <div class="data-metrics">
           <div class="data-metric"><span>What the tumor is</span><b>Astrocytoma, IDH-mutant, CNS WHO grade 2</b><small>right frontal lobe</small></div>
-          <div class="data-metric"><span>Why vorasidenib matters</span><b>Vorasidenib</b><small>FDA-approved IDH inhibitor for grade 2 IDH-mutant glioma after surgery</small></div>
         </div>
       </div>
       <div class="data-group">
@@ -219,16 +106,15 @@
         <div class="data-metrics">
           <div class="data-metric"><span>Somatic calls</span><b>649</b><small>618 genes with somatic evidence</small></div>
           <div class="data-metric"><span>Canonical drivers</span><b>4</b><small>25 other genes flagged for review</small></div>
-          <div class="data-metric"><span>TMB / MSI</span><b>1.5 mut/Mb / MSS</b><small>earlier TMB estimates varied by assay/reporting method</small></div>
-          <div class="data-metric"><span>Tumor purity</span><b>32%</b><small>purity estimate used by the run</small></div>
-          <div class="data-metric"><span>PGx core-site call rate</span><b>80%</b><small>how much of the PGx core set was covered</small></div>
+          <div class="data-metric"><span>TMB / MSI</span><b>1.5 mut/Mb / MSS</b><small>earlier estimates varied by assay</small></div>
+          <div class="data-metric"><span>Tumor purity</span><b>32%</b><small>estimate used by the run</small></div>
         </div>
       </div>
       <div class="data-group">
         <div class="data-subhead-row"><h3 class="data-subhead">Vaccine funnel</h3><span class="evidence-badge evidence-computed">Computed analysis</span></div>
         <div class="data-metrics">
-          <div class="data-metric"><span>Peptides screened</span><b>314,801</b><small>a big first-pass computational list, not clinical candidates</small></div>
-          <div class="data-metric"><span>Predicted strong HLA binders</span><b>2,104</b><small>peptides predicted to bind strongly</small></div>
+          <div class="data-metric"><span>Peptides screened</span><b>314,801</b><small>first-pass list, not clinical candidates</small></div>
+          <div class="data-metric"><span>Predicted strong HLA binders</span><b>2,104</b></div>
           <div class="data-metric"><span>Vaccine-design shortlist</span><b>18</b><small>prioritized long-peptide design candidates</small></div>
         </div>
       </div>
@@ -238,11 +124,7 @@
       <div class="section-heading">
         <div class="kicker">Personal neoantigen vaccine</div>
         <h2>How my personalized vaccine candidates were picked</h2>
-        <p>
-          I worked with a pipeline that starts with mutations in my tumor and narrows them down to peptides
-          most likely to be visible to my immune system. Those peptides then become the starting point for
-          a personalized vaccine.
-        </p>
+        <p>I worked with a pipeline that narrows the mutations in my tumor down to the peptides most likely to be visible to my immune system.</p>
         <div class="section-evidence">
           <span class="evidence-badge evidence-computed">Computed analysis</span>
           <span class="evidence-badge evidence-exploratory">Clinical benefit unknown</span>
@@ -256,40 +138,17 @@
       <div class="mechanism-steps">
         <article><span>01</span><b>Sequence the tumor</b><p>Find mutations that are present in the cancer and different from normal tissue.</p></article>
         <article><span>02</span><b>Narrow the list</b><p>Look for mutation-spanning peptides that could be shown by my HLA molecules.</p></article>
-        <article><span>03</span><b>Make the vaccine</b><p>Use selected peptides as patient-specific vaccine material.</p></article>
+        <article><span>03</span><b>Make the vaccine</b><p>Use selected peptides as patient-specific vaccine material. CeGAT's vaccine is personalized: the input is my tumor's molecular profile.</p></article>
         <article><span>04</span><b>Prime T-cell recognition</b><p>The goal is for immune cells to recognize selected pieces of the tumor.</p></article>
       </div>
 
-      <div class="vaccine-board">
-        <article class="vaccine-card">
-          <span class="combo-number">01</span>
-          <h3>Start with my tumor</h3>
-          <p>Start with tumor sequencing and look for mutation-spanning peptides that should look different from normal self.</p>
-        </article>
-        <article class="vaccine-card">
-          <span class="combo-number">02</span>
-          <h3>Personalized vaccine</h3>
-          <p>CeGAT's vaccine is personalized rather than off-the-shelf: the input is my tumor's molecular profile.</p>
-        </article>
-        <article class="vaccine-card emphasis">
-          <span class="combo-number">03</span>
-          <h3>T-cell recognition goal</h3>
-          <p>The point is to help T cells recognize a patient-specific tumor profile, using peptides selected from the tumor's own mutations.</p>
-        </article>
-      </div>
     </section>
 
     <section class="research-section" id="variant-explorer" aria-label="Interactive variant explorer">
       <div class="section-heading">
         <div class="kicker">Variant explorer</div>
         <h2>The variants themselves</h2>
-        <p>
-          These are the findings that actually matter — the drivers, the immune-presentation details, the peptides — pulled from my Tempus, BostonGene, and pathology reports. Click any one to see what it means and how confident I am about it.
-        </p>
-        <div class="section-evidence">
-          <span class="evidence-badge evidence-record">From my record</span>
-          <span class="evidence-badge evidence-computed">Computed analysis</span>
-        </div>
+        <p>Pulled from my Tempus, BostonGene, and pathology reports. Pick one to see what it means and how confident I am about it.</p>
       </div>
 
       <div class="variant-shell">
@@ -300,65 +159,17 @@
 
     <section class="research-section donation-section" id="support-research" aria-label="Support brain cancer research">
       <div class="section-heading">
-        <div class="kicker">Donate</div>
         <h2>Support brain cancer research</h2>
-        <p>
-          If this story makes you want to help, these are established places to support brain tumor research,
-          patient programs, and translational work.
-        </p>
+        <p>If this story makes you want to help, these are established places to support brain tumor research: <a href="https://www.abta.org/donate/" target="_blank" rel="noopener">American Brain Tumor Association</a>, <a href="https://braintumor.org/take-action/give/" target="_blank" rel="noopener">National Brain Tumor Society</a>, <a href="https://braintumorcenter.ucsf.edu/ways-to-donate" target="_blank" rel="noopener">UCSF Brain Tumor Center</a>, <a href="https://www.ivybraintumorcenter.org/donate-to-brain-tumor-research/" target="_blank" rel="noopener">Ivy Brain Tumor Center</a>, <a href="https://glioblastomafoundation.org/" target="_blank" rel="noopener">Glioblastoma Foundation</a>, <a href="https://sontagfoundation.org/" target="_blank" rel="noopener">Sontag Foundation</a>.</p>
       </div>
 
-      <div class="donation-grid">
-        <a class="donation-card" href="https://www.abta.org/donate/" target="_blank" rel="noopener">
-          <span>National nonprofit</span>
-          <h3>American Brain Tumor Association</h3>
-          <p>Research funding, patient education, and support for people facing brain tumors.</p>
-        </a>
-        <a class="donation-card" href="https://braintumor.org/take-action/give/" target="_blank" rel="noopener">
-          <span>National advocacy</span>
-          <h3>National Brain Tumor Society</h3>
-          <p>Research, policy work, and patient-centered advocacy across brain tumor types.</p>
-        </a>
-        <a class="donation-card" href="https://braintumorcenter.ucsf.edu/ways-to-donate" target="_blank" rel="noopener">
-          <span>Academic center</span>
-          <h3>UCSF Brain Tumor Center</h3>
-          <p>Clinical and translational brain tumor research at UCSF.</p>
-        </a>
-        <a class="donation-card" href="https://www.ivybraintumorcenter.org/donate-to-brain-tumor-research/" target="_blank" rel="noopener">
-          <span>Translational research</span>
-          <h3>Ivy Brain Tumor Center</h3>
-          <p>Early-phase research and trials focused on brain tumor treatment.</p>
-        </a>
-        <a class="donation-card" href="https://glioblastomafoundation.org/" target="_blank" rel="noopener">
-          <span>Research nonprofit</span>
-          <h3>Glioblastoma Foundation</h3>
-          <p>Research support focused on glioblastoma and aggressive brain tumors.</p>
-        </a>
-        <a class="donation-card" href="https://sontagfoundation.org/" target="_blank" rel="noopener">
-          <span>Research foundation</span>
-          <h3>Sontag Foundation</h3>
-          <p>Funding and programs for brain cancer research and early-career investigators.</p>
-        </a>
-      </div>
     </section>
 
-    <section class="story-handoff" aria-labelledby="deep-handoff-title">
-      <div class="story-handoff-copy">
-        <span class="story-part">Part 2 of 4 &middot; The biology</span>
-        <h2 id="deep-handoff-title">Understanding one tumor led to a bigger question: could the same work help someone else?</h2>
-        <p>The next chapter is the tool that grew out of this analysis, with the doctor kept firmly in the loop.</p>
-      </div>
-      <div class="story-handoff-links">
-        <a class="story-handoff-link story-handoff-previous" href="index.html">
-          <span>Previous chapter</span>
-          <strong>Timeline</strong>
-          <small>The lived story, in order</small>
-          <b aria-hidden="true">&larr;</b>
-        </a>
+    <section class="story-handoff" aria-label="Next page">
+      <div class="story-handoff-links story-handoff-links-single">
         <a class="story-handoff-link story-handoff-next" href="command-center.html">
           <span>Next chapter</span>
           <strong>Triangle Health</strong>
-          <small>From one case to a tool</small>
           <b aria-hidden="true">&rarr;</b>
         </a>
       </div>
@@ -370,9 +181,8 @@
     <span>© 2026 Arun Verma · Personal &amp; research use, not medical advice.</span>
     <span class="footer-links"><a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a> · <a href="mailto:verma.arun@gmail.com">Email</a></span>
   </footer>
-  <script src="deepdive.js?v=20260424-tumor-data"></script>
-  <script src="suminagashi-fluid.js?v=20260706p-magic"></script>
-  <script src="section-reader.js?v=20260713-journey2" defer></script>
-  <script src="enhance.js?v=20260713-journey2" defer></script>
+  <script src="deepdive.js?v=20261109"></script>
+  <script src="suminagashi-fluid.js?v=20261109"></script>
+  <script src="enhance.js?v=20261109" defer></script>
 </body>
 </html>

@@ -984,3 +984,113 @@ body.sumi .story-handoff-link:focus-visible {
 @media (prefers-reduced-motion: reduce) {
   body.sumi .story-handoff-link b { transition: none; }
 }
+
+/* ============================================================================
+   SIMPLIFY PASS, November 2026 — shared rules for all six pages.
+   Everything added in this pass lives in this one block. Edit here, not above.
+   ============================================================================ */
+
+/* A1. Display face, self-hosted (Latin). 400 resolves to 500, 600 to 700. */
+@font-face { font-family: "Shippori Mincho"; font-style: normal; font-weight: 500; font-display: swap; src: url("assets/fonts/shippori-mincho-500-latin.woff2") format("woff2"); }
+@font-face { font-family: "Shippori Mincho"; font-style: normal; font-weight: 700; font-display: swap; src: url("assets/fonts/shippori-mincho-700-latin.woff2") format("woff2"); }
+
+/* A2. Type: display headings use the 500 cut; one h1 and one lead size. */
+body.sumi { --fw-head: 500; }
+body.sumi .timeline-hero h1 { margin-top: 12px; font-size: clamp(34px, 4.4vw, 56px); line-height: 1.1; letter-spacing: -.015em; }
+body.sumi .hero p { font-size: clamp(16px, 1.45vw, 18px); line-height: 1.65; }
+
+/* A3. One small label: 12px caps, .14em. Red for section labels, grey inside cards. */
+body.sumi .kicker,
+body.sumi .eyebrow,
+body.sumi .story-handoff-link > span,
+body.sumi .cc-sample-label,
+body.sumi .cc-disclaimer-tag,
+body.sumi .data-metric > span {
+  font-family: var(--body-serif); font-size: 12px; font-weight: 700; font-style: normal;
+  line-height: 1.3; letter-spacing: .14em; text-transform: uppercase;
+}
+body.sumi .hero .kicker,
+body.sumi .timeline-hero .kicker { letter-spacing: .14em; }
+body.sumi .kicker { color: var(--shu) !important; }
+body.sumi .timeline-card .card-body .eyebrow,
+body.sumi .cc-sample-label,
+body.sumi .cc-disclaimer-tag,
+body.sumi .data-metric > span { color: var(--muted); }
+
+/* A4. Header and footer: solid white, on the same left edge as the content. */
+body.sumi .site-header { background: #fff !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+@media (min-width: 881px) {
+  body.sumi .site-header,
+  body.sumi .footer,
+  body.sumi .timeline-hero,
+  body.sumi .timeline-shell { padding-inline: max(48px, calc((100vw - 1120px) / 2)); }
+}
+
+/* A5. One button. */
+body.sumi .hero-btn,
+body.sumi .cc-live-link,
+body.sumi .mail-link {
+  display: inline-flex; align-items: center; min-height: 44px; padding: 0 22px;
+  border: 1px solid var(--ink); border-radius: 4px; background: var(--ink); color: #fff;
+  font: 700 16px/1 var(--body-serif); text-decoration: none; box-shadow: none;
+}
+body.sumi .hero-btn.ghost { border-color: rgba(26, 26, 25, .3); background: #fff; color: var(--ink); }
+
+/* A6. End of page: one quiet "next" link. */
+body.sumi .story-handoff { display: block; padding: 48px 0 56px; }
+body.sumi .story-handoff-links { display: block; }
+body.sumi .story-handoff-link { display: inline-flex; min-height: 44px; padding: 0 46px 0 0; border: 0; }
+@media (max-width: 880px) { body.sumi .story-handoff { padding: 40px 0 48px; } }
+
+/* A7. Timeline: quieter first screen; entries are text on the page, not boxes. */
+body.sumi .stage-topline,
+body.sumi .stage-picker { display: none; }
+@media (max-width: 880px) { body.sumi .thumb-strip { display: none; } }
+body.sumi .stage-frame { box-shadow: none; }
+@media (min-width: 881px) { body.sumi .timeline-toolbar { margin-bottom: 24px; } }
+body.sumi .timeline-card:not(.finale) .card-body { border: 0; box-shadow: none; background: transparent; padding: 0 0 12px; }
+body.sumi .timeline-card:not(.finale) .card-body h2 { font-size: clamp(22px, 2.2vw, 24px); font-weight: 500; line-height: 1.2; }
+body.sumi .fact-list { display: block; }
+body.sumi .fact-list li { border: 0; background: none; padding: 0; color: var(--muted); font-size: 14px; }
+body.sumi .timeline-card:not(.finale) { align-content: start; }
+
+/* A8. Phones: one 20px edge, no dot rail, every photo inline, bigger tap areas. */
+@media (max-width: 880px) {
+  body.sumi .site-header.nav-enhanced,
+  body.sumi[data-page="command-center"] .site-header.nav-enhanced,
+  body.sumi .footer,
+  body.sumi .timeline-hero,
+  body.sumi .timeline-shell { padding-inline: 20px; }
+  body.sumi .timeline-card { grid-template-columns: 1fr; }
+  body.sumi .timeline-card .node,
+  body.sumi .timeline-list::before,
+  body.sumi .timeline-card.finale .card-body::before { display: none; }
+  body.sumi .timeline-card .card-date,
+  body.sumi .timeline-card .card-body { grid-column: 1; }
+  body.sumi .timeline-chapter { font-size: 12px; }
+  body.sumi .event-links a { min-height: 44px; }
+  body.sumi .footer-links a { position: relative; }
+  body.sumi .footer-links a::after { content: ""; position: absolute; inset: -11px -4px; }
+  body.sumi[data-page="command-center"] .site-header,
+  body.sumi[data-page="command-center"] .site-header.nav-enhanced { overflow: visible; }
+  body.sumi .site-header.nav-enhanced nav { background: #fff; }
+  body.sumi .timeline-card.finale { min-height: 0; }
+}
+@media (max-width: 384px) { body.sumi .timeline-chapter { letter-spacing: .02em; } }
+
+/* A9. Text is there at first paint, and the page ground is plain white: the ink lives in the hero. */
+body.sumi .timeline-hero .kicker,
+body.sumi .timeline-hero h1,
+body.sumi .timeline-hero p { animation: none; }
+body.sumi .wash,
+body.sumi .ink-tide { display: none; }
+
+/* A10. The last card: white ground and one hairline, like everything else. */
+body.sumi .timeline-card.finale .card-body { border: 1px solid var(--line); background: #fff; box-shadow: none; }
+body.sumi .timeline-card.finale .card-body h2 { font-size: clamp(26px, 3.6vw, 46px); font-weight: 500; line-height: 1.1; }
+body.sumi .timeline-card.finale .card-date { font-size: 12px; font-weight: 700; }
+body.sumi .finale-screen { box-shadow: none; }
+
+/* A11. Type sizes on every page come from 12, 14, 16, 18, 20, 24, 46 and 56. */
+body.sumi .timeline-chapter { font-size: 12px; }
+body.sumi .story-handoff-link strong { font-weight: 500; }

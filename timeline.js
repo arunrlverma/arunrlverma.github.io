@@ -411,7 +411,10 @@ function eventCalloutMarkup(event) {
 
 function mobileEventMediaMarkup(event) {
   if (event.layout === "finale") return "";
-  const media = event.media?.[0];
+  return (event.media || []).map((media) => mobileMediaFigure(media, event)).join("");
+}
+
+function mobileMediaFigure(media, event) {
   if (!media) return "";
   const caption = media.caption || "";
   const captionMarkup = caption ? `<figcaption>${caption}</figcaption>` : "";
@@ -535,6 +538,12 @@ function setActive(index, mediaIndex = 0, mediaIndexIsStageIndex = false) {
   stageCaption.textContent = visualEvent.layout === "finale" ? "" : media?.caption || visualEvent.summary;
 }
 
+function eyebrowMarkup(event) {
+  const label = event.eyebrow || categoryLabels[event.category] || "Event";
+  if (label.toLowerCase() === eventDate(event).toLowerCase()) return "";
+  return `<div class="eyebrow">${label}</div>`;
+}
+
 function renderTimeline() {
   list.innerHTML = "";
   state.activeVisualKey = "";
@@ -560,13 +569,13 @@ function renderTimeline() {
       <button class="node" data-event="${originalIndex}" aria-label="Select ${event.title}"></button>
       <div class="card-date">${eventDate(event)}</div>
       <div class="card-body">
-        <div class="eyebrow">${event.eyebrow || categoryLabels[event.category] || "Event"}</div>
+        ${eyebrowMarkup(event)}
         <h2 id="timeline-title-${originalIndex}">${event.title}</h2>
         ${mobileEventMediaMarkup(event)}
         <p class="summary">${event.summary}</p>
-        <p>${event.body || ""}</p>
+        ${event.body ? `<p>${event.body}</p>` : ""}
         ${eventCalloutMarkup(event)}
-        ${event.facts ? `<ul class="fact-list">${event.facts.map((fact) => `<li>${fact}</li>`).join("")}</ul>` : ""}
+        ${event.facts?.length ? `<ul class="fact-list">${event.facts.map((fact) => `<li>${fact}</li>`).join("")}</ul>` : ""}
         ${linksMarkup(event.links)}
         ${event.layout === "finale" ? finaleMarkup(event) : ""}
         ${event.layout !== "finale" && event.media?.length > 1 ? `<div class="thumb-strip">${event.media.map((item, i) => `
@@ -733,7 +742,7 @@ window.addEventListener("popstate", () => {
   if (match) window.requestAnimationFrame(() => scrollToChapter(match[1], false));
 });
 
-fetch("assets/data/timeline.json?v=20260424-remove-ivosidenib-card")
+fetch("assets/data/timeline.json?v=20261109")
   .then((response) => {
     if (!response.ok) throw new Error(`Timeline data request failed: ${response.status}`);
     return response.json();
